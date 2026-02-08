@@ -1,7 +1,7 @@
 [
   {
     "id": "linktree",
-    "logo": "https://linktr.ee/favicon.ico",
+    "logo": "/logos/linktree.ico",
     "title": "Senior Software Engineer II",
     "company": "Linktree",
     "dateStart": "Jan 2022",
@@ -9,7 +9,7 @@
   },
   {
     "id": "good-dog-design",
-    "logo": "https://www.gooddogdesign.com/favicon.ico",
+    "logo": "/logos/good-dog-design.ico",
     "title": "Contract Software Engineer",
     "company": "Good Dog Design",
     "dateStart": "Mar 2021",
@@ -17,7 +17,7 @@
   },
   {
     "id": "flinders",
-    "logo": "https://www.flinders.edu.au/favicon.ico",
+    "logo": "/logos/flinders.ico",
     "title": "Master of Computer Science",
     "company": "Flinders University",
     "dateStart": "Jan 2020",
@@ -25,7 +25,7 @@
   },
   {
     "id": "monash",
-    "logo": "https://www.monash.edu/favicon.ico",
+    "logo": "/logos/monash.png",
     "title": "Bachelor of Information Technology and Systems",
     "company": "Monash University",
     "dateStart": "2014",
