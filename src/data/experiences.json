@@ -1,0 +1,38 @@
+[
+  {
+    "id": "linktree",
+    "title": "Senior Software Engineer II",
+    "company": "Linktree",
+    "dateStart": "Jan 2022",
+    "dateEnd": "Current",
+    "iconColor": "bg-emerald-500",
+    "iconType": "asterisk"
+  },
+  {
+    "id": "good-dog",
+    "title": "Contract Software Engineer",
+    "company": "Good Dog Design",
+    "dateStart": "Mar 2021",
+    "dateEnd": "Dec 2021",
+    "iconColor": "bg-amber-400",
+    "iconType": "dog"
+  },
+  {
+    "id": "good-dog",
+    "title": "Master of Computer Science",
+    "company": "Flinders University",
+    "dateStart": "Jan 2020",
+    "dateEnd": "Dec 2021",
+    "iconColor": "bg-blue-500",
+    "iconType": "book"
+  },
+  {
+    "id": "good-dog",
+    "title": "Bachelor of Information Technology and Systems",
+    "company": "Monash University",
+    "dateStart": "2014",
+    "dateEnd": "2018",
+    "iconColor": "bg-green-500",
+    "iconType": "book"
+  }
+]

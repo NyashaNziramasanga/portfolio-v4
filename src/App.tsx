@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
+import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { cn } from "@/lib/utils";
 import sectionsData from "@/data/sections.json";
 
@@ -42,7 +43,14 @@ export default function App() {
 
       {/* Right panel - active section fills the screen */}
       <main className="flex flex-1 flex-col overflow-hidden">
-        {activeContent && (
+        {activeContent && activeSection === "experience" ? (
+          <section
+            id={activeContent.id}
+            className="flex min-h-full flex-1 flex-col overflow-y-auto"
+          >
+            <ExperienceTimeline />
+          </section>
+        ) : activeContent ? (
           <section
             id={activeContent.id}
             className="flex min-h-full flex-1 flex-col px-8 py-12"
@@ -54,7 +62,7 @@ export default function App() {
               <p className="text-slate-300">{activeContent.content}</p>
             </div>
           </section>
-        )}
+        ) : null}
       </main>
     </div>
   );
