@@ -23,17 +23,17 @@ export default function App() {
   );
 
   return (
-    <div className="flex h-screen w-full overflow-hidden bg-slate-50">
+    <div className="flex h-screen w-full overflow-hidden bg-[#1A202C]">
       {/* Left panel - navigation */}
-      <aside className="flex w-56 shrink-0 flex-col border-r border-slate-200 bg-white p-6">
-        <h1 className="mb-8 text-lg font-semibold text-slate-900">Portfolio</h1>
+      <aside className="flex w-56 shrink-0 flex-col border-r border-slate-600 bg-[#1A202C] p-6">
+        <h1 className="mb-8 text-lg font-semibold text-slate-50">Portfolio</h1>
         <nav className="flex flex-col gap-2">
           {sectionsData.map(({ id, label }) => (
             <Button
               key={id}
               variant="ghost"
               className={cn(
-                "justify-start font-medium text-slate-700 transition-transform duration-200 hover:scale-[1.02] hover:bg-slate-100 hover:text-slate-900"
+                "justify-start font-medium text-slate-200 transition-[transform,color,background-color] duration-200 hover:scale-[1.02] hover:bg-white/10 hover:text-white"
               )}
               onClick={() => scrollToSection(id)}
             >
@@ -53,10 +53,10 @@ export default function App() {
               id={section.id}
               className="min-h-[60vh] scroll-mt-6"
             >
-              <h2 className="mb-4 text-2xl font-bold text-slate-900">
+              <h2 className="mb-4 text-2xl font-bold text-slate-50">
                 {section.title}
               </h2>
-              <p className="text-slate-600">{section.content}</p>
+              <p className="text-slate-300">{section.content}</p>
             </section>
           ))}
         </div>
