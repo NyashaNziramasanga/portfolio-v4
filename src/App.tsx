@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { PublicationsList } from "@/components/PublicationsList";
 import { cn } from "@/lib/utils";
 import sectionsData from "@/data/sections.json";
 
@@ -49,6 +50,13 @@ export default function App() {
             className="flex min-h-full flex-1 flex-col overflow-y-auto"
           >
             <ExperienceTimeline />
+          </section>
+        ) : activeContent && activeSection === "publications" ? (
+          <section
+            id={activeContent.id}
+            className="flex min-h-full flex-1 flex-col overflow-y-auto"
+          >
+            <PublicationsList />
           </section>
         ) : activeContent ? (
           <section

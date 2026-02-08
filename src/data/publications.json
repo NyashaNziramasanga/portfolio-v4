@@ -1,0 +1,30 @@
+[
+  {
+    "id": "linktree-tech-talk",
+    "favicon": "/logos/youtube.ico",
+    "platform": "youtube",
+    "title": "Linktree Engineering Tech Talk: Mobile App Development with React Native",
+    "url": "https://youtu.be/GrVQQQw2sQU"
+  },
+  {
+    "id": "rn-pressable-highlight",
+    "favicon": "/logos/medium.ico",
+    "platform": "medium",
+    "title": "React Native PressableHighlight",
+    "url": "https://medium.com/@nyashanziboi/react-native-pressablehighlight-857aaa605bcb"
+  },
+  {
+    "id": "rn-text-cycler",
+    "favicon": "/logos/medium.ico",
+    "platform": "medium",
+    "title": "React Native Text Cycler using reanimated",
+    "url": "https://medium.com/@nyashanziboi/react-native-text-cycler-using-reanimated-9700a60a9d78"
+  },
+  {
+    "id": "junior-dev-startup",
+    "favicon": "/logos/devto.ico",
+    "platform": "devto",
+    "title": "What I learned as a Junior Software Developer at a startup",
+    "url": "https://dev.to/nyashanziramasanga/junior-software-developer-1-year-anniversary-at-a-startup-5di6"
+  }
+]
