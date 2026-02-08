@@ -33,7 +33,7 @@ export default function App() {
               key={id}
               variant="ghost"
               className={cn(
-                "justify-start font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+                "justify-start font-medium text-slate-700 transition-transform duration-200 hover:scale-[1.02] hover:bg-slate-100 hover:text-slate-900"
               )}
               onClick={() => scrollToSection(id)}
             >
