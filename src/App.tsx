@@ -26,7 +26,13 @@ export default function App() {
     <div className="flex h-screen w-full overflow-hidden bg-[#1A202C]">
       {/* Left panel - navigation */}
       <aside className="flex w-56 shrink-0 flex-col border-r border-slate-600 bg-[#1A202C] p-6">
-        <h1 className="mb-8 text-lg font-semibold text-slate-50">Portfolio</h1>
+        <h1 className="mb-6 text-lg font-semibold text-slate-50">
+          Nyasha (Nash) Nziramasanga
+        </h1>
+        <h2 className="mb-6 text-lg font-semibold text-slate-50">
+          Sr Software Engineer
+        </h2>
+        <hr className="mb-6 border-slate-600" />
         <nav className="flex flex-col gap-2">
           {sectionsData.map(({ id, label }) => (
             <Button
