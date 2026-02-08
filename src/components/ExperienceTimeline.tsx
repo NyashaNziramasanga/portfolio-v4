@@ -10,17 +10,21 @@ export function ExperienceTimeline() {
       <div className="relative flex flex-col gap-0">
         {/* Vertical line */}
         <div
-          className="absolute left-4 top-8 bottom-8 w-px bg-white"
+          className="absolute left-7 top-10 bottom-10 w-px bg-white"
           aria-hidden
         />
         {experiencesData.map((exp: Experience) => (
           <div
             key={exp.id}
-            className="relative flex items-start gap-6 pb-10 last:pb-0"
+            className="relative flex items-center gap-6 pb-10 last:pb-0"
           >
-            {/* Circle marker */}
-            <div className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full ring-4 ring-[#1A202C]">
-              <img src={exp.logo} alt={exp.company} className="h-5 w-5" />
+            {/* Circle marker - white background, enlarged */}
+            <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-4 ring-[#1A202C]">
+              <img
+                src={exp.logo}
+                alt={exp.company}
+                className="h-9 w-9 rounded-full object-cover"
+              />
             </div>
             {/* Card */}
             <div className="min-w-0 flex-1 rounded-2xl bg-slate-200 px-5 py-4 shadow-sm">
