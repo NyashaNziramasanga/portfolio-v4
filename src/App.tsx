@@ -1,13 +1,9 @@
 import { useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import sectionsData from "@/data/sections.json";
 
-const SECTIONS = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "publications", label: "Publications" },
-] as const;
+type Section = (typeof sectionsData)[number];
 
 export default function App() {
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
@@ -32,7 +28,7 @@ export default function App() {
       <aside className="flex w-56 shrink-0 flex-col border-r border-slate-200 bg-white p-6">
         <h1 className="mb-8 text-lg font-semibold text-slate-900">Portfolio</h1>
         <nav className="flex flex-col gap-2">
-          {SECTIONS.map(({ id, label }) => (
+          {sectionsData.map(({ id, label }) => (
             <Button
               key={id}
               variant="ghost"
@@ -50,57 +46,19 @@ export default function App() {
       {/* Right panel - scrollable content */}
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-2xl px-8 py-12">
-          <section
-            ref={setSectionRef("about")}
-            id="about"
-            className="min-h-[60vh] scroll-mt-6"
-          >
-            <h2 className="mb-4 text-2xl font-bold text-slate-900">About</h2>
-            <p className="text-slate-600">
-              Welcome to my portfolio. I'm a developer focused on building
-              clean, accessible applications with modern tools like React,
-              TypeScript, and thoughtful design.
-            </p>
-          </section>
-
-          <section
-            ref={setSectionRef("experience")}
-            id="experience"
-            className="min-h-[60vh] scroll-mt-6"
-          >
-            <h2 className="mb-4 text-2xl font-bold text-slate-900">
-              Experience
-            </h2>
-            <p className="text-slate-600">
-              Here you'll find my professional experience, roles, and
-              responsibilities across different teams and projects.
-            </p>
-          </section>
-
-          <section
-            ref={setSectionRef("projects")}
-            id="projects"
-            className="min-h-[60vh] scroll-mt-6"
-          >
-            <h2 className="mb-4 text-2xl font-bold text-slate-900">Projects</h2>
-            <p className="text-slate-600">
-              A selection of projects I've worked on—from side projects to
-              production applications.
-            </p>
-          </section>
-
-          <section
-            ref={setSectionRef("publications")}
-            id="publications"
-            className="min-h-[60vh] scroll-mt-6"
-          >
-            <h2 className="mb-4 text-2xl font-bold text-slate-900">
-              Publications
-            </h2>
-            <p className="text-slate-600">
-              Articles, talks, and other publications I've contributed to.
-            </p>
-          </section>
+          {sectionsData.map((section: Section) => (
+            <section
+              key={section.id}
+              ref={setSectionRef(section.id)}
+              id={section.id}
+              className="min-h-[60vh] scroll-mt-6"
+            >
+              <h2 className="mb-4 text-2xl font-bold text-slate-900">
+                {section.title}
+              </h2>
+              <p className="text-slate-600">{section.content}</p>
+            </section>
+          ))}
         </div>
       </main>
     </div>
