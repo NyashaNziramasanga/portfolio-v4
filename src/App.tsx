@@ -29,7 +29,7 @@ export default function App() {
               key={id}
               variant="ghost"
               className={cn(
-                "justify-start font-medium text-slate-200 transition-[transform,color,background-color] duration-200 hover:scale-[1.02] hover:bg-white/10 hover:text-white",
+                "justify-start font-medium text-slate-200 transition-[transform,color,background-color,font-weight] duration-300 ease-in-out hover:scale-[1.02] hover:bg-white/10 hover:text-white",
                 activeSection === id && "font-bold italic text-white"
               )}
               onClick={() => selectSection(id)}
