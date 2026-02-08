@@ -8,7 +8,7 @@
     "dateEnd": "Current"
   },
   {
-    "id": "good-dog",
+    "id": "good-dog-design",
     "logo": "https://www.gooddogdesign.com/favicon.ico",
     "title": "Contract Software Engineer",
     "company": "Good Dog Design",
@@ -16,7 +16,7 @@
     "dateEnd": "Dec 2021"
   },
   {
-    "id": "good-dog",
+    "id": "flinders",
     "logo": "https://www.flinders.edu.au/favicon.ico",
     "title": "Master of Computer Science",
     "company": "Flinders University",
@@ -24,7 +24,7 @@
     "dateEnd": "Dec 2021"
   },
   {
-    "id": "good-dog",
+    "id": "monash",
     "logo": "https://www.monash.edu/favicon.ico",
     "title": "Bachelor of Information Technology and Systems",
     "company": "Monash University",

@@ -1,5 +1,4 @@
 import experiencesData from "@/data/experiences.json";
-import { cn } from "@/lib/utils";
 
 type Experience = (typeof experiencesData)[number];
 
