@@ -1,38 +1,34 @@
 [
   {
     "id": "linktree",
+    "logo": "https://linktr.ee/favicon.ico",
     "title": "Senior Software Engineer II",
     "company": "Linktree",
     "dateStart": "Jan 2022",
-    "dateEnd": "Current",
-    "iconColor": "bg-emerald-500",
-    "iconType": "asterisk"
+    "dateEnd": "Current"
   },
   {
     "id": "good-dog",
+    "logo": "https://www.gooddogdesign.com/favicon.ico",
     "title": "Contract Software Engineer",
     "company": "Good Dog Design",
     "dateStart": "Mar 2021",
-    "dateEnd": "Dec 2021",
-    "iconColor": "bg-amber-400",
-    "iconType": "dog"
+    "dateEnd": "Dec 2021"
   },
   {
     "id": "good-dog",
+    "logo": "https://www.flinders.edu.au/favicon.ico",
     "title": "Master of Computer Science",
     "company": "Flinders University",
     "dateStart": "Jan 2020",
-    "dateEnd": "Dec 2021",
-    "iconColor": "bg-blue-500",
-    "iconType": "book"
+    "dateEnd": "Dec 2021"
   },
   {
     "id": "good-dog",
+    "logo": "https://www.monash.edu/favicon.ico",
     "title": "Bachelor of Information Technology and Systems",
     "company": "Monash University",
     "dateStart": "2014",
-    "dateEnd": "2018",
-    "iconColor": "bg-green-500",
-    "iconType": "book"
+    "dateEnd": "2018"
   }
 ]
