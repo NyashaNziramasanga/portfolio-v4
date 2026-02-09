@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "license": "MIT",
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "bun@1.2.22",
   "type": "module",
   "scripts": {
     "dev": "vite",

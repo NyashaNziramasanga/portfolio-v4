@@ -5,8 +5,8 @@ A simple portfolio layout with a left navigation panel and scrollable content se
 ## Run locally
 
 ```bash
-yarn install
-yarn dev
+bun install
+bun dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173).
@@ -14,8 +14,8 @@ Open [http://localhost:5173](http://localhost:5173).
 ## Build
 
 ```bash
-yarn build
-yarn preview
+bun run build
+bun run preview
 ```
 
 ## Layout

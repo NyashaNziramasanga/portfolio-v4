@@ -4,7 +4,6 @@ type Publication = (typeof publicationsData)[number];
 type Platform = Publication["platform"];
 
 function PlatformIcon({ platform }: { platform: Platform }) {
-  const size = 24;
   if (platform === "youtube") {
     return (
       <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#FF0000]">
