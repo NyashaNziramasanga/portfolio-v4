@@ -46,11 +46,11 @@ export default function App() {
           alt="Nyasha Nziramasanga"
           className="mb-4 h-28 w-28 rounded-full object-cover ring-4 ring-slate-500"
         />
-        <h1 className="mb-6 text-lg font-semibold text-slate-50">
+        <h1 className="mb-1 text-xl font-bold text-slate-50">
           Nyasha (Nash) Nziramasanga
         </h1>
-        <h2 className="mb-6 text-lg font-semibold text-slate-50">
-          Senior software Engineer
+        <h2 className="mb-6 text-base font-medium text-slate-400">
+          Senior Software Engineer
         </h2>
         <hr className="mb-6 border-slate-600" />
         <nav className="flex flex-col gap-2">
