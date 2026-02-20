@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { PublicationsList } from "@/components/PublicationsList";
@@ -8,12 +8,34 @@ import { Github, Youtube, Mail, Linkedin } from "lucide-react";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>("about");
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
+  const mainRef = useRef<HTMLDivElement>(null);
 
   const selectSection = useCallback((id: string) => {
-    setActiveSection(id);
+    sectionRefs.current[id]?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
-  const activeContent = sectionsData.find((s) => s.id === activeSection);
+  useEffect(() => {
+    const main = mainRef.current;
+    if (!main) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { root: main, rootMargin: "0px 0px -60% 0px", threshold: 0 }
+    );
+
+    Object.values(sectionRefs.current).forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="flex h-screen w-full overflow-hidden bg-[#1A202C]">
@@ -81,67 +103,72 @@ export default function App() {
         </div>
       </aside>
 
-      {/* Right panel - active section fills the screen */}
-      <main className="flex flex-1 flex-col overflow-hidden">
-        {activeContent && activeSection === "experience" ? (
-          <section
-            id={activeContent.id}
-            className="flex min-h-full flex-1 flex-col overflow-y-auto"
-          >
-            <ExperienceTimeline />
-          </section>
-        ) : activeContent && activeSection === "publications" ? (
-          <section
-            id={activeContent.id}
-            className="flex min-h-full flex-1 flex-col overflow-y-auto"
-          >
-            <PublicationsList />
-          </section>
-        ) : activeContent && activeSection === "about" ? (
-          <section
-            id={activeContent.id}
-            className="flex min-h-full flex-1 items-center justify-center px-8 py-12"
-          >
-            <div className="flex max-w-2xl flex-col">
-              <p className="mb-4 text-2xl text-slate-300">Hello 👋🏿</p>
-              <p className="italic leading-relaxed text-slate-300">
-                I'm a Software Engineer based in Melbourne, Australia and
-                currently working at{" "}
-                <a
-                  href="https://linktr.ee"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sky-400 underline hover:text-sky-300"
-                >
-                  Linktree
-                </a>
-                . My specialty front-end development currently building mobile
-                app experience with{" "}
-                <a
-                  href="https://reactnative.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sky-400 underline hover:text-sky-300"
-                >
-                  React Native
-                </a>
-                , but I'm also skilled in front-end development with React.
-              </p>
-            </div>
-          </section>
-        ) : activeContent ? (
-          <section
-            id={activeContent.id}
-            className="flex min-h-full flex-1 flex-col px-8 py-12"
-          >
-            <div className="flex max-w-2xl flex-1 flex-col">
-              <h2 className="mb-4 text-2xl font-bold text-slate-50">
-                {activeContent.title}
-              </h2>
-              <p className="text-slate-300">{activeContent.content}</p>
-            </div>
-          </section>
-        ) : null}
+      {/* Right panel - scrollable single-page sections */}
+      <main ref={mainRef} className="flex-1 snap-y snap-mandatory overflow-y-auto">
+        <section
+          id="about"
+          ref={(el) => { sectionRefs.current.about = el; }}
+          className="flex min-h-screen snap-start items-center justify-center px-8 py-12"
+        >
+          <div className="flex max-w-2xl flex-col">
+            <p className="mb-4 text-2xl text-slate-300">Hello 👋🏿</p>
+            <p className="italic leading-relaxed text-slate-300">
+              I'm a Software Engineer based in Melbourne, Australia and
+              currently working at{" "}
+              <a
+                href="https://linktr.ee"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sky-400 underline hover:text-sky-300"
+              >
+                Linktree
+              </a>
+              . My specialty front-end development currently building mobile
+              app experience with{" "}
+              <a
+                href="https://reactnative.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sky-400 underline hover:text-sky-300"
+              >
+                React Native
+              </a>
+              , but I'm also skilled in front-end development with React.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="experience"
+          ref={(el) => { sectionRefs.current.experience = el; }}
+          className="min-h-screen snap-start"
+        >
+          <ExperienceTimeline />
+        </section>
+
+        <section
+          id="projects"
+          ref={(el) => { sectionRefs.current.projects = el; }}
+          className="flex min-h-screen snap-start flex-col px-8 py-12"
+        >
+          <div className="flex max-w-2xl flex-col">
+            <h2 className="mb-4 text-2xl font-bold text-slate-50">
+              Projects
+            </h2>
+            <p className="text-slate-300">
+              A selection of projects I've worked on—from side projects to
+              production applications.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="publications"
+          ref={(el) => { sectionRefs.current.publications = el; }}
+          className="min-h-screen snap-start"
+        >
+          <PublicationsList />
+        </section>
       </main>
     </div>
   );
