@@ -4,6 +4,7 @@ import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { PublicationsList } from "@/components/PublicationsList";
 import { cn } from "@/lib/utils";
 import sectionsData from "@/data/sections.json";
+import { Github, Youtube, Mail, Linkedin } from "lucide-react";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>("about");
@@ -45,6 +46,39 @@ export default function App() {
             </Button>
           ))}
         </nav>
+
+        <div className="mt-auto flex justify-center gap-3 pt-6">
+          <a
+            href="https://github.com/NyashaNziramasanga"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 transition-colors hover:text-white"
+          >
+            <Github className="h-5 w-5" />
+          </a>
+          <a
+            href="https://www.youtube.com/@Nyasha_Nziboi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 transition-colors hover:text-white"
+          >
+            <Youtube className="h-5 w-5" />
+          </a>
+          <a
+            href="mailto:nyashanziramasanga1@gmail.com"
+            className="text-slate-400 transition-colors hover:text-white"
+          >
+            <Mail className="h-5 w-5" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/nyasha-nash-nziramasanga-446380116/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 transition-colors hover:text-white"
+          >
+            <Linkedin className="h-5 w-5" />
+          </a>
+        </div>
       </aside>
 
       {/* Right panel - active section fills the screen */}
