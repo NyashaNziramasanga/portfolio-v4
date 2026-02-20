@@ -66,9 +66,9 @@ export default function App() {
         ) : activeContent && activeSection === "about" ? (
           <section
             id={activeContent.id}
-            className="flex min-h-full flex-1 flex-col px-8 py-12"
+            className="flex min-h-full flex-1 items-center justify-center px-8 py-12"
           >
-            <div className="flex max-w-2xl flex-1 flex-col">
+            <div className="flex max-w-2xl flex-col">
               <p className="mb-4 text-2xl text-slate-300">Hello 👋🏿</p>
               <p className="italic leading-relaxed text-slate-300">
                 I'm a Software Engineer based in Melbourne, Australia and
