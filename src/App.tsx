@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { WorkTimeline } from "@/components/WorkTimeline";
 import { PublicationsList } from "@/components/PublicationsList";
 import { cn } from "@/lib/utils";
 import sectionsData from "@/data/sections.json";
@@ -143,23 +143,7 @@ export default function App() {
           ref={(el) => { sectionRefs.current.experience = el; }}
           className="min-h-screen snap-start"
         >
-          <ExperienceTimeline />
-        </section>
-
-        <section
-          id="projects"
-          ref={(el) => { sectionRefs.current.projects = el; }}
-          className="flex min-h-screen snap-start flex-col px-8 py-12"
-        >
-          <div className="flex max-w-2xl flex-col">
-            <h2 className="mb-4 text-2xl font-bold text-slate-50">
-              Projects
-            </h2>
-            <p className="text-slate-300">
-              A selection of projects I've worked on—from side projects to
-              production applications.
-            </p>
-          </div>
+          <WorkTimeline />
         </section>
 
         <section
