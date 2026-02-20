@@ -18,6 +18,11 @@ export default function App() {
     <div className="flex h-screen w-full overflow-hidden bg-[#1A202C]">
       {/* Left panel - navigation */}
       <aside className="flex w-56 shrink-0 flex-col border-r border-slate-600 bg-[#1A202C] p-6">
+        <img
+          src="/logos/profile.webp"
+          alt="Nyasha Nziramasanga"
+          className="mb-4 h-20 w-20 rounded-full object-cover"
+        />
         <h1 className="mb-6 text-lg font-semibold text-slate-50">
           Nyasha (Nash) Nziramasanga
         </h1>
