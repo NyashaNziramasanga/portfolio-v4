@@ -2,7 +2,7 @@ import experiencesData from "@/data/experiences.json";
 
 type Experience = (typeof experiencesData)[number];
 
-export function ExperienceTimeline() {
+export function WorkTimeline() {
   return (
     <div className="flex min-h-full flex-1 flex-col px-8 py-12">
       <h2 className="mb-8 text-2xl font-bold text-slate-50">Experience</h2>
