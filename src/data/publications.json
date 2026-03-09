@@ -24,6 +24,18 @@
     }
   },
   {
+    "id": "react-native-modular-file-structure",
+    "favicon": "/logos/medium.ico",
+    "platform": "medium",
+    "title": "React Native Modular File Structure",
+    "url": "https://medium.com/@nyashanziboi/react-native-modular-file-structure-6e4ce7e9a119",
+    "media": {
+      "type": "article",
+      "src": "/media/react-native-modular-file-structure.webp",
+      "link": "https://medium.com/@nyashanziboi/react-native-modular-file-structure-6e4ce7e9a119"
+    }
+  },
+  {
     "id": "junior-dev-startup",
     "favicon": "/logos/devto.ico",
     "platform": "devto",
@@ -33,6 +45,18 @@
       "type": "article",
       "src": "/media/learnings-junior-software-developer-startup.webp",
       "link": "https://dev.to/nyashanziramasanga/junior-software-developer-1-year-anniversary-at-a-startup-5di6"
+    }
+  },
+  {
+    "id": "understanding-no-sql-pt1",
+    "favicon": "/logos/devto.ico",
+    "platform": "devto",
+    "title": "Understanding NoSQL (Part 1)",
+    "url": "https://dev.to/nyashanziramasanga/understanding-non-relational-nosql-databases-part-1-1gl9",
+    "media": {
+      "type": "article",
+      "src": "/media/understandng-no-sql-pt1.webp",
+      "link": "https://dev.to/nyashanziramasanga/understanding-non-relational-nosql-databases-part-1-1gl9"
     }
   },
   {
