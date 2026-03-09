@@ -11,8 +11,11 @@ import {
   siLinktree,
   siTypescript,
   siReact,
+  siNodedotjs,
   siNextdotjs,
+  siGooglecloud,
   siGit,
+  siBun,
   siClaude,
   siPostgresql,
   siTailwindcss,
@@ -256,6 +259,9 @@ export default function App() {
                   { icon: siCursor, label: "Cursor", color: "#FFFFFF" },
                   { icon: siIos, label: "iOS", color: "#FFFFFF" },
                   { icon: siAndroid, label: "Android", color: `#${siAndroid.hex}` },
+                  { icon: siGooglecloud, label: "GCP", color: `#${siGooglecloud.hex}` },
+                  { icon: siBun, label: "Bun", color: "#FBDBA7" },
+                  { icon: siNodedotjs, label: "NodeJS", color: `#${siNodedotjs.hex}` },
                 ].map((item) => (
                   <span
                     key={item.label}
