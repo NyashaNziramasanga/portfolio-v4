@@ -94,9 +94,6 @@ function ProjectList({ projects }: { projects: Project[] }) {
                     </span>
                   )}
                 </div>
-                <span className="text-xs tabular-nums text-slate-500">
-                  {project.year}
-                </span>
               </div>
 
               {hasMedia && (

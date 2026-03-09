@@ -8,61 +8,52 @@
     "dateEnd": "Current",
     "projects": [
       {
-        "name": "Rewards",
-        "year": 2025,
-        "media": { "type": "video", "src": "/media/linktree-rewards.webm" }
-      },
-      {
-        "name": "Compare Subscription Plans",
-        "year": 2025,
-        "media": {
-          "type": "video",
-          "src": "/media/linktree-compare-subscription-plans.webm"
-        }
-      },
-      {
-        "name": "Profile Editor",
-        "year": 2025,
-        "media": {
-          "type": "video",
-          "src": "/media/linktree-profile-editor.webm"
-        }
-      },
-      {
         "name": "App of the Day",
-        "year": 2024,
         "media": {
           "type": "image",
           "src": "/media/linktree-app-of-the-day.webp"
         }
       },
       {
+        "name": "Wallet",
+        "media": { "type": "video", "src": "/media/linktree-wallet.webm" }
+      },
+      {
+        "name": "Profile Editor",
+        "media": {
+          "type": "video",
+          "src": "/media/linktree-profile-editor.webm"
+        }
+      },
+      {
+        "name": "Rewards",
+        "media": { "type": "video", "src": "/media/linktree-rewards.webm" }
+      },
+      {
         "name": "Bookings",
-        "year": 2024,
         "media": { "type": "video", "src": "/media/linktree-bookings.webm" }
       },
       {
         "name": "Shop",
-        "year": 2024,
         "media": { "type": "video", "src": "/media/linktree-shop.webm" }
       },
       {
         "name": "Consumer App",
-        "year": 2023,
         "media": { "type": "video", "src": "/media/linktree-consumer-app.webm" }
       },
       {
         "name": "New Onboarding",
-        "year": 2023,
         "media": {
           "type": "video",
           "src": "/media/linktree-new-onboarding.webm"
         }
       },
       {
-        "name": "Wallet",
-        "year": 2022,
-        "media": { "type": "video", "src": "/media/linktree-wallet.webm" }
+        "name": "Compare Subscription Plans",
+        "media": {
+          "type": "video",
+          "src": "/media/linktree-compare-subscription-plans.webm"
+        }
       }
     ]
   },
