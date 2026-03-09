@@ -15,8 +15,8 @@ type Experience = (typeof experiencesData)[number] & {
 function MobileFrame({ project }: { project: Project }) {
   return (
     <div className="flex justify-center py-3">
-      <div className="relative w-[180px] rounded-[24px] border-[3px] border-slate-700 bg-black p-1.5 shadow-xl">
-        <div className="overflow-hidden rounded-[18px] bg-black">
+      <div className="relative w-[140px] rounded-[20px] border-[3px] border-slate-700 bg-black p-1 shadow-xl sm:w-[180px] sm:rounded-[24px] sm:p-1.5">
+        <div className="overflow-hidden rounded-[14px] bg-black sm:rounded-[18px]">
           {project.media?.type === "video" ? (
             <video
               src={project.media.src}
@@ -34,9 +34,7 @@ function MobileFrame({ project }: { project: Project }) {
             />
           )}
         </div>
-
-        {/* Home indicator */}
-        <div className="mx-auto mt-1 h-1 w-10 rounded-full bg-slate-600" />
+        <div className="mx-auto mt-1 h-1 w-8 rounded-full bg-slate-600 sm:w-10" />
       </div>
     </div>
   );
@@ -66,26 +64,32 @@ function ArticlePreview({ project }: { project: Project }) {
 }
 
 function ProjectList({ projects }: { projects: Project[] }) {
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [activeProject, setActiveProject] = useState<string | null>(null);
+
+  const toggleProject = (name: string, hasMedia: boolean) => {
+    if (!hasMedia) return;
+    setActiveProject((prev) => (prev === name ? null : name));
+  };
 
   return (
     <div className="mt-3 border-t border-slate-400/30 pt-3">
       <ul className="flex flex-col">
         {projects.map((project) => {
           const hasMedia = !!project.media;
-          const isHovered = hoveredProject === project.name;
+          const isActive = activeProject === project.name;
 
           return (
             <li
               key={project.name}
-              onMouseEnter={() => hasMedia && setHoveredProject(project.name)}
-              onMouseLeave={() => setHoveredProject(null)}
+              onMouseEnter={() => hasMedia && setActiveProject(project.name)}
+              onMouseLeave={() => setActiveProject(null)}
             >
               <div
+                onClick={() => toggleProject(project.name, hasMedia)}
                 className={cn(
                   "flex items-center justify-between rounded-lg px-3 py-2 transition-all duration-200",
                   hasMedia && "cursor-pointer",
-                  isHovered && "bg-slate-300/60",
+                  isActive && "bg-slate-300/60",
                 )}
               >
                 <span className="text-sm font-medium text-slate-800">
@@ -114,7 +118,7 @@ function ProjectList({ projects }: { projects: Project[] }) {
                     <span
                       className={cn(
                         "overflow-hidden whitespace-nowrap transition-all duration-200",
-                        isHovered ? "ml-1 max-w-[60px] opacity-100" : "ml-0 max-w-0 opacity-0",
+                        isActive ? "ml-1 max-w-[60px] opacity-100" : "ml-0 max-w-0 opacity-0",
                       )}
                     >
                       {project.media.type === "video"
@@ -133,7 +137,7 @@ function ProjectList({ projects }: { projects: Project[] }) {
                 <div
                   className={cn(
                     "grid transition-all duration-300 ease-out",
-                    isHovered
+                    isActive
                       ? "grid-rows-[1fr] opacity-100"
                       : "grid-rows-[0fr] opacity-0",
                   )}
@@ -159,6 +163,11 @@ export function WorkTimeline() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const collapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const toggleCard = useCallback((id: string, hasProjects: boolean) => {
+    if (!hasProjects) return;
+    setExpandedId((prev) => (prev === id ? null : id));
+  }, []);
+
   const handleEnter = useCallback((id: string, hasProjects: boolean) => {
     if (!hasProjects) return;
     if (collapseTimerRef.current) {
@@ -175,11 +184,11 @@ export function WorkTimeline() {
   }, []);
 
   return (
-    <div className="flex min-h-full flex-1 flex-col px-8 py-12">
-      <h2 className="mb-8 text-2xl font-bold text-slate-50">Experience</h2>
+    <div className="flex min-h-full flex-1 flex-col px-4 py-8 sm:px-8 sm:py-12">
+      <h2 className="mb-6 text-xl font-bold text-slate-50 sm:mb-8 sm:text-2xl">Experience</h2>
       <div className="relative flex flex-col gap-0">
         <div
-          className="absolute left-7 top-10 bottom-10 w-px bg-white"
+          className="absolute bottom-10 left-5 top-10 w-px bg-white sm:left-7"
           aria-hidden
         />
         {(experiencesData as Experience[]).map((exp) => {
@@ -189,36 +198,37 @@ export function WorkTimeline() {
           return (
             <div
               key={exp.id}
-              className="relative flex items-start gap-6 pb-10 last:pb-0"
+              className="relative flex items-start gap-3 pb-8 last:pb-0 sm:gap-6 sm:pb-10"
             >
-              <div className="relative z-10 mt-4 flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-4 ring-[#1A202C]">
+              <div className="relative z-10 mt-4 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-4 ring-[#1A202C] sm:h-14 sm:w-14">
                 <img
                   src={exp.logo}
                   alt={exp.company}
-                  className="h-9 w-9 rounded-full object-cover"
+                  className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9"
                 />
               </div>
 
               <div
+                onClick={() => toggleCard(exp.id, hasProjects)}
                 onMouseEnter={() => handleEnter(exp.id, hasProjects)}
                 onMouseLeave={handleLeave}
                 className={cn(
-                  "min-w-0 flex-1 rounded-2xl bg-slate-200 px-5 py-4 shadow-sm transition-all duration-300 ease-out",
+                  "min-w-0 flex-1 rounded-xl bg-slate-200 px-3 py-3 shadow-sm transition-all duration-300 ease-out sm:rounded-2xl sm:px-5 sm:py-4",
                   hasProjects && "cursor-pointer",
                   isExpanded && "bg-white shadow-lg ring-1 ring-slate-300",
                 )}
               >
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900">
+                <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-3">
+                  <div className="min-w-0">
+                    <h3 className="text-base font-bold text-slate-900 sm:text-lg">
                       {exp.title}
                     </h3>
-                    <p className="mt-0.5 text-sm font-normal text-slate-700">
+                    <p className="mt-0.5 text-xs font-normal text-slate-700 sm:text-sm">
                       {exp.company}
                     </p>
                   </div>
-                  <div className="flex flex-col items-end gap-1.5">
-                    <p className="text-sm font-normal text-slate-700">
+                  <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5">
+                    <p className="text-xs font-normal text-slate-700 sm:text-sm">
                       {exp.dateStart} - {exp.dateEnd}
                     </p>
                     {hasProjects && (

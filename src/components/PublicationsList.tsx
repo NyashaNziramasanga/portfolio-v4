@@ -6,8 +6,8 @@ type Platform = Publication["platform"];
 function PlatformIcon({ platform }: { platform: Platform }) {
   if (platform === "youtube") {
     return (
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#FF0000]">
-        <svg viewBox="0 0 24 24" className="h-5 w-5 text-white" aria-hidden>
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#FF0000] sm:h-10 sm:w-10">
+        <svg viewBox="0 0 24 24" className="h-4 w-4 text-white sm:h-5 sm:w-5" aria-hidden>
           <path fill="currentColor" d="M8 5v14l11-7z" />
         </svg>
       </div>
@@ -15,10 +15,10 @@ function PlatformIcon({ platform }: { platform: Platform }) {
   }
   if (platform === "medium") {
     return (
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-black">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-black sm:h-10 sm:w-10">
         <svg
           viewBox="0 0 24 24"
-          className="h-5 w-5 text-white"
+          className="h-4 w-4 text-white sm:h-5 sm:w-5"
           fill="currentColor"
           aria-hidden
         >
@@ -29,9 +29,9 @@ function PlatformIcon({ platform }: { platform: Platform }) {
   }
   if (platform === "devto") {
     return (
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-black">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-black sm:h-10 sm:w-10">
         <span
-          className="text-center text-xs font-bold uppercase leading-none text-white"
+          className="text-center text-[10px] font-bold uppercase leading-none text-white sm:text-xs"
           aria-hidden
         >
           DEV
@@ -44,8 +44,8 @@ function PlatformIcon({ platform }: { platform: Platform }) {
 
 export function PublicationsList() {
   return (
-    <div className="flex min-h-full flex-1 flex-col px-8 py-12">
-      <h2 className="mb-8 text-2xl font-bold text-slate-50">Publications</h2>
+    <div className="flex min-h-full flex-1 flex-col px-4 py-8 sm:px-8 sm:py-12">
+      <h2 className="mb-6 text-xl font-bold text-slate-50 sm:mb-8 sm:text-2xl">Publications</h2>
       <div className="flex flex-col gap-3">
         {publicationsData.map((pub: Publication) => (
           <a
@@ -53,10 +53,10 @@ export function PublicationsList() {
             href={pub.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 rounded-full bg-slate-200/90 px-4 py-3 text-slate-900 shadow-sm transition-[background-color,transform] duration-200 hover:bg-slate-100 hover:scale-[1.01]"
+            className="flex items-center gap-3 rounded-2xl bg-slate-200/90 px-3 py-2.5 text-slate-900 shadow-sm transition-[background-color,transform] duration-200 hover:scale-[1.01] hover:bg-slate-100 sm:gap-4 sm:rounded-full sm:px-4 sm:py-3"
           >
             <PlatformIcon platform={pub.platform} />
-            <span className="min-w-0 flex-1 font-medium">{pub.title}</span>
+            <span className="min-w-0 flex-1 text-sm font-medium sm:text-base">{pub.title}</span>
           </a>
         ))}
       </div>
