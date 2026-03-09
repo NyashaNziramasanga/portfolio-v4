@@ -25,31 +25,26 @@ function handleToggleKeyDown(
 function MobileFrame({ project }: { project: Project }) {
   return (
     <div className="flex justify-center py-3">
-      <div className="relative w-[140px] rounded-[20px] border-[3px] border-brand-500 bg-brand-900 p-1 shadow-xl sm:w-[180px] sm:rounded-[24px] sm:p-1.5">
-        <div className="overflow-hidden rounded-[14px] bg-brand-900 sm:rounded-[18px]">
-          {project.media?.type === "video" ? (
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="none"
-              className="aspect-[9/19.5] w-full object-cover"
-            >
-              <source src={project.media.src} type="video/webm" />
-              <source src={project.media.src.replace(".webm", ".mp4")} type="video/mp4" />
-            </video>
-          ) : (
-            <img
-              src={project.media?.src}
-              alt={project.name}
-              loading="lazy"
-              className="aspect-[9/19.5] w-full object-cover"
-            />
-          )}
-        </div>
-        <div className="mx-auto mt-1 h-1 w-8 rounded-full bg-brand-500 sm:w-10" />
-      </div>
+      {project.media?.type === "video" ? (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
+          className="aspect-[9/19.5] w-[140px] rounded-xl object-cover sm:w-[180px]"
+        >
+          <source src={project.media.src} type="video/webm" />
+          <source src={project.media.src.replace(".webm", ".mp4")} type="video/mp4" />
+        </video>
+      ) : (
+        <img
+          src={project.media?.src}
+          alt={project.name}
+          loading="lazy"
+          className="aspect-[9/19.5] w-[140px] rounded-xl object-cover sm:w-[180px]"
+        />
+      )}
     </div>
   );
 }
