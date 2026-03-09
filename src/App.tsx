@@ -191,8 +191,9 @@ export default function App() {
           <div className="flex max-w-2xl flex-col">
             <p className="mb-4 text-2xl text-slate-300">Hello 👋🏿</p>
             <p className="italic leading-relaxed text-slate-300">
-              I'm a Software Engineer based in Melbourne, Australia and
-              currently working at{" "}
+              I'm a Software Engineer based in Melbourne, Australia with over{" "}
+              {new Date().getFullYear() - 2019} years of experience. I currently
+              working at{" "}
               <a
                 href="https://linktr.ee"
                 target="_blank"
@@ -200,18 +201,11 @@ export default function App() {
                 className="text-sky-400 underline hover:text-sky-300"
               >
                 Linktree
-              </a>
-              . My specialty front-end development currently building mobile app
-              experience with{" "}
-              <a
-                href="https://reactnative.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sky-400 underline hover:text-sky-300"
-              >
-                React Native
-              </a>
-              , but I'm also skilled in front-end development with React.
+              </a>{" "}
+              where I help build products used by millions of creators
+              worldwide. I’m passionate about crafting high-quality and world
+              class mobile app experiences that are simple, scalable, and
+              delightful to use.
             </p>
 
             <div className="mt-10">
@@ -231,9 +225,9 @@ export default function App() {
                     label: "TypeScript",
                     color: `#${siTypescript.hex}`,
                   },
+                  { icon: siFigma, label: "Figma", color: `#${siFigma.hex}` },
+                  { icon: siCursor, label: "Cursor", color: "#FFFFFF" },
                   { icon: siNextdotjs, label: "NextJS", color: "#FFFFFF" },
-                  { lucide: Cloud, label: "AWS", color: "#FF9900" },
-                  { icon: siGit, label: "Git", color: `#${siGit.hex}` },
                   {
                     icon: siClaude,
                     label: "Claude Code",
@@ -255,13 +249,26 @@ export default function App() {
                     label: "GraphQL",
                     color: `#${siGraphql.hex}`,
                   },
-                  { icon: siFigma, label: "Figma", color: `#${siFigma.hex}` },
-                  { icon: siCursor, label: "Cursor", color: "#FFFFFF" },
+
                   { icon: siIos, label: "iOS", color: "#FFFFFF" },
-                  { icon: siAndroid, label: "Android", color: `#${siAndroid.hex}` },
-                  { icon: siGooglecloud, label: "GCP", color: `#${siGooglecloud.hex}` },
+                  {
+                    icon: siAndroid,
+                    label: "Android",
+                    color: `#${siAndroid.hex}`,
+                  },
+                  {
+                    icon: siGooglecloud,
+                    label: "GCP",
+                    color: `#${siGooglecloud.hex}`,
+                  },
                   { icon: siBun, label: "Bun", color: "#FBDBA7" },
-                  { icon: siNodedotjs, label: "NodeJS", color: `#${siNodedotjs.hex}` },
+                  {
+                    icon: siNodedotjs,
+                    label: "NodeJS",
+                    color: `#${siNodedotjs.hex}`,
+                  },
+                  { lucide: Cloud, label: "AWS", color: "#FF9900" },
+                  { icon: siGit, label: "Git", color: `#${siGit.hex}` },
                 ].map((item) => (
                   <span
                     key={item.label}
