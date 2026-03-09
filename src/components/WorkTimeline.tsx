@@ -5,7 +5,6 @@ import experiencesData from "@/data/experiences.json";
 
 type Project = {
   name: string;
-  year: number;
   media?: { type: "video" | "gif" | "image"; src: string };
 };
 
@@ -66,34 +65,39 @@ function ProjectList({ projects }: { projects: Project[] }) {
                   isHovered && "bg-slate-300/60",
                 )}
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-slate-800">
-                    {project.name}
-                  </span>
-                  {project.media && (
+                <span className="text-sm font-medium text-slate-800">
+                  {project.name}
+                </span>
+                {project.media && (
+                  <span
+                    className={cn(
+                      "inline-flex items-center rounded-full p-1.5 text-xs font-medium transition-all duration-200",
+                      project.media.type === "video"
+                        ? "bg-sky-100 text-sky-700"
+                        : project.media.type === "image"
+                          ? "bg-emerald-100 text-emerald-700"
+                          : "bg-violet-100 text-violet-700",
+                    )}
+                  >
+                    {project.media.type === "video" ? (
+                      <Play className="h-3 w-3 shrink-0" />
+                    ) : (
+                      <Image className="h-3 w-3 shrink-0" />
+                    )}
                     <span
                       className={cn(
-                        "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium",
-                        project.media.type === "video"
-                          ? "bg-sky-100 text-sky-700"
-                          : project.media.type === "image"
-                            ? "bg-emerald-100 text-emerald-700"
-                            : "bg-violet-100 text-violet-700",
+                        "overflow-hidden whitespace-nowrap transition-all duration-200",
+                        isHovered ? "ml-1 max-w-[60px] opacity-100" : "ml-0 max-w-0 opacity-0",
                       )}
                     >
-                      {project.media.type === "video" ? (
-                        <Play className="h-3 w-3" />
-                      ) : (
-                        <Image className="h-3 w-3" />
-                      )}
                       {project.media.type === "video"
                         ? "Video"
                         : project.media.type === "image"
                           ? "Image"
                           : "GIF"}
                     </span>
-                  )}
-                </div>
+                  </span>
+                )}
               </div>
 
               {hasMedia && (
