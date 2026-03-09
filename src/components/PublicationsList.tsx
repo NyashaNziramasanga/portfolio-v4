@@ -5,7 +5,7 @@ import publicationsData from "@/data/publications.json";
 
 type Publication = (typeof publicationsData)[number] & {
   media?: {
-    type: "video" | "article";
+    type?: "video" | "article" ;
     src: string;
     link?: string;
   };
@@ -147,7 +147,7 @@ export function PublicationsList() {
       <h2 className="mb-6 text-xl font-bold text-brand-50 sm:mb-8 sm:text-2xl">Publications</h2>
       <div className="flex flex-col gap-3">
         {(publicationsData as Publication[]).map((pub) => {
-          const hasMedia = !!pub.media;
+          const hasMedia = !!pub.media?.type;
           const isExpanded = expandedId === pub.id;
 
           return (
