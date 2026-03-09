@@ -1,11 +1,17 @@
-import { useState, useRef, useCallback, useEffect, type KeyboardEvent } from "react";
+import {
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+  type KeyboardEvent,
+} from "react";
 import { cn } from "@/lib/utils";
 import { Play, FileText, ExternalLink } from "lucide-react";
 import publicationsData from "@/data/publications.json";
 
 type Publication = (typeof publicationsData)[number] & {
   media?: {
-    type?: "video" | "article" ;
+    type: "video" | "article";
     src: string;
     link?: string;
   };
@@ -24,7 +30,11 @@ function PlatformIcon({ platform }: { platform: Platform }) {
   if (platform === "youtube") {
     return (
       <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#FF0000] sm:h-10 sm:w-10">
-        <svg viewBox="0 0 24 24" className="h-4 w-4 text-white sm:h-5 sm:w-5" aria-hidden>
+        <svg
+          viewBox="0 0 24 24"
+          className="h-4 w-4 text-white sm:h-5 sm:w-5"
+          aria-hidden
+        >
           <path fill="currentColor" d="M8 5v14l11-7z" />
         </svg>
       </div>
@@ -144,7 +154,9 @@ export function PublicationsList() {
 
   return (
     <div className="flex min-h-full flex-1 flex-col px-4 py-8 sm:px-8 sm:py-12">
-      <h2 className="mb-6 text-xl font-bold text-brand-50 sm:mb-8 sm:text-2xl">Publications</h2>
+      <h2 className="mb-6 text-xl font-bold text-brand-50 sm:mb-8 sm:text-2xl">
+        Publications
+      </h2>
       <div className="flex flex-col gap-3">
         {(publicationsData as Publication[]).map((pub) => {
           const hasMedia = !!pub.media?.type;
@@ -157,7 +169,9 @@ export function PublicationsList() {
               tabIndex={0}
               aria-expanded={hasMedia ? isExpanded : undefined}
               onClick={() => toggleCard(pub.id)}
-              onKeyDown={(e) => handleToggleKeyDown(e, () => toggleCard(pub.id))}
+              onKeyDown={(e) =>
+                handleToggleKeyDown(e, () => toggleCard(pub.id))
+              }
               onMouseEnter={() => handleEnter(pub.id)}
               onMouseLeave={handleLeave}
               onFocus={() => handleFocus(pub.id)}
@@ -170,7 +184,9 @@ export function PublicationsList() {
             >
               <div className="flex items-center gap-3 sm:gap-4">
                 <PlatformIcon platform={pub.platform} />
-                <span className="min-w-0 flex-1 text-sm font-medium sm:text-base">{pub.title}</span>
+                <span className="min-w-0 flex-1 text-sm font-medium sm:text-base">
+                  {pub.title}
+                </span>
                 {hasMedia && (
                   <span
                     className={cn(
@@ -188,7 +204,9 @@ export function PublicationsList() {
                     <span
                       className={cn(
                         "overflow-hidden whitespace-nowrap transition-all duration-200",
-                        isExpanded ? "ml-1 max-w-[60px] opacity-100" : "ml-0 max-w-0 opacity-0",
+                        isExpanded
+                          ? "ml-1 max-w-[60px] opacity-100"
+                          : "ml-0 max-w-0 opacity-0",
                       )}
                     >
                       {pub.media!.type === "video" ? "Video" : "Article"}
@@ -207,13 +225,12 @@ export function PublicationsList() {
                   )}
                 >
                   <div className="overflow-hidden">
-                    {isExpanded && (
-                      pub.media?.type === "video" ? (
+                    {isExpanded &&
+                      (pub.media?.type === "video" ? (
                         <VideoEmbed src={pub.media.src} title={pub.title} />
                       ) : (
                         <ArticlePreview pub={pub} />
-                      )
-                    )}
+                      ))}
                   </div>
                 </div>
               )}
