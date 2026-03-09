@@ -54,6 +54,22 @@
           "type": "video",
           "src": "/media/linktree-compare-subscription-plans.webm"
         }
+      },
+      {
+        "name": "Digital Products",
+        "media": {
+          "type": "article",
+          "src": "/media/linktree-digital-products.webp",
+          "link": "https://techcrunch.com/2025/04/23/linktree-rolls-out-a-suite-of-monetization-features-for-creators/"
+        }
+      },
+      {
+        "name": "Mobile App Launch",
+        "media": {
+          "type": "article",
+          "src": "/media/linktree-mobile-app-launch.webp",
+          "link": "https://techcrunch.com/2022/07/11/linktrees-mobile-app-launch/"
+        }
       }
     ]
   },

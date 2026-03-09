@@ -1,11 +1,11 @@
 import { useState, useRef, useCallback } from "react";
 import { cn } from "@/lib/utils";
-import { Play, Image, ChevronRight, Layers } from "lucide-react";
+import { Play, Image, ChevronRight, Layers, FileText, ExternalLink } from "lucide-react";
 import experiencesData from "@/data/experiences.json";
 
 type Project = {
   name: string;
-  media?: { type: "video" | "gif" | "image"; src: string };
+  media?: { type: "video" | "gif" | "image" | "article"; src: string; link?: string };
 };
 
 type Experience = (typeof experiencesData)[number] & {
@@ -42,6 +42,29 @@ function MobileFrame({ project }: { project: Project }) {
   );
 }
 
+function ArticlePreview({ project }: { project: Project }) {
+  return (
+    <a
+      href={project.media?.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group/article block py-3"
+    >
+      <div className="overflow-hidden rounded-xl border border-slate-300 bg-white shadow-sm transition-shadow group-hover/article:shadow-md">
+        <img
+          src={project.media?.src}
+          alt={project.name}
+          className="aspect-video w-full object-cover"
+        />
+        <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-sky-700">
+          <ExternalLink className="h-3 w-3" />
+          Read article
+        </div>
+      </div>
+    </a>
+  );
+}
+
 function ProjectList({ projects }: { projects: Project[] }) {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
@@ -74,13 +97,17 @@ function ProjectList({ projects }: { projects: Project[] }) {
                       "inline-flex items-center rounded-full p-1.5 text-xs font-medium transition-all duration-200",
                       project.media.type === "video"
                         ? "bg-sky-100 text-sky-700"
-                        : project.media.type === "image"
-                          ? "bg-emerald-100 text-emerald-700"
-                          : "bg-violet-100 text-violet-700",
+                        : project.media.type === "article"
+                          ? "bg-amber-100 text-amber-700"
+                          : project.media.type === "image"
+                            ? "bg-emerald-100 text-emerald-700"
+                            : "bg-violet-100 text-violet-700",
                     )}
                   >
                     {project.media.type === "video" ? (
                       <Play className="h-3 w-3 shrink-0" />
+                    ) : project.media.type === "article" ? (
+                      <FileText className="h-3 w-3 shrink-0" />
                     ) : (
                       <Image className="h-3 w-3 shrink-0" />
                     )}
@@ -92,9 +119,11 @@ function ProjectList({ projects }: { projects: Project[] }) {
                     >
                       {project.media.type === "video"
                         ? "Video"
-                        : project.media.type === "image"
-                          ? "Image"
-                          : "GIF"}
+                        : project.media.type === "article"
+                          ? "Article"
+                          : project.media.type === "image"
+                            ? "Image"
+                            : "GIF"}
                     </span>
                   </span>
                 )}
@@ -110,7 +139,11 @@ function ProjectList({ projects }: { projects: Project[] }) {
                   )}
                 >
                   <div className="overflow-hidden">
-                    <MobileFrame project={project} />
+                    {project.media?.type === "article" ? (
+                      <ArticlePreview project={project} />
+                    ) : (
+                      <MobileFrame project={project} />
+                    )}
                   </div>
                 </div>
               )}
