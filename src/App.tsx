@@ -4,6 +4,7 @@ import { WorkTimeline } from "@/components/WorkTimeline";
 import { PublicationsList } from "@/components/PublicationsList";
 import { cn } from "@/lib/utils";
 import sectionsData from "@/data/sections.json";
+import techStackData from "@/data/techStack.json";
 import {
   siGithub,
   siYoutube,
@@ -26,6 +27,15 @@ import {
   siAndroid,
 } from "simple-icons";
 import { Bot, Cloud, Linkedin } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+const simpleIconsMap: Record<string, { path: string; hex: string }> = {
+  siTypescript, siReact, siNodedotjs, siNextdotjs, siGooglecloud,
+  siGit, siBun, siClaude, siPostgresql, siTailwindcss,
+  siGraphql, siFigma, siCursor, siIos, siAndroid,
+};
+
+const lucideIconsMap: Record<string, LucideIcon> = { Bot, Cloud };
 
 function SimpleIconSvg({
   icon,
@@ -51,6 +61,8 @@ function SimpleIconSvg({
     </svg>
   );
 }
+
+const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2019;
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>("about");
@@ -119,60 +131,27 @@ export default function App() {
         </nav>
 
         <div className="mt-auto flex justify-center gap-3 pt-6">
-          <a
-            href="https://github.com/NyashaNziramasanga"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 transition-colors hover:text-white"
-          >
-            <SimpleIconSvg
-              icon={siGithub}
-              className="h-5 w-5"
-              aria-label="GitHub"
-            />
-          </a>
-          <a
-            href="https://www.youtube.com/@Nyasha_Nziboi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 transition-colors hover:text-white"
-          >
-            <SimpleIconSvg
-              icon={siYoutube}
-              className="h-5 w-5"
-              aria-label="YouTube"
-            />
-          </a>
-          <a
-            href="mailto:nyashanziramasanga1@gmail.com"
-            className="text-slate-400 transition-colors hover:text-white"
-          >
-            <SimpleIconSvg
-              icon={siGmail}
-              className="h-5 w-5"
-              aria-label="Email"
-            />
-          </a>
-          <a
-            href="https://linktr.ee/nyasha_nziboi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 transition-colors hover:text-white"
-          >
-            <SimpleIconSvg
-              icon={siLinktree}
-              className="h-5 w-5"
-              aria-label="Email"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/nyasha-nash-nziramasanga-446380116/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 transition-colors hover:text-white"
-          >
-            <Linkedin className="h-5 w-5" />
-          </a>
+          {([
+            { href: "https://github.com/NyashaNziramasanga", icon: siGithub, label: "GitHub" },
+            { href: "https://www.youtube.com/@Nyasha_Nziboi", icon: siYoutube, label: "YouTube" },
+            { href: "mailto:nyashanziramasanga1@gmail.com", icon: siGmail, label: "Email" },
+            { href: "https://linktr.ee/nyasha_nziboi", icon: siLinktree, label: "Linktree" },
+            { href: "https://www.linkedin.com/in/nyasha-nash-nziramasanga-446380116/", lucide: Linkedin, label: "LinkedIn" },
+          ] as const).map(({ href, label, ...rest }) => (
+            <a
+              key={label}
+              href={href}
+              target={href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+              className="text-slate-400 transition-colors hover:text-white"
+            >
+              {"icon" in rest ? (
+                <SimpleIconSvg icon={rest.icon} className="h-5 w-5" aria-label={label} />
+              ) : (
+                <rest.lucide className="h-5 w-5" aria-label={label} />
+              )}
+            </a>
+          ))}
         </div>
       </aside>
 
@@ -192,8 +171,8 @@ export default function App() {
             <p className="mb-4 text-2xl text-slate-300">Hello 👋🏿</p>
             <p className="italic leading-relaxed text-slate-300">
               I'm a Software Engineer based in Melbourne, Australia with over{" "}
-              {new Date().getFullYear() - 2019} years of experience. I currently
-              working at{" "}
+              {YEARS_OF_EXPERIENCE} years of experience. I currently
+              work at{" "}
               <a
                 href="https://linktr.ee"
                 target="_blank"
@@ -213,82 +192,32 @@ export default function App() {
                 Current Tech Stack
               </h3>
               <div className="flex flex-wrap gap-3">
-                {[
-                  {
-                    icon: siReact,
-                    label: "React Native",
-                    color: `#${siReact.hex}`,
-                  },
-                  { icon: siReact, label: "React", color: `#${siReact.hex}` },
-                  { icon: siIos, label: "iOS", color: "#FFFFFF" },
-                  {
-                    icon: siAndroid,
-                    label: "Android",
-                    color: `#${siAndroid.hex}`,
-                  },
-                  {
-                    icon: siClaude,
-                    label: "Claude Code",
-                    color: `#${siClaude.hex}`,
-                  },
-                  { lucide: Bot, label: "OpenAI", color: "#10A37F" },
-                  {
-                    icon: siTypescript,
-                    label: "TypeScript",
-                    color: `#${siTypescript.hex}`,
-                  },
-                  { icon: siFigma, label: "Figma", color: `#${siFigma.hex}` },
-                  { icon: siCursor, label: "Cursor", color: "#FFFFFF" },
-                  { icon: siNextdotjs, label: "NextJS", color: "#FFFFFF" },
-                  {
-                    icon: siPostgresql,
-                    label: "PostgreSQL",
-                    color: `#${siPostgresql.hex}`,
-                  },
-                  {
-                    icon: siTailwindcss,
-                    label: "Tailwind CSS",
-                    color: `#${siTailwindcss.hex}`,
-                  },
-                  {
-                    icon: siGraphql,
-                    label: "GraphQL",
-                    color: `#${siGraphql.hex}`,
-                  },
-                  {
-                    icon: siGooglecloud,
-                    label: "GCP",
-                    color: `#${siGooglecloud.hex}`,
-                  },
-                  { icon: siBun, label: "Bun", color: "#FBDBA7" },
-                  {
-                    icon: siNodedotjs,
-                    label: "NodeJS",
-                    color: `#${siNodedotjs.hex}`,
-                  },
-                  { lucide: Cloud, label: "AWS", color: "#FF9900" },
-                  { icon: siGit, label: "Git", color: `#${siGit.hex}` },
-                ].map((item) => (
-                  <span
-                    key={item.label}
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-800/60 px-3 py-1.5 text-sm text-slate-200"
-                  >
-                    {"icon" in item && item.icon ? (
-                      <SimpleIconSvg
-                        icon={item.icon}
-                        className="h-4 w-4"
-                        aria-label={item.label}
-                        style={{ color: item.color }}
-                      />
-                    ) : "lucide" in item && item.lucide ? (
-                      <item.lucide
-                        className="h-4 w-4"
-                        style={{ color: item.color }}
-                      />
-                    ) : null}
-                    {item.label}
-                  </span>
-                ))}
+                {techStackData.map(({ iconKey, label, colorOverride }) => {
+                  const isLucide = iconKey.startsWith("lucide:");
+                  const key = isLucide ? iconKey.split(":")[1] : iconKey;
+                  const siIcon = !isLucide ? simpleIconsMap[key] : undefined;
+                  const LucideIcon = isLucide ? lucideIconsMap[key] : undefined;
+                  const color = colorOverride ?? (siIcon ? `#${siIcon.hex}` : undefined);
+
+                  return (
+                    <span
+                      key={label}
+                      className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-800/60 px-3 py-1.5 text-sm text-slate-200"
+                    >
+                      {siIcon ? (
+                        <SimpleIconSvg
+                          icon={siIcon}
+                          className="h-4 w-4"
+                          aria-label={label}
+                          style={{ color }}
+                        />
+                      ) : LucideIcon ? (
+                        <LucideIcon className="h-4 w-4" style={{ color }} />
+                      ) : null}
+                      {label}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>
