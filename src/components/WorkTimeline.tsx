@@ -25,8 +25,8 @@ function handleToggleKeyDown(
 function MobileFrame({ project }: { project: Project }) {
   return (
     <div className="flex justify-center py-3">
-      <div className="relative w-[140px] rounded-[20px] border-[3px] border-slate-700 bg-black p-1 shadow-xl sm:w-[180px] sm:rounded-[24px] sm:p-1.5">
-        <div className="overflow-hidden rounded-[14px] bg-black sm:rounded-[18px]">
+      <div className="relative w-[140px] rounded-[20px] border-[3px] border-brand-500 bg-brand-900 p-1 shadow-xl sm:w-[180px] sm:rounded-[24px] sm:p-1.5">
+        <div className="overflow-hidden rounded-[14px] bg-brand-900 sm:rounded-[18px]">
           {project.media?.type === "video" ? (
             <video
               autoPlay
@@ -48,7 +48,7 @@ function MobileFrame({ project }: { project: Project }) {
             />
           )}
         </div>
-        <div className="mx-auto mt-1 h-1 w-8 rounded-full bg-slate-600 sm:w-10" />
+        <div className="mx-auto mt-1 h-1 w-8 rounded-full bg-brand-500 sm:w-10" />
       </div>
     </div>
   );
@@ -62,14 +62,14 @@ function ArticlePreview({ project }: { project: Project }) {
       rel="noopener noreferrer"
       className="group/article block py-3"
     >
-      <div className="overflow-hidden rounded-xl border border-slate-300 bg-white shadow-sm transition-shadow group-hover/article:shadow-md">
+      <div className="overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
           <img
             src={project.media?.src}
             alt={project.name}
             loading="lazy"
             className="aspect-video w-full object-cover"
           />
-        <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-sky-700">
+        <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-blue-300">
           <ExternalLink className="h-3 w-3" />
           Read article
         </div>
@@ -87,7 +87,7 @@ function ProjectList({ projects }: { projects: Project[] }) {
   }, []);
 
   return (
-    <div className="mt-3 border-t border-slate-400/30 pt-3">
+    <div className="mt-3 border-t border-brand-400/30 pt-3">
       <ul className="flex flex-col" role="list">
         {projects.map((project) => {
           const hasMedia = !!project.media;
@@ -105,11 +105,11 @@ function ProjectList({ projects }: { projects: Project[] }) {
                 onMouseLeave={() => setActiveProject(null)}
                 className={cn(
                   "flex items-center justify-between rounded-lg px-3 py-2 transition-all duration-200 outline-none",
-                  hasMedia && "cursor-pointer focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-1",
-                  isActive && "bg-slate-300/60",
+                  hasMedia && "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1",
+                  isActive && "bg-brand-500/30",
                 )}
               >
-                <span className="text-sm font-medium text-slate-800">
+                <span className="text-sm font-medium text-brand-100">
                   {project.name}
                 </span>
                 {project.media && (
@@ -117,12 +117,12 @@ function ProjectList({ projects }: { projects: Project[] }) {
                     className={cn(
                       "inline-flex items-center rounded-full p-1.5 text-xs font-medium transition-all duration-200",
                       project.media.type === "video"
-                        ? "bg-sky-100 text-sky-700"
+                        ? "bg-blue-800/40 text-blue-300"
                         : project.media.type === "article"
-                          ? "bg-amber-100 text-amber-700"
+                          ? "bg-amber-900/40 text-amber-400"
                           : project.media.type === "image"
-                            ? "bg-emerald-100 text-emerald-700"
-                            : "bg-violet-100 text-violet-700",
+                            ? "bg-emerald-900/40 text-emerald-400"
+                            : "bg-violet-900/40 text-violet-400",
                     )}
                   >
                     {project.media.type === "video" ? (
@@ -225,7 +225,7 @@ export function WorkTimeline() {
 
   return (
     <div className="flex min-h-full flex-1 flex-col px-4 py-8 sm:px-8 sm:py-12">
-      <h2 className="mb-6 text-xl font-bold text-slate-50 sm:mb-8 sm:text-2xl">Experience</h2>
+      <h2 className="mb-6 text-xl font-bold text-brand-50 sm:mb-8 sm:text-2xl">Experience</h2>
       <div className="relative flex flex-col gap-0">
         <div
           className="absolute bottom-10 left-5 top-10 w-px bg-white sm:left-7"
@@ -240,7 +240,7 @@ export function WorkTimeline() {
               key={exp.id}
               className="relative flex items-start gap-3 pb-8 last:pb-0 sm:gap-6 sm:pb-10"
             >
-              <div className="relative z-10 mt-4 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-4 ring-[#1A202C] sm:h-14 sm:w-14">
+              <div className="relative z-10 mt-4 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-4 ring-brand-900 sm:h-14 sm:w-14">
                 <img
                   src={exp.logo}
                   alt={exp.company}
@@ -261,22 +261,22 @@ export function WorkTimeline() {
                 onFocus={() => handleFocus(exp.id, hasProjects)}
                 onBlur={handleBlur}
                 className={cn(
-                  "min-w-0 flex-1 rounded-xl bg-slate-200 px-3 py-3 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-5 sm:py-4",
-                  hasProjects && "cursor-pointer focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2",
-                  isExpanded && "bg-white shadow-lg ring-1 ring-slate-300",
+                  "min-w-0 flex-1 rounded-xl bg-brand-700 px-3 py-3 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-5 sm:py-4",
+                  hasProjects && "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
+                  isExpanded && "bg-brand-600 shadow-lg ring-1 ring-blue-500/30",
                 )}
               >
                 <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-3">
                   <div className="min-w-0">
-                    <h3 className="text-base font-bold text-slate-900 sm:text-lg">
+                    <h3 className="text-base font-bold text-brand-50 sm:text-lg">
                       {exp.title}
                     </h3>
-                    <p className="mt-0.5 text-xs font-normal text-slate-700 sm:text-sm">
+                    <p className="mt-0.5 text-xs font-normal text-brand-300 sm:text-sm">
                       {exp.company}
                     </p>
                   </div>
                   <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5">
-                    <p className="text-xs font-normal text-slate-700 sm:text-sm">
+                    <p className="text-xs font-normal text-brand-300 sm:text-sm">
                       {exp.dateStart} - {exp.dateEnd}
                     </p>
                     {hasProjects && (
@@ -284,8 +284,8 @@ export function WorkTimeline() {
                         className={cn(
                           "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium transition-colors duration-300",
                           isExpanded
-                            ? "bg-sky-100 text-sky-700"
-                            : "bg-slate-300/80 text-slate-600",
+                            ? "bg-blue-800/40 text-blue-300"
+                            : "bg-brand-500/40 text-brand-300",
                         )}
                       >
                         <Layers className="h-3 w-3" />

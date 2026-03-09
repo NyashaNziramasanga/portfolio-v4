@@ -45,7 +45,7 @@ function PlatformIcon({ platform }: { platform: Platform }) {
 export function PublicationsList() {
   return (
     <div className="flex min-h-full flex-1 flex-col px-4 py-8 sm:px-8 sm:py-12">
-      <h2 className="mb-6 text-xl font-bold text-slate-50 sm:mb-8 sm:text-2xl">Publications</h2>
+      <h2 className="mb-6 text-xl font-bold text-brand-50 sm:mb-8 sm:text-2xl">Publications</h2>
       <div className="flex flex-col gap-3">
         {publicationsData.map((pub: Publication) => (
           <a
@@ -53,7 +53,7 @@ export function PublicationsList() {
             href={pub.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-2xl bg-slate-200/90 px-3 py-2.5 text-slate-900 shadow-sm transition-[background-color,transform] duration-200 hover:scale-[1.01] hover:bg-slate-100 sm:gap-4 sm:rounded-full sm:px-4 sm:py-3"
+            className="flex items-center gap-3 rounded-2xl bg-brand-700 px-3 py-2.5 text-brand-50 shadow-sm transition-[background-color,transform] duration-200 hover:scale-[1.01] hover:bg-brand-600 sm:gap-4 sm:rounded-full sm:px-4 sm:py-3"
           >
             <PlatformIcon platform={pub.platform} />
             <span className="min-w-0 flex-1 text-sm font-medium sm:text-base">{pub.title}</span>

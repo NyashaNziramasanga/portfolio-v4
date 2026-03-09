@@ -81,7 +81,7 @@ function SocialLinks() {
           href={href}
           target={href.startsWith("mailto:") ? undefined : "_blank"}
           rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-          className="text-slate-400 transition-colors hover:text-white"
+          className="text-brand-300 transition-colors hover:text-brand-50"
           aria-label={label}
         >
           {"icon" in rest ? (
@@ -110,8 +110,8 @@ function SidebarNav({
           variant="ghost"
           aria-current={activeSection === id ? "true" : undefined}
           className={cn(
-            "justify-start text-lg font-medium text-slate-400 transition-[transform,color,background-color,font-weight] duration-300 ease-in-out hover:scale-[1.02] hover:bg-white/10 hover:text-slate-200",
-            activeSection === id && "font-bold text-white",
+            "justify-start text-lg font-medium text-brand-300 transition-[transform,color,background-color,font-weight] duration-300 ease-in-out hover:scale-[1.02] hover:bg-brand-600/60 hover:text-brand-100",
+            activeSection === id && "font-bold text-brand-50",
           )}
           onClick={() => onSelect(id)}
         >
@@ -179,29 +179,29 @@ export default function App() {
   }, [mobileMenuOpen]);
 
   return (
-    <div className="flex h-screen w-full flex-col overflow-hidden bg-[#1A202C] md:flex-row">
+    <div className="flex h-screen w-full flex-col overflow-hidden bg-brand-900 md:flex-row">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-sky-600 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:outline-none"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-blue-500 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:outline-none"
       >
         Skip to content
       </a>
       {/* Mobile top bar */}
-      <header className="flex items-center justify-between border-b border-slate-600 bg-[#1A202C] px-4 py-3 md:hidden">
+      <header className="flex items-center justify-between border-b border-brand-500 bg-brand-900 px-4 py-3 md:hidden">
         <div className="flex items-center gap-3">
           <img
             src="/logos/profile.webp"
             alt="Nyasha Nziramasanga"
-            className="h-9 w-9 rounded-full object-cover ring-2 ring-slate-500"
+            className="h-9 w-9 rounded-full object-cover ring-2 ring-brand-400"
           />
           <div>
-            <p className="text-sm font-bold text-slate-50">Nash Nziramasanga</p>
-            <p className="text-xs text-slate-400">Senior Software Engineer</p>
+            <p className="text-sm font-bold text-brand-50">Nash Nziramasanga</p>
+            <p className="text-xs text-brand-300">Senior Software Engineer</p>
           </div>
         </div>
         <button
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          className="rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+          className="rounded-lg p-2 text-brand-200 transition-colors hover:bg-brand-600/60 hover:text-brand-50"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -222,7 +222,7 @@ export default function App() {
         aria-modal="true"
         aria-label="Navigation menu"
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-slate-600 bg-[#1A202C] p-6 transition-transform duration-300 ease-in-out md:hidden",
+          "fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-brand-500 bg-brand-900 p-6 transition-transform duration-300 ease-in-out md:hidden",
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
@@ -230,23 +230,23 @@ export default function App() {
           <img
             src="/logos/profile.webp"
             alt="Nyasha Nziramasanga"
-            className="h-20 w-20 rounded-full object-cover ring-4 ring-slate-500"
+            className="h-20 w-20 rounded-full object-cover ring-4 ring-brand-400"
           />
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+            className="rounded-lg p-2 text-brand-200 transition-colors hover:bg-brand-600/60 hover:text-brand-50"
             aria-label="Close menu"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
-        <h1 className="mb-1 text-lg font-bold text-slate-50">
+        <h1 className="mb-1 text-lg font-bold text-brand-50">
           Nyasha (Nash) Nziramasanga
         </h1>
-        <h2 className="mb-6 text-sm font-medium text-slate-400">
+        <h2 className="mb-6 text-sm font-medium text-brand-300">
           Senior Software Engineer
         </h2>
-        <hr className="mb-6 border-slate-600" />
+        <hr className="mb-6 border-brand-500" />
         <SidebarNav activeSection={activeSection} onSelect={selectSection} />
         <div className="mt-auto pt-6">
           <SocialLinks />
@@ -254,19 +254,19 @@ export default function App() {
       </aside>
 
       {/* Desktop sidebar */}
-      <aside className="hidden w-72 shrink-0 flex-col border-r border-slate-600 bg-[#1A202C] p-6 md:flex">
+      <aside className="hidden w-72 shrink-0 flex-col border-r border-brand-500 bg-brand-900 p-6 md:flex">
         <img
           src="/logos/profile.webp"
           alt="Nyasha Nziramasanga"
-          className="mb-4 h-28 w-28 rounded-full object-cover ring-4 ring-slate-500"
+          className="mb-4 h-28 w-28 rounded-full object-cover ring-4 ring-brand-400"
         />
-        <h1 className="mb-1 text-xl font-bold text-slate-50">
+        <h1 className="mb-1 text-xl font-bold text-brand-50">
           Nyasha (Nash) Nziramasanga
         </h1>
-        <h2 className="mb-6 text-base font-medium text-slate-400">
+        <h2 className="mb-6 text-base font-medium text-brand-300">
           Senior Software Engineer
         </h2>
-        <hr className="mb-6 border-slate-600" />
+        <hr className="mb-6 border-brand-500" />
         <SidebarNav activeSection={activeSection} onSelect={selectSection} />
         <div className="mt-auto pt-6">
           <SocialLinks />
@@ -287,8 +287,8 @@ export default function App() {
           className="flex min-h-screen snap-start items-center justify-center px-5 py-10 sm:px-8 sm:py-12"
         >
           <div className="flex max-w-2xl flex-col">
-            <p className="mb-4 text-xl text-slate-300 sm:text-2xl">Hello 👋🏿</p>
-            <p className="text-sm italic leading-relaxed text-slate-300 sm:text-base">
+            <p className="mb-4 text-xl text-brand-200 sm:text-2xl">Hello 👋🏿</p>
+            <p className="text-sm italic leading-relaxed text-brand-200 sm:text-base">
               I'm a Software Engineer based in Melbourne, Australia with over{" "}
               {YEARS_OF_EXPERIENCE} years of experience. I currently
               work at{" "}
@@ -296,7 +296,7 @@ export default function App() {
                 href="https://linktr.ee"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sky-400 underline hover:text-sky-300"
+                className="text-blue-300 underline hover:text-blue-200"
               >
                 Linktree
               </a>{" "}
@@ -307,7 +307,7 @@ export default function App() {
             </p>
 
             <div className="mt-8 sm:mt-10">
-              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400">
+              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-brand-300">
                 Current Tech Stack
               </h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -321,7 +321,7 @@ export default function App() {
                   return (
                     <span
                       key={label}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-slate-600 bg-slate-800/60 px-2.5 py-1 text-xs text-slate-200 sm:gap-2 sm:px-3 sm:py-1.5 sm:text-sm"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-brand-500 bg-brand-800/60 px-2.5 py-1 text-xs text-brand-100 sm:gap-2 sm:px-3 sm:py-1.5 sm:text-sm"
                     >
                       {siIcon ? (
                         <SimpleIconSvg
