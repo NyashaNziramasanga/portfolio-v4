@@ -29,13 +29,15 @@ function MobileFrame({ project }: { project: Project }) {
         <div className="overflow-hidden rounded-[14px] bg-black sm:rounded-[18px]">
           {project.media?.type === "video" ? (
             <video
-              src={project.media.src}
               autoPlay
               loop
               muted
               playsInline
               className="aspect-[9/19.5] w-full object-cover"
-            />
+            >
+              <source src={project.media.src} type="video/webm" />
+              <source src={project.media.src.replace(".webm", ".mp4")} type="video/mp4" />
+            </video>
           ) : (
             <img
               src={project.media?.src}
@@ -155,10 +157,12 @@ function ProjectList({ projects }: { projects: Project[] }) {
                   )}
                 >
                   <div className="overflow-hidden">
-                    {project.media?.type === "article" ? (
-                      <ArticlePreview project={project} />
-                    ) : (
-                      <MobileFrame project={project} />
+                    {isActive && (
+                      project.media?.type === "article" ? (
+                        <ArticlePreview project={project} />
+                      ) : (
+                        <MobileFrame project={project} />
+                      )
                     )}
                   </div>
                 </div>
