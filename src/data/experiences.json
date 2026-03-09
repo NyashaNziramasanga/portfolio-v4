@@ -2,7 +2,7 @@
   {
     "id": "linktree",
     "logo": "/logos/linktree.ico",
-    "title": "Senior Software Engineer II",
+    "title": "Senior Software Engineer",
     "company": "Linktree",
     "dateStart": "Jan 2022",
     "dateEnd": "Current",
@@ -85,7 +85,7 @@
   {
     "id": "flinders",
     "logo": "/logos/flinders.ico",
-    "title": "Master of Computer Science",
+    "title": "Master of Science (Computer Science)",
     "company": "Flinders University",
     "dateStart": "Jan 2020",
     "dateEnd": "Dec 2021"
@@ -95,7 +95,7 @@
     "logo": "/logos/monash.png",
     "title": "Bachelor of Information Technology and Systems",
     "company": "Monash University",
-    "dateStart": "2014",
-    "dateEnd": "2018"
+    "dateStart": "July 2014",
+    "dateEnd": "May 2018"
   }
 ]
