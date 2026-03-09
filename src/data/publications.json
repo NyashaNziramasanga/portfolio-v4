@@ -4,27 +4,59 @@
     "favicon": "/logos/youtube.ico",
     "platform": "youtube",
     "title": "Linktree Engineering Tech Talk: Mobile App Development with React Native",
-    "url": "https://youtu.be/GrVQQQw2sQU"
+    "url": "https://youtu.be/GrVQQQw2sQU",
+    "media": {
+      "type": "article",
+      "src": "/media/linktree-engineering-tech-talk-mobile-app-development-with-react native.webp",
+      "link": "https://youtu.be/GrVQQQw2sQU"
+    }
   },
   {
-    "id": "rn-pressable-highlight",
-    "favicon": "/logos/medium.ico",
-    "platform": "medium",
-    "title": "React Native PressableHighlight",
-    "url": "https://medium.com/@nyashanziboi/react-native-pressablehighlight-857aaa605bcb"
-  },
-  {
-    "id": "rn-text-cycler",
-    "favicon": "/logos/medium.ico",
-    "platform": "medium",
-    "title": "React Native Text Cycler using reanimated",
-    "url": "https://medium.com/@nyashanziboi/react-native-text-cycler-using-reanimated-9700a60a9d78"
+    "id": "learnings-of-startup",
+    "favicon": "/logos/devto.ico",
+    "platform": "devto",
+    "title": "9 Learnings from a fast-growing startup",
+    "url": "https://dev.to/nyashanziramasanga/9-learnings-from-a-fast-growing-startup-4ho",
+    "media": {
+      "type": "article",
+      "src": "/media/learnings-of-startup.webp",
+      "link": "https://dev.to/nyashanziramasanga/9-learnings-from-a-fast-growing-startup-4ho"
+    }
   },
   {
     "id": "junior-dev-startup",
     "favicon": "/logos/devto.ico",
     "platform": "devto",
     "title": "What I learned as a Junior Software Developer at a startup",
-    "url": "https://dev.to/nyashanziramasanga/junior-software-developer-1-year-anniversary-at-a-startup-5di6"
+    "url": "https://dev.to/nyashanziramasanga/junior-software-developer-1-year-anniversary-at-a-startup-5di6",
+    "media": {
+      "type": "article",
+      "src": "/media/learnings-junior-software-developer-startup.webp",
+      "link": "https://dev.to/nyashanziramasanga/junior-software-developer-1-year-anniversary-at-a-startup-5di6"
+    }
+  },
+  {
+    "id": "types-of-no-sql-datastores",
+    "favicon": "/logos/devto.ico",
+    "platform": "devto",
+    "title": "Types of NoSQL Data Storages (Part 2)",
+    "url": "https://dev.to/nyashanziramasanga/types-of-nosql-data-storages-part-2-mi8",
+    "media": {
+      "type": "article",
+      "src": "/media/types-of-no-sql-datastores.webp",
+      "link": "https://dev.to/nyashanziramasanga/types-of-nosql-data-storages-part-2-mi8"
+    }
+  },
+  {
+    "id": "document-store-db",
+    "favicon": "/logos/devto.ico",
+    "platform": "devto",
+    "title": "Document Store Databases - MongoDB (Part 3)",
+    "url": "https://dev.to/nyashanziramasanga/document-store-database-mongodb-part-3-4226",
+    "media": {
+      "type": "article",
+      "src": "/media/document-store-db.webp",
+      "link": "https://dev.to/nyashanziramasanga/document-store-database-mongodb-part-3-4226"
+    }
   }
 ]
