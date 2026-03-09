@@ -89,15 +89,17 @@ function ProjectList({ projects }: { projects: Project[] }) {
           const isActive = activeProject === project.name;
 
           return (
-            <li key={project.name}>
+            <li
+              key={project.name}
+              onMouseEnter={() => hasMedia && setActiveProject(project.name)}
+              onMouseLeave={() => hasMedia && setActiveProject(null)}
+            >
               <div
                 role={hasMedia ? "button" : undefined}
                 tabIndex={hasMedia ? 0 : undefined}
                 aria-expanded={hasMedia ? isActive : undefined}
                 onClick={() => toggleProject(project.name, hasMedia)}
                 onKeyDown={hasMedia ? (e) => handleToggleKeyDown(e, () => toggleProject(project.name, true)) : undefined}
-                onMouseEnter={() => hasMedia && setActiveProject(project.name)}
-                onMouseLeave={() => setActiveProject(null)}
                 className={cn(
                   "flex items-center justify-between rounded-lg px-3 py-2 transition-all duration-200 outline-none",
                   hasMedia && "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1",
