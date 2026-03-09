@@ -220,6 +220,18 @@ export default function App() {
                     color: `#${siReact.hex}`,
                   },
                   { icon: siReact, label: "React", color: `#${siReact.hex}` },
+                  { icon: siIos, label: "iOS", color: "#FFFFFF" },
+                  {
+                    icon: siAndroid,
+                    label: "Android",
+                    color: `#${siAndroid.hex}`,
+                  },
+                  {
+                    icon: siClaude,
+                    label: "Claude Code",
+                    color: `#${siClaude.hex}`,
+                  },
+                  { lucide: Bot, label: "OpenAI", color: "#10A37F" },
                   {
                     icon: siTypescript,
                     label: "TypeScript",
@@ -228,12 +240,6 @@ export default function App() {
                   { icon: siFigma, label: "Figma", color: `#${siFigma.hex}` },
                   { icon: siCursor, label: "Cursor", color: "#FFFFFF" },
                   { icon: siNextdotjs, label: "NextJS", color: "#FFFFFF" },
-                  {
-                    icon: siClaude,
-                    label: "Claude Code",
-                    color: `#${siClaude.hex}`,
-                  },
-                  { lucide: Bot, label: "OpenAI", color: "#10A37F" },
                   {
                     icon: siPostgresql,
                     label: "PostgreSQL",
@@ -248,13 +254,6 @@ export default function App() {
                     icon: siGraphql,
                     label: "GraphQL",
                     color: `#${siGraphql.hex}`,
-                  },
-
-                  { icon: siIos, label: "iOS", color: "#FFFFFF" },
-                  {
-                    icon: siAndroid,
-                    label: "Android",
-                    color: `#${siAndroid.hex}`,
                   },
                   {
                     icon: siGooglecloud,
