@@ -4,22 +4,42 @@ import { WorkTimeline } from "@/components/WorkTimeline";
 import { PublicationsList } from "@/components/PublicationsList";
 import { cn } from "@/lib/utils";
 import sectionsData from "@/data/sections.json";
-import { siGithub, siYoutube, siGmail, siLinktree } from "simple-icons";
-import { Linkedin } from "lucide-react";
+import {
+  siGithub,
+  siYoutube,
+  siGmail,
+  siLinktree,
+  siTypescript,
+  siReact,
+  siNextdotjs,
+  siGit,
+  siClaude,
+  siPostgresql,
+  siTailwindcss,
+  siGraphql,
+  siFigma,
+  siCursor,
+  siIos,
+  siAndroid,
+} from "simple-icons";
+import { Bot, Cloud, Linkedin } from "lucide-react";
 
 function SimpleIconSvg({
   icon,
   className,
+  style,
   "aria-label": ariaLabel,
 }: {
   icon: { path: string };
   className?: string;
+  style?: React.CSSProperties;
   "aria-label"?: string;
 }) {
   return (
     <svg
       viewBox="0 0 24 24"
       className={className}
+      style={style}
       fill="currentColor"
       aria-hidden={!ariaLabel}
       aria-label={ariaLabel}
@@ -190,6 +210,75 @@ export default function App() {
               </a>
               , but I'm also skilled in front-end development with React.
             </p>
+
+            <div className="mt-10">
+              <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400">
+                Current Tech Stack
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  {
+                    icon: siReact,
+                    label: "React Native",
+                    color: `#${siReact.hex}`,
+                  },
+                  { icon: siReact, label: "React", color: `#${siReact.hex}` },
+                  {
+                    icon: siTypescript,
+                    label: "TypeScript",
+                    color: `#${siTypescript.hex}`,
+                  },
+                  { icon: siNextdotjs, label: "NextJS", color: "#FFFFFF" },
+                  { lucide: Cloud, label: "AWS", color: "#FF9900" },
+                  { icon: siGit, label: "Git", color: `#${siGit.hex}` },
+                  {
+                    icon: siClaude,
+                    label: "Claude Code",
+                    color: `#${siClaude.hex}`,
+                  },
+                  { lucide: Bot, label: "OpenAI", color: "#10A37F" },
+                  {
+                    icon: siPostgresql,
+                    label: "PostgreSQL",
+                    color: `#${siPostgresql.hex}`,
+                  },
+                  {
+                    icon: siTailwindcss,
+                    label: "Tailwind CSS",
+                    color: `#${siTailwindcss.hex}`,
+                  },
+                  {
+                    icon: siGraphql,
+                    label: "GraphQL",
+                    color: `#${siGraphql.hex}`,
+                  },
+                  { icon: siFigma, label: "Figma", color: `#${siFigma.hex}` },
+                  { icon: siCursor, label: "Cursor", color: "#FFFFFF" },
+                  { icon: siIos, label: "iOS", color: "#FFFFFF" },
+                  { icon: siAndroid, label: "Android", color: `#${siAndroid.hex}` },
+                ].map((item) => (
+                  <span
+                    key={item.label}
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-600 bg-slate-800/60 px-3 py-1.5 text-sm text-slate-200"
+                  >
+                    {"icon" in item && item.icon ? (
+                      <SimpleIconSvg
+                        icon={item.icon}
+                        className="h-4 w-4"
+                        aria-label={item.label}
+                        style={{ color: item.color }}
+                      />
+                    ) : "lucide" in item && item.lucide ? (
+                      <item.lucide
+                        className="h-4 w-4"
+                        style={{ color: item.color }}
+                      />
+                    ) : null}
+                    {item.label}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
