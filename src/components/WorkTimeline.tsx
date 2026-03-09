@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect, type KeyboardEvent } from "react";
 import { cn } from "@/lib/utils";
 import { Play, Image, ChevronRight, Layers, FileText, ExternalLink } from "lucide-react";
 import experiencesData from "@/data/experiences.json";
@@ -11,6 +11,16 @@ type Project = {
 type Experience = (typeof experiencesData)[number] & {
   projects?: Project[];
 };
+
+function handleToggleKeyDown(
+  e: KeyboardEvent,
+  toggle: () => void,
+) {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    toggle();
+  }
+}
 
 function MobileFrame({ project }: { project: Project }) {
   return (
@@ -66,29 +76,31 @@ function ArticlePreview({ project }: { project: Project }) {
 function ProjectList({ projects }: { projects: Project[] }) {
   const [activeProject, setActiveProject] = useState<string | null>(null);
 
-  const toggleProject = (name: string, hasMedia: boolean) => {
+  const toggleProject = useCallback((name: string, hasMedia: boolean) => {
     if (!hasMedia) return;
     setActiveProject((prev) => (prev === name ? null : name));
-  };
+  }, []);
 
   return (
     <div className="mt-3 border-t border-slate-400/30 pt-3">
-      <ul className="flex flex-col">
+      <ul className="flex flex-col" role="list">
         {projects.map((project) => {
           const hasMedia = !!project.media;
           const isActive = activeProject === project.name;
 
           return (
-            <li
-              key={project.name}
-              onMouseEnter={() => hasMedia && setActiveProject(project.name)}
-              onMouseLeave={() => setActiveProject(null)}
-            >
+            <li key={project.name}>
               <div
+                role={hasMedia ? "button" : undefined}
+                tabIndex={hasMedia ? 0 : undefined}
+                aria-expanded={hasMedia ? isActive : undefined}
                 onClick={() => toggleProject(project.name, hasMedia)}
+                onKeyDown={hasMedia ? (e) => handleToggleKeyDown(e, () => toggleProject(project.name, true)) : undefined}
+                onMouseEnter={() => hasMedia && setActiveProject(project.name)}
+                onMouseLeave={() => setActiveProject(null)}
                 className={cn(
-                  "flex items-center justify-between rounded-lg px-3 py-2 transition-all duration-200",
-                  hasMedia && "cursor-pointer",
+                  "flex items-center justify-between rounded-lg px-3 py-2 transition-all duration-200 outline-none",
+                  hasMedia && "cursor-pointer focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-1",
                   isActive && "bg-slate-300/60",
                 )}
               >
@@ -163,6 +175,12 @@ export function WorkTimeline() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const collapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  useEffect(() => {
+    return () => {
+      if (collapseTimerRef.current) clearTimeout(collapseTimerRef.current);
+    };
+  }, []);
+
   const toggleCard = useCallback((id: string, hasProjects: boolean) => {
     if (!hasProjects) return;
     setExpandedId((prev) => (prev === id ? null : id));
@@ -181,6 +199,21 @@ export function WorkTimeline() {
     collapseTimerRef.current = setTimeout(() => {
       setExpandedId(null);
     }, 300);
+  }, []);
+
+  const handleFocus = useCallback((id: string, hasProjects: boolean) => {
+    if (!hasProjects) return;
+    if (collapseTimerRef.current) {
+      clearTimeout(collapseTimerRef.current);
+      collapseTimerRef.current = null;
+    }
+    setExpandedId(id);
+  }, []);
+
+  const handleBlur = useCallback(() => {
+    collapseTimerRef.current = setTimeout(() => {
+      setExpandedId(null);
+    }, 200);
   }, []);
 
   return (
@@ -209,12 +242,19 @@ export function WorkTimeline() {
               </div>
 
               <div
+                role={hasProjects ? "button" : undefined}
+                tabIndex={hasProjects ? 0 : undefined}
+                aria-expanded={hasProjects ? isExpanded : undefined}
+                aria-label={hasProjects ? `${exp.title} at ${exp.company}, ${exp.projects!.length} projects` : undefined}
                 onClick={() => toggleCard(exp.id, hasProjects)}
+                onKeyDown={hasProjects ? (e) => handleToggleKeyDown(e, () => toggleCard(exp.id, true)) : undefined}
                 onMouseEnter={() => handleEnter(exp.id, hasProjects)}
                 onMouseLeave={handleLeave}
+                onFocus={() => handleFocus(exp.id, hasProjects)}
+                onBlur={handleBlur}
                 className={cn(
-                  "min-w-0 flex-1 rounded-xl bg-slate-200 px-3 py-3 shadow-sm transition-all duration-300 ease-out sm:rounded-2xl sm:px-5 sm:py-4",
-                  hasProjects && "cursor-pointer",
+                  "min-w-0 flex-1 rounded-xl bg-slate-200 px-3 py-3 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-5 sm:py-4",
+                  hasProjects && "cursor-pointer focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2",
                   isExpanded && "bg-white shadow-lg ring-1 ring-slate-300",
                 )}
               >

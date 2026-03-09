@@ -103,11 +103,12 @@ function SidebarNav({
   onSelect: (id: string) => void;
 }) {
   return (
-    <nav className="flex flex-col gap-2">
+    <nav aria-label="Page sections" className="flex flex-col gap-2">
       {sectionsData.map(({ id, label }) => (
         <Button
           key={id}
           variant="ghost"
+          aria-current={activeSection === id ? "true" : undefined}
           className={cn(
             "justify-start text-lg font-medium text-slate-400 transition-[transform,color,background-color,font-weight] duration-300 ease-in-out hover:scale-[1.02] hover:bg-white/10 hover:text-slate-200",
             activeSection === id && "font-bold text-white",
@@ -168,8 +169,23 @@ export default function App() {
     };
   }, [mobileMenuOpen]);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileMenuOpen]);
+
   return (
     <div className="flex h-screen w-full flex-col overflow-hidden bg-[#1A202C] md:flex-row">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-sky-600 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white focus:outline-none"
+      >
+        Skip to content
+      </a>
       {/* Mobile top bar */}
       <header className="flex items-center justify-between border-b border-slate-600 bg-[#1A202C] px-4 py-3 md:hidden">
         <div className="flex items-center gap-3">
@@ -202,6 +218,9 @@ export default function App() {
 
       {/* Mobile drawer */}
       <aside
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
         className={cn(
           "fixed inset-y-0 left-0 z-50 flex w-72 flex-col border-r border-slate-600 bg-[#1A202C] p-6 transition-transform duration-300 ease-in-out md:hidden",
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full",
@@ -256,6 +275,7 @@ export default function App() {
 
       {/* Scrollable content */}
       <main
+        id="main-content"
         ref={mainRef}
         className="flex-1 snap-y snap-mandatory overflow-y-auto"
       >
