@@ -123,6 +123,49 @@ function SidebarNav({
   );
 }
 
+function ProfileAvatar({
+  size,
+  ringSize,
+  className,
+}: {
+  size: string;
+  ringSize: string;
+  className?: string;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  return (
+    <div
+      className={cn("relative overflow-hidden rounded-full", size, ringSize, "ring-brand-400", className)}
+      onMouseEnter={() => videoRef.current?.play()}
+      onMouseLeave={() => {
+        const v = videoRef.current;
+        if (v) {
+          v.pause();
+          v.currentTime = 0;
+        }
+      }}
+    >
+      <img
+        src="/logos/profile.webp"
+        alt="Nyasha Nziramasanga"
+        className="h-full w-full object-cover"
+      />
+      <video
+        ref={videoRef}
+        src="/media/nash-beach.webm"
+        muted
+        loop
+        playsInline
+        preload="none"
+        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 hover:opacity-100 peer"
+        onPlay={(e) => e.currentTarget.classList.replace("opacity-0", "opacity-100")}
+        onPause={(e) => e.currentTarget.classList.replace("opacity-100", "opacity-0")}
+      />
+    </div>
+  );
+}
+
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>("about");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -190,11 +233,7 @@ export default function App() {
       {/* Mobile top bar */}
       <header className="flex items-center justify-between border-b border-brand-500 bg-brand-900 px-4 py-3 md:hidden">
         <div className="flex items-center gap-3">
-          <img
-            src="/logos/profile.webp"
-            alt="Nyasha Nziramasanga"
-            className="h-9 w-9 rounded-full object-cover ring-2 ring-brand-400"
-          />
+          <ProfileAvatar size="h-9 w-9" ringSize="ring-2" />
           <div>
             <p className="text-sm font-bold text-brand-50">Nash Nziramasanga</p>
             <p className="text-xs text-brand-300">Senior Software Engineer</p>
@@ -228,11 +267,7 @@ export default function App() {
         )}
       >
         <div className="mb-6 flex items-center justify-between">
-          <img
-            src="/logos/profile.webp"
-            alt="Nyasha Nziramasanga"
-            className="h-20 w-20 rounded-full object-cover ring-4 ring-brand-400"
-          />
+          <ProfileAvatar size="h-20 w-20" ringSize="ring-4" />
           <button
             onClick={() => setMobileMenuOpen(false)}
             className="rounded-lg p-2 text-brand-200 transition-colors hover:bg-brand-600/60 hover:text-brand-50"
@@ -256,11 +291,7 @@ export default function App() {
 
       {/* Desktop sidebar */}
       <aside className="hidden w-72 shrink-0 flex-col border-r border-brand-500 bg-brand-900 p-6 md:flex">
-        <img
-          src="/logos/profile.webp"
-          alt="Nyasha Nziramasanga"
-          className="mb-4 h-28 w-28 rounded-full object-cover ring-4 ring-brand-400"
-        />
+        <ProfileAvatar size="h-28 w-28" ringSize="ring-4" className="mb-4" />
         <h1 className="mb-1 text-xl font-bold text-brand-50">
           Nyasha (Nash) Nziramasanga
         </h1>
