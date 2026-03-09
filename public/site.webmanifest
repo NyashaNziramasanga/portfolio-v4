@@ -1,0 +1,15 @@
+{
+  "name": "Nyasha Nziramasanga — Portfolio",
+  "short_name": "Nash",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1A202C",
+  "theme_color": "#1A202C",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

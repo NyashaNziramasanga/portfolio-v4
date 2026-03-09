@@ -33,6 +33,7 @@ function MobileFrame({ project }: { project: Project }) {
               loop
               muted
               playsInline
+              preload="none"
               className="aspect-[9/19.5] w-full object-cover"
             >
               <source src={project.media.src} type="video/webm" />
@@ -42,6 +43,7 @@ function MobileFrame({ project }: { project: Project }) {
             <img
               src={project.media?.src}
               alt={project.name}
+              loading="lazy"
               className="aspect-[9/19.5] w-full object-cover"
             />
           )}
@@ -61,11 +63,12 @@ function ArticlePreview({ project }: { project: Project }) {
       className="group/article block py-3"
     >
       <div className="overflow-hidden rounded-xl border border-slate-300 bg-white shadow-sm transition-shadow group-hover/article:shadow-md">
-        <img
-          src={project.media?.src}
-          alt={project.name}
-          className="aspect-video w-full object-cover"
-        />
+          <img
+            src={project.media?.src}
+            alt={project.name}
+            loading="lazy"
+            className="aspect-video w-full object-cover"
+          />
         <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-sky-700">
           <ExternalLink className="h-3 w-3" />
           Read article
@@ -241,6 +244,7 @@ export function WorkTimeline() {
                 <img
                   src={exp.logo}
                   alt={exp.company}
+                  loading="lazy"
                   className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9"
                 />
               </div>
