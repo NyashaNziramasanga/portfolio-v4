@@ -1,0 +1,20 @@
+[
+  { "iconKey": "siReact", "label": "React Native" },
+  { "iconKey": "siReact", "label": "React" },
+  { "iconKey": "siIos", "label": "iOS", "colorOverride": "#FFFFFF" },
+  { "iconKey": "siAndroid", "label": "Android" },
+  { "iconKey": "siClaude", "label": "Claude Code" },
+  { "iconKey": "lucide:Bot", "label": "OpenAI", "colorOverride": "#10A37F" },
+  { "iconKey": "siTypescript", "label": "TypeScript" },
+  { "iconKey": "siFigma", "label": "Figma" },
+  { "iconKey": "siCursor", "label": "Cursor", "colorOverride": "#FFFFFF" },
+  { "iconKey": "siNextdotjs", "label": "NextJS", "colorOverride": "#FFFFFF" },
+  { "iconKey": "siPostgresql", "label": "PostgreSQL" },
+  { "iconKey": "siTailwindcss", "label": "Tailwind CSS" },
+  { "iconKey": "siGraphql", "label": "GraphQL" },
+  { "iconKey": "siGooglecloud", "label": "GCP" },
+  { "iconKey": "siBun", "label": "Bun", "colorOverride": "#FBDBA7" },
+  { "iconKey": "siNodedotjs", "label": "NodeJS" },
+  { "iconKey": "lucide:Cloud", "label": "AWS", "colorOverride": "#FF9900" },
+  { "iconKey": "siGit", "label": "Git" }
+]

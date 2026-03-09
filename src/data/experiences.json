@@ -5,7 +5,57 @@
     "title": "Senior Software Engineer II",
     "company": "Linktree",
     "dateStart": "Jan 2022",
-    "dateEnd": "Current"
+    "dateEnd": "Current",
+    "projects": [
+      {
+        "name": "App of the Day",
+        "media": {
+          "type": "image",
+          "src": "/media/linktree-app-of-the-day.webp"
+        }
+      },
+      {
+        "name": "Wallet",
+        "media": { "type": "video", "src": "/media/linktree-wallet.webm" }
+      },
+      {
+        "name": "Profile Editor",
+        "media": {
+          "type": "video",
+          "src": "/media/linktree-profile-editor.webm"
+        }
+      },
+      {
+        "name": "Rewards",
+        "media": { "type": "video", "src": "/media/linktree-rewards.webm" }
+      },
+      {
+        "name": "Bookings",
+        "media": { "type": "video", "src": "/media/linktree-bookings.webm" }
+      },
+      {
+        "name": "Shop",
+        "media": { "type": "video", "src": "/media/linktree-shop.webm" }
+      },
+      {
+        "name": "Consumer App",
+        "media": { "type": "video", "src": "/media/linktree-consumer-app.webm" }
+      },
+      {
+        "name": "New Onboarding",
+        "media": {
+          "type": "video",
+          "src": "/media/linktree-new-onboarding.webm"
+        }
+      },
+      {
+        "name": "Compare Subscription Plans",
+        "media": {
+          "type": "video",
+          "src": "/media/linktree-compare-subscription-plans.webm"
+        }
+      }
+    ]
   },
   {
     "id": "good-dog-design",
@@ -13,7 +63,8 @@
     "title": "Contract Software Engineer",
     "company": "Good Dog Design",
     "dateStart": "Mar 2021",
-    "dateEnd": "Dec 2021"
+    "dateEnd": "Dec 2021",
+    "projects": []
   },
   {
     "id": "flinders",
