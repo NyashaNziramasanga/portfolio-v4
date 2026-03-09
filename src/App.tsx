@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { Button } from "@/components/ui/button";
 import { WorkTimeline } from "@/components/WorkTimeline";
 import { PublicationsList } from "@/components/PublicationsList";
@@ -362,6 +363,7 @@ export default function App() {
           <PublicationsList />
         </section>
       </main>
+      <Analytics />
     </div>
   );
 }
