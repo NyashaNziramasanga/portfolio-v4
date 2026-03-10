@@ -223,11 +223,7 @@ export function WorkTimeline() {
   return (
     <div className="flex min-h-full flex-1 flex-col px-4 py-8 sm:px-8 sm:py-12">
       <h2 className="mb-6 text-xl font-bold text-brand-50 sm:mb-8 sm:text-2xl">Experience</h2>
-      <div className="relative flex flex-col gap-0">
-        <div
-          className="absolute bottom-10 left-5 top-10 w-px bg-white sm:left-7"
-          aria-hidden
-        />
+      <div className="flex flex-col gap-3">
         {(experiencesData as Experience[]).map((exp) => {
           const hasProjects = !!exp.projects?.length;
           const isExpanded = expandedId === exp.id;
@@ -235,17 +231,8 @@ export function WorkTimeline() {
           return (
             <div
               key={exp.id}
-              className="relative flex items-start gap-3 pb-8 last:pb-0 sm:gap-6 sm:pb-10"
+              className="relative flex items-start"
             >
-              <div className="relative z-10 mt-4 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-4 ring-brand-900 sm:h-14 sm:w-14">
-                <img
-                  src={exp.logo}
-                  alt={exp.company}
-                  loading="lazy"
-                  className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9"
-                />
-              </div>
-
               <div
                 role={hasProjects ? "button" : undefined}
                 tabIndex={hasProjects ? 0 : undefined}
@@ -264,13 +251,23 @@ export function WorkTimeline() {
                 )}
               >
                 <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-3">
-                  <div className="min-w-0">
-                    <h3 className="text-base font-bold text-brand-50 sm:text-lg">
-                      {exp.title}
-                    </h3>
-                    <p className="mt-0.5 text-xs font-normal text-brand-300 sm:text-sm">
-                      {exp.company}
-                    </p>
+                  <div className="flex min-w-0 items-start gap-3 sm:gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-transparent sm:h-14 sm:w-14">
+                      <img
+                        src={exp.logo}
+                        alt={exp.company}
+                        loading="lazy"
+                        className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-base font-bold text-brand-50 sm:text-lg">
+                        {exp.title}
+                      </h3>
+                      <p className="mt-0.5 text-xs font-normal text-brand-300 sm:text-sm">
+                        {exp.company}
+                      </p>
+                    </div>
                   </div>
                   <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5">
                     <p className="text-xs font-normal text-brand-300 sm:text-sm">
