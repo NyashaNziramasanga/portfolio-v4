@@ -231,25 +231,22 @@ export function WorkTimeline() {
           return (
             <div
               key={exp.id}
-              className="relative flex items-start"
+              role={hasProjects ? "button" : undefined}
+              tabIndex={hasProjects ? 0 : undefined}
+              aria-expanded={hasProjects ? isExpanded : undefined}
+              aria-label={hasProjects ? `${exp.title} at ${exp.company}, ${exp.projects!.length} projects` : undefined}
+              onClick={() => toggleCard(exp.id, hasProjects)}
+              onKeyDown={hasProjects ? (e) => handleToggleKeyDown(e, () => toggleCard(exp.id, true)) : undefined}
+              onMouseEnter={() => handleEnter(exp.id, hasProjects)}
+              onMouseLeave={handleLeave}
+              onFocus={() => handleFocus(exp.id, hasProjects)}
+              onBlur={handleBlur}
+              className={cn(
+                "w-full rounded-xl bg-brand-700 px-3 py-3 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-5 sm:py-4",
+                hasProjects && "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
+                isExpanded && "bg-brand-600 shadow-lg ring-1 ring-blue-500/30",
+              )}
             >
-              <div
-                role={hasProjects ? "button" : undefined}
-                tabIndex={hasProjects ? 0 : undefined}
-                aria-expanded={hasProjects ? isExpanded : undefined}
-                aria-label={hasProjects ? `${exp.title} at ${exp.company}, ${exp.projects!.length} projects` : undefined}
-                onClick={() => toggleCard(exp.id, hasProjects)}
-                onKeyDown={hasProjects ? (e) => handleToggleKeyDown(e, () => toggleCard(exp.id, true)) : undefined}
-                onMouseEnter={() => handleEnter(exp.id, hasProjects)}
-                onMouseLeave={handleLeave}
-                onFocus={() => handleFocus(exp.id, hasProjects)}
-                onBlur={handleBlur}
-                className={cn(
-                  "min-w-0 flex-1 rounded-xl bg-brand-700 px-3 py-3 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-5 sm:py-4",
-                  hasProjects && "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
-                  isExpanded && "bg-brand-600 shadow-lg ring-1 ring-blue-500/30",
-                )}
-              >
                 <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-3">
                   <div className="flex min-w-0 items-start gap-3 sm:gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-transparent sm:h-14 sm:w-14">
@@ -309,7 +306,6 @@ export function WorkTimeline() {
                     )}
                   </div>
                 </div>
-              </div>
             </div>
           );
         })}
