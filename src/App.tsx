@@ -318,7 +318,7 @@ export default function App() {
           }}
           className="flex min-h-screen snap-start items-center justify-center px-6 py-12 sm:px-10 sm:py-16"
         >
-          <div className="flex max-w-2xl flex-col">
+          <div className="flex max-w-3xl flex-col">
             <p className="mb-4 text-xl text-brand-200 sm:text-2xl">Hello 👋🏿</p>
             <p className="text-sm italic leading-relaxed text-brand-200 sm:text-base sm:leading-7">
               I'm a Software Engineer based in Melbourne, Australia with over{" "}
@@ -379,7 +379,7 @@ export default function App() {
           ref={(el) => {
             sectionRefs.current.experience = el;
           }}
-          className="flex min-h-screen snap-start items-center justify-center"
+          className="flex min-h-screen snap-start items-center justify-center px-6 py-12 sm:px-10 sm:py-16"
         >
           <WorkTimeline />
         </section>
@@ -389,7 +389,7 @@ export default function App() {
           ref={(el) => {
             sectionRefs.current.publications = el;
           }}
-          className="flex min-h-screen snap-start items-center justify-center"
+          className="flex min-h-screen snap-start items-center justify-center px-6 py-12 sm:px-10 sm:py-16"
         >
           <PublicationsList />
         </section>

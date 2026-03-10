@@ -221,7 +221,7 @@ export function WorkTimeline() {
   }, []);
 
   return (
-    <div className="flex w-full max-w-2xl flex-col px-6 py-12 sm:px-10 sm:py-16">
+    <div className="flex w-full max-w-3xl flex-col">
       <h2 className="mb-8 text-xl font-bold text-brand-50 sm:mb-10 sm:text-2xl">Experience</h2>
       <div className="flex flex-col gap-4">
         {(experiencesData as Experience[]).map((exp) => {
