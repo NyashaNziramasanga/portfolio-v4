@@ -184,7 +184,7 @@ export function PublicationsList() {
             >
               <div className="flex items-center gap-3 sm:gap-4">
                 <PlatformIcon platform={pub.platform} />
-                <span className="min-w-0 flex-1 text-sm font-medium sm:text-base">
+                <span className="min-w-0 flex-1 text-sm font-semibold sm:text-base">
                   {pub.title}
                 </span>
                 {hasMedia && (

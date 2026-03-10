@@ -319,8 +319,8 @@ export default function App() {
           className="flex min-h-screen snap-start items-center justify-center px-6 py-12 sm:px-10 sm:py-16"
         >
           <div className="flex max-w-3xl flex-col">
-            <p className="mb-4 text-xl text-brand-200 sm:text-2xl">Hello 👋🏿</p>
-            <p className="text-sm italic leading-relaxed text-brand-200 sm:text-base sm:leading-7">
+            <p className="mb-4 text-xl font-medium text-brand-200 sm:text-2xl">Hello 👋🏿</p>
+            <p className="text-sm leading-relaxed text-brand-200 sm:text-base sm:leading-7">
               I'm a Software Engineer based in Melbourne, Australia with over{" "}
               {YEARS_OF_EXPERIENCE} years of experience. I currently
               work at{" "}
