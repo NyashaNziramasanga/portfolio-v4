@@ -24,7 +24,7 @@ function handleToggleKeyDown(
 
 function MobileFrame({ project }: { project: Project }) {
   return (
-    <div className="flex justify-center py-3">
+    <div className="flex justify-center py-4">
       {project.media?.type === "video" ? (
         <video
           autoPlay
@@ -55,16 +55,16 @@ function ArticlePreview({ project }: { project: Project }) {
       href={project.media?.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/article block py-3"
+      className="group/article block py-4"
     >
       <div className="overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
-          <img
-            src={project.media?.src}
-            alt={project.name}
-            loading="lazy"
-            className="aspect-video w-full object-cover"
-          />
-        <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-blue-300">
+        <img
+          src={project.media?.src}
+          alt={project.name}
+          loading="lazy"
+          className="aspect-video w-full object-cover"
+        />
+        <div className="flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium text-blue-300">
           <ExternalLink className="h-3 w-3" />
           Read article
         </div>
@@ -82,7 +82,7 @@ function ProjectList({ projects }: { projects: Project[] }) {
   }, []);
 
   return (
-    <div className="mt-3 border-t border-brand-400/30 pt-3">
+    <div className="mt-4 border-t border-brand-500/50 pt-4">
       <ul className="flex flex-col" role="list">
         {projects.map((project) => {
           const hasMedia = !!project.media;
@@ -101,7 +101,7 @@ function ProjectList({ projects }: { projects: Project[] }) {
                 onClick={() => toggleProject(project.name, hasMedia)}
                 onKeyDown={hasMedia ? (e) => handleToggleKeyDown(e, () => toggleProject(project.name, true)) : undefined}
                 className={cn(
-                  "flex items-center justify-between rounded-lg px-3 py-2 transition-all duration-200 outline-none",
+                  "flex items-center justify-between rounded-lg px-3 py-2.5 transition-all duration-200 outline-none",
                   hasMedia && "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1",
                   isActive && "bg-brand-500/30",
                 )}
@@ -221,9 +221,9 @@ export function WorkTimeline() {
   }, []);
 
   return (
-    <div className="flex min-h-full flex-1 flex-col px-4 py-8 sm:px-8 sm:py-12">
-      <h2 className="mb-6 text-xl font-bold text-brand-50 sm:mb-8 sm:text-2xl">Experience</h2>
-      <div className="flex flex-col gap-3">
+    <div className="flex min-h-full flex-1 flex-col px-6 py-12 sm:px-10 sm:py-16">
+      <h2 className="mb-8 text-xl font-bold text-brand-50 sm:mb-10 sm:text-2xl">Experience</h2>
+      <div className="flex max-w-2xl flex-col gap-4">
         {(experiencesData as Experience[]).map((exp) => {
           const hasProjects = !!exp.projects?.length;
           const isExpanded = expandedId === exp.id;
@@ -242,7 +242,7 @@ export function WorkTimeline() {
               onFocus={() => handleFocus(exp.id, hasProjects)}
               onBlur={handleBlur}
               className={cn(
-                "w-full rounded-xl bg-brand-700 px-3 py-3 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-5 sm:py-4",
+                "w-full rounded-xl bg-brand-700 px-4 py-4 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-6 sm:py-5",
                 hasProjects && "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
                 isExpanded && "bg-brand-600 shadow-lg ring-1 ring-blue-500/30",
               )}

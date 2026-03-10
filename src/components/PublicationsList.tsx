@@ -71,7 +71,7 @@ function PlatformIcon({ platform }: { platform: Platform }) {
 
 function VideoEmbed({ src, title }: { src: string; title: string }) {
   return (
-    <div className="py-3">
+    <div className="py-4">
       <div className="overflow-hidden rounded-xl">
         <iframe
           src={src}
@@ -91,7 +91,7 @@ function ArticlePreview({ pub }: { pub: Publication }) {
       href={pub.media?.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/article block py-3"
+      className="group/article block py-4"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
@@ -101,7 +101,7 @@ function ArticlePreview({ pub }: { pub: Publication }) {
           loading="lazy"
           className="aspect-video w-full object-cover"
         />
-        <div className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-blue-300">
+        <div className="flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium text-blue-300">
           <ExternalLink className="h-3 w-3" />
           Read article
         </div>
@@ -153,11 +153,11 @@ export function PublicationsList() {
   }, []);
 
   return (
-    <div className="flex min-h-full flex-1 flex-col px-4 py-8 sm:px-8 sm:py-12">
-      <h2 className="mb-6 text-xl font-bold text-brand-50 sm:mb-8 sm:text-2xl">
+    <div className="flex min-h-full flex-1 flex-col px-6 py-12 sm:px-10 sm:py-16">
+      <h2 className="mb-8 text-xl font-bold text-brand-50 sm:mb-10 sm:text-2xl">
         Publications
       </h2>
-      <div className="flex flex-col gap-3">
+      <div className="flex max-w-2xl flex-col gap-4">
         {(publicationsData as Publication[]).map((pub) => {
           const hasMedia = !!pub.media?.type;
           const isExpanded = expandedId === pub.id;
@@ -177,7 +177,7 @@ export function PublicationsList() {
               onFocus={() => handleFocus(pub.id)}
               onBlur={handleBlur}
               className={cn(
-                "cursor-pointer rounded-2xl bg-brand-700 px-3 py-2.5 text-brand-50 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-4 sm:py-3",
+                "cursor-pointer rounded-xl bg-brand-700 px-4 py-4 text-brand-50 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-6 sm:py-5",
                 "focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
                 isExpanded && "bg-brand-600 shadow-lg ring-1 ring-blue-500/30",
               )}
