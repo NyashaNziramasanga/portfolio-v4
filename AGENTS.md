@@ -14,6 +14,7 @@ Portfolio v4 — a personal portfolio website for Nyasha Nziramasanga (Senior So
 - **Package Manager:** Bun (1.2.22)
 - **Styling:** Tailwind CSS 3 with tailwindcss-animate, class-variance-authority (CVA), tailwind-merge, clsx
 - **Icons:** simple-icons (brand/tech icons), lucide-react (UI icons)
+- **Analytics:** @vercel/analytics
 - **Module System:** ES Modules
 
 ## Commands
@@ -46,6 +47,7 @@ src/
 ├── index.css                  # Tailwind directives + CSS custom properties
 └── vite-env.d.ts              # Vite client type reference
 public/
+├── logos/                     # Profile and company logos (.ico, .png, .webp)
 ├── media/                     # Project demo videos (.mp4, .webm) and images (.webp)
 ├── favicon.svg                # SVG favicon
 ├── og-image.png               # Open Graph preview image
