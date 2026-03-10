@@ -379,7 +379,7 @@ export default function App() {
           ref={(el) => {
             sectionRefs.current.experience = el;
           }}
-          className="min-h-screen snap-start"
+          className="flex min-h-screen snap-start items-center justify-center"
         >
           <WorkTimeline />
         </section>
@@ -389,7 +389,7 @@ export default function App() {
           ref={(el) => {
             sectionRefs.current.publications = el;
           }}
-          className="min-h-screen snap-start"
+          className="flex min-h-screen snap-start items-center justify-center"
         >
           <PublicationsList />
         </section>
