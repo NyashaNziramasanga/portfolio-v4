@@ -9,15 +9,25 @@ export function useActiveSection() {
     const main = mainRef.current;
     if (!main) return;
 
+    const ratios = new Map<string, number>();
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+          ratios.set(entry.target.id, entry.intersectionRatio);
+        }
+
+        let best: string | null = null;
+        let bestRatio = -1;
+        for (const [id, ratio] of ratios) {
+          if (ratio > bestRatio) {
+            best = id;
+            bestRatio = ratio;
           }
         }
+        if (best) setActiveSection(best);
       },
-      { root: main, rootMargin: "0px 0px -60% 0px", threshold: 0 },
+      { root: main, threshold: [0, 0.25, 0.5, 0.75, 1] },
     );
 
     Object.values(sectionRefs.current).forEach((el) => {
