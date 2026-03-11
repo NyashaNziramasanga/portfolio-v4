@@ -102,8 +102,8 @@ export function PublicationsList() {
               onBlur={handleBlur}
               className={cn(
                 "cursor-pointer rounded-xl bg-brand-700 px-4 py-4 text-brand-50 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-6 sm:py-5",
-                "focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
-                isExpanded && "bg-brand-600 shadow-lg ring-1 ring-blue-500/30",
+                "focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
+                isExpanded && "bg-brand-600 shadow-lg ring-1 ring-primary/30",
               )}
             >
               <div className="flex items-center gap-3 sm:gap-4">

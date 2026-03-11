@@ -109,7 +109,7 @@ function ProjectsPanel({ projects }: { projects: Project[] }) {
                     className={cn(
                       "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left transition-all duration-200 outline-none",
                       hasMedia
-                        ? "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1"
+                        ? "cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1"
                         : "cursor-default opacity-60",
                       isActive && hasMedia && "bg-brand-500/30",
                       !isActive && hasMedia && "hover:bg-brand-500/15",
@@ -152,10 +152,10 @@ function ProjectsPanel({ projects }: { projects: Project[] }) {
                 className={cn(
                   "rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200 outline-none",
                   hasMedia
-                    ? "focus-visible:ring-2 focus-visible:ring-blue-500"
+                    ? "focus-visible:ring-2 focus-visible:ring-primary"
                     : "cursor-default opacity-60",
                   isActive && hasMedia
-                    ? "bg-blue-800/40 text-blue-300 ring-1 ring-blue-500/30"
+                    ? "bg-blue-800/40 text-blue-300 ring-1 ring-primary/30"
                     : hasMedia
                       ? "bg-brand-700 text-brand-300 hover:bg-brand-600"
                       : "bg-brand-700/50 text-brand-400",
@@ -203,8 +203,8 @@ export function WorkTimeline() {
               onBlur={handleBlur}
               className={cn(
                 "w-full rounded-xl bg-brand-700 px-4 py-4 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-6 sm:py-5",
-                hasProjects && "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
-                isExpanded && "bg-brand-600 shadow-lg ring-1 ring-blue-500/30",
+                hasProjects && "cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
+                isExpanded && "bg-brand-600 shadow-lg ring-1 ring-primary/30",
               )}
             >
               <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-3">
