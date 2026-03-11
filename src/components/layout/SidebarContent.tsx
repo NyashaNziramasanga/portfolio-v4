@@ -31,8 +31,8 @@ export function SidebarContent({
       </h1>
       <h2
         className={cn(
-          "font-medium text-brand-300",
-          isMobile ? "mb-5 text-sm" : "mb-5 text-base",
+          "mb-5 font-medium text-brand-300",
+          isMobile ? "text-sm" : "text-base",
         )}
       >
         Senior Software Engineer
