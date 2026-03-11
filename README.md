@@ -45,13 +45,6 @@ bun run preview      # Preview production build
 bun run react-doctor # Run react-doctor diagnostics
 ```
 
-## Layout
-
-- **Left panel**: Fixed nav with buttons — About, Experience, Projects, Publications.
-- **Right panel**: Scrollable content; clicking a nav button smoothly scrolls to the matching section.
-
-Design reference: [Figma: Portfolio v4](https://www.figma.com/design/T7b8Kk55LVc6Oa7bUzMxWc/Portfolio-v4?node-id=3140-94)
-
 ## Deployment
 
 Deployed on [Vercel](https://vercel.com/) from the main branch. Includes [@vercel/analytics](https://vercel.com/docs/analytics) for page view tracking.
