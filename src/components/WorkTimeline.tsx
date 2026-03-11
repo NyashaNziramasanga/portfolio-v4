@@ -27,7 +27,7 @@ function MediaPreview({ project }: { project: Project }) {
         onClick={(e) => e.stopPropagation()}
         className="group/article block max-w-sm"
       >
-        <div className="animate-float overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
+        <div className="animate-float overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-lg shadow-black/25 transition-shadow group-hover/article:shadow-xl group-hover/article:shadow-black/30">
           <img
             src={project.media.src}
             alt={project.name}
