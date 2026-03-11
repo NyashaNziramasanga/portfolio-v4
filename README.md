@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/badge/license-MIT-blue" alt="License"/>
   </p>
 
-<video src="https://github.com/NyashaNziramasanga/portfolio-v4/raw/main/online-portfolio-v4.webm" autoplay loop muted playsinline></video>
+  <img src="./online-portfolio-v4.gif" alt="Portfolio demo" width="600"/>
 
 </div>
 
