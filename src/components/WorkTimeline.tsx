@@ -27,7 +27,7 @@ function MediaPreview({ project }: { project: Project }) {
         onClick={(e) => e.stopPropagation()}
         className="group/article block max-w-sm"
       >
-        <div className="overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
+        <div className="animate-float overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
           <img
             src={project.media.src}
             alt={project.name}
@@ -65,7 +65,7 @@ function MediaPreview({ project }: { project: Project }) {
       src={project.media.src}
       alt={project.name}
       loading="lazy"
-      className="aspect-[9/19.5] max-h-[400px] rounded-2xl object-cover shadow-lg shadow-black/30"
+      className="animate-float aspect-[9/19.5] max-h-[400px] rounded-2xl object-cover shadow-lg shadow-black/30"
     />
   );
 }
