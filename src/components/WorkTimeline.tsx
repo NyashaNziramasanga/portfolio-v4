@@ -1,10 +1,9 @@
 import { useState, useCallback } from "react";
 import { cn, handleToggleKeyDown } from "@/lib/utils";
-import { ChevronRight, Layers } from "lucide-react";
+import { ChevronRight, Layers, ExternalLink } from "lucide-react";
 import { useExpandCollapse } from "@/hooks/useExpandCollapse";
 import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
 import { MediaBadge } from "@/components/ui/media-badge";
-import { ArticlePreview } from "@/components/ui/article-preview";
 import experiencesData from "@/data/experiences.json";
 
 type Project = {
@@ -16,93 +15,168 @@ type Experience = (typeof experiencesData)[number] & {
   projects?: Project[];
 };
 
-function MobileFrame({ project }: { project: Project }) {
+function MediaPreview({ project }: { project: Project }) {
+  if (!project.media) return null;
+
+  if (project.media.type === "article") {
+    return (
+      <a
+        href={project.media.link!}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
+        className="group/article block max-w-sm"
+      >
+        <div className="overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
+          <img
+            src={project.media.src}
+            alt={project.name}
+            loading="lazy"
+            className="aspect-video w-full object-cover"
+          />
+          <div className="flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium text-blue-300">
+            <ExternalLink className="h-3 w-3" />
+            Read article
+          </div>
+        </div>
+      </a>
+    );
+  }
+
+  if (project.media.type === "video") {
+    return (
+      <video
+        key={project.media.src}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="none"
+        className="aspect-[9/19.5] max-h-[400px] rounded-2xl object-cover shadow-lg shadow-black/30"
+      >
+        <source src={project.media.src} type="video/webm" />
+        <source src={project.media.src.replace(".webm", ".mp4")} type="video/mp4" />
+      </video>
+    );
+  }
+
   return (
-    <div className="flex justify-center py-4">
-      {project.media?.type === "video" ? (
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="none"
-          className="aspect-[9/19.5] w-[140px] rounded-xl object-cover sm:w-[180px]"
-        >
-          <source src={project.media.src} type="video/webm" />
-          <source src={project.media.src.replace(".webm", ".mp4")} type="video/mp4" />
-        </video>
-      ) : (
-        <img
-          src={project.media?.src}
-          alt={project.name}
-          loading="lazy"
-          className="aspect-[9/19.5] w-[140px] rounded-xl object-cover sm:w-[180px]"
-        />
-      )}
-    </div>
+    <img
+      src={project.media.src}
+      alt={project.name}
+      loading="lazy"
+      className="aspect-[9/19.5] max-h-[400px] rounded-2xl object-cover shadow-lg shadow-black/30"
+    />
   );
 }
 
-function ProjectList({ projects }: { projects: Project[] }) {
-  const [activeProject, setActiveProject] = useState<string | null>(null);
+function ProjectsPanel({ projects }: { projects: Project[] }) {
+  const mediaProjects = projects.filter((p) => !!p.media);
+  const [activeProject, setActiveProject] = useState<string | null>(
+    mediaProjects[0]?.name ?? null,
+  );
 
-  const toggleProject = useCallback((name: string, hasMedia: boolean) => {
-    if (!hasMedia) return;
-    setActiveProject((prev) => (prev === name ? null : name));
-  }, []);
+  const selectProject = useCallback(
+    (name: string, e: React.MouseEvent | React.KeyboardEvent) => {
+      e.stopPropagation();
+      setActiveProject(name);
+    },
+    [],
+  );
+
+  const activeItem = mediaProjects.find((p) => p.name === activeProject);
 
   return (
-    <div className="mt-4 border-t border-brand-500/50 pt-4">
-      <ul className="flex flex-col" role="list">
-        {projects.map((project) => {
-          const hasMedia = !!project.media;
-          const isActive = activeProject === project.name;
+    <div
+      className="mt-4 border-t border-brand-500/50 pt-4"
+      onClick={(e) => e.stopPropagation()}
+      onKeyDown={(e) => e.stopPropagation()}
+    >
+      {/* Desktop: side-by-side list + preview */}
+      <div className="hidden gap-5 lg:flex">
+        <div className="w-[240px] shrink-0">
+          <ul className="flex flex-col" role="list">
+            {projects.map((project) => {
+              const hasMedia = !!project.media;
+              const isActive = activeProject === project.name;
 
-          return (
-            <li
-              key={project.name}
-              onMouseEnter={() => hasMedia && setActiveProject(project.name)}
-              onMouseLeave={() => hasMedia && setActiveProject(null)}
-            >
-              <div
-                role={hasMedia ? "button" : undefined}
-                tabIndex={hasMedia ? 0 : undefined}
-                aria-expanded={hasMedia ? isActive : undefined}
-                onClick={() => toggleProject(project.name, hasMedia)}
-                onKeyDown={hasMedia ? (e) => handleToggleKeyDown(e, () => toggleProject(project.name, true)) : undefined}
+              return (
+                <li key={project.name}>
+                  <button
+                    type="button"
+                    disabled={!hasMedia}
+                    onClick={(e) => hasMedia && selectProject(project.name, e)}
+                    className={cn(
+                      "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left transition-all duration-200 outline-none",
+                      hasMedia
+                        ? "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1"
+                        : "cursor-default opacity-60",
+                      isActive && hasMedia && "bg-brand-500/30",
+                      !isActive && hasMedia && "hover:bg-brand-500/15",
+                    )}
+                  >
+                    <span className="text-sm font-medium text-brand-100">
+                      {project.name}
+                    </span>
+                    {project.media && (
+                      <MediaBadge type={project.media.type} expanded={isActive} />
+                    )}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <div className="flex flex-1 items-center justify-center rounded-xl bg-brand-800/60 p-6">
+          {activeItem ? (
+            <div className="flex flex-col items-center gap-3">
+              <MediaPreview project={activeItem} />
+              <p className="text-sm font-semibold text-brand-100">
+                {activeItem.name}
+              </p>
+            </div>
+          ) : (
+            <p className="text-sm text-brand-400">Select a project to preview</p>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile: chip selector + stacked preview */}
+      <div className="flex flex-col gap-4 lg:hidden">
+        <div className="flex flex-wrap gap-2">
+          {projects.map((project) => {
+            const hasMedia = !!project.media;
+            const isActive = activeProject === project.name;
+            return (
+              <button
+                key={project.name}
+                type="button"
+                disabled={!hasMedia}
+                onClick={(e) => hasMedia && selectProject(project.name, e)}
                 className={cn(
-                  "flex items-center justify-between rounded-lg px-3 py-2.5 transition-all duration-200 outline-none",
-                  hasMedia && "cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1",
-                  isActive && "bg-brand-500/30",
+                  "rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-200 outline-none",
+                  hasMedia
+                    ? "focus-visible:ring-2 focus-visible:ring-blue-500"
+                    : "cursor-default opacity-60",
+                  isActive && hasMedia
+                    ? "bg-blue-800/40 text-blue-300 ring-1 ring-blue-500/30"
+                    : hasMedia
+                      ? "bg-brand-700 text-brand-300 hover:bg-brand-600"
+                      : "bg-brand-700/50 text-brand-400",
                 )}
               >
-                <span className="text-sm font-medium text-brand-100">
-                  {project.name}
-                </span>
-                {project.media && (
-                  <MediaBadge type={project.media.type} expanded={isActive} />
-                )}
-              </div>
-
-              {hasMedia && (
-                <CollapsiblePanel open={isActive}>
-                  {isActive && (
-                    project.media?.type === "article" ? (
-                      <ArticlePreview
-                        href={project.media.link!}
-                        imageSrc={project.media.src}
-                        imageAlt={project.name}
-                      />
-                    ) : (
-                      <MobileFrame project={project} />
-                    )
-                  )}
-                </CollapsiblePanel>
-              )}
-            </li>
-          );
-        })}
-      </ul>
+                {project.name}
+              </button>
+            );
+          })}
+        </div>
+        {activeItem && (
+          <div className="flex justify-center py-2">
+            <MediaPreview project={activeItem} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -112,7 +186,7 @@ export function WorkTimeline() {
     useExpandCollapse();
 
   return (
-    <div className="flex w-full max-w-3xl flex-col">
+    <div className="flex w-full max-w-5xl flex-col">
       <h2 className="mb-8 text-xl font-bold text-brand-50 sm:mb-10 sm:text-2xl">Experience</h2>
       <div className="flex flex-col gap-4">
         {(experiencesData as Experience[]).map((exp) => {
@@ -184,7 +258,9 @@ export function WorkTimeline() {
               </div>
 
               <CollapsiblePanel open={isExpanded}>
-                {hasProjects && <ProjectList projects={exp.projects!} />}
+                {hasProjects && isExpanded && (
+                  <ProjectsPanel projects={exp.projects!} />
+                )}
               </CollapsiblePanel>
             </div>
           );
