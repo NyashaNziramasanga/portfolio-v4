@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/badge/license-MIT-blue" alt="License"/>
   </p>
 
-  <img src="./online-portfolio-v4.gif" alt="Portfolio demo" width="600"/>
+  <img src="./online-portfolio-v4.gif" alt="Portfolio demo" width="100%"/>
 
 </div>
 
