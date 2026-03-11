@@ -1,12 +1,8 @@
-import {
-  useState,
-  useRef,
-  useCallback,
-  useEffect,
-  type KeyboardEvent,
-} from "react";
-import { cn } from "@/lib/utils";
-import { Play, FileText, ExternalLink } from "lucide-react";
+import { cn, handleToggleKeyDown } from "@/lib/utils";
+import { useExpandCollapse } from "@/hooks/useExpandCollapse";
+import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
+import { MediaBadge } from "@/components/ui/media-badge";
+import { ArticlePreview } from "@/components/ui/article-preview";
 import publicationsData from "@/data/publications.json";
 
 type Publication = (typeof publicationsData)[number] & {
@@ -18,13 +14,6 @@ type Publication = (typeof publicationsData)[number] & {
 };
 
 type Platform = Publication["platform"];
-
-function handleToggleKeyDown(e: KeyboardEvent, toggle: () => void) {
-  if (e.key === "Enter" || e.key === " ") {
-    e.preventDefault();
-    toggle();
-  }
-}
 
 function PlatformIcon({ platform }: { platform: Platform }) {
   if (platform === "youtube") {
@@ -85,72 +74,9 @@ function VideoEmbed({ src, title }: { src: string; title: string }) {
   );
 }
 
-function ArticlePreview({ pub }: { pub: Publication }) {
-  return (
-    <a
-      href={pub.media?.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group/article block py-4"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <div className="overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
-        <img
-          src={pub.media?.src}
-          alt={pub.title}
-          loading="lazy"
-          className="aspect-video w-full object-cover"
-        />
-        <div className="flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium text-blue-300">
-          <ExternalLink className="h-3 w-3" />
-          Read article
-        </div>
-      </div>
-    </a>
-  );
-}
-
 export function PublicationsList() {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-  const collapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (collapseTimerRef.current) clearTimeout(collapseTimerRef.current);
-    };
-  }, []);
-
-  const toggleCard = useCallback((id: string) => {
-    setExpandedId((prev) => (prev === id ? null : id));
-  }, []);
-
-  const handleEnter = useCallback((id: string) => {
-    if (collapseTimerRef.current) {
-      clearTimeout(collapseTimerRef.current);
-      collapseTimerRef.current = null;
-    }
-    setExpandedId(id);
-  }, []);
-
-  const handleLeave = useCallback(() => {
-    collapseTimerRef.current = setTimeout(() => {
-      setExpandedId(null);
-    }, 300);
-  }, []);
-
-  const handleFocus = useCallback((id: string) => {
-    if (collapseTimerRef.current) {
-      clearTimeout(collapseTimerRef.current);
-      collapseTimerRef.current = null;
-    }
-    setExpandedId(id);
-  }, []);
-
-  const handleBlur = useCallback(() => {
-    collapseTimerRef.current = setTimeout(() => {
-      setExpandedId(null);
-    }, 200);
-  }, []);
+  const { expandedId, toggle, handleEnter, handleLeave, handleFocus, handleBlur } =
+    useExpandCollapse();
 
   return (
     <div className="flex w-full max-w-3xl flex-col">
@@ -168,10 +94,8 @@ export function PublicationsList() {
               role="button"
               tabIndex={0}
               aria-expanded={hasMedia ? isExpanded : undefined}
-              onClick={() => toggleCard(pub.id)}
-              onKeyDown={(e) =>
-                handleToggleKeyDown(e, () => toggleCard(pub.id))
-              }
+              onClick={() => toggle(pub.id)}
+              onKeyDown={(e) => handleToggleKeyDown(e, () => toggle(pub.id))}
               onMouseEnter={() => handleEnter(pub.id)}
               onMouseLeave={handleLeave}
               onFocus={() => handleFocus(pub.id)}
@@ -188,51 +112,28 @@ export function PublicationsList() {
                   {pub.title}
                 </span>
                 {hasMedia && (
-                  <span
-                    className={cn(
-                      "inline-flex shrink-0 items-center rounded-full p-1.5 text-xs font-medium transition-all duration-200",
-                      pub.media!.type === "video"
-                        ? "bg-blue-800/40 text-blue-300"
-                        : "bg-amber-900/40 text-amber-400",
-                    )}
-                  >
-                    {pub.media!.type === "video" ? (
-                      <Play className="h-3 w-3 shrink-0" />
-                    ) : (
-                      <FileText className="h-3 w-3 shrink-0" />
-                    )}
-                    <span
-                      className={cn(
-                        "overflow-hidden whitespace-nowrap transition-all duration-200",
-                        isExpanded
-                          ? "ml-1 max-w-[60px] opacity-100"
-                          : "ml-0 max-w-0 opacity-0",
-                      )}
-                    >
-                      {pub.media!.type === "video" ? "Video" : "Article"}
-                    </span>
-                  </span>
+                  <MediaBadge
+                    type={pub.media!.type}
+                    expanded={isExpanded}
+                    className="shrink-0"
+                  />
                 )}
               </div>
 
               {hasMedia && (
-                <div
-                  className={cn(
-                    "grid transition-all duration-300 ease-out",
-                    isExpanded
-                      ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0",
-                  )}
-                >
-                  <div className="overflow-hidden">
-                    {isExpanded &&
-                      (pub.media?.type === "video" ? (
-                        <VideoEmbed src={pub.media.src} title={pub.title} />
-                      ) : (
-                        <ArticlePreview pub={pub} />
-                      ))}
-                  </div>
-                </div>
+                <CollapsiblePanel open={isExpanded}>
+                  {isExpanded &&
+                    (pub.media?.type === "video" ? (
+                      <VideoEmbed src={pub.media.src} title={pub.title} />
+                    ) : (
+                      <ArticlePreview
+                        href={pub.media!.link!}
+                        imageSrc={pub.media!.src}
+                        imageAlt={pub.title}
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    ))}
+                </CollapsiblePanel>
               )}
             </div>
           );

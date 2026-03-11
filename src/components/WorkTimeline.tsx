@@ -1,6 +1,10 @@
-import { useState, useRef, useCallback, useEffect, type KeyboardEvent } from "react";
-import { cn } from "@/lib/utils";
-import { Play, Image, ChevronRight, Layers, FileText, ExternalLink } from "lucide-react";
+import { useState, useCallback } from "react";
+import { cn, handleToggleKeyDown } from "@/lib/utils";
+import { ChevronRight, Layers } from "lucide-react";
+import { useExpandCollapse } from "@/hooks/useExpandCollapse";
+import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
+import { MediaBadge } from "@/components/ui/media-badge";
+import { ArticlePreview } from "@/components/ui/article-preview";
 import experiencesData from "@/data/experiences.json";
 
 type Project = {
@@ -11,16 +15,6 @@ type Project = {
 type Experience = (typeof experiencesData)[number] & {
   projects?: Project[];
 };
-
-function handleToggleKeyDown(
-  e: KeyboardEvent,
-  toggle: () => void,
-) {
-  if (e.key === "Enter" || e.key === " ") {
-    e.preventDefault();
-    toggle();
-  }
-}
 
 function MobileFrame({ project }: { project: Project }) {
   return (
@@ -46,30 +40,6 @@ function MobileFrame({ project }: { project: Project }) {
         />
       )}
     </div>
-  );
-}
-
-function ArticlePreview({ project }: { project: Project }) {
-  return (
-    <a
-      href={project.media?.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group/article block py-4"
-    >
-      <div className="overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
-        <img
-          src={project.media?.src}
-          alt={project.name}
-          loading="lazy"
-          className="aspect-video w-full object-cover"
-        />
-        <div className="flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium text-blue-300">
-          <ExternalLink className="h-3 w-3" />
-          Read article
-        </div>
-      </div>
-    </a>
   );
 }
 
@@ -110,62 +80,24 @@ function ProjectList({ projects }: { projects: Project[] }) {
                   {project.name}
                 </span>
                 {project.media && (
-                  <span
-                    className={cn(
-                      "inline-flex items-center rounded-full p-1.5 text-xs font-medium transition-all duration-200",
-                      project.media.type === "video"
-                        ? "bg-blue-800/40 text-blue-300"
-                        : project.media.type === "article"
-                          ? "bg-amber-900/40 text-amber-400"
-                          : project.media.type === "image"
-                            ? "bg-emerald-900/40 text-emerald-400"
-                            : "bg-violet-900/40 text-violet-400",
-                    )}
-                  >
-                    {project.media.type === "video" ? (
-                      <Play className="h-3 w-3 shrink-0" />
-                    ) : project.media.type === "article" ? (
-                      <FileText className="h-3 w-3 shrink-0" />
-                    ) : (
-                      <Image className="h-3 w-3 shrink-0" />
-                    )}
-                    <span
-                      className={cn(
-                        "overflow-hidden whitespace-nowrap transition-all duration-200",
-                        isActive ? "ml-1 max-w-[60px] opacity-100" : "ml-0 max-w-0 opacity-0",
-                      )}
-                    >
-                      {project.media.type === "video"
-                        ? "Video"
-                        : project.media.type === "article"
-                          ? "Article"
-                          : project.media.type === "image"
-                            ? "Image"
-                            : "GIF"}
-                    </span>
-                  </span>
+                  <MediaBadge type={project.media.type} expanded={isActive} />
                 )}
               </div>
 
               {hasMedia && (
-                <div
-                  className={cn(
-                    "grid transition-all duration-300 ease-out",
-                    isActive
-                      ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0",
+                <CollapsiblePanel open={isActive}>
+                  {isActive && (
+                    project.media?.type === "article" ? (
+                      <ArticlePreview
+                        href={project.media.link!}
+                        imageSrc={project.media.src}
+                        imageAlt={project.name}
+                      />
+                    ) : (
+                      <MobileFrame project={project} />
+                    )
                   )}
-                >
-                  <div className="overflow-hidden">
-                    {isActive && (
-                      project.media?.type === "article" ? (
-                        <ArticlePreview project={project} />
-                      ) : (
-                        <MobileFrame project={project} />
-                      )
-                    )}
-                  </div>
-                </div>
+                </CollapsiblePanel>
               )}
             </li>
           );
@@ -176,49 +108,8 @@ function ProjectList({ projects }: { projects: Project[] }) {
 }
 
 export function WorkTimeline() {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-  const collapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      if (collapseTimerRef.current) clearTimeout(collapseTimerRef.current);
-    };
-  }, []);
-
-  const toggleCard = useCallback((id: string, hasProjects: boolean) => {
-    if (!hasProjects) return;
-    setExpandedId((prev) => (prev === id ? null : id));
-  }, []);
-
-  const handleEnter = useCallback((id: string, hasProjects: boolean) => {
-    if (!hasProjects) return;
-    if (collapseTimerRef.current) {
-      clearTimeout(collapseTimerRef.current);
-      collapseTimerRef.current = null;
-    }
-    setExpandedId(id);
-  }, []);
-
-  const handleLeave = useCallback(() => {
-    collapseTimerRef.current = setTimeout(() => {
-      setExpandedId(null);
-    }, 300);
-  }, []);
-
-  const handleFocus = useCallback((id: string, hasProjects: boolean) => {
-    if (!hasProjects) return;
-    if (collapseTimerRef.current) {
-      clearTimeout(collapseTimerRef.current);
-      collapseTimerRef.current = null;
-    }
-    setExpandedId(id);
-  }, []);
-
-  const handleBlur = useCallback(() => {
-    collapseTimerRef.current = setTimeout(() => {
-      setExpandedId(null);
-    }, 200);
-  }, []);
+  const { expandedId, toggle, handleEnter, handleLeave, handleFocus, handleBlur } =
+    useExpandCollapse();
 
   return (
     <div className="flex w-full max-w-3xl flex-col">
@@ -235,11 +126,11 @@ export function WorkTimeline() {
               tabIndex={hasProjects ? 0 : undefined}
               aria-expanded={hasProjects ? isExpanded : undefined}
               aria-label={hasProjects ? `${exp.title} at ${exp.company}, ${exp.projects!.length} projects` : undefined}
-              onClick={() => toggleCard(exp.id, hasProjects)}
-              onKeyDown={hasProjects ? (e) => handleToggleKeyDown(e, () => toggleCard(exp.id, true)) : undefined}
-              onMouseEnter={() => handleEnter(exp.id, hasProjects)}
+              onClick={() => hasProjects && toggle(exp.id)}
+              onKeyDown={hasProjects ? (e) => handleToggleKeyDown(e, () => toggle(exp.id)) : undefined}
+              onMouseEnter={() => handleEnter(exp.id)}
               onMouseLeave={handleLeave}
-              onFocus={() => handleFocus(exp.id, hasProjects)}
+              onFocus={() => handleFocus(exp.id)}
               onBlur={handleBlur}
               className={cn(
                 "w-full rounded-xl bg-brand-700 px-4 py-4 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-6 sm:py-5",
@@ -247,65 +138,54 @@ export function WorkTimeline() {
                 isExpanded && "bg-brand-600 shadow-lg ring-1 ring-blue-500/30",
               )}
             >
-                <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-3">
-                  <div className="flex min-w-0 items-start gap-3 sm:gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-transparent sm:h-14 sm:w-14">
-                      <img
-                        src={exp.logo}
-                        alt={exp.company}
-                        loading="lazy"
-                        className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="text-base font-bold text-brand-50 sm:text-lg">
-                        {exp.title}
-                      </h3>
-                      <p className="mt-0.5 text-xs font-normal text-brand-300 sm:text-sm">
-                        {exp.company}
-                      </p>
-                    </div>
+              <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-3">
+                <div className="flex min-w-0 items-start gap-3 sm:gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-transparent sm:h-14 sm:w-14">
+                    <img
+                      src={exp.logo}
+                      alt={exp.company}
+                      loading="lazy"
+                      className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9"
+                    />
                   </div>
-                  <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5">
-                    <p className="text-xs font-normal text-brand-300 sm:text-sm">
-                      {exp.dateStart} - {exp.dateEnd}
+                  <div className="min-w-0">
+                    <h3 className="text-base font-bold text-brand-50 sm:text-lg">
+                      {exp.title}
+                    </h3>
+                    <p className="mt-0.5 text-xs font-normal text-brand-300 sm:text-sm">
+                      {exp.company}
                     </p>
-                    {hasProjects && (
-                      <span
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5">
+                  <p className="text-xs font-normal text-brand-300 sm:text-sm">
+                    {exp.dateStart} - {exp.dateEnd}
+                  </p>
+                  {hasProjects && (
+                    <span
+                      className={cn(
+                        "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium transition-colors duration-300",
+                        isExpanded
+                          ? "bg-blue-800/40 text-blue-300"
+                          : "bg-brand-500/40 text-brand-300",
+                      )}
+                    >
+                      <Layers className="h-3 w-3" />
+                      {exp.projects!.length} projects
+                      <ChevronRight
                         className={cn(
-                          "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium transition-colors duration-300",
-                          isExpanded
-                            ? "bg-blue-800/40 text-blue-300"
-                            : "bg-brand-500/40 text-brand-300",
+                          "h-3 w-3 transition-transform duration-300",
+                          isExpanded && "rotate-90",
                         )}
-                      >
-                        <Layers className="h-3 w-3" />
-                        {exp.projects!.length} projects
-                        <ChevronRight
-                          className={cn(
-                            "h-3 w-3 transition-transform duration-300",
-                            isExpanded && "rotate-90",
-                          )}
-                        />
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                <div
-                  className={cn(
-                    "grid transition-all duration-300 ease-out",
-                    isExpanded
-                      ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0",
+                      />
+                    </span>
                   )}
-                >
-                  <div className="overflow-hidden">
-                    {hasProjects && (
-                      <ProjectList projects={exp.projects!} />
-                    )}
-                  </div>
                 </div>
+              </div>
+
+              <CollapsiblePanel open={isExpanded}>
+                {hasProjects && <ProjectList projects={exp.projects!} />}
+              </CollapsiblePanel>
             </div>
           );
         })}
