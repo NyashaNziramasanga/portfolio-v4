@@ -130,12 +130,7 @@ function ProjectsPanel({ projects }: { projects: Project[] }) {
 
         <div className="flex flex-1 items-center justify-center rounded-xl bg-brand-800/60 p-6">
           {activeItem ? (
-            <div className="flex flex-col items-center gap-3">
-              <MediaPreview project={activeItem} />
-              <p className="text-sm font-semibold text-brand-100">
-                {activeItem.name}
-              </p>
-            </div>
+            <MediaPreview project={activeItem} />
           ) : (
             <p className="text-sm text-brand-400">Select a project to preview</p>
           )}
