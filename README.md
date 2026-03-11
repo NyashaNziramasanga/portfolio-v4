@@ -10,13 +10,12 @@
     </p>
 </div>
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/NyashaNziboi.svg?style=social)](https://twitter.com/NyashaNziboi)
 ![Website](https://img.shields.io/website?down_color=red&url=https%3A%2F%2Fwww.nyashanziramasanga.com%2F)
 [![wakatime](https://wakatime.com/badge/user/618747d3-3e85-4a84-b829-c878e16d401a/project/22b25776-2036-48c7-95ac-88b028e82a7b.svg)](https://wakatime.com/badge/user/618747d3-3e85-4a84-b829-c878e16d401a/project/22b25776-2036-48c7-95ac-88b028e82a7b)
 ![Vercel](https://img.shields.io/badge/Vercel-deployed-black?logo=vercel)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
-![online-portfolio](public/media/online-portfolio-v4.webm)
+<video src="public/media/online-portfolio-v4.webm" autoplay loop muted playsinline></video>
 
 ## Getting Started
 
