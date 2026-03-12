@@ -33,6 +33,12 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
+@supports (height: 100dvh) {
+  .h-screen {
+    height: 100dvh;
+  }
+}
+
 /* Premium scrollbar styling */
 .overflow-y-auto {
   scrollbar-width: thin;

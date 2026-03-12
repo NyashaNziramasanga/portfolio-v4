@@ -60,8 +60,8 @@ function PlatformIcon({ platform }: { platform: Platform }) {
 
 function VideoEmbed({ src, title }: { src: string; title: string }) {
   return (
-    <div className="py-4">
-      <div className="overflow-hidden rounded-xl">
+    <div className="py-3 sm:py-4">
+      <div className="overflow-hidden rounded-lg sm:rounded-xl">
         <iframe
           src={src}
           title={title}
@@ -108,7 +108,7 @@ export function PublicationsList() {
             >
               <div className="flex items-center gap-3 sm:gap-4">
                 <PlatformIcon platform={pub.platform} />
-                <span className="min-w-0 flex-1 text-sm font-semibold sm:text-base">
+                <span className="min-w-0 flex-1 text-[13px] font-semibold leading-snug sm:text-base">
                   {pub.title}
                 </span>
                 {hasMedia && (

@@ -25,7 +25,7 @@ function MediaPreview({ project }: { project: Project }) {
         target="_blank"
         rel="noopener noreferrer"
         onClick={(e) => e.stopPropagation()}
-        className="group/article block max-w-sm"
+        className="group/article block w-full max-w-sm"
       >
         <div className="animate-float overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-lg shadow-black/25 transition-shadow group-hover/article:shadow-xl group-hover/article:shadow-black/30">
           <img
@@ -52,7 +52,7 @@ function MediaPreview({ project }: { project: Project }) {
         muted
         playsInline
         preload="none"
-        className="aspect-[9/19.5] max-h-[400px] rounded-2xl object-cover shadow-lg shadow-black/30"
+        className="aspect-[9/19.5] max-h-[280px] rounded-2xl object-cover shadow-lg shadow-black/30 sm:max-h-[400px]"
       >
         <source src={project.media.src} type="video/webm" />
         <source src={project.media.src.replace(".webm", ".mp4")} type="video/mp4" />
@@ -65,7 +65,7 @@ function MediaPreview({ project }: { project: Project }) {
       src={project.media.src}
       alt={project.name}
       loading="lazy"
-      className="animate-float aspect-[9/19.5] max-h-[400px] rounded-2xl object-cover shadow-lg shadow-black/30"
+      className="animate-float aspect-[9/19.5] max-h-[280px] rounded-2xl object-cover shadow-lg shadow-black/30 sm:max-h-[400px]"
     />
   );
 }
@@ -226,8 +226,8 @@ export function WorkTimeline() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 sm:flex-col sm:items-end sm:gap-1.5">
-                  <p className="text-xs font-normal text-brand-300 sm:text-sm">
+                <div className="mt-1 flex flex-wrap items-center gap-2 sm:mt-0 sm:flex-col sm:items-end sm:gap-1.5">
+                  <p className="text-[11px] font-normal text-brand-300 sm:text-sm">
                     {exp.dateStart} - {exp.dateEnd}
                   </p>
                   {hasProjects && (

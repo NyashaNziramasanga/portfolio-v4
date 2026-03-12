@@ -46,7 +46,7 @@ export default function App() {
       <main
         id="main-content"
         ref={mainRef}
-        className="flex-1 snap-y snap-mandatory overflow-y-auto"
+        className="flex-1 overflow-y-auto md:snap-y md:snap-mandatory"
       >
         <Section
           id="about"

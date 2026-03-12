@@ -7,7 +7,7 @@ export const Section = React.forwardRef<
   <section
     id={id}
     ref={ref}
-    className="flex min-h-screen snap-start items-center justify-center px-6 py-12 sm:px-10 sm:py-16"
+    className="flex min-h-screen items-start justify-center px-4 py-10 sm:items-center sm:px-10 sm:py-16 md:snap-start"
   >
     {children}
   </section>
