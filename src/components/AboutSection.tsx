@@ -5,7 +5,7 @@ const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2019;
 
 export function AboutSection() {
   return (
-    <div className="flex w-full max-w-3xl flex-col">
+    <div className="flex w-full max-w-5xl flex-col">
       <p className="mb-4 text-xl font-medium text-brand-200 sm:text-2xl">Hello 👋🏿</p>
       <p className="text-sm leading-relaxed text-brand-200 sm:text-base sm:leading-7">
         I'm a Software Engineer based in Melbourne, Australia with over{" "}
