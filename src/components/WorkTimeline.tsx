@@ -132,7 +132,7 @@ function ProjectsPanel({ projects }: { projects: Project[] }) {
           {activeItem ? (
             <MediaPreview project={activeItem} />
           ) : (
-            <p className="text-sm text-brand-400">Select a project to preview</p>
+            <p className="text-sm text-brand-300">Select a project to preview</p>
           )}
         </div>
       </div>
@@ -158,7 +158,7 @@ function ProjectsPanel({ projects }: { projects: Project[] }) {
                     ? "bg-blue-800/40 text-blue-300 ring-1 ring-primary/30"
                     : hasMedia
                       ? "bg-brand-700 text-brand-300 hover:bg-brand-600"
-                      : "bg-brand-700/50 text-brand-400",
+                      : "bg-brand-700/50 text-brand-300",
                 )}
               >
                 {project.name}

@@ -25,8 +25,12 @@ export function ProfileAvatar({
       }}
     >
       <img
-        src="/logos/profile.webp"
+        src="/logos/profile-160.webp"
+        srcSet="/logos/profile-160.webp 160w, /logos/profile.webp 1048w"
+        sizes="80px"
         alt="Nyasha Nziramasanga"
+        width={160}
+        height={160}
         className="h-full w-full object-cover"
       />
       <video
@@ -36,6 +40,8 @@ export function ProfileAvatar({
         loop
         playsInline
         preload="none"
+        aria-hidden="true"
+        tabIndex={-1}
         className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 hover:opacity-100 peer"
         onPlay={(e) => e.currentTarget.classList.replace("opacity-0", "opacity-100")}
         onPause={(e) => e.currentTarget.classList.replace("opacity-100", "opacity-0")}

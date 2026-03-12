@@ -75,7 +75,7 @@
   },
   {
     "id": "good-dog-design",
-    "logo": "/logos/good-dog-design.ico",
+    "logo": "/logos/good-dog-design.webp",
     "title": "Contract Software Engineer",
     "company": "Good Dog Design",
     "dateStart": "Mar 2021",
@@ -92,7 +92,7 @@
   },
   {
     "id": "monash",
-    "logo": "/logos/monash.png",
+    "logo": "/logos/monash.webp",
     "title": "Bachelor of Information Technology and Systems",
     "company": "Monash University",
     "dateStart": "July 2014",

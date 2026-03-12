@@ -22,7 +22,7 @@ export function MobileDrawer({
         />
       )}
 
-      <aside
+      <div
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
@@ -46,7 +46,7 @@ export function MobileDrawer({
           activeSection={activeSection}
           onSelect={onSelect}
         />
-      </aside>
+      </div>
     </>
   );
 }

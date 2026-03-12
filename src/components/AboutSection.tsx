@@ -26,7 +26,7 @@ export function AboutSection() {
       </p>
 
       <div className="mt-10 sm:mt-12">
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-400">
+        <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-300">
           Current Tech Stack
         </h3>
         <div className="flex flex-wrap gap-2 sm:gap-2.5">
