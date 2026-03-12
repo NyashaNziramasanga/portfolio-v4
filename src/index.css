@@ -1,27 +1,69 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tailwind-animate";
 
-@layer base {
-  :root {
-    --background: 220 26% 14%;
-    --foreground: 220 27% 96%;
-    --primary: 207 68% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 216 12% 54%;
-    --secondary-foreground: 220 27% 96%;
-    --accent: 207 68% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 207 68% 50%;
-    --input: 216 12% 54%;
-    --card: 220 24% 20%;
-    --card-foreground: 220 27% 96%;
-    --muted: 218 17% 35%;
-    --muted-foreground: 218 15% 65%;
-    --border: 218 17% 30%;
-  }
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-brand-50: #EDF2F7;
+  --color-brand-100: #E2E8F0;
+  --color-brand-200: #CBD5E0;
+  --color-brand-300: #A0AEC0;
+  --color-brand-400: #718096;
+  --color-brand-500: #4A5568;
+  --color-brand-600: #2D3748;
+  --color-brand-700: #252F3F;
+  --color-brand-800: #1F2937;
+  --color-brand-900: #1A202C;
+
+  --color-blue-50: #EBF8FF;
+  --color-blue-100: #BEE3F8;
+  --color-blue-200: #90CDF4;
+  --color-blue-300: #63B3ED;
+  --color-blue-400: #4299E1;
+  --color-blue-500: #3182CE;
+  --color-blue-600: #2B6CB0;
+  --color-blue-700: #2C5282;
+  --color-blue-800: #2A4365;
+  --color-blue-900: #1A365D;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+}
+
+:root {
+  --background: 220 26% 14%;
+  --foreground: 220 27% 96%;
+  --primary: 207 68% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 216 12% 54%;
+  --secondary-foreground: 220 27% 96%;
+  --accent: 207 68% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 207 68% 50%;
+  --input: 216 12% 54%;
+  --card: 220 24% 20%;
+  --card-foreground: 220 27% 96%;
+  --muted: 218 17% 35%;
+  --muted-foreground: 218 15% 65%;
+  --border: 218 17% 30%;
 }
 
 html {
