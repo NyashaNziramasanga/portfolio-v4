@@ -85,6 +85,16 @@
     "projects": []
   },
   {
+    "id": "carbar",
+    "logo": "/logos/carbar.ico",
+    "title": "Intern Web Developer",
+    "company": "Carbar Auto",
+    "companyUrl": "https://www.carbar.com.au/",
+    "dateStart": "Oct 2018",
+    "dateEnd": "Jan 2019",
+    "projects": []
+  },
+  {
     "id": "flinders",
     "logo": "/logos/flinders.ico",
     "title": "Master of Science (Computer Science)",
