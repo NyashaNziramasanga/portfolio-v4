@@ -17,6 +17,7 @@ export function MobileDrawer({
     <>
       {isOpen && (
         <div
+          role="presentation"
           className="fixed inset-0 z-40 bg-black/60 md:hidden"
           onClick={onClose}
         />

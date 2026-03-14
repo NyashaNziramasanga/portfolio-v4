@@ -89,6 +89,7 @@ function ProjectsPanel({ projects }: { projects: Project[] }) {
 
   return (
     <div
+      role="presentation"
       className="mt-4 border-t border-brand-500/50 pt-4"
       onClick={(e) => e.stopPropagation()}
       onKeyDown={(e) => e.stopPropagation()}
@@ -192,16 +193,21 @@ export function WorkTimeline() {
           return (
             <div
               key={exp.id}
-              role={hasProjects ? "button" : undefined}
-              tabIndex={hasProjects ? 0 : undefined}
-              aria-expanded={hasProjects ? isExpanded : undefined}
-              aria-label={hasProjects ? `${exp.title} at ${exp.company}, ${exp.projects!.length} projects` : undefined}
-              onClick={() => hasProjects && toggle(exp.id)}
-              onKeyDown={hasProjects ? (e) => handleToggleKeyDown(e, () => toggle(exp.id)) : undefined}
-              onMouseEnter={() => handleEnter(exp.id)}
-              onMouseLeave={handleLeave}
-              onFocus={() => handleFocus(exp.id)}
-              onBlur={handleBlur}
+              {...(hasProjects
+                ? {
+                    role: "button" as const,
+                    tabIndex: 0,
+                    "aria-expanded": isExpanded,
+                    "aria-label": `${exp.title} at ${exp.company}, ${exp.projects!.length} projects`,
+                    onClick: () => toggle(exp.id),
+                    onKeyDown: (e: React.KeyboardEvent) =>
+                      handleToggleKeyDown(e, () => toggle(exp.id)),
+                    onMouseEnter: () => handleEnter(exp.id),
+                    onMouseLeave: handleLeave,
+                    onFocus: () => handleFocus(exp.id),
+                    onBlur: handleBlur,
+                  }
+                : {})}
               className={cn(
                 "w-full rounded-xl bg-brand-700 px-4 py-4 shadow-sm outline-none transition-all duration-300 ease-out sm:rounded-2xl sm:px-6 sm:py-5",
                 hasProjects && "cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
