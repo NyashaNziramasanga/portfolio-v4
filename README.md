@@ -54,9 +54,9 @@ Deployed on [Vercel](https://vercel.com/) from the main branch. Includes [@verce
 ## Built With
 
 - [TypeScript](https://www.typescriptlang.org/)
-- [Vite](https://vitejs.dev/) 5
-- [React](https://react.dev/) 18
-- [Tailwind CSS](https://tailwindcss.com/) 3
+- [Vite](https://vitejs.dev/)
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [Bun](https://bun.sh/)
 - [Vercel](https://vercel.com/)
 - Icons from [simple-icons](https://simpleicons.org/) and [lucide-react](https://lucide.dev/)
