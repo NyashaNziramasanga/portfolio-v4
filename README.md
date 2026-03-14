@@ -47,10 +47,6 @@ bun run preview      # Preview production build
 bun run react-doctor # Run react-doctor diagnostics
 ```
 
-## Deployment
-
-Deployed on [Vercel](https://vercel.com/) from the main branch. Includes [@vercel/analytics](https://vercel.com/docs/analytics) for page view tracking.
-
 ## Built With
 
 - [TypeScript](https://www.typescriptlang.org/)
