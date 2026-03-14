@@ -4,6 +4,7 @@
     "logo": "/logos/linktree.ico",
     "title": "Senior Software Engineer",
     "company": "Linktree",
+    "companyUrl": "https://linktr.ee",
     "dateStart": "Jan 2022",
     "dateEnd": "Current",
     "projects": [
@@ -78,6 +79,7 @@
     "logo": "/logos/good-dog-design.webp",
     "title": "Contract Software Engineer",
     "company": "Good Dog Design",
+    "companyUrl": "https://www.gooddogdesign.com/",
     "dateStart": "Mar 2021",
     "dateEnd": "Dec 2021",
     "projects": []
@@ -87,6 +89,7 @@
     "logo": "/logos/flinders.ico",
     "title": "Master of Science (Computer Science)",
     "company": "Flinders University",
+    "companyUrl": "https://www.flinders.edu.au/",
     "dateStart": "Jan 2020",
     "dateEnd": "Dec 2021"
   },
@@ -95,6 +98,7 @@
     "logo": "/logos/monash.webp",
     "title": "Bachelor of Information Technology and Systems",
     "company": "Monash University",
+    "companyUrl": "https://www.monash.edu/",
     "dateStart": "July 2014",
     "dateEnd": "May 2018"
   }

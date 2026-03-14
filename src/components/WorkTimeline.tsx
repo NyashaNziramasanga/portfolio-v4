@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { cn, handleToggleKeyDown } from "@/lib/utils";
-import { ChevronRight, Layers, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Layers, ExternalLink } from "lucide-react";
 import { useExpandCollapse } from "@/hooks/useExpandCollapse";
 import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
 import { MediaBadge } from "@/components/ui/media-badge";
@@ -13,6 +13,7 @@ type Project = {
 
 type Experience = (typeof experiencesData)[number] & {
   projects?: Project[];
+  companyUrl?: string;
 };
 
 function MediaPreview({ project }: { project: Project }) {
@@ -221,9 +222,22 @@ export function WorkTimeline() {
                     <h3 className="text-base font-bold text-brand-50 sm:text-lg">
                       {exp.title}
                     </h3>
-                    <p className="mt-0.5 text-xs font-normal text-brand-300 sm:text-sm">
-                      {exp.company}
-                    </p>
+                    {exp.companyUrl ? (
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="group/company mt-0.5 inline-flex items-center gap-0.5 text-xs font-normal text-brand-300 transition-colors hover:text-brand-100 sm:text-sm"
+                      >
+                        {exp.company}
+                        <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover/company:opacity-100" />
+                      </a>
+                    ) : (
+                      <p className="mt-0.5 text-xs font-normal text-brand-300 sm:text-sm">
+                        {exp.company}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="mt-1 flex flex-wrap items-center gap-2 sm:mt-0 sm:flex-col sm:items-end sm:gap-1.5">
