@@ -12,14 +12,14 @@ const socialLinks = [
 
 export function SocialLinks() {
   return (
-    <div className="flex justify-center gap-4">
+    <div className="flex justify-center gap-2">
       {socialLinks.map(({ href, label, ...rest }) => (
         <a
           key={label}
           href={href}
           target={href.startsWith("mailto:") ? undefined : "_blank"}
           rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-          className="text-brand-300 transition-colors hover:text-brand-50"
+          className="p-2 text-brand-300 transition-colors hover:text-brand-50"
           aria-label={label}
         >
           {"icon" in rest ? (
