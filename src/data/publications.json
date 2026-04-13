@@ -1,5 +1,17 @@
 [
   {
+    "id": "elderly-falls-prediction-thesis",
+    "favicon": "/logos/flinders.ico",
+    "platform": "flinders",
+    "title": "Elderly Falls Prediction and Prevention Using Machine Learning — Master's Thesis",
+    "url": "https://flex.flinders.edu.au/file/e326d5bb-5b10-41d3-9d96-1394287e607a/1/NziramasangaThesis2021_LibraryCopy.pdf",
+    "media": {
+      "type": "article",
+      "src": "/media/elderly-falls-prediction-thesis.webp",
+      "link": "https://flex.flinders.edu.au/file/e326d5bb-5b10-41d3-9d96-1394287e607a/1/NziramasangaThesis2021_LibraryCopy.pdf"
+    }
+  },
+  {
     "id": "linktree-tech-talk",
     "favicon": "/logos/youtube.ico",
     "platform": "youtube",
