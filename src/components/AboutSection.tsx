@@ -1,7 +1,7 @@
 import techStackData from "@/data/techStack.json";
 import { TechBadge } from "@/components/TechBadge";
 
-const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2019;
+const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2018;
 
 export function AboutSection() {
   return (
