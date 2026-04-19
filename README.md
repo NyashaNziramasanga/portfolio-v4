@@ -1,26 +1,6 @@
-<div align="center">
-  <p>
-    <a href="https://www.nyashanziramasanga.com/">
-      <img src="./public/favicon.svg" alt="Portfolio logo" height="60"/>
-    </a>
-  </p>
-  <h1>Online Portfolio v4</h1>
-  <p>
-    <i>Personal portfolio on <a href="https://www.nyashanziramasanga.com/">nyashanziramasanga.com</a></i>
-  </p>
+# Online Portfolio v4
 
-  <p>
-    <img src="https://img.shields.io/website?down_color=red&url=https%3A%2F%2Fwww.nyashanziramasanga.com%2F" alt="Website"/>
-    <a href="https://wakatime.com/badge/user/618747d3-3e85-4a84-b829-c878e16d401a/project/22b25776-2036-48c7-95ac-88b028e82a7b"><img src="https://wakatime.com/badge/user/618747d3-3e85-4a84-b829-c878e16d401a/project/22b25776-2036-48c7-95ac-88b028e82a7b.svg" alt="wakatime"/></a>
-    <img src="https://img.shields.io/badge/Vercel-deployed-black?logo=vercel" alt="Vercel"/>
-    <img src="https://img.shields.io/badge/license-MIT-blue" alt="License"/>
-    <img src="https://img.shields.io/badge/Lighthouse-100-4FC08D?logo=lighthouse&logoColor=white" alt="Lighthouse Performance"/>
-    <img src="https://img.shields.io/badge/PageSpeed-Fast-00C853?logo=pagespeedinsights&logoColor=white" alt="PageSpeed"/>
-  </p>
-
-  <img src="./online-portfolio-v4.gif" alt="Portfolio demo" width="100%"/>
-
-</div>
+*Personal portfolio on [nyashanziramasanga.com](https://www.nyashanziramasanga.com/)*
 
 ## Getting Started
 

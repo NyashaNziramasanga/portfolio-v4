@@ -5,10 +5,7 @@ import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { MobileHeader } from "@/components/layout/MobileHeader";
 import { MobileDrawer } from "@/components/layout/MobileDrawer";
 import { Sidebar } from "@/components/layout/Sidebar";
-import { Section } from "@/components/layout/Section";
-import { AboutSection } from "@/components/AboutSection";
-import { WorkTimeline } from "@/components/WorkTimeline";
-import { PublicationsList } from "@/components/PublicationsList";
+import { ContentArea } from "@/components/layout/ContentArea";
 
 export default function App() {
   const { activeSection, sectionRefs, mainRef } = useActiveSection();
@@ -43,38 +40,7 @@ export default function App() {
       />
       <Sidebar activeSection={activeSection} onSelect={selectSection} />
 
-      <main
-        id="main-content"
-        ref={mainRef}
-        className="flex-1 overflow-y-auto md:snap-y md:snap-mandatory"
-      >
-        <Section
-          id="about"
-          ref={(el) => {
-            sectionRefs.current.about = el;
-          }}
-        >
-          <AboutSection />
-        </Section>
-
-        <Section
-          id="experience"
-          ref={(el) => {
-            sectionRefs.current.experience = el;
-          }}
-        >
-          <WorkTimeline />
-        </Section>
-
-        <Section
-          id="publications"
-          ref={(el) => {
-            sectionRefs.current.publications = el;
-          }}
-        >
-          <PublicationsList />
-        </Section>
-      </main>
+      <ContentArea ref={mainRef} sectionRefs={sectionRefs} />
 
       <Analytics />
     </div>
