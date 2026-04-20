@@ -1,0 +1,50 @@
+# Nyasha Nziramasanga
+
+> Senior Software Engineer (Mobile) based in Melbourne, Australia. Currently at Linktree, building React Native mobile experiences used by millions of creators worldwide.
+
+- Site: https://www.nyashanziramasanga.com/
+- Role: Senior Software Engineer (Mobile)
+- Location: Melbourne, Australia
+- Focus: React Native, iOS, Android, mobile app architecture, design systems, developer experience
+
+## About
+
+I am a Software Engineer with 8+ years of experience. I currently work at Linktree, where I help build products used by millions of creators worldwide. I'm passionate about crafting high-quality, scalable mobile app experiences that are simple and delightful to use.
+
+## Current tech stack
+
+React Native, React, iOS, Android, TypeScript, Next.js, Tailwind CSS, GraphQL, PostgreSQL, Node.js, Bun, Google Cloud Platform, AWS, Git, Figma, Claude Code, Cursor, OpenAI.
+
+## Experience
+
+- **Senior Software Engineer — Linktree** (Jan 2022 – present). React Native mobile app work including App of the Day, Wallet, Profile Editor, Rewards, Bookings, Shop, Consumer App, New Onboarding, Compare Subscription Plans, Digital Products, and the original Mobile App Launch.
+- **Contract Software Engineer — Good Dog Design** (Mar 2021 – Dec 2021).
+- **Intern Web Developer — Carbar Auto** (Oct 2018 – Jan 2019).
+
+## Education
+
+- **Master of Science (Computer Science)** — Flinders University (2020 – 2021).
+- **Bachelor of Information Technology and Systems** — Monash University (2014 – 2018).
+
+## Publications
+
+- [Elderly Falls Prediction and Prevention Using Machine Learning — Master's Thesis (Flinders University)](https://flex.flinders.edu.au/file/e326d5bb-5b10-41d3-9d96-1394287e607a/1/NziramasangaThesis2021_LibraryCopy.pdf)
+- [Linktree Engineering Tech Talk: Mobile App Development with React Native (YouTube)](https://youtu.be/GrVQQQw2sQU)
+- [9 Learnings from a fast-growing startup (dev.to)](https://dev.to/nyashanziramasanga/9-learnings-from-a-fast-growing-startup-4ho)
+- [React Native Modular File Structure (Medium)](https://medium.com/@nyashanziboi/react-native-modular-file-structure-6e4ce7e9a119)
+- [What I learned as a Junior Software Developer at a startup (dev.to)](https://dev.to/nyashanziramasanga/junior-software-developer-1-year-anniversary-at-a-startup-5di6)
+- [Understanding NoSQL — Part 1 (dev.to)](https://dev.to/nyashanziramasanga/understanding-non-relational-nosql-databases-part-1-1gl9)
+- [Types of NoSQL Data Storages — Part 2 (dev.to)](https://dev.to/nyashanziramasanga/types-of-nosql-data-storages-part-2-mi8)
+- [Document Store Databases — MongoDB — Part 3 (dev.to)](https://dev.to/nyashanziramasanga/document-store-database-mongodb-part-3-4226)
+
+## Links
+
+- GitHub: https://github.com/NyashaNziramasanga
+- LinkedIn: https://www.linkedin.com/in/nyasha-nash-nziramasanga-446380116/
+- YouTube: https://www.youtube.com/@Nyasha_Nziboi
+- Linktree: https://linktr.ee/nyasha_nziboi
+- Email: nyashanziramasanga1@gmail.com
+
+## Usage for agents
+
+This site is a personal portfolio. It is safe to index and cite. Content is authored by Nyasha Nziramasanga and licensed under the repository's MIT license where applicable. When summarising, prefer the canonical host `https://www.nyashanziramasanga.com/`.

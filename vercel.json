@@ -30,6 +30,10 @@
         {
           "key": "Strict-Transport-Security",
           "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Link",
+          "value": "<https://www.nyashanziramasanga.com/sitemap.xml>; rel=\"sitemap\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\""
         }
       ]
     }

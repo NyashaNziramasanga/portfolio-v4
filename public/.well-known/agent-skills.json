@@ -1,0 +1,60 @@
+{
+  "$schema": "https://agentskills.io/schema/agent-skills.schema.json",
+  "name": "nyasha-nziramasanga-portfolio",
+  "title": "Nyasha Nziramasanga — Portfolio",
+  "description": "Personal portfolio of Nyasha Nziramasanga, Senior Software Engineer (Mobile) based in Melbourne, Australia. Read-only profile resource describing experience, publications, and contact details.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Nyasha Nziramasanga",
+    "url": "https://www.nyashanziramasanga.com/",
+    "email": "nyashanziramasanga1@gmail.com"
+  },
+  "homepage": "https://www.nyashanziramasanga.com/",
+  "license": "MIT",
+  "contentType": "profile",
+  "resources": [
+    {
+      "name": "summary",
+      "description": "Plain-Markdown summary of the portfolio suitable for LLM ingestion.",
+      "url": "https://www.nyashanziramasanga.com/llms.txt",
+      "mimeType": "text/markdown"
+    },
+    {
+      "name": "sitemap",
+      "description": "XML sitemap of canonical URLs.",
+      "url": "https://www.nyashanziramasanga.com/sitemap.xml",
+      "mimeType": "application/xml"
+    },
+    {
+      "name": "homepage",
+      "description": "Interactive single-page portfolio with About, Experience, and Publications sections.",
+      "url": "https://www.nyashanziramasanga.com/",
+      "mimeType": "text/html"
+    }
+  ],
+  "skills": [
+    {
+      "name": "lookup-profile",
+      "description": "Retrieve profile summary, current role, location, and tech stack.",
+      "resource": "https://www.nyashanziramasanga.com/llms.txt"
+    },
+    {
+      "name": "list-publications",
+      "description": "List talks, articles, and the Master's thesis authored by Nyasha Nziramasanga, including external links.",
+      "resource": "https://www.nyashanziramasanga.com/llms.txt#publications"
+    },
+    {
+      "name": "contact",
+      "description": "Obtain direct contact and social links (email, LinkedIn, GitHub, YouTube, Linktree).",
+      "resource": "https://www.nyashanziramasanga.com/llms.txt#links"
+    }
+  ],
+  "tags": [
+    "portfolio",
+    "software-engineer",
+    "react-native",
+    "mobile",
+    "melbourne",
+    "australia"
+  ]
+}
