@@ -82,8 +82,7 @@
       {
         "id": "nativewind",
         "label": "NativeWind",
-        "iconKey": "siTailwindcss",
-        "pick": true
+        "iconKey": "siTailwindcss"
       },
       { "id": "tamagui", "label": "Tamagui", "iconKey": "siTamagui" },
       { "id": "restyle", "label": "Shopify Restyle", "iconKey": "siShopify" },
@@ -93,7 +92,7 @@
         "iconKey": "siMaterialdesign"
       },
       { "id": "gluestack", "label": "Gluestack UI", "iconKey": "siStackblitz" },
-      { "id": "stylesheet-api", "label": "StyleSheet API" }
+      { "id": "stylesheet-api", "label": "StyleSheet API", "pick": true }
     ]
   },
   {

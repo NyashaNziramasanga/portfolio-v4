@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { StackItem } from "@/tools/mobile-app-stack-picker/components/StackItem";
 import type { StackCategory, StackItem as StackItemType } from "@/tools/types";
@@ -33,11 +34,14 @@ export function CategoryColumn({
   const containerClass = tierContainerClass[tier] ?? tierContainerClass[1];
   const dividerClass = tierDividerClass[tier] ?? tierDividerClass[1];
 
-  const sortedItems = [...category.items].sort((a, b) => {
-    const aPick = isPick(a) ? 1 : 0;
-    const bPick = isPick(b) ? 1 : 0;
-    return bPick - aPick;
-  });
+  const sortedItems = useMemo(() => {
+    const weight = (item: StackItemType) => {
+      if (item.id === selectedItemId) return 2;
+      if (isPick(item)) return 1;
+      return 0;
+    };
+    return [...category.items].sort((a, b) => weight(b) - weight(a));
+  }, [category.items, selectedItemId]);
 
   return (
     <section
