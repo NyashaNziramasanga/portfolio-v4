@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsr generate && tsc -b && vite build",
     "preview": "vite preview",
     "react-doctor": "npx -y react-doctor@latest . --verbose --diff"
   },
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.1",
     "@tanstack/react-router-devtools": "^1.166.13",
+    "@tanstack/router-cli": "^1.166.37",
     "@tanstack/router-plugin": "^1.167.28",
     "@types/node": "^22.9.0",
     "@types/react": "^19.2.14",
