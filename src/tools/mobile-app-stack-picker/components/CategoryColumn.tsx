@@ -38,10 +38,6 @@ export function CategoryColumn({
     const bPick = isPick(b) ? 1 : 0;
     return bPick - aPick;
   });
-  const pickCount = category.items.reduce(
-    (sum, item) => sum + (isPick(item) ? 1 : 0),
-    0,
-  );
 
   return (
     <section
@@ -52,11 +48,6 @@ export function CategoryColumn({
         <h3 className="text-base font-semibold text-brand-50">{category.title}</h3>
         <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-400">
           {category.subtitle}
-          {pickCount > 0 && (
-            <span className="ml-1 normal-case tracking-normal text-primary">
-              · {pickCount} {pickCount === 1 ? "pick" : "picks"}
-            </span>
-          )}
         </p>
       </div>
 
