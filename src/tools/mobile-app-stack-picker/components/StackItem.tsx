@@ -42,12 +42,20 @@ export function StackItem({ item, selected, onSelect }: StackItemProps) {
       <span className="truncate">{item.label}</span>
       {isPick && (
         <span
-          className="ml-auto flex shrink-0 items-center gap-1 rounded-full bg-primary/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-primary"
-          title="My pick"
+          className="group/pick relative ml-auto flex shrink-0 items-center"
           aria-label="My pick"
         >
-          <Star className="h-2.5 w-2.5 fill-primary" />
-          Pick
+          <Star className="h-3.5 w-3.5 fill-primary text-primary" aria-hidden />
+          <span
+            role="tooltip"
+            className={cn(
+              "pointer-events-none absolute bottom-full left-1/2 z-10 mb-1.5 -translate-x-1/2 whitespace-nowrap rounded-md border border-brand-500 bg-brand-900 px-2 py-1 text-[10px] font-medium text-brand-50 shadow-lg",
+              "opacity-0 transition-opacity duration-150",
+              "group-hover/pick:opacity-100",
+            )}
+          >
+            My pick
+          </span>
         </span>
       )}
     </button>
