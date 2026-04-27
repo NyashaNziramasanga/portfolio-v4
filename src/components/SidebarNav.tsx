@@ -1,4 +1,4 @@
-import { User, Briefcase, BookOpen } from "lucide-react";
+import { User, Briefcase, BookOpen, Wrench } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -8,6 +8,7 @@ const SECTION_ICONS: Record<string, LucideIcon> = {
   about: User,
   experience: Briefcase,
   publications: BookOpen,
+  tools: Wrench,
 };
 
 export function SidebarNav({

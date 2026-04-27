@@ -1,0 +1,9 @@
+[
+  {
+    "id": "mobile-app-stack-picker",
+    "slug": "mobile-app-stack-picker",
+    "title": "Mobile App Stack Picker",
+    "description": "Pick each layer of a production mobile stack and copy a ready-to-build prompt.",
+    "status": "live"
+  }
+]

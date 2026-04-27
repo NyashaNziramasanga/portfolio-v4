@@ -1,5 +1,6 @@
 [
   { "id": "about", "label": "About" },
   { "id": "experience", "label": "Experience" },
-  { "id": "publications", "label": "Publications" }
+  { "id": "publications", "label": "Publications" },
+  { "id": "tools", "label": "Tools" }
 ]

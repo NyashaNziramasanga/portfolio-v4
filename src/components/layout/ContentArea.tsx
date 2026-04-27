@@ -3,6 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { AboutSection } from "@/components/AboutSection";
 import { WorkTimeline } from "@/components/work-timeline";
 import { PublicationsList } from "@/components/publications";
+import { ToolsList } from "@/tools";
 
 type ContentAreaProps = {
   sectionRefs: MutableRefObject<Record<string, HTMLElement | null>>;
@@ -41,6 +42,15 @@ export const ContentArea = forwardRef<HTMLDivElement, ContentAreaProps>(
           }}
         >
           <PublicationsList />
+        </Section>
+
+        <Section
+          id="tools"
+          ref={(el) => {
+            sectionRefs.current.tools = el;
+          }}
+        >
+          <ToolsList />
         </Section>
       </main>
     );

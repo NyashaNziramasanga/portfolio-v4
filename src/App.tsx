@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
@@ -21,6 +21,18 @@ export default function App() {
     },
     [close, sectionRefs],
   );
+
+  useEffect(() => {
+    const hashId = window.location.hash.replace(/^#/, "");
+    if (!hashId) return;
+
+    requestAnimationFrame(() => {
+      sectionRefs.current[hashId]?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }, [sectionRefs]);
 
   return (
     <div className="flex h-screen w-full flex-col overflow-hidden bg-brand-900 md:flex-row">
