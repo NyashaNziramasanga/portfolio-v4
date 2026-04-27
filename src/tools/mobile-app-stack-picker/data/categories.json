@@ -40,6 +40,20 @@
     ]
   },
   {
+    "id": "animation",
+    "label": "Animation",
+    "title": "Animation",
+    "subtitle": "motion & gestures",
+    "items": [
+      { "id": "reanimated", "label": "Reanimated" },
+      { "id": "moti", "label": "Moti" },
+      { "id": "lottie", "label": "Lottie", "iconKey": "siLottiefiles" },
+      { "id": "rive", "label": "Rive", "iconKey": "siRive" },
+      { "id": "skia", "label": "React Native Skia", "iconKey": "siShopify" },
+      { "id": "framer-motion", "label": "Framer Motion", "iconKey": "siFramer" }
+    ]
+  },
+  {
     "id": "navigation",
     "label": "Navigation",
     "title": "Navigation",
@@ -65,6 +79,21 @@
     ]
   },
   {
+    "id": "forms-validation",
+    "label": "Forms",
+    "title": "Forms & Validation",
+    "subtitle": "user input & schemas",
+    "items": [
+      { "id": "react-hook-form", "label": "React Hook Form", "iconKey": "siReacthookform" },
+      { "id": "formik", "label": "Formik", "iconKey": "siFormik" },
+      { "id": "tanstack-form", "label": "TanStack Form" },
+      { "id": "zod", "label": "Zod", "iconKey": "siZod" },
+      { "id": "yup", "label": "Yup" },
+      { "id": "valibot", "label": "Valibot" },
+      { "id": "effect-schema", "label": "Effect Schema" }
+    ]
+  },
+  {
     "id": "i18n",
     "label": "i18n",
     "title": "Internationalisation",
@@ -78,6 +107,20 @@
       { "id": "lokalise", "label": "Lokalise" },
       { "id": "phrase", "label": "Phrase" },
       { "id": "tolgee", "label": "Tolgee" }
+    ]
+  },
+  {
+    "id": "maps-location",
+    "label": "Maps",
+    "title": "Maps & Location",
+    "subtitle": "place & geo features",
+    "items": [
+      { "id": "google-maps", "label": "Google Maps", "iconKey": "siGooglemaps" },
+      { "id": "mapbox", "label": "Mapbox", "iconKey": "siMapbox" },
+      { "id": "apple-mapkit", "label": "Apple MapKit", "iconKey": "siApple" },
+      { "id": "react-native-maps", "label": "react-native-maps" },
+      { "id": "maplibre", "label": "MapLibre", "iconKey": "siMaplibre" },
+      { "id": "expo-location", "label": "Expo Location", "iconKey": "siExpo" }
     ]
   },
   {
@@ -100,6 +143,20 @@
     ]
   },
   {
+    "id": "orm",
+    "label": "ORM",
+    "title": "ORM / Data Layer",
+    "subtitle": "talking to the database",
+    "items": [
+      { "id": "prisma", "label": "Prisma", "iconKey": "siPrisma" },
+      { "id": "drizzle", "label": "Drizzle", "iconKey": "siDrizzle" },
+      { "id": "kysely", "label": "Kysely" },
+      { "id": "typeorm", "label": "TypeORM", "iconKey": "siTypeorm" },
+      { "id": "mongoose", "label": "Mongoose", "iconKey": "siMongoose" },
+      { "id": "sqlalchemy", "label": "SQLAlchemy", "iconKey": "siSqlalchemy" }
+    ]
+  },
+  {
     "id": "api",
     "label": "API",
     "title": "API",
@@ -108,6 +165,21 @@
       { "id": "rest", "label": "REST" },
       { "id": "graphql", "label": "GraphQL", "iconKey": "siGraphql" },
       { "id": "trpc-api", "label": "tRPC", "iconKey": "siTrpc" }
+    ]
+  },
+  {
+    "id": "realtime",
+    "label": "Realtime",
+    "title": "Realtime",
+    "subtitle": "live updates & sockets",
+    "items": [
+      { "id": "supabase-realtime", "label": "Supabase Realtime", "iconKey": "siSupabase" },
+      { "id": "pusher", "label": "Pusher", "iconKey": "siPusher" },
+      { "id": "ably", "label": "Ably" },
+      { "id": "pubnub", "label": "PubNub" },
+      { "id": "socket-io", "label": "Socket.io", "iconKey": "siSocketdotio" },
+      { "id": "livekit", "label": "LiveKit", "iconKey": "siLivekit" },
+      { "id": "liveblocks", "label": "Liveblocks" }
     ]
   },
   {
@@ -131,6 +203,23 @@
       { "id": "sql-server", "label": "SQL Server" },
       { "id": "azure-sql", "label": "Azure SQL" },
       { "id": "cosmos-db", "label": "Cosmos DB" }
+    ]
+  },
+  {
+    "id": "offline-sync",
+    "label": "Offline",
+    "title": "Local Storage & Sync",
+    "subtitle": "on-device data & offline-first",
+    "items": [
+      { "id": "mmkv", "label": "MMKV" },
+      { "id": "async-storage", "label": "AsyncStorage" },
+      { "id": "expo-sqlite", "label": "Expo SQLite", "iconKey": "siExpo" },
+      { "id": "watermelondb", "label": "WatermelonDB" },
+      { "id": "rxdb", "label": "RxDB" },
+      { "id": "realm", "label": "Realm" },
+      { "id": "replicache", "label": "Replicache" },
+      { "id": "powersync", "label": "PowerSync" },
+      { "id": "tinybase", "label": "TinyBase" }
     ]
   },
   {
@@ -180,6 +269,22 @@
     ]
   },
   {
+    "id": "background-jobs",
+    "label": "Jobs",
+    "title": "Background Jobs",
+    "subtitle": "queues & async work",
+    "items": [
+      { "id": "bullmq", "label": "BullMQ" },
+      { "id": "inngest", "label": "Inngest" },
+      { "id": "trigger-dev", "label": "Trigger.dev" },
+      { "id": "temporal", "label": "Temporal", "iconKey": "siTemporal" },
+      { "id": "aws-sqs", "label": "AWS SQS", "iconKey": "siAmazonwebservices" },
+      { "id": "cloud-tasks", "label": "Google Cloud Tasks", "iconKey": "siGooglecloud" },
+      { "id": "sidekiq", "label": "Sidekiq", "iconKey": "siSidekiq" },
+      { "id": "oban", "label": "Oban" }
+    ]
+  },
+  {
     "id": "search",
     "label": "Search",
     "title": "Search",
@@ -219,6 +324,64 @@
     ]
   },
   {
+    "id": "lifecycle-marketing",
+    "label": "Lifecycle",
+    "title": "Lifecycle Marketing",
+    "subtitle": "engagement & retention",
+    "items": [
+      { "id": "braze", "label": "Braze" },
+      { "id": "iterable", "label": "Iterable" },
+      { "id": "customer-io", "label": "Customer.io" },
+      { "id": "klaviyo", "label": "Klaviyo" },
+      { "id": "onesignal-journeys", "label": "OneSignal Journeys" },
+      { "id": "hubspot", "label": "HubSpot", "iconKey": "siHubspot" },
+      { "id": "activecampaign", "label": "ActiveCampaign" }
+    ]
+  },
+  {
+    "id": "push-notifications",
+    "label": "Push",
+    "title": "Push Notifications",
+    "subtitle": "real-time outreach",
+    "items": [
+      { "id": "expo-notifications", "label": "Expo Notifications", "iconKey": "siExpo" },
+      { "id": "fcm", "label": "Firebase Cloud Messaging", "iconKey": "siFirebase" },
+      { "id": "onesignal", "label": "OneSignal" },
+      { "id": "apns", "label": "Apple APNs", "iconKey": "siApple" },
+      { "id": "pusher-beams", "label": "Pusher Beams", "iconKey": "siPusher" },
+      { "id": "airship", "label": "Airship" },
+      { "id": "knock", "label": "Knock" }
+    ]
+  },
+  {
+    "id": "in-app-support",
+    "label": "Support",
+    "title": "In-App Support",
+    "subtitle": "help & messaging",
+    "items": [
+      { "id": "intercom", "label": "Intercom", "iconKey": "siIntercom" },
+      { "id": "zendesk", "label": "Zendesk", "iconKey": "siZendesk" },
+      { "id": "crisp", "label": "Crisp" },
+      { "id": "helpscout", "label": "Help Scout", "iconKey": "siHelpscout" },
+      { "id": "pylon", "label": "Pylon" }
+    ]
+  },
+  {
+    "id": "attribution-deeplinks",
+    "label": "Attribution",
+    "title": "Attribution & Deep Links",
+    "subtitle": "install tracking & routing",
+    "items": [
+      { "id": "appsflyer", "label": "AppsFlyer" },
+      { "id": "adjust", "label": "Adjust" },
+      { "id": "branch", "label": "Branch" },
+      { "id": "singular", "label": "Singular" },
+      { "id": "universal-links", "label": "Apple Universal Links", "iconKey": "siApple" },
+      { "id": "android-app-links", "label": "Android App Links", "iconKey": "siAndroid" },
+      { "id": "expo-linking", "label": "Expo Linking", "iconKey": "siExpo" }
+    ]
+  },
+  {
     "id": "ai-llm",
     "label": "AI",
     "title": "AI / LLM",
@@ -246,21 +409,21 @@
     ]
   },
   {
-    "id": "feature-flags",
-    "label": "Flags",
-    "title": "Feature Flags",
+    "id": "ab-testing",
+    "label": "Experiments",
+    "title": "A/B Testing",
     "subtitle": "experiments & rollouts",
     "items": [
       { "id": "statsig", "label": "Statsig" },
-      { "id": "launchdarkly", "label": "LaunchDarkly" },
-      { "id": "posthog-flags", "label": "PostHog", "iconKey": "siPosthog" },
-      { "id": "firebase-remote-config", "label": "Firebase Remote Config", "iconKey": "siFirebase" },
-      { "id": "configcat", "label": "ConfigCat" },
-      { "id": "growthbook", "label": "GrowthBook" },
-      { "id": "unleash", "label": "Unleash" },
       { "id": "optimizely", "label": "Optimizely" },
+      { "id": "launchdarkly", "label": "LaunchDarkly" },
+      { "id": "posthog-experiments", "label": "PostHog Experiments", "iconKey": "siPosthog" },
+      { "id": "growthbook", "label": "GrowthBook" },
+      { "id": "amplitude-experiment", "label": "Amplitude Experiment", "iconKey": "siAmplitude" },
+      { "id": "firebase-ab", "label": "Firebase A/B Testing", "iconKey": "siFirebase" },
       { "id": "split-io", "label": "Split.io" },
-      { "id": "flagsmith", "label": "Flagsmith" }
+      { "id": "vwo", "label": "VWO" },
+      { "id": "ab-tasty", "label": "AB Tasty" }
     ]
   },
   {
@@ -274,6 +437,33 @@
       { "id": "new-relic", "label": "New Relic", "iconKey": "siNewrelic" },
       { "id": "bugsnag", "label": "Bugsnag", "iconKey": "siBugsnag" },
       { "id": "crashlytics", "label": "Firebase Crashlytics", "iconKey": "siFirebase" }
+    ]
+  },
+  {
+    "id": "testing",
+    "label": "Testing",
+    "title": "Testing",
+    "subtitle": "quality gates",
+    "items": [
+      { "id": "jest", "label": "Jest", "iconKey": "siJest" },
+      { "id": "vitest", "label": "Vitest", "iconKey": "siVitest" },
+      { "id": "rntl", "label": "RN Testing Library" },
+      { "id": "detox", "label": "Detox" },
+      { "id": "maestro", "label": "Maestro" },
+      { "id": "appium", "label": "Appium", "iconKey": "siAppium" },
+      { "id": "playwright", "label": "Playwright" },
+      { "id": "storybook", "label": "Storybook", "iconKey": "siStorybook" }
+    ]
+  },
+  {
+    "id": "ota-updates",
+    "label": "OTA",
+    "title": "OTA Updates",
+    "subtitle": "ship without store review",
+    "items": [
+      { "id": "expo-updates", "label": "Expo Updates (EAS)", "iconKey": "siExpo" },
+      { "id": "codepush", "label": "App Center CodePush" },
+      { "id": "rn-update", "label": "react-native-update" }
     ]
   },
   {
