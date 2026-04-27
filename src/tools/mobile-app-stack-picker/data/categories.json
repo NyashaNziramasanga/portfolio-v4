@@ -23,7 +23,20 @@
       { "id": "tamagui", "label": "Tamagui", "iconKey": "siTamagui" },
       { "id": "restyle", "label": "Shopify Restyle", "iconKey": "siShopify" },
       { "id": "react-native-paper", "label": "React Native Paper", "iconKey": "siMaterialdesign" },
-      { "id": "gluestack", "label": "Gluestack UI", "iconKey": "siStackblitz" }
+      { "id": "gluestack", "label": "Gluestack UI", "iconKey": "siStackblitz" },
+      { "id": "stylesheet-api", "label": "StyleSheet API" }
+    ]
+  },
+  {
+    "id": "iconography",
+    "label": "Icons",
+    "title": "Iconography",
+    "subtitle": "icon libraries",
+    "items": [
+      { "id": "phosphor-icons", "label": "Phosphor Icons" },
+      { "id": "tabler-icons", "label": "Tabler Icons" },
+      { "id": "lucide-icons", "label": "Lucide Icons", "iconKey": "siLucide" },
+      { "id": "material-icons", "label": "Material Icons", "iconKey": "siMaterialdesignicons" }
     ]
   },
   {
@@ -63,6 +76,17 @@
       { "id": "aws-amplify", "label": "AWS Amplify", "iconKey": "siAwsamplify" },
       { "id": "convex", "label": "Convex", "iconKey": "siConvex" },
       { "id": "trpc", "label": "tRPC", "iconKey": "siTrpc" }
+    ]
+  },
+  {
+    "id": "api",
+    "label": "API",
+    "title": "API",
+    "subtitle": "transport contract",
+    "items": [
+      { "id": "rest", "label": "REST" },
+      { "id": "graphql", "label": "GraphQL", "iconKey": "siGraphql" },
+      { "id": "trpc-api", "label": "tRPC", "iconKey": "siTrpc" }
     ]
   },
   {
