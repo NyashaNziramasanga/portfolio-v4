@@ -67,15 +67,20 @@
   {
     "id": "backend-api",
     "label": "Backend Runtime",
-    "title": "Backend / API",
-    "subtitle": "business logic",
+    "title": "Backend Runtime",
+    "subtitle": "what runs your code",
     "items": [
-      { "id": "supabase", "label": "Supabase", "iconKey": "siSupabase" },
-      { "id": "firebase", "label": "Firebase", "iconKey": "siFirebase" },
-      { "id": "hasura", "label": "Hasura", "iconKey": "siHasura" },
-      { "id": "aws-amplify", "label": "AWS Amplify", "iconKey": "siAwsamplify" },
-      { "id": "convex", "label": "Convex", "iconKey": "siConvex" },
-      { "id": "trpc", "label": "tRPC", "iconKey": "siTrpc" }
+      { "id": "nodejs", "label": "Node.js", "iconKey": "siNodedotjs" },
+      { "id": "bun", "label": "Bun", "iconKey": "siBun" },
+      { "id": "deno", "label": "Deno", "iconKey": "siDeno" },
+      { "id": "python-fastapi", "label": "Python (FastAPI)", "iconKey": "siFastapi" },
+      { "id": "go", "label": "Go", "iconKey": "siGo" },
+      { "id": "ruby-on-rails", "label": "Ruby on Rails", "iconKey": "siRubyonrails" },
+      { "id": "elixir-phoenix", "label": "Elixir / Phoenix", "iconKey": "siPhoenixframework" },
+      { "id": "nestjs", "label": "NestJS", "iconKey": "siNestjs" },
+      { "id": "hono", "label": "Hono", "iconKey": "siHono" },
+      { "id": "aspnet-core", "label": "ASP.NET Core (.NET)", "iconKey": "siDotnet" },
+      { "id": "spring-boot", "label": "Spring Boot", "iconKey": "siSpringboot" }
     ]
   },
   {
@@ -96,38 +101,53 @@
     "subtitle": "where data sleeps",
     "items": [
       { "id": "postgres", "label": "PostgreSQL", "iconKey": "siPostgresql" },
+      { "id": "neon", "label": "Neon" },
+      { "id": "supabase-db", "label": "Supabase", "iconKey": "siSupabase" },
+      { "id": "planetscale", "label": "PlanetScale", "iconKey": "siPlanetscale" },
       { "id": "mysql", "label": "MySQL", "iconKey": "siMysql" },
-      { "id": "sqlite", "label": "SQLite", "iconKey": "siSqlite" },
       { "id": "mongodb", "label": "MongoDB", "iconKey": "siMongodb" },
+      { "id": "sqlite", "label": "SQLite", "iconKey": "siSqlite" },
+      { "id": "firebase-db", "label": "Firebase", "iconKey": "siFirebase" },
       { "id": "dynamodb", "label": "DynamoDB", "iconKey": "siAmazondynamodb" },
-      { "id": "firestore", "label": "Cloud Firestore", "iconKey": "siFirebase" }
+      { "id": "convex-db", "label": "Convex", "iconKey": "siConvex" },
+      { "id": "turso", "label": "Turso", "iconKey": "siTurso" },
+      { "id": "redis", "label": "Redis", "iconKey": "siRedis" },
+      { "id": "sql-server", "label": "SQL Server" },
+      { "id": "azure-sql", "label": "Azure SQL" },
+      { "id": "cosmos-db", "label": "Cosmos DB" }
     ]
   },
   {
     "id": "auth",
     "label": "Auth",
     "title": "Auth",
-    "subtitle": "who logs in",
+    "subtitle": "who's logging in",
     "items": [
       { "id": "clerk", "label": "Clerk", "iconKey": "siClerk" },
       { "id": "auth0", "label": "Auth0", "iconKey": "siAuth0" },
       { "id": "supabase-auth", "label": "Supabase Auth", "iconKey": "siSupabase" },
+      { "id": "nextauth", "label": "NextAuth / Auth.js", "iconKey": "siNextdotjs" },
+      { "id": "workos", "label": "WorkOS" },
       { "id": "firebase-auth", "label": "Firebase Auth", "iconKey": "siFirebase" },
-      { "id": "cognito", "label": "AWS Cognito", "iconKey": "siAmazonwebservices" }
+      { "id": "better-auth", "label": "Better Auth", "iconKey": "siBetterauth" },
+      { "id": "cognito", "label": "AWS Cognito", "iconKey": "siAmazonwebservices" },
+      { "id": "entra-id", "label": "Microsoft Entra ID" }
     ]
   },
   {
     "id": "hosting",
     "label": "Compute",
     "title": "Hosting",
-    "subtitle": "where it runs",
+    "subtitle": "where the API runs",
     "items": [
-      { "id": "vercel", "label": "Vercel", "iconKey": "siVercel" },
-      { "id": "netlify", "label": "Netlify", "iconKey": "siNetlify" },
-      { "id": "cloudflare-pages", "label": "Cloudflare Pages", "iconKey": "siCloudflarepages" },
-      { "id": "render", "label": "Render", "iconKey": "siRender" },
+      { "id": "aws", "label": "AWS", "iconKey": "siAmazonwebservices" },
+      { "id": "google-cloud", "label": "Google Cloud", "iconKey": "siGooglecloud" },
+      { "id": "cloudflare-workers", "label": "Cloudflare Workers", "iconKey": "siCloudflareworkers" },
       { "id": "fly-io", "label": "Fly.io", "iconKey": "siFlydotio" },
-      { "id": "railway", "label": "Railway", "iconKey": "siRailway" }
+      { "id": "render", "label": "Render", "iconKey": "siRender" },
+      { "id": "railway", "label": "Railway", "iconKey": "siRailway" },
+      { "id": "vercel", "label": "Vercel", "iconKey": "siVercel" },
+      { "id": "netlify", "label": "Netlify", "iconKey": "siNetlify" }
     ]
   },
   {
