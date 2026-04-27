@@ -4,6 +4,7 @@
     "label": "Frontend",
     "title": "Framework",
     "subtitle": "UI framework",
+    "tier": 1,
     "items": [
       { "id": "react-native", "label": "React Native", "iconKey": "siReact" },
       { "id": "expo", "label": "Expo", "iconKey": "siExpo" },
@@ -14,50 +15,11 @@
     ]
   },
   {
-    "id": "styling-ui",
-    "label": "Styling",
-    "title": "Styling / UI",
-    "subtitle": "look and feel",
-    "items": [
-      { "id": "nativewind", "label": "NativeWind", "iconKey": "siTailwindcss" },
-      { "id": "tamagui", "label": "Tamagui", "iconKey": "siTamagui" },
-      { "id": "restyle", "label": "Shopify Restyle", "iconKey": "siShopify" },
-      { "id": "react-native-paper", "label": "React Native Paper", "iconKey": "siMaterialdesign" },
-      { "id": "gluestack", "label": "Gluestack UI", "iconKey": "siStackblitz" },
-      { "id": "stylesheet-api", "label": "StyleSheet API" }
-    ]
-  },
-  {
-    "id": "iconography",
-    "label": "Icons",
-    "title": "Iconography",
-    "subtitle": "icon libraries",
-    "items": [
-      { "id": "phosphor-icons", "label": "Phosphor Icons" },
-      { "id": "tabler-icons", "label": "Tabler Icons" },
-      { "id": "lucide-icons", "label": "Lucide Icons", "iconKey": "siLucide" },
-      { "id": "material-icons", "label": "Material Icons", "iconKey": "siMaterialdesignicons" }
-    ]
-  },
-  {
-    "id": "animation",
-    "label": "Animation",
-    "title": "Animation",
-    "subtitle": "motion & gestures",
-    "items": [
-      { "id": "reanimated", "label": "Reanimated" },
-      { "id": "moti", "label": "Moti" },
-      { "id": "lottie", "label": "Lottie", "iconKey": "siLottiefiles" },
-      { "id": "rive", "label": "Rive", "iconKey": "siRive" },
-      { "id": "skia", "label": "React Native Skia", "iconKey": "siShopify" },
-      { "id": "framer-motion", "label": "Framer Motion", "iconKey": "siFramer" }
-    ]
-  },
-  {
     "id": "navigation",
     "label": "Navigation",
     "title": "Navigation",
     "subtitle": "screen flow",
+    "tier": 1,
     "items": [
       { "id": "react-navigation", "label": "React Navigation", "iconKey": "siReactrouter" },
       { "id": "expo-router", "label": "Expo Router", "iconKey": "siExpo" },
@@ -70,6 +32,7 @@
     "label": "State",
     "title": "State / Data",
     "subtitle": "app state",
+    "tier": 1,
     "items": [
       { "id": "zustand", "label": "Zustand", "iconKey": "siZustand" },
       { "id": "redux-toolkit", "label": "Redux Toolkit", "iconKey": "siRedux" },
@@ -79,48 +42,36 @@
     ]
   },
   {
-    "id": "forms-validation",
-    "label": "Forms",
-    "title": "Forms & Validation",
-    "subtitle": "user input & schemas",
+    "id": "styling-ui",
+    "label": "Styling",
+    "title": "Styling / UI",
+    "subtitle": "look and feel",
+    "tier": 1,
     "items": [
-      { "id": "react-hook-form", "label": "React Hook Form", "iconKey": "siReacthookform" },
-      { "id": "formik", "label": "Formik", "iconKey": "siFormik" },
-      { "id": "tanstack-form", "label": "TanStack Form" },
-      { "id": "zod", "label": "Zod", "iconKey": "siZod" },
-      { "id": "yup", "label": "Yup" },
-      { "id": "valibot", "label": "Valibot" },
-      { "id": "effect-schema", "label": "Effect Schema" }
+      { "id": "nativewind", "label": "NativeWind", "iconKey": "siTailwindcss" },
+      { "id": "tamagui", "label": "Tamagui", "iconKey": "siTamagui" },
+      { "id": "restyle", "label": "Shopify Restyle", "iconKey": "siShopify" },
+      { "id": "react-native-paper", "label": "React Native Paper", "iconKey": "siMaterialdesign" },
+      { "id": "gluestack", "label": "Gluestack UI", "iconKey": "siStackblitz" },
+      { "id": "stylesheet-api", "label": "StyleSheet API" }
     ]
   },
   {
-    "id": "i18n",
-    "label": "i18n",
-    "title": "Internationalisation",
-    "subtitle": "speaking your users' language",
+    "id": "auth",
+    "label": "Auth",
+    "title": "Auth",
+    "subtitle": "who's logging in",
+    "tier": 1,
     "items": [
-      { "id": "i18next", "label": "i18next", "iconKey": "siI18next" },
-      { "id": "react-intl", "label": "react-intl (FormatJS)" },
-      { "id": "lingui", "label": "Lingui" },
-      { "id": "expo-localization", "label": "Expo Localization", "iconKey": "siExpo" },
-      { "id": "crowdin", "label": "Crowdin", "iconKey": "siCrowdin" },
-      { "id": "lokalise", "label": "Lokalise" },
-      { "id": "phrase", "label": "Phrase" },
-      { "id": "tolgee", "label": "Tolgee" }
-    ]
-  },
-  {
-    "id": "maps-location",
-    "label": "Maps",
-    "title": "Maps & Location",
-    "subtitle": "place & geo features",
-    "items": [
-      { "id": "google-maps", "label": "Google Maps", "iconKey": "siGooglemaps" },
-      { "id": "mapbox", "label": "Mapbox", "iconKey": "siMapbox" },
-      { "id": "apple-mapkit", "label": "Apple MapKit", "iconKey": "siApple" },
-      { "id": "react-native-maps", "label": "react-native-maps" },
-      { "id": "maplibre", "label": "MapLibre", "iconKey": "siMaplibre" },
-      { "id": "expo-location", "label": "Expo Location", "iconKey": "siExpo" }
+      { "id": "clerk", "label": "Clerk", "iconKey": "siClerk" },
+      { "id": "auth0", "label": "Auth0", "iconKey": "siAuth0" },
+      { "id": "supabase-auth", "label": "Supabase Auth", "iconKey": "siSupabase" },
+      { "id": "nextauth", "label": "NextAuth / Auth.js", "iconKey": "siNextdotjs" },
+      { "id": "workos", "label": "WorkOS" },
+      { "id": "firebase-auth", "label": "Firebase Auth", "iconKey": "siFirebase" },
+      { "id": "better-auth", "label": "Better Auth", "iconKey": "siBetterauth" },
+      { "id": "cognito", "label": "AWS Cognito", "iconKey": "siAmazonwebservices" },
+      { "id": "entra-id", "label": "Microsoft Entra ID" }
     ]
   },
   {
@@ -128,6 +79,7 @@
     "label": "Backend Runtime",
     "title": "Backend Runtime",
     "subtitle": "what runs your code",
+    "tier": 1,
     "items": [
       { "id": "nodejs", "label": "Node.js", "iconKey": "siNodedotjs" },
       { "id": "bun", "label": "Bun", "iconKey": "siBun" },
@@ -143,24 +95,11 @@
     ]
   },
   {
-    "id": "orm",
-    "label": "ORM",
-    "title": "ORM / Data Layer",
-    "subtitle": "talking to the database",
-    "items": [
-      { "id": "prisma", "label": "Prisma", "iconKey": "siPrisma" },
-      { "id": "drizzle", "label": "Drizzle", "iconKey": "siDrizzle" },
-      { "id": "kysely", "label": "Kysely" },
-      { "id": "typeorm", "label": "TypeORM", "iconKey": "siTypeorm" },
-      { "id": "mongoose", "label": "Mongoose", "iconKey": "siMongoose" },
-      { "id": "sqlalchemy", "label": "SQLAlchemy", "iconKey": "siSqlalchemy" }
-    ]
-  },
-  {
     "id": "api",
     "label": "API",
     "title": "API",
     "subtitle": "transport contract",
+    "tier": 1,
     "items": [
       { "id": "rest", "label": "REST" },
       { "id": "graphql", "label": "GraphQL", "iconKey": "siGraphql" },
@@ -168,25 +107,11 @@
     ]
   },
   {
-    "id": "realtime",
-    "label": "Realtime",
-    "title": "Realtime",
-    "subtitle": "live updates & sockets",
-    "items": [
-      { "id": "supabase-realtime", "label": "Supabase Realtime", "iconKey": "siSupabase" },
-      { "id": "pusher", "label": "Pusher", "iconKey": "siPusher" },
-      { "id": "ably", "label": "Ably" },
-      { "id": "pubnub", "label": "PubNub" },
-      { "id": "socket-io", "label": "Socket.io", "iconKey": "siSocketdotio" },
-      { "id": "livekit", "label": "LiveKit", "iconKey": "siLivekit" },
-      { "id": "liveblocks", "label": "Liveblocks" }
-    ]
-  },
-  {
     "id": "database",
     "label": "Database",
     "title": "Database",
     "subtitle": "where data sleeps",
+    "tier": 1,
     "items": [
       { "id": "postgres", "label": "PostgreSQL", "iconKey": "siPostgresql" },
       { "id": "neon", "label": "Neon" },
@@ -206,10 +131,57 @@
     ]
   },
   {
+    "id": "hosting",
+    "label": "Compute",
+    "title": "Hosting",
+    "subtitle": "where the API runs",
+    "tier": 1,
+    "items": [
+      { "id": "aws", "label": "AWS", "iconKey": "siAmazonwebservices" },
+      { "id": "google-cloud", "label": "Google Cloud", "iconKey": "siGooglecloud" },
+      { "id": "cloudflare-workers", "label": "Cloudflare Workers", "iconKey": "siCloudflareworkers" },
+      { "id": "fly-io", "label": "Fly.io", "iconKey": "siFlydotio" },
+      { "id": "render", "label": "Render", "iconKey": "siRender" },
+      { "id": "railway", "label": "Railway", "iconKey": "siRailway" },
+      { "id": "vercel", "label": "Vercel", "iconKey": "siVercel" },
+      { "id": "netlify", "label": "Netlify", "iconKey": "siNetlify" }
+    ]
+  },
+  {
+    "id": "forms-validation",
+    "label": "Forms",
+    "title": "Forms & Validation",
+    "subtitle": "user input & schemas",
+    "tier": 2,
+    "items": [
+      { "id": "react-hook-form", "label": "React Hook Form", "iconKey": "siReacthookform" },
+      { "id": "formik", "label": "Formik", "iconKey": "siFormik" },
+      { "id": "tanstack-form", "label": "TanStack Form" },
+      { "id": "zod", "label": "Zod", "iconKey": "siZod" },
+      { "id": "yup", "label": "Yup" },
+      { "id": "valibot", "label": "Valibot" },
+      { "id": "effect-schema", "label": "Effect Schema" }
+    ]
+  },
+  {
+    "id": "iconography",
+    "label": "Icons",
+    "title": "Iconography",
+    "subtitle": "icon libraries",
+    "tier": 2,
+    "items": [
+      { "id": "phosphor-icons", "label": "Phosphor Icons" },
+      { "id": "tabler-icons", "label": "Tabler Icons" },
+      { "id": "lucide-icons", "label": "Lucide Icons", "iconKey": "siLucide" },
+      { "id": "material-icons", "label": "Material Icons", "iconKey": "siMaterialdesignicons" }
+    ]
+  },
+  {
     "id": "offline-sync",
     "label": "Offline",
     "title": "Local Storage & Sync",
     "subtitle": "on-device data & offline-first",
+    "tier": 2,
     "items": [
       { "id": "mmkv", "label": "MMKV" },
       { "id": "async-storage", "label": "AsyncStorage" },
@@ -223,36 +195,19 @@
     ]
   },
   {
-    "id": "auth",
-    "label": "Auth",
-    "title": "Auth",
-    "subtitle": "who's logging in",
+    "id": "push-notifications",
+    "label": "Push",
+    "title": "Push Notifications",
+    "subtitle": "real-time outreach",
+    "tier": 2,
     "items": [
-      { "id": "clerk", "label": "Clerk", "iconKey": "siClerk" },
-      { "id": "auth0", "label": "Auth0", "iconKey": "siAuth0" },
-      { "id": "supabase-auth", "label": "Supabase Auth", "iconKey": "siSupabase" },
-      { "id": "nextauth", "label": "NextAuth / Auth.js", "iconKey": "siNextdotjs" },
-      { "id": "workos", "label": "WorkOS" },
-      { "id": "firebase-auth", "label": "Firebase Auth", "iconKey": "siFirebase" },
-      { "id": "better-auth", "label": "Better Auth", "iconKey": "siBetterauth" },
-      { "id": "cognito", "label": "AWS Cognito", "iconKey": "siAmazonwebservices" },
-      { "id": "entra-id", "label": "Microsoft Entra ID" }
-    ]
-  },
-  {
-    "id": "hosting",
-    "label": "Compute",
-    "title": "Hosting",
-    "subtitle": "where the API runs",
-    "items": [
-      { "id": "aws", "label": "AWS", "iconKey": "siAmazonwebservices" },
-      { "id": "google-cloud", "label": "Google Cloud", "iconKey": "siGooglecloud" },
-      { "id": "cloudflare-workers", "label": "Cloudflare Workers", "iconKey": "siCloudflareworkers" },
-      { "id": "fly-io", "label": "Fly.io", "iconKey": "siFlydotio" },
-      { "id": "render", "label": "Render", "iconKey": "siRender" },
-      { "id": "railway", "label": "Railway", "iconKey": "siRailway" },
-      { "id": "vercel", "label": "Vercel", "iconKey": "siVercel" },
-      { "id": "netlify", "label": "Netlify", "iconKey": "siNetlify" }
+      { "id": "expo-notifications", "label": "Expo Notifications", "iconKey": "siExpo" },
+      { "id": "fcm", "label": "Firebase Cloud Messaging", "iconKey": "siFirebase" },
+      { "id": "onesignal", "label": "OneSignal" },
+      { "id": "apns", "label": "Apple APNs", "iconKey": "siApple" },
+      { "id": "pusher-beams", "label": "Pusher Beams", "iconKey": "siPusher" },
+      { "id": "airship", "label": "Airship" },
+      { "id": "knock", "label": "Knock" }
     ]
   },
   {
@@ -260,6 +215,7 @@
     "label": "Storage",
     "title": "File / Blob Storage",
     "subtitle": "binary assets",
+    "tier": 2,
     "items": [
       { "id": "s3", "label": "AWS S3", "iconKey": "siAmazons3" },
       { "id": "firebase-storage", "label": "Firebase Storage", "iconKey": "siFirebase" },
@@ -269,10 +225,234 @@
     ]
   },
   {
+    "id": "monitoring-apm",
+    "label": "Monitoring",
+    "title": "Monitoring / APM",
+    "subtitle": "reliability insights",
+    "tier": 2,
+    "items": [
+      { "id": "sentry", "label": "Sentry", "iconKey": "siSentry" },
+      { "id": "datadog", "label": "Datadog", "iconKey": "siDatadog" },
+      { "id": "new-relic", "label": "New Relic", "iconKey": "siNewrelic" },
+      { "id": "bugsnag", "label": "Bugsnag", "iconKey": "siBugsnag" },
+      { "id": "crashlytics", "label": "Firebase Crashlytics", "iconKey": "siFirebase" }
+    ]
+  },
+  {
+    "id": "testing",
+    "label": "Testing",
+    "title": "Testing",
+    "subtitle": "quality gates",
+    "tier": 2,
+    "items": [
+      { "id": "jest", "label": "Jest", "iconKey": "siJest" },
+      { "id": "vitest", "label": "Vitest", "iconKey": "siVitest" },
+      { "id": "rntl", "label": "RN Testing Library" },
+      { "id": "detox", "label": "Detox" },
+      { "id": "maestro", "label": "Maestro" },
+      { "id": "appium", "label": "Appium", "iconKey": "siAppium" },
+      { "id": "playwright", "label": "Playwright" },
+      { "id": "storybook", "label": "Storybook", "iconKey": "siStorybook" }
+    ]
+  },
+  {
+    "id": "ci-cd",
+    "label": "Delivery",
+    "title": "CI/CD",
+    "subtitle": "ship pipeline",
+    "tier": 2,
+    "items": [
+      { "id": "eas-build", "label": "EAS Build", "iconKey": "siExpo" },
+      { "id": "bitrise", "label": "Bitrise", "iconKey": "siBitrise" },
+      { "id": "codemagic", "label": "Codemagic", "iconKey": "siCodemagic" },
+      { "id": "fastlane", "label": "Fastlane", "iconKey": "siFastlane" },
+      { "id": "github-actions", "label": "GitHub Actions", "iconKey": "siGithubactions" },
+      { "id": "circleci", "label": "CircleCI", "iconKey": "siCircleci" }
+    ]
+  },
+  {
+    "id": "product-analytics",
+    "label": "Analytics",
+    "title": "Product Analytics",
+    "subtitle": "behavior data",
+    "tier": 2,
+    "items": [
+      { "id": "amplitude", "label": "Amplitude", "iconKey": "siAmplitude" },
+      { "id": "mixpanel", "label": "Mixpanel", "iconKey": "siMixpanel" },
+      { "id": "posthog", "label": "PostHog", "iconKey": "siPosthog" },
+      { "id": "firebase-analytics", "label": "Firebase Analytics", "iconKey": "siFirebase" },
+      { "id": "segment", "label": "Segment", "iconKey": "siSegment" }
+    ]
+  },
+  {
+    "id": "transactional-email",
+    "label": "Email",
+    "title": "Transactional Email",
+    "subtitle": "critical comms",
+    "tier": 2,
+    "items": [
+      { "id": "resend", "label": "Resend", "iconKey": "siResend" },
+      { "id": "postmark", "label": "Postmark", "iconKey": "siPostmark" },
+      { "id": "sendgrid", "label": "SendGrid", "iconKey": "siSendgrid" },
+      { "id": "ses", "label": "AWS SES", "iconKey": "siAmazonwebservices" },
+      { "id": "mailgun", "label": "Mailgun", "iconKey": "siMailgun" }
+    ]
+  },
+  {
+    "id": "animation",
+    "label": "Animation",
+    "title": "Animation",
+    "subtitle": "motion & gestures",
+    "tier": 3,
+    "items": [
+      { "id": "reanimated", "label": "Reanimated" },
+      { "id": "moti", "label": "Moti" },
+      { "id": "lottie", "label": "Lottie", "iconKey": "siLottiefiles" },
+      { "id": "rive", "label": "Rive", "iconKey": "siRive" },
+      { "id": "skia", "label": "React Native Skia", "iconKey": "siShopify" },
+      { "id": "framer-motion", "label": "Framer Motion", "iconKey": "siFramer" }
+    ]
+  },
+  {
+    "id": "orm",
+    "label": "ORM",
+    "title": "ORM / Data Layer",
+    "subtitle": "talking to the database",
+    "tier": 3,
+    "items": [
+      { "id": "prisma", "label": "Prisma", "iconKey": "siPrisma" },
+      { "id": "drizzle", "label": "Drizzle", "iconKey": "siDrizzle" },
+      { "id": "kysely", "label": "Kysely" },
+      { "id": "typeorm", "label": "TypeORM", "iconKey": "siTypeorm" },
+      { "id": "mongoose", "label": "Mongoose", "iconKey": "siMongoose" },
+      { "id": "sqlalchemy", "label": "SQLAlchemy", "iconKey": "siSqlalchemy" }
+    ]
+  },
+  {
+    "id": "ota-updates",
+    "label": "OTA",
+    "title": "OTA Updates",
+    "subtitle": "ship without store review",
+    "tier": 3,
+    "items": [
+      { "id": "expo-updates", "label": "Expo Updates (EAS)", "iconKey": "siExpo" },
+      { "id": "codepush", "label": "App Center CodePush" },
+      { "id": "rn-update", "label": "react-native-update" }
+    ]
+  },
+  {
+    "id": "i18n",
+    "label": "i18n",
+    "title": "Internationalisation",
+    "subtitle": "speaking your users' language",
+    "tier": 3,
+    "items": [
+      { "id": "i18next", "label": "i18next", "iconKey": "siI18next" },
+      { "id": "react-intl", "label": "react-intl (FormatJS)" },
+      { "id": "lingui", "label": "Lingui" },
+      { "id": "expo-localization", "label": "Expo Localization", "iconKey": "siExpo" },
+      { "id": "crowdin", "label": "Crowdin", "iconKey": "siCrowdin" },
+      { "id": "lokalise", "label": "Lokalise" },
+      { "id": "phrase", "label": "Phrase" },
+      { "id": "tolgee", "label": "Tolgee" }
+    ]
+  },
+  {
+    "id": "payments",
+    "label": "Payments",
+    "title": "Payments",
+    "subtitle": "money movement",
+    "tier": 3,
+    "items": [
+      { "id": "stripe", "label": "Stripe", "iconKey": "siStripe" },
+      { "id": "revenuecat", "label": "RevenueCat", "iconKey": "siRevenuecat" },
+      { "id": "apple-iap", "label": "Apple In-App Purchase", "iconKey": "siApple" },
+      { "id": "google-play-billing", "label": "Google Play Billing", "iconKey": "siGoogleplay" },
+      { "id": "paddle", "label": "Paddle", "iconKey": "siPaddle" }
+    ]
+  },
+  {
+    "id": "ai-llm",
+    "label": "AI",
+    "title": "AI / LLM",
+    "subtitle": "model layer",
+    "tier": 3,
+    "items": [
+      { "id": "openai", "label": "OpenAI", "iconKey": "siOpenai" },
+      { "id": "anthropic", "label": "Anthropic Claude", "iconKey": "siAnthropic" },
+      { "id": "gemini", "label": "Google Gemini", "iconKey": "siGooglegemini" },
+      { "id": "vercel-ai-sdk", "label": "Vercel AI SDK", "iconKey": "siVercel" },
+      { "id": "hugging-face", "label": "Hugging Face", "iconKey": "siHuggingface" },
+      { "id": "mistral", "label": "Mistral", "iconKey": "siMistralai" }
+    ]
+  },
+  {
+    "id": "attribution-deeplinks",
+    "label": "Attribution",
+    "title": "Attribution & Deep Links",
+    "subtitle": "install tracking & routing",
+    "tier": 3,
+    "items": [
+      { "id": "appsflyer", "label": "AppsFlyer" },
+      { "id": "adjust", "label": "Adjust" },
+      { "id": "branch", "label": "Branch" },
+      { "id": "singular", "label": "Singular" },
+      { "id": "universal-links", "label": "Apple Universal Links", "iconKey": "siApple" },
+      { "id": "android-app-links", "label": "Android App Links", "iconKey": "siAndroid" },
+      { "id": "expo-linking", "label": "Expo Linking", "iconKey": "siExpo" }
+    ]
+  },
+  {
+    "id": "realtime",
+    "label": "Realtime",
+    "title": "Realtime",
+    "subtitle": "live updates & sockets",
+    "tier": 3,
+    "items": [
+      { "id": "supabase-realtime", "label": "Supabase Realtime", "iconKey": "siSupabase" },
+      { "id": "pusher", "label": "Pusher", "iconKey": "siPusher" },
+      { "id": "ably", "label": "Ably" },
+      { "id": "pubnub", "label": "PubNub" },
+      { "id": "socket-io", "label": "Socket.io", "iconKey": "siSocketdotio" },
+      { "id": "livekit", "label": "LiveKit", "iconKey": "siLivekit" },
+      { "id": "liveblocks", "label": "Liveblocks" }
+    ]
+  },
+  {
+    "id": "maps-location",
+    "label": "Maps",
+    "title": "Maps & Location",
+    "subtitle": "place & geo features",
+    "tier": 4,
+    "items": [
+      { "id": "google-maps", "label": "Google Maps", "iconKey": "siGooglemaps" },
+      { "id": "mapbox", "label": "Mapbox", "iconKey": "siMapbox" },
+      { "id": "apple-mapkit", "label": "Apple MapKit", "iconKey": "siApple" },
+      { "id": "react-native-maps", "label": "react-native-maps" },
+      { "id": "maplibre", "label": "MapLibre", "iconKey": "siMaplibre" },
+      { "id": "expo-location", "label": "Expo Location", "iconKey": "siExpo" }
+    ]
+  },
+  {
+    "id": "search",
+    "label": "Search",
+    "title": "Search",
+    "subtitle": "content discovery",
+    "tier": 4,
+    "items": [
+      { "id": "algolia", "label": "Algolia", "iconKey": "siAlgolia" },
+      { "id": "meilisearch", "label": "Meilisearch", "iconKey": "siMeilisearch" },
+      { "id": "typesense", "label": "Typesense", "iconKey": "siTypesense" },
+      { "id": "elasticsearch", "label": "Elasticsearch", "iconKey": "siElasticsearch" },
+      { "id": "postgres-fts", "label": "Postgres FTS", "iconKey": "siPostgresql" }
+    ]
+  },
+  {
     "id": "background-jobs",
     "label": "Jobs",
     "title": "Background Jobs",
     "subtitle": "queues & async work",
+    "tier": 4,
     "items": [
       { "id": "bullmq", "label": "BullMQ" },
       { "id": "inngest", "label": "Inngest" },
@@ -285,134 +465,11 @@
     ]
   },
   {
-    "id": "search",
-    "label": "Search",
-    "title": "Search",
-    "subtitle": "content discovery",
-    "items": [
-      { "id": "algolia", "label": "Algolia", "iconKey": "siAlgolia" },
-      { "id": "meilisearch", "label": "Meilisearch", "iconKey": "siMeilisearch" },
-      { "id": "typesense", "label": "Typesense", "iconKey": "siTypesense" },
-      { "id": "elasticsearch", "label": "Elasticsearch", "iconKey": "siElasticsearch" },
-      { "id": "postgres-fts", "label": "Postgres FTS", "iconKey": "siPostgresql" }
-    ]
-  },
-  {
-    "id": "payments",
-    "label": "Payments",
-    "title": "Payments",
-    "subtitle": "money movement",
-    "items": [
-      { "id": "stripe", "label": "Stripe", "iconKey": "siStripe" },
-      { "id": "revenuecat", "label": "RevenueCat", "iconKey": "siRevenuecat" },
-      { "id": "apple-iap", "label": "Apple In-App Purchase", "iconKey": "siApple" },
-      { "id": "google-play-billing", "label": "Google Play Billing", "iconKey": "siGoogleplay" },
-      { "id": "paddle", "label": "Paddle", "iconKey": "siPaddle" }
-    ]
-  },
-  {
-    "id": "transactional-email",
-    "label": "Email",
-    "title": "Transactional Email",
-    "subtitle": "critical comms",
-    "items": [
-      { "id": "resend", "label": "Resend", "iconKey": "siResend" },
-      { "id": "postmark", "label": "Postmark", "iconKey": "siPostmark" },
-      { "id": "sendgrid", "label": "SendGrid", "iconKey": "siSendgrid" },
-      { "id": "ses", "label": "AWS SES", "iconKey": "siAmazonwebservices" },
-      { "id": "mailgun", "label": "Mailgun", "iconKey": "siMailgun" }
-    ]
-  },
-  {
-    "id": "lifecycle-marketing",
-    "label": "Lifecycle",
-    "title": "Lifecycle Marketing",
-    "subtitle": "engagement & retention",
-    "items": [
-      { "id": "braze", "label": "Braze" },
-      { "id": "iterable", "label": "Iterable" },
-      { "id": "customer-io", "label": "Customer.io" },
-      { "id": "klaviyo", "label": "Klaviyo" },
-      { "id": "onesignal-journeys", "label": "OneSignal Journeys" },
-      { "id": "hubspot", "label": "HubSpot", "iconKey": "siHubspot" },
-      { "id": "activecampaign", "label": "ActiveCampaign" }
-    ]
-  },
-  {
-    "id": "push-notifications",
-    "label": "Push",
-    "title": "Push Notifications",
-    "subtitle": "real-time outreach",
-    "items": [
-      { "id": "expo-notifications", "label": "Expo Notifications", "iconKey": "siExpo" },
-      { "id": "fcm", "label": "Firebase Cloud Messaging", "iconKey": "siFirebase" },
-      { "id": "onesignal", "label": "OneSignal" },
-      { "id": "apns", "label": "Apple APNs", "iconKey": "siApple" },
-      { "id": "pusher-beams", "label": "Pusher Beams", "iconKey": "siPusher" },
-      { "id": "airship", "label": "Airship" },
-      { "id": "knock", "label": "Knock" }
-    ]
-  },
-  {
-    "id": "in-app-support",
-    "label": "Support",
-    "title": "In-App Support",
-    "subtitle": "help & messaging",
-    "items": [
-      { "id": "intercom", "label": "Intercom", "iconKey": "siIntercom" },
-      { "id": "zendesk", "label": "Zendesk", "iconKey": "siZendesk" },
-      { "id": "crisp", "label": "Crisp" },
-      { "id": "helpscout", "label": "Help Scout", "iconKey": "siHelpscout" },
-      { "id": "pylon", "label": "Pylon" }
-    ]
-  },
-  {
-    "id": "attribution-deeplinks",
-    "label": "Attribution",
-    "title": "Attribution & Deep Links",
-    "subtitle": "install tracking & routing",
-    "items": [
-      { "id": "appsflyer", "label": "AppsFlyer" },
-      { "id": "adjust", "label": "Adjust" },
-      { "id": "branch", "label": "Branch" },
-      { "id": "singular", "label": "Singular" },
-      { "id": "universal-links", "label": "Apple Universal Links", "iconKey": "siApple" },
-      { "id": "android-app-links", "label": "Android App Links", "iconKey": "siAndroid" },
-      { "id": "expo-linking", "label": "Expo Linking", "iconKey": "siExpo" }
-    ]
-  },
-  {
-    "id": "ai-llm",
-    "label": "AI",
-    "title": "AI / LLM",
-    "subtitle": "model layer",
-    "items": [
-      { "id": "openai", "label": "OpenAI", "iconKey": "siOpenai" },
-      { "id": "anthropic", "label": "Anthropic Claude", "iconKey": "siAnthropic" },
-      { "id": "gemini", "label": "Google Gemini", "iconKey": "siGooglegemini" },
-      { "id": "vercel-ai-sdk", "label": "Vercel AI SDK", "iconKey": "siVercel" },
-      { "id": "hugging-face", "label": "Hugging Face", "iconKey": "siHuggingface" },
-      { "id": "mistral", "label": "Mistral", "iconKey": "siMistralai" }
-    ]
-  },
-  {
-    "id": "product-analytics",
-    "label": "Analytics",
-    "title": "Product Analytics",
-    "subtitle": "behavior data",
-    "items": [
-      { "id": "amplitude", "label": "Amplitude", "iconKey": "siAmplitude" },
-      { "id": "mixpanel", "label": "Mixpanel", "iconKey": "siMixpanel" },
-      { "id": "posthog", "label": "PostHog", "iconKey": "siPosthog" },
-      { "id": "firebase-analytics", "label": "Firebase Analytics", "iconKey": "siFirebase" },
-      { "id": "segment", "label": "Segment", "iconKey": "siSegment" }
-    ]
-  },
-  {
     "id": "ab-testing",
     "label": "Experiments",
     "title": "A/B Testing",
     "subtitle": "experiments & rollouts",
+    "tier": 4,
     "items": [
       { "id": "statsig", "label": "Statsig" },
       { "id": "optimizely", "label": "Optimizely" },
@@ -427,57 +484,33 @@
     ]
   },
   {
-    "id": "monitoring-apm",
-    "label": "Monitoring",
-    "title": "Monitoring / APM",
-    "subtitle": "reliability insights",
+    "id": "lifecycle-marketing",
+    "label": "Lifecycle",
+    "title": "Lifecycle Marketing",
+    "subtitle": "engagement & retention",
+    "tier": 4,
     "items": [
-      { "id": "sentry", "label": "Sentry", "iconKey": "siSentry" },
-      { "id": "datadog", "label": "Datadog", "iconKey": "siDatadog" },
-      { "id": "new-relic", "label": "New Relic", "iconKey": "siNewrelic" },
-      { "id": "bugsnag", "label": "Bugsnag", "iconKey": "siBugsnag" },
-      { "id": "crashlytics", "label": "Firebase Crashlytics", "iconKey": "siFirebase" }
+      { "id": "braze", "label": "Braze" },
+      { "id": "iterable", "label": "Iterable" },
+      { "id": "customer-io", "label": "Customer.io" },
+      { "id": "klaviyo", "label": "Klaviyo" },
+      { "id": "onesignal-journeys", "label": "OneSignal Journeys" },
+      { "id": "hubspot", "label": "HubSpot", "iconKey": "siHubspot" },
+      { "id": "activecampaign", "label": "ActiveCampaign" }
     ]
   },
   {
-    "id": "testing",
-    "label": "Testing",
-    "title": "Testing",
-    "subtitle": "quality gates",
+    "id": "in-app-support",
+    "label": "Support",
+    "title": "In-App Support",
+    "subtitle": "help & messaging",
+    "tier": 4,
     "items": [
-      { "id": "jest", "label": "Jest", "iconKey": "siJest" },
-      { "id": "vitest", "label": "Vitest", "iconKey": "siVitest" },
-      { "id": "rntl", "label": "RN Testing Library" },
-      { "id": "detox", "label": "Detox" },
-      { "id": "maestro", "label": "Maestro" },
-      { "id": "appium", "label": "Appium", "iconKey": "siAppium" },
-      { "id": "playwright", "label": "Playwright" },
-      { "id": "storybook", "label": "Storybook", "iconKey": "siStorybook" }
-    ]
-  },
-  {
-    "id": "ota-updates",
-    "label": "OTA",
-    "title": "OTA Updates",
-    "subtitle": "ship without store review",
-    "items": [
-      { "id": "expo-updates", "label": "Expo Updates (EAS)", "iconKey": "siExpo" },
-      { "id": "codepush", "label": "App Center CodePush" },
-      { "id": "rn-update", "label": "react-native-update" }
-    ]
-  },
-  {
-    "id": "ci-cd",
-    "label": "Delivery",
-    "title": "CI/CD",
-    "subtitle": "ship pipeline",
-    "items": [
-      { "id": "eas-build", "label": "EAS Build", "iconKey": "siExpo" },
-      { "id": "bitrise", "label": "Bitrise", "iconKey": "siBitrise" },
-      { "id": "codemagic", "label": "Codemagic", "iconKey": "siCodemagic" },
-      { "id": "fastlane", "label": "Fastlane", "iconKey": "siFastlane" },
-      { "id": "github-actions", "label": "GitHub Actions", "iconKey": "siGithubactions" },
-      { "id": "circleci", "label": "CircleCI", "iconKey": "siCircleci" }
+      { "id": "intercom", "label": "Intercom", "iconKey": "siIntercom" },
+      { "id": "zendesk", "label": "Zendesk", "iconKey": "siZendesk" },
+      { "id": "crisp", "label": "Crisp" },
+      { "id": "helpscout", "label": "Help Scout", "iconKey": "siHelpscout" },
+      { "id": "pylon", "label": "Pylon" }
     ]
   }
 ]
