@@ -65,6 +65,22 @@
     ]
   },
   {
+    "id": "i18n",
+    "label": "i18n",
+    "title": "Internationalisation",
+    "subtitle": "speaking your users' language",
+    "items": [
+      { "id": "i18next", "label": "i18next", "iconKey": "siI18next" },
+      { "id": "react-intl", "label": "react-intl (FormatJS)" },
+      { "id": "lingui", "label": "Lingui" },
+      { "id": "expo-localization", "label": "Expo Localization", "iconKey": "siExpo" },
+      { "id": "crowdin", "label": "Crowdin", "iconKey": "siCrowdin" },
+      { "id": "lokalise", "label": "Lokalise" },
+      { "id": "phrase", "label": "Phrase" },
+      { "id": "tolgee", "label": "Tolgee" }
+    ]
+  },
+  {
     "id": "backend-api",
     "label": "Backend Runtime",
     "title": "Backend Runtime",
@@ -227,6 +243,24 @@
       { "id": "posthog", "label": "PostHog", "iconKey": "siPosthog" },
       { "id": "firebase-analytics", "label": "Firebase Analytics", "iconKey": "siFirebase" },
       { "id": "segment", "label": "Segment", "iconKey": "siSegment" }
+    ]
+  },
+  {
+    "id": "feature-flags",
+    "label": "Flags",
+    "title": "Feature Flags",
+    "subtitle": "experiments & rollouts",
+    "items": [
+      { "id": "statsig", "label": "Statsig" },
+      { "id": "launchdarkly", "label": "LaunchDarkly" },
+      { "id": "posthog-flags", "label": "PostHog", "iconKey": "siPosthog" },
+      { "id": "firebase-remote-config", "label": "Firebase Remote Config", "iconKey": "siFirebase" },
+      { "id": "configcat", "label": "ConfigCat" },
+      { "id": "growthbook", "label": "GrowthBook" },
+      { "id": "unleash", "label": "Unleash" },
+      { "id": "optimizely", "label": "Optimizely" },
+      { "id": "split-io", "label": "Split.io" },
+      { "id": "flagsmith", "label": "Flagsmith" }
     ]
   },
   {
