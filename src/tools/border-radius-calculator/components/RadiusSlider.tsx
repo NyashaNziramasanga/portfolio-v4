@@ -1,5 +1,6 @@
 import { useId } from "react";
 import { cn } from "@/lib/utils";
+import { NumberInput } from "@/tools/border-radius-calculator/components/NumberInput";
 
 type RadiusSliderProps = {
   label: string;
@@ -24,25 +25,36 @@ export function RadiusSlider({
   accentClass = "accent-primary",
   onChange,
 }: RadiusSliderProps) {
-  const id = useId();
+  const sliderId = useId();
+  const inputId = useId();
 
   return (
     <div className="space-y-1.5">
       <div className="flex items-baseline justify-between gap-3">
         <label
-          htmlFor={id}
+          htmlFor={sliderId}
           className="text-sm font-medium text-brand-100"
         >
           {label}
         </label>
-        <span className="rounded-md bg-brand-900/70 px-2 py-0.5 text-xs font-semibold tabular-nums text-brand-100">
-          {value}
-          {unit}
-        </span>
+
+        <div className="flex items-baseline gap-1 rounded-md bg-brand-900/70 pl-1 pr-2 transition-shadow focus-within:ring-2 focus-within:ring-primary">
+          <NumberInput
+            id={inputId}
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={onChange}
+            aria-label={`${label} value`}
+            className="w-10 bg-transparent py-0.5 text-right text-xs font-semibold tabular-nums text-brand-100 outline-none"
+          />
+          <span className="text-xs font-semibold text-brand-100">{unit}</span>
+        </div>
       </div>
 
       <input
-        id={id}
+        id={sliderId}
         type="range"
         min={min}
         max={max}

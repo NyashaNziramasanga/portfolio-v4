@@ -23,6 +23,7 @@ export function BorderRadiusCalculator() {
             innerRadius={state.inner}
             padding={state.padding}
             outerRadius={state.outer}
+            onChange={set}
           />
           <SnippetOutput
             outerRadius={state.outer}
