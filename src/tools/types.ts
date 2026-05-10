@@ -1,7 +1,10 @@
 import type { ComponentType } from "react";
 import categoriesData from "@/tools/mobile-app-stack-picker/data/categories.json";
 
-export const TOOL_SLUGS = ["mobile-app-stack-picker"] as const;
+export const TOOL_SLUGS = [
+  "mobile-app-stack-picker",
+  "border-radius-calculator",
+] as const;
 
 export type ToolSlug = (typeof TOOL_SLUGS)[number];
 

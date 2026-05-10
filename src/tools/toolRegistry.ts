@@ -1,21 +1,26 @@
 import toolsData from "@/tools/data/tools.json";
 import type { RegisteredTool, ToolListItem, ToolSlug } from "@/tools/types";
 import { MobileAppStackPicker } from "@/tools/mobile-app-stack-picker";
+import { BorderRadiusCalculator } from "@/tools/border-radius-calculator";
 
 const tools = toolsData as ToolListItem[];
 
-const mobileAppStackPicker = tools.find(
-  (tool) => tool.slug === "mobile-app-stack-picker",
-);
-
-if (!mobileAppStackPicker) {
-  throw new Error("Missing mobile-app-stack-picker entry in tools.json");
+function findTool(slug: ToolSlug): ToolListItem {
+  const tool = tools.find((entry) => entry.slug === slug);
+  if (!tool) {
+    throw new Error(`Missing ${slug} entry in tools.json`);
+  }
+  return tool;
 }
 
 const toolRegistry: Record<ToolSlug, RegisteredTool> = {
   "mobile-app-stack-picker": {
-    ...mobileAppStackPicker,
+    ...findTool("mobile-app-stack-picker"),
     component: MobileAppStackPicker,
+  },
+  "border-radius-calculator": {
+    ...findTool("border-radius-calculator"),
+    component: BorderRadiusCalculator,
   },
 };
 

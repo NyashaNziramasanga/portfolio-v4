@@ -5,5 +5,12 @@
     "title": "Mobile App Stack Picker",
     "description": "Pick each layer of a production mobile stack and copy a ready-to-build prompt.",
     "status": "live"
+  },
+  {
+    "id": "border-radius-calculator",
+    "slug": "border-radius-calculator",
+    "title": "Border Radius Calculator",
+    "description": "Calculate matching border radii for nested rounded corners.",
+    "status": "live"
   }
 ]
