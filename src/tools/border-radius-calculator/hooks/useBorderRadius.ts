@@ -30,6 +30,10 @@ const clamp = (value: number, lo: number, hi: number) =>
  * Keeps the three radii consistent with the rule: inner + padding = outer.
  * Editing one field re-derives the others while honouring `min` (a floor for
  * the inner radius) and the global slider bounds.
+ *
+ * Each branch prefers the user-edited field, lets `inner` floor at `min`, and
+ * uses `padding` as the slack variable to absorb anything left over so the
+ * invariant always holds even when `outer` would otherwise clamp at its max.
  */
 export function useBorderRadius(initial: Partial<RadiusState> = {}) {
   const [state, setState] = useState<RadiusState>({ ...DEFAULTS, ...initial });
@@ -46,41 +50,65 @@ export function useBorderRadius(initial: Partial<RadiusState> = {}) {
             return { ...prev, padding: value, inner: desiredInner };
           }
           const inner = prev.min;
-          const outer = clamp(
-            inner + value,
-            RADIUS_BOUNDS.outer.min,
-            RADIUS_BOUNDS.outer.max,
+          const desiredOuter = inner + value;
+          if (desiredOuter <= RADIUS_BOUNDS.outer.max) {
+            return { ...prev, padding: value, inner, outer: desiredOuter };
+          }
+          const outer = RADIUS_BOUNDS.outer.max;
+          const padding = clamp(
+            outer - inner,
+            RADIUS_BOUNDS.padding.min,
+            RADIUS_BOUNDS.padding.max,
           );
-          return { ...prev, padding: value, inner, outer };
+          return { ...prev, padding, inner, outer };
         }
 
         case "outer": {
           const desiredInner = value - prev.padding;
-          const inner = Math.max(prev.min, desiredInner);
-          return { ...prev, outer: value, inner };
+          if (desiredInner >= prev.min) {
+            return { ...prev, outer: value, inner: desiredInner };
+          }
+          const inner = prev.min;
+          const outer = Math.max(value, inner);
+          const padding = clamp(
+            outer - inner,
+            RADIUS_BOUNDS.padding.min,
+            RADIUS_BOUNDS.padding.max,
+          );
+          return { ...prev, outer, inner, padding };
         }
 
         case "inner": {
           const inner = Math.max(prev.min, value);
-          const outer = clamp(
-            inner + prev.padding,
-            RADIUS_BOUNDS.outer.min,
-            RADIUS_BOUNDS.outer.max,
+          const desiredOuter = inner + prev.padding;
+          if (desiredOuter <= RADIUS_BOUNDS.outer.max) {
+            return { ...prev, inner, outer: desiredOuter };
+          }
+          const outer = RADIUS_BOUNDS.outer.max;
+          const padding = clamp(
+            outer - inner,
+            RADIUS_BOUNDS.padding.min,
+            RADIUS_BOUNDS.padding.max,
           );
-          return { ...prev, inner, outer };
+          return { ...prev, inner, outer, padding };
         }
 
         case "min": {
           const inner = Math.max(value, prev.inner);
-          const outer =
-            inner === prev.inner
-              ? prev.outer
-              : clamp(
-                  inner + prev.padding,
-                  RADIUS_BOUNDS.outer.min,
-                  RADIUS_BOUNDS.outer.max,
-                );
-          return { ...prev, min: value, inner, outer };
+          if (inner === prev.inner) {
+            return { ...prev, min: value };
+          }
+          const desiredOuter = inner + prev.padding;
+          if (desiredOuter <= RADIUS_BOUNDS.outer.max) {
+            return { ...prev, min: value, inner, outer: desiredOuter };
+          }
+          const outer = RADIUS_BOUNDS.outer.max;
+          const padding = clamp(
+            outer - inner,
+            RADIUS_BOUNDS.padding.min,
+            RADIUS_BOUNDS.padding.max,
+          );
+          return { ...prev, min: value, inner, outer, padding };
         }
 
         default:
