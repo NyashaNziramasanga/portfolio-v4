@@ -1,5 +1,9 @@
 # Online Portfolio v4
 
+[![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=brightgreen&up_message=online&url=https%3A%2F%2Fnyashanziramasanga.com)](https://nyashanziramasanga.com)
+[![Lighthouse CI](https://github.com/NyashaNziramasanga/portfolio-v4/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/NyashaNziramasanga/portfolio-v4/actions/workflows/lighthouse.yml)
+[![Vercel](https://vercelbadge.vercel.app/api/NyashaNziramasanga/portfolio-v4)](https://nyashanziramasanga.com)
+
 ![online-portfolio](docs/online-portfolio-v4.gif)
 
 *Personal portfolio on [nyashanziramasanga.com](https://www.nyashanziramasanga.com/)*
