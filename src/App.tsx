@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { MobileHeader } from "@/components/layout/MobileHeader";
@@ -55,6 +56,7 @@ export default function App() {
       <ContentArea ref={mainRef} sectionRefs={sectionRefs} />
 
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
