@@ -1,5 +1,7 @@
 # Online Portfolio v4
 
+![online-portfolio](docs/online-portfolio-v4.gif)
+
 *Personal portfolio on [nyashanziramasanga.com](https://www.nyashanziramasanga.com/)*
 
 ## Getting Started
