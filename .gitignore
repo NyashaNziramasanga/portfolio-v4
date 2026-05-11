@@ -4,3 +4,4 @@ dist
 package-lock.json
 tsconfig.tsbuildinfo
 src/routeTree.gen.ts
+.lighthouseci/
