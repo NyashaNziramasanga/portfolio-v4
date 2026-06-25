@@ -24,6 +24,19 @@
     ]
   },
   {
+    "id": "package-manager",
+    "label": "Packages",
+    "title": "Package Manager",
+    "subtitle": "install & deps pipeline",
+    "tier": 1,
+    "items": [
+      { "id": "npm", "label": "npm", "iconKey": "siNpm" },
+      { "id": "bun-pm", "label": "Bun", "iconKey": "siBun", "pick": true },
+      { "id": "pnpm", "label": "pnpm", "iconKey": "siPnpm" },
+      { "id": "yarn", "label": "Yarn", "iconKey": "siYarn" }
+    ]
+  },
+  {
     "id": "navigation",
     "label": "Navigation",
     "title": "Navigation",
@@ -166,6 +179,9 @@
       },
       { "id": "nestjs", "label": "NestJS", "iconKey": "siNestjs" },
       { "id": "hono", "label": "Hono", "iconKey": "siHono" },
+      { "id": "express", "label": "Express", "iconKey": "siExpress" },
+      { "id": "fastify", "label": "Fastify", "iconKey": "siFastify" },
+      { "id": "elysia", "label": "Elysia", "pick": true },
       {
         "id": "aspnet-core",
         "label": "ASP.NET Core (.NET)",
@@ -257,7 +273,14 @@
       { "id": "render", "label": "Render", "iconKey": "siRender" },
       { "id": "railway", "label": "Railway", "iconKey": "siRailway" },
       { "id": "vercel", "label": "Vercel", "iconKey": "siVercel" },
-      { "id": "netlify", "label": "Netlify", "iconKey": "siNetlify" }
+      { "id": "netlify", "label": "Netlify", "iconKey": "siNetlify" },
+      { "id": "azure", "label": "Microsoft Azure" },
+      {
+        "id": "digital-ocean",
+        "label": "DigitalOcean",
+        "iconKey": "siDigitalocean"
+      },
+      { "id": "coolify", "label": "Coolify", "iconKey": "siCoolify" }
     ]
   },
   {
@@ -412,6 +435,25 @@
     ]
   },
   {
+    "id": "lint-format",
+    "label": "Lint",
+    "title": "Lint & Format",
+    "subtitle": "code style guardrails",
+    "tier": 2,
+    "items": [
+      {
+        "id": "eslint",
+        "label": "ESLint",
+        "iconKey": "siEslint",
+        "pick": true
+      },
+      { "id": "prettier", "label": "Prettier", "iconKey": "siPrettier" },
+      { "id": "biome", "label": "Biome", "iconKey": "siBiome" },
+      { "id": "oxlint", "label": "oxlint", "iconKey": "siOxc" },
+      { "id": "oxfmt", "label": "oxfmt", "iconKey": "siOxc" }
+    ]
+  },
+  {
     "id": "ci-cd",
     "label": "Delivery",
     "title": "CI/CD",
@@ -552,6 +594,25 @@
     ]
   },
   {
+    "id": "date-time",
+    "label": "Dates",
+    "title": "Date & Time",
+    "subtitle": "calendars & timezones",
+    "tier": 3,
+    "items": [
+      {
+        "id": "date-fns",
+        "label": "date-fns",
+        "iconKey": "siDatefns",
+        "pick": true
+      },
+      { "id": "dayjs", "label": "Day.js" },
+      { "id": "luxon", "label": "Luxon" },
+      { "id": "moment", "label": "Moment.js" },
+      { "id": "temporal-api", "label": "Temporal API" }
+    ]
+  },
+  {
     "id": "payments",
     "label": "Payments",
     "title": "Payments",
@@ -575,7 +636,9 @@
         "label": "Google Play Billing",
         "iconKey": "siGoogleplay"
       },
-      { "id": "paddle", "label": "Paddle", "iconKey": "siPaddle" }
+      { "id": "paddle", "label": "Paddle", "iconKey": "siPaddle" },
+      { "id": "paypal", "label": "PayPal", "iconKey": "siPaypal" },
+      { "id": "polar-sh", "label": "Polar.sh" }
     ]
   },
   {
@@ -708,6 +771,21 @@
         "label": "Postgres FTS",
         "iconKey": "siPostgresql"
       }
+    ]
+  },
+  {
+    "id": "charts",
+    "label": "Charts",
+    "title": "Charts & Visualization",
+    "subtitle": "data viz on screen",
+    "tier": 4,
+    "items": [
+      { "id": "victory-native", "label": "Victory Native XL", "pick": true },
+      { "id": "gifted-charts", "label": "Gifted Charts" },
+      { "id": "rn-svg-charts", "label": "RN SVG Charts" },
+      { "id": "recharts", "label": "Recharts" },
+      { "id": "d3", "label": "D3", "iconKey": "siD3" },
+      { "id": "chart-js", "label": "Chart.js", "iconKey": "siChartdotjs" }
     ]
   },
   {
