@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -11,6 +11,12 @@ import { ContentArea } from "@/components/layout/ContentArea";
 export default function App() {
   const { activeSection, sectionRefs, mainRef } = useActiveSection();
   const { isOpen, toggle, close } = useMobileMenu();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  const closeMenu = useCallback(() => {
+    close();
+    requestAnimationFrame(() => menuButtonRef.current?.focus());
+  }, [close]);
 
   const selectSection = useCallback(
     (id: string) => {
@@ -44,10 +50,10 @@ export default function App() {
         Skip to content
       </a>
 
-      <MobileHeader isOpen={isOpen} onToggle={toggle} />
+      <MobileHeader isOpen={isOpen} onToggle={toggle} buttonRef={menuButtonRef} />
       <MobileDrawer
         isOpen={isOpen}
-        onClose={close}
+        onClose={closeMenu}
         activeSection={activeSection}
         onSelect={selectSection}
       />

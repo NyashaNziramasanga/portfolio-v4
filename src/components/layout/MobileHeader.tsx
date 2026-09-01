@@ -1,12 +1,15 @@
 import { Menu, X } from "lucide-react";
+import type { Ref } from "react";
 import { ProfileAvatar } from "@/components/ProfileAvatar";
 
 export function MobileHeader({
   isOpen,
   onToggle,
+  buttonRef,
 }: {
   isOpen: boolean;
   onToggle: () => void;
+  buttonRef?: Ref<HTMLButtonElement>;
 }) {
   return (
     <header className="flex items-center justify-between border-b border-brand-500 bg-brand-900 px-5 py-3.5 md:hidden">
@@ -18,6 +21,7 @@ export function MobileHeader({
         </div>
       </div>
       <button
+        ref={buttonRef}
         onClick={onToggle}
         className="rounded-lg p-2 text-brand-200 transition-colors hover:bg-brand-600/60 hover:text-brand-50"
         aria-label={isOpen ? "Close menu" : "Open menu"}
