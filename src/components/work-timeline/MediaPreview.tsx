@@ -1,31 +1,20 @@
-import { ExternalLink } from "lucide-react";
+import { ArticlePreview } from "@/components/ui/article-preview";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import type { Project } from "./types";
 
 export function MediaPreview({ project }: { project: Project }) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   if (!project.media) return null;
 
   if (project.media.type === "article") {
     return (
-      <a
+      <ArticlePreview
         href={project.media.link!}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(e) => e.stopPropagation()}
-        className="group/article block w-full max-w-sm"
-      >
-        <div className="animate-float overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-lg shadow-black/25 transition-shadow group-hover/article:shadow-xl group-hover/article:shadow-black/30">
-          <img
-            src={project.media.src}
-            alt={project.name}
-            loading="lazy"
-            className="aspect-video w-full object-cover"
-          />
-          <div className="flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium text-blue-300">
-            <ExternalLink className="h-3 w-3" />
-            Read article
-          </div>
-        </div>
-      </a>
+        imageSrc={project.media.src}
+        imageAlt={project.name}
+        className="w-full max-w-sm py-0"
+        cardClassName="shadow-lg shadow-black/25 motion-safe:animate-float group-hover/article:shadow-xl group-hover/article:shadow-black/30"
+      />
     );
   }
 
@@ -33,11 +22,12 @@ export function MediaPreview({ project }: { project: Project }) {
     return (
       <video
         key={project.media.src}
-        autoPlay
+        autoPlay={!prefersReducedMotion}
         loop
         muted
         playsInline
         preload="none"
+        controls={prefersReducedMotion}
         className="aspect-[9/19.5] max-h-[280px] rounded-2xl object-cover shadow-lg shadow-black/30 sm:max-h-[400px]"
       >
         <source src={project.media.src} type="video/webm" />
@@ -51,7 +41,7 @@ export function MediaPreview({ project }: { project: Project }) {
       src={project.media.src}
       alt={project.name}
       loading="lazy"
-      className="animate-float aspect-[9/19.5] max-h-[280px] rounded-2xl object-cover shadow-lg shadow-black/30 sm:max-h-[400px]"
+      className="aspect-[9/19.5] max-h-[280px] rounded-2xl object-cover shadow-lg shadow-black/30 motion-safe:animate-float sm:max-h-[400px]"
     />
   );
 }

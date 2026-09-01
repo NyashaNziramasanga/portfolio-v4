@@ -1,25 +1,30 @@
 import { ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function ArticlePreview({
   href,
   imageSrc,
   imageAlt,
   onClick,
+  className,
+  cardClassName,
 }: {
   href: string;
   imageSrc: string;
   imageAlt: string;
   onClick?: (e: React.MouseEvent) => void;
+  className?: string;
+  cardClassName?: string;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group/article block py-4"
+      className={cn("group/article block py-4", className)}
       onClick={onClick}
     >
-      <div className="overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md">
+      <div className={cn("overflow-hidden rounded-xl border border-brand-500 bg-brand-700 shadow-sm transition-shadow group-hover/article:shadow-md", cardClassName)}>
         <img
           src={imageSrc}
           alt={imageAlt}
