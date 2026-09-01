@@ -14,7 +14,7 @@ export function MobileHeader({
         <ProfileAvatar size="h-9 w-9" ringSize="ring-2" />
         <div>
           <p className="text-sm font-bold text-brand-50">Nash Nziramasanga</p>
-          <p className="text-xs text-brand-300">Senior Software Engineer</p>
+          <p className="text-xs text-brand-300">Senior Mobile Engineer</p>
         </div>
       </div>
       <button

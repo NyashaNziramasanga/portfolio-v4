@@ -21,21 +21,21 @@ export function SidebarContent({
         ringSize="ring-4"
         className={isMobile ? undefined : "mb-5"}
       />
-      <h1
+      <p
         className={cn(
           "font-bold leading-tight text-brand-50",
           isMobile ? "mb-0.5 text-lg" : "mb-0.5 text-xl",
         )}
       >
         Nyasha (Nash) Nziramasanga
-      </h1>
+      </p>
       <h2
         className={cn(
           "mb-5 font-medium text-brand-300",
           isMobile ? "text-sm" : "text-base",
         )}
       >
-        Senior Software Engineer
+        Senior Mobile Engineer
       </h2>
       <hr className="mb-5 border-brand-500" />
       <SidebarNav activeSection={activeSection} onSelect={onSelect} />

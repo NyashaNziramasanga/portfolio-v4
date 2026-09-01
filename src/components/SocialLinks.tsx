@@ -7,7 +7,7 @@ const socialLinks = [
   { href: "https://www.youtube.com/@Nyasha_Nziboi", icon: siYoutube, label: "YouTube" },
   { href: "mailto:nyashanziramasanga1@gmail.com", icon: siGmail, label: "Email" },
   { href: "https://linktr.ee/nyasha_nziboi", icon: siLinktree, label: "Linktree" },
-  { href: "https://www.linkedin.com/in/nyasha-nash-nziramasanga-446380116/", lucide: Linkedin, label: "LinkedIn" },
+  { href: "https://www.linkedin.com/in/nyasha-nash-nziramasanga/", lucide: Linkedin, label: "LinkedIn" },
 ] as const;
 
 export function SocialLinks() {
