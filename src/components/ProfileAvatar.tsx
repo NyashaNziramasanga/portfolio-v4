@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 export function ProfileAvatar({
   size,
@@ -11,11 +12,14 @@ export function ProfileAvatar({
   className?: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <div
       className={cn("relative overflow-hidden rounded-full", size, ringSize, "ring-brand-400", className)}
-      onMouseEnter={() => videoRef.current?.play()}
+      onMouseEnter={() => {
+        if (!prefersReducedMotion) void videoRef.current?.play();
+      }}
       onMouseLeave={() => {
         const v = videoRef.current;
         if (v) {
@@ -42,7 +46,7 @@ export function ProfileAvatar({
         preload="none"
         aria-hidden="true"
         tabIndex={-1}
-        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 hover:opacity-100 peer"
+        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 motion-reduce:hidden hover:opacity-100 peer"
         onPlay={(e) => e.currentTarget.classList.replace("opacity-0", "opacity-100")}
         onPause={(e) => e.currentTarget.classList.replace("opacity-100", "opacity-0")}
       />
