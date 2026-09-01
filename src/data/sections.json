@@ -1,6 +1,6 @@
 [
   { "id": "about", "label": "About" },
-  { "id": "flagship-work", "label": "Work" },
+  { "id": "flagship-work", "label": "Case Studies" },
   { "id": "experience", "label": "Experience" },
   { "id": "publications", "label": "Publications" },
   { "id": "tools", "label": "Tools" }
