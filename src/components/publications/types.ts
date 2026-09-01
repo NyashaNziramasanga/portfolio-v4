@@ -1,11 +1,11 @@
-import publicationsData from "@/data/publications.json";
-
-export type Publication = (typeof publicationsData)[number] & {
-  media?: {
-    type: "video" | "article";
-    src: string;
-    link?: string;
-  };
+export type Publication = {
+  id: string;
+  platform: "flinders" | "youtube" | "devto" | "medium";
+  title: string;
+  url: string;
+  archived: boolean;
+  featuredOrder?: number;
+  media?: { type: "video" | "article"; src: string };
 };
 
 export type Platform = Publication["platform"];
