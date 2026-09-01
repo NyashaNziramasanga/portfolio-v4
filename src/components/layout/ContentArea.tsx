@@ -3,6 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { AboutSection } from "@/components/AboutSection";
 import { WorkTimeline } from "@/components/work-timeline";
 import { PublicationsList } from "@/components/publications";
+import { FlagshipWork } from "@/components/case-studies";
 import { ToolsList } from "@/tools";
 
 type ContentAreaProps = {
@@ -15,7 +16,7 @@ export const ContentArea = forwardRef<HTMLDivElement, ContentAreaProps>(
       <main
         id="main-content"
         ref={ref}
-        className="flex-1 overflow-y-auto md:snap-y md:snap-mandatory"
+        className="flex-1 overflow-y-auto"
       >
         <Section
           id="about"
@@ -24,6 +25,15 @@ export const ContentArea = forwardRef<HTMLDivElement, ContentAreaProps>(
           }}
         >
           <AboutSection />
+        </Section>
+
+        <Section
+          id="flagship-work"
+          ref={(el) => {
+            sectionRefs.current["flagship-work"] = el;
+          }}
+        >
+          <FlagshipWork />
         </Section>
 
         <Section

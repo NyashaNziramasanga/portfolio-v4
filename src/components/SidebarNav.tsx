@@ -1,4 +1,4 @@
-import { User, Briefcase, BookOpen, Wrench } from "lucide-react";
+import { User, Briefcase, BookOpen, Wrench, PanelsTopLeft } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -6,6 +6,7 @@ import sectionsData from "@/data/sections.json";
 
 const SECTION_ICONS: Record<string, LucideIcon> = {
   about: User,
+  "flagship-work": PanelsTopLeft,
   experience: Briefcase,
   publications: BookOpen,
   tools: Wrench,

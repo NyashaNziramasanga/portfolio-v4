@@ -1,0 +1,26 @@
+[
+  {
+    "id": "creator-monetisation-payments",
+    "title": "Creator monetisation and payments",
+    "summary": "Mobile commerce experiences that help creators turn audience attention into sustainable income.",
+    "problem": "Creator businesses need payment and monetisation flows that feel simple on mobile while safely coordinating identity, checkout, fulfilment and platform constraints.",
+    "role": "Worked across product, design and platform partners to shape and ship creator-facing mobile experiences spanning Wallet, Digital Products, Shop and Bookings.",
+    "technicalComplexity": ["Coordinating native mobile, React Native and backend-owned workflows", "Designing resilient transaction states and recoverable user journeys", "Keeping multiple commerce surfaces consistent as the product evolved"],
+    "decisions": ["Modelled long-running states explicitly so progress, failure and recovery remained understandable", "Reused shared mobile patterns while preserving the needs of each monetisation product", "Instrumented critical steps so teams could reason about completion and drop-off"],
+    "outcomes": ["Expanded the ways creators can earn directly from their Linktree", "Created reusable mobile patterns for future commerce experiences", "Shipped public product experiences without exposing confidential business metrics"],
+    "evidence": [{"label": "TechCrunch: Linktree monetisation features", "url": "https://techcrunch.com/2025/04/23/linktree-rolls-out-a-suite-of-monetization-features-for-creators/", "type": "article"}],
+    "media": {"type": "image", "src": "/media/linktree-digital-products.webp", "alt": "Linktree digital products mobile experience"}
+  },
+  {
+    "id": "linktree-react-native-launch",
+    "title": "Launching and scaling Linktree's Mobile app",
+    "summary": "Building a cross-platform mobile foundation and evolving it into a product surface used by creators worldwide.",
+    "problem": "Linktree needed to bring core creator workflows to iOS and Android quickly without creating two disconnected product and engineering systems.",
+    "role": "Contributed to the original React Native launch and continued evolving onboarding, profile editing, commerce and creator workflows as the app scaled.",
+    "technicalComplexity": ["Sharing product logic while respecting iOS and Android platform behaviour", "Evolving architecture while continuously shipping new product surfaces", "Maintaining a coherent experience across web-owned and mobile-owned workflows"],
+    "decisions": ["Used React Native to share product capabilities while retaining native escape hatches", "Organised code around product modules to keep ownership and change boundaries clear", "Treated performance, release safety and observability as product requirements"],
+    "outcomes": ["Helped establish Linktree's first consumer mobile application", "Supported continued expansion into onboarding, editing and monetisation workflows", "Shared the team's React Native approach through a public engineering talk"],
+    "evidence": [{"label": "TechCrunch: Linktree mobile app launch", "url": "https://techcrunch.com/2022/07/11/linktrees-mobile-app-launch/", "type": "article"}, {"label": "Linktree Engineering React Native talk", "url": "https://youtu.be/GrVQQQw2sQU", "type": "video"}],
+    "media": {"type": "image", "src": "/media/linktree-mobile-app-launch.webp", "alt": "Linktree mobile app launch"}
+  }
+]

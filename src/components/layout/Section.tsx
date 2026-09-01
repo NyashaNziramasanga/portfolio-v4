@@ -13,7 +13,7 @@ export function Section({
     <section
       id={id}
       ref={ref}
-      className="flex min-h-screen items-start justify-center px-4 py-10 sm:items-center sm:px-10 sm:py-16 md:snap-start"
+      className="flex min-h-screen items-start justify-center px-4 py-10 sm:items-center sm:px-10 sm:py-16"
     >
       {children}
     </section>
