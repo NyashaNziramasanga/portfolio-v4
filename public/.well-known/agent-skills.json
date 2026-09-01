@@ -2,7 +2,7 @@
   "$schema": "https://agentskills.io/schema/agent-skills.schema.json",
   "name": "nyasha-nziramasanga-portfolio",
   "title": "Nyasha Nziramasanga — Portfolio",
-  "description": "Personal portfolio of Nyasha Nziramasanga, Senior Software Engineer (Mobile) based in Melbourne, Australia. Read-only profile resource describing experience, publications, and contact details.",
+  "description": "Personal portfolio of Nyasha Nziramasanga, Senior Mobile Engineer specialising in React Native, iOS, Android and agentic developer tooling.",
   "version": "1.0.0",
   "author": {
     "name": "Nyasha Nziramasanga",
@@ -27,7 +27,7 @@
     },
     {
       "name": "homepage",
-      "description": "Interactive single-page portfolio with About, Experience, and Publications sections.",
+      "description": "Interactive portfolio with flagship mobile case studies, experience, publications, and developer tools.",
       "url": "https://www.nyashanziramasanga.com/",
       "mimeType": "text/html"
     }
@@ -54,6 +54,7 @@
     "software-engineer",
     "react-native",
     "mobile",
+    "agentic-tooling",
     "melbourne",
     "australia"
   ]
