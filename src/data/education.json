@@ -1,0 +1,4 @@
+[
+  {"id": "flinders", "logo": "/logos/flinders.ico", "title": "Master of Science (Computer Science)", "institution": "Flinders University", "institutionUrl": "https://www.flinders.edu.au/", "dateStart": "Jan 2020", "dateEnd": "Dec 2021"},
+  {"id": "monash", "logo": "/logos/monash.webp", "title": "Bachelor of Information Technology and Systems", "institution": "Monash University", "institutionUrl": "https://www.monash.edu/", "dateStart": "Jul 2014", "dateEnd": "May 2018"}
+]
