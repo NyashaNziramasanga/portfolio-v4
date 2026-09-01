@@ -1,4 +1,5 @@
 import { ChevronDown, ExternalLink, Newspaper, PlayCircle } from "lucide-react";
+import { track } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
 import type { CaseStudy } from "./types";
@@ -68,7 +69,7 @@ export function CaseStudyCard({ study, open, onToggle }: { study: CaseStudy; ope
                   {study.evidence.map((item) => {
                     const Icon = item.type === "video" ? PlayCircle : Newspaper;
                     return (
-                      <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-blue-300 hover:text-blue-200">
+                      <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-blue-300 hover:text-blue-200" onClick={() => track("Case Study Evidence Clicked", { study: study.id, type: item.type })}>
                         <Icon className="h-4 w-4" aria-hidden="true" />
                         {item.label}
                         <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />

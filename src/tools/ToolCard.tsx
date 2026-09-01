@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ToolListItem } from "@/tools/types";
+import { track } from "@vercel/analytics/react";
 
 type ToolCardProps = {
   tool: ToolListItem;
@@ -12,6 +13,7 @@ export function ToolCard({ tool }: ToolCardProps) {
     <Link
       to="/tools/$toolId"
       params={{ toolId: tool.slug }}
+      onClick={() => track("Tool Opened", { tool: tool.slug })}
       className={cn(
         "group rounded-xl bg-brand-700 px-4 py-4 text-brand-50 shadow-sm transition-all duration-300 ease-out sm:rounded-2xl sm:px-6 sm:py-5",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",

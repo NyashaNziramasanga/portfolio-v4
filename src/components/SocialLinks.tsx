@@ -1,6 +1,7 @@
 import { siGithub, siYoutube, siGmail, siLinktree } from "simple-icons";
 import { Linkedin } from "lucide-react";
 import { SimpleIconSvg } from "@/components/SimpleIconSvg";
+import { track } from "@vercel/analytics/react";
 
 const socialLinks = [
   { href: "https://github.com/NyashaNziramasanga", icon: siGithub, label: "GitHub" },
@@ -21,6 +22,7 @@ export function SocialLinks() {
           rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
           className="p-2 text-brand-300 transition-colors hover:text-brand-50"
           aria-label={label}
+          onClick={() => track(label === "Email" ? "Contact Clicked" : "Social Link Clicked", { location: "sidebar", destination: label })}
         >
           {"icon" in rest ? (
             <SimpleIconSvg icon={rest.icon} className="h-5 w-5" />

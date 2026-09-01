@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import { track } from "@vercel/analytics/react";
 
 const RESUME_URL = "/files/nyasha-nziramasanga-resume.pdf";
 
@@ -11,6 +12,7 @@ export function ResumeActions() {
       target="_blank"
       rel="noopener noreferrer"
       className={baseClass}
+      onClick={() => track("Resume Viewed")}
     >
       <ExternalLink className="h-4 w-4" aria-hidden="true" />
       View résumé

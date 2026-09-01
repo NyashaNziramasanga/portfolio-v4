@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { track } from "@vercel/analytics/react";
 import caseStudiesData from "@/data/caseStudies.json";
 import { CaseStudyCard } from "./CaseStudyCard";
 import type { CaseStudy } from "./types";
@@ -22,6 +23,7 @@ export function FlagshipWork() {
   const toggle = useCallback((id: string) => {
     const next = expandedId === id ? null : id;
     setExpandedId(next);
+    track("Flagship Study Toggled", { study: id, action: next ? "opened" : "closed" });
   }, [expandedId]);
 
   return (

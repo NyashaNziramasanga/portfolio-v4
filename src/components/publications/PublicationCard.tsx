@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import { track } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
 import { MediaBadge } from "@/components/ui/media-badge";
@@ -24,7 +25,7 @@ export function PublicationCard({ publication, isExpanded, onToggle }: { publica
         <CollapsiblePanel open={isExpanded} id={panelId}>
           <div className="px-4 pb-4 sm:px-6 sm:pb-5">
             {publication.media?.type === "video" ? <VideoEmbed src={publication.media.src} title={publication.title} /> : (
-              <ArticlePreview href={publication.url} imageSrc={publication.media!.src} imageAlt={publication.title} />
+              <ArticlePreview href={publication.url} imageSrc={publication.media!.src} imageAlt={publication.title} onClick={() => track("Publication Evidence Clicked", { publication: publication.id })} />
             )}
           </div>
         </CollapsiblePanel>
