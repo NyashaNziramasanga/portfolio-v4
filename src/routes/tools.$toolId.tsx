@@ -1,5 +1,7 @@
+import { Suspense } from "react";
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { ToolPage, getToolBySlug, isToolSlug } from "@/tools";
+import { ToolPage } from "@/tools/ToolPage";
+import { getToolBySlug, isToolSlug } from "@/tools/toolRegistry";
 
 function ToolRouteScreen() {
   const { toolId } = Route.useParams();
@@ -11,7 +13,9 @@ function ToolRouteScreen() {
 
   return (
     <ToolPage tool={tool}>
-      <ToolComponent />
+      <Suspense fallback={<div className="min-h-64 animate-pulse rounded-2xl bg-brand-700 motion-reduce:animate-none" aria-label="Loading tool" />}>
+        <ToolComponent />
+      </Suspense>
     </ToolPage>
   );
 }

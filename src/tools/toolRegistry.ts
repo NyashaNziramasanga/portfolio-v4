@@ -1,7 +1,6 @@
+import { lazy } from "react";
 import toolsData from "@/tools/data/tools.json";
 import type { RegisteredTool, ToolListItem, ToolSlug } from "@/tools/types";
-import { MobileAppStackPicker } from "@/tools/mobile-app-stack-picker";
-import { BorderRadiusCalculator } from "@/tools/border-radius-calculator";
 
 const tools = toolsData as ToolListItem[];
 
@@ -16,11 +15,19 @@ function findTool(slug: ToolSlug): ToolListItem {
 const toolRegistry: Record<ToolSlug, RegisteredTool> = {
   "mobile-app-stack-picker": {
     ...findTool("mobile-app-stack-picker"),
-    component: MobileAppStackPicker,
+    component: lazy(() =>
+      import("@/tools/mobile-app-stack-picker").then(({ MobileAppStackPicker }) => ({
+        default: MobileAppStackPicker,
+      })),
+    ),
   },
   "border-radius-calculator": {
     ...findTool("border-radius-calculator"),
-    component: BorderRadiusCalculator,
+    component: lazy(() =>
+      import("@/tools/border-radius-calculator").then(({ BorderRadiusCalculator }) => ({
+        default: BorderRadiusCalculator,
+      })),
+    ),
   },
 };
 

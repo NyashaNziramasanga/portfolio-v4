@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType, LazyExoticComponent } from "react";
 import categoriesData from "@/tools/mobile-app-stack-picker/data/categories.json";
 
 export const TOOL_SLUGS = [
@@ -21,7 +21,7 @@ export type ToolListItem = {
 export type ToolRouteComponent = ComponentType;
 
 export type RegisteredTool = ToolListItem & {
-  component: ToolRouteComponent;
+  component: LazyExoticComponent<ToolRouteComponent>;
 };
 
 export type StackCategory = (typeof categoriesData)[number];

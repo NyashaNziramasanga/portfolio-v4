@@ -4,7 +4,7 @@ import { AboutSection } from "@/components/AboutSection";
 import { WorkTimeline } from "@/components/work-timeline";
 import { PublicationsList } from "@/components/publications";
 import { FlagshipWork } from "@/components/case-studies";
-import { ToolsList } from "@/tools";
+import { ToolsList } from "@/tools/ToolsList";
 
 type ContentAreaProps = {
   sectionRefs: MutableRefObject<Record<string, HTMLElement | null>>;
