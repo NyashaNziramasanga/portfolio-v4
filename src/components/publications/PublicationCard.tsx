@@ -22,7 +22,7 @@ export function PublicationCard({ publication, isExpanded, onToggle }: { publica
       </button>
 
       {hasMedia ? (
-        <CollapsiblePanel open={isExpanded} id={panelId}>
+        <CollapsiblePanel open={isExpanded} id={panelId} lazyMount>
           <div className="px-4 pb-4 sm:px-6 sm:pb-5">
             {publication.media?.type === "video" ? <VideoEmbed src={publication.media.src} title={publication.title} /> : (
               <ArticlePreview href={publication.url} imageSrc={publication.media!.src} imageAlt={publication.title} onClick={() => track("Publication Evidence Clicked", { publication: publication.id })} />

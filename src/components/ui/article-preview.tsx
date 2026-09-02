@@ -29,6 +29,9 @@ export function ArticlePreview({
           src={imageSrc}
           alt={imageAlt}
           loading="lazy"
+          decoding="async"
+          width={640}
+          height={360}
           className="aspect-video w-full object-cover"
         />
         <div className="flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium text-blue-300">

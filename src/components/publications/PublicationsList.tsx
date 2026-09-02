@@ -26,12 +26,12 @@ export function PublicationsList() {
       </div>
 
       <div className="mt-6">
-        <button type="button" aria-expanded={archiveOpen} aria-controls="older-writing-panel" onClick={() => setArchiveOpen((open) => !open)} className="inline-flex items-center gap-2 rounded-lg border border-brand-500 px-3 py-2 text-sm font-semibold text-brand-300 outline-none transition-colors hover:bg-brand-700 hover:text-brand-100 focus-visible:ring-2 focus-visible:ring-primary">
+        <button type="button" aria-expanded={archiveOpen} aria-controls="older-writing-panel" onClick={() => setArchiveOpen((open) => !open)} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-brand-500 px-3 py-2 text-sm font-semibold text-brand-300 outline-none transition-colors hover:bg-brand-700 hover:text-brand-100 focus-visible:ring-2 focus-visible:ring-primary">
           <Archive className="h-4 w-4" aria-hidden="true" />
           Older writing ({archived.length})
           <ChevronDown className={cn("h-4 w-4 transition-transform", archiveOpen && "rotate-180")} aria-hidden="true" />
         </button>
-        <CollapsiblePanel open={archiveOpen} id="older-writing-panel">
+        <CollapsiblePanel open={archiveOpen} id="older-writing-panel" lazyMount>
           <div className="mt-4 flex flex-col gap-3 border-l border-brand-500/60 pl-3 sm:pl-5">
             {archived.map((publication) => <PublicationCard key={publication.id} publication={publication} isExpanded={expandedId === publication.id} onToggle={() => togglePublication(publication.id)} />)}
           </div>

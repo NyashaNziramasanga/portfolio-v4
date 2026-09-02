@@ -30,7 +30,7 @@ export function ExperienceCard({ experience, isExpanded, onToggle }: { experienc
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex min-w-0 items-start gap-3 sm:gap-4">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-14 sm:w-14">
-            <img src={experience.logo} alt="" loading="lazy" className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9" />
+            <img src={experience.logo} alt="" loading="lazy" decoding="async" width={48} height={48} className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9" />
           </div>
           <div className="min-w-0">
             <h3 className="text-base font-bold text-brand-50 sm:text-lg">{experience.title}</h3>
@@ -46,7 +46,7 @@ export function ExperienceCard({ experience, isExpanded, onToggle }: { experienc
         <div className="flex flex-wrap items-center gap-2 sm:flex-col sm:items-end">
           <p className="text-[11px] text-brand-300 sm:text-sm">{experience.dateStart} – {experience.dateEnd} <span className="text-brand-400">· {duration}</span></p>
           {hasProjects ? (
-            <button type="button" aria-expanded={isExpanded} aria-controls={panelId} onClick={onToggle} className="inline-flex items-center gap-1.5 rounded-full bg-brand-500/40 px-2.5 py-1 text-xs font-medium text-brand-200 outline-none transition-colors hover:bg-brand-500/70 focus-visible:ring-2 focus-visible:ring-primary">
+            <button type="button" aria-expanded={isExpanded} aria-controls={panelId} onClick={onToggle} className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-brand-500/40 px-3 py-1 text-xs font-medium text-brand-200 outline-none transition-colors hover:bg-brand-500/70 focus-visible:ring-2 focus-visible:ring-primary sm:min-h-0 sm:px-2.5">
               <Layers className="h-3 w-3" aria-hidden="true" />
               {projects.length} projects
               <ChevronDown className={cn("h-3 w-3 transition-transform", isExpanded && "rotate-180")} aria-hidden="true" />
@@ -56,7 +56,7 @@ export function ExperienceCard({ experience, isExpanded, onToggle }: { experienc
       </div>
 
       {hasProjects ? (
-        <CollapsiblePanel open={isExpanded} id={panelId}>
+        <CollapsiblePanel open={isExpanded} id={panelId} lazyMount>
           <ProjectsPanel projects={projects} />
         </CollapsiblePanel>
       ) : null}

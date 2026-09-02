@@ -27,7 +27,7 @@ export function ProjectsPanel({ projects }: { projects: Project[] }) {
                     disabled={!hasMedia}
                     onClick={() => hasMedia && setActiveProject(project.name)}
                     className={cn(
-                      "rounded-full px-3 py-1.5 text-xs font-medium text-brand-300 transition-all duration-200 outline-none lg:flex lg:w-full lg:items-center lg:justify-between lg:rounded-lg lg:px-3 lg:py-2.5 lg:text-left lg:text-sm lg:text-brand-100",
+                      "min-h-11 rounded-full px-3 py-1.5 text-xs font-medium text-brand-300 transition-all duration-200 outline-none lg:flex lg:w-full lg:items-center lg:justify-between lg:rounded-lg lg:px-3 lg:py-2.5 lg:text-left lg:text-sm lg:text-brand-100",
                       hasMedia
                         ? "focus-visible:ring-2 focus-visible:ring-primary lg:focus-visible:ring-offset-1"
                         : "cursor-default bg-brand-700/50 opacity-60 lg:bg-transparent",
@@ -51,7 +51,7 @@ export function ProjectsPanel({ projects }: { projects: Project[] }) {
 
         <div className="flex justify-center py-2 lg:flex-1 lg:items-center lg:rounded-xl lg:bg-brand-800/60 lg:p-6">
           {activeItem ? (
-            <MediaPreview project={activeItem} />
+            <MediaPreview key={activeItem.name} project={activeItem} />
           ) : (
             <p className="text-sm text-brand-300">Select a project to preview</p>
           )}

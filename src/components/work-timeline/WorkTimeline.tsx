@@ -23,7 +23,7 @@ export function WorkTimeline() {
           {(educationData as Education[]).map((education) => (
             <article key={education.id} className="flex items-start gap-3 rounded-xl bg-brand-700 px-4 py-4 shadow-sm sm:gap-4 sm:rounded-2xl sm:px-6 sm:py-5">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-14 sm:w-14">
-                <img src={education.logo} alt="" loading="lazy" className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9" />
+                <img src={education.logo} alt="" loading="lazy" decoding="async" width={48} height={48} className="h-6 w-6 rounded-full object-cover sm:h-9 sm:w-9" />
               </div>
               <div className="min-w-0 flex-1">
                 <h4 className="text-base font-bold text-brand-50 sm:text-lg">{education.title}</h4>

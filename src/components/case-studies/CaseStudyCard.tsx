@@ -22,6 +22,7 @@ function DetailList({ title, items }: { title: string; items: string[] }) {
 
 export function CaseStudyCard({ study, open, onToggle }: { study: CaseStudy; open: boolean; onToggle: () => void }) {
   const panelId = `case-study-panel-${study.id}`;
+  const responsiveImageBase = study.media.src.replace(/\.webp$/, "");
 
   return (
     <article id={`case-study-${study.id}`} className={cn("scroll-mt-6 rounded-2xl border bg-brand-700 shadow-sm transition-colors", open ? "border-blue-400/40 bg-brand-600" : "border-brand-500/50")}>
@@ -35,9 +36,14 @@ export function CaseStudyCard({ study, open, onToggle }: { study: CaseStudy; ope
         <span className="grid min-w-0 flex-1 gap-4 sm:grid-cols-[10rem_minmax(0,1fr)] sm:items-center lg:grid-cols-[12rem_minmax(0,1fr)]">
           <img
             src={study.media.src}
+            srcSet={`${responsiveImageBase}-320.webp 320w, ${responsiveImageBase}-640.webp 640w, ${study.media.src} 1536w`}
+            sizes="(min-width: 1024px) 192px, (min-width: 640px) 160px, calc(100vw - 4rem)"
             alt=""
             aria-hidden="true"
             loading="lazy"
+            decoding="async"
+            width={1536}
+            height={864}
             className="aspect-[16/9] w-full rounded-xl border border-brand-500/40 object-cover"
           />
           <span className="min-w-0">
@@ -48,7 +54,7 @@ export function CaseStudyCard({ study, open, onToggle }: { study: CaseStudy; ope
         <ChevronDown className={cn("mt-1 h-5 w-5 shrink-0 text-brand-300 transition-transform", open && "rotate-180")} aria-hidden="true" />
       </button>
 
-      <CollapsiblePanel open={open} id={panelId}>
+      <CollapsiblePanel open={open} id={panelId} lazyMount>
         <div className="border-t border-brand-500/50 px-5 pb-6 pt-5 sm:px-6">
           <div className="grid gap-6 lg:grid-cols-2">
             <div>
