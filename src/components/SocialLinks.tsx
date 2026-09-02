@@ -20,7 +20,7 @@ export function SocialLinks() {
           href={href}
           target={href.startsWith("mailto:") ? undefined : "_blank"}
           rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-          className="p-2 text-brand-300 transition-colors hover:text-brand-50"
+          className="inline-flex min-h-11 min-w-11 items-center justify-center p-2 text-brand-300 transition-colors hover:text-brand-50"
           aria-label={label}
           onClick={() => track(label === "Email" ? "Contact Clicked" : "Social Link Clicked", { location: "sidebar", destination: label })}
         >

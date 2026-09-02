@@ -21,7 +21,7 @@ export function AboutSection() {
         <ResumeActions />
       </div>
 
-      <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-3">
+      <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
         {techStackData.map((group) => (
             <div
               className="group rounded-2xl border border-brand-500/50 bg-brand-800/50 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-400/30 hover:bg-brand-700/70 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none"

@@ -12,7 +12,7 @@ export function MobileHeader({
   buttonRef?: Ref<HTMLButtonElement>;
 }) {
   return (
-    <header className="flex items-center justify-between border-b border-brand-500 bg-brand-900 px-5 py-3.5 md:hidden">
+    <header className="flex items-center justify-between border-b border-brand-500 bg-brand-900 px-5 py-3.5 lg:hidden">
       <div className="flex items-center gap-3">
         <ProfileAvatar size="h-9 w-9" ringSize="ring-2" />
         <div>
@@ -23,7 +23,7 @@ export function MobileHeader({
       <button
         ref={buttonRef}
         onClick={onToggle}
-        className="rounded-lg p-2 text-brand-200 transition-colors hover:bg-brand-600/60 hover:text-brand-50"
+        className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-brand-200 transition-colors hover:bg-brand-600/60 hover:text-brand-50"
         aria-label={isOpen ? "Close menu" : "Open menu"}
       >
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

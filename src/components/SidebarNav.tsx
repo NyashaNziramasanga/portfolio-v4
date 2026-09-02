@@ -29,7 +29,7 @@ export function SidebarNav({
             variant="ghost"
             aria-current={activeSection === id ? "true" : undefined}
             className={cn(
-              "justify-start gap-2.5 text-lg font-medium text-brand-300 transition-[transform,color,background-color,font-weight] duration-300 ease-in-out hover:scale-[1.01] hover:bg-brand-600/60 hover:text-brand-100",
+              "min-h-11 justify-start gap-2.5 text-lg font-medium text-brand-300 transition-[transform,color,background-color,font-weight] duration-300 ease-in-out hover:scale-[1.01] hover:bg-brand-600/60 hover:text-brand-100",
               activeSection === id && "font-semibold text-brand-50",
             )}
             onClick={() => onSelect(id)}
