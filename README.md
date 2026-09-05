@@ -54,10 +54,12 @@ bun run react-doctor # Run react-doctor diagnostics
 - [Vercel](https://vercel.com/)
 - Icons from [simple-icons](https://simpleicons.org/) and [lucide-react](https://lucide.dev/)
 
-Styles are co-located with components through `stylex.create()`. Shared color,
-breakpoint, motion, typography, and z-index values live in
-`src/styles/tokens.stylex.ts`; `src/index.css` is limited to the font, reset,
-document globals, and scrollbar behavior. See the
+Styles are co-located with components through `stylex.create()`. Shared visual
+values live in focused modules under [`src/styles`](src/styles/README.md) and are
+imported directly from their defining `.stylex.ts` file—there is intentionally no
+barrel export. Prefer semantic tokens, and run `bun run lint` to enforce token use
+and vertically formatted StyleX objects. `src/index.css` is limited to the font,
+reset, document globals, and scrollbar behavior. See the
 [Tailwind-to-StyleX performance report](docs/performance/stylex-migration.md)
 for the reproducible before/after measurements.
 

@@ -41,7 +41,12 @@ src/
 │   ├── publications.json      # Articles, talks, publications
 │   └── techStack.json         # Tech stack items with icon keys and labels
 ├── styles/
-│   └── tokens.stylex.ts       # Shared StyleX variables and constants
+│   ├── Colors.stylex.ts       # Semantic dark-theme colors
+│   ├── Spacing.stylex.ts      # Pixel spacing constants
+│   ├── Typography.stylex.ts   # Font and type-scale constants
+│   ├── Fonts.stylex.ts        # Pre-composed semantic font recipes
+│   ├── Motion.stylex.ts       # Durations, easing, and motion queries
+│   └── README.md              # Complete token catalog and usage rules
 ├── App.tsx                    # Root component (sidebar + content layout + tech stack grid)
 ├── main.tsx                   # Entry point
 ├── index.css                  # Font, reset, document globals, and scrollbars
@@ -60,13 +65,13 @@ public/
 
 - **Components:** PascalCase filenames, functional components with hooks. Use `React.forwardRef` when exposing refs.
 - **Styling:** Use co-located `stylex.create()` definitions and apply them with `stylex.props()`. Keep every StyleX object property on its own line for vertical readability; the ESLint configuration enforces this. Keep only document-level behavior in `index.css`.
-- **Tokens:** Use variables and constants from `src/styles/tokens.stylex.ts` for shared colors, breakpoints, motion, typography, duration, easing, and z-index values.
+- **Tokens:** Import directly from the focused `.stylex.ts` module in `src/styles`; do not add a barrel export. Prefer semantic tokens (especially colors) over palette-oriented choices. ESLint rejects raw governed values for colors, shadows, spacing, radii, typography, motion timing, breakpoints, and z-indexes. See `src/styles/README.md`.
 - **Variants:** Use typed StyleX maps for component variants and `StyleXStyles` for supported style overrides (see `button.tsx`).
 - **Data:** Static content lives in `src/data/*.json`. Types are inferred from the JSON: `type Experience = (typeof data)[number]`.
 - **Icons:** Brand/tech icons use `simple-icons` (imported as `si*` objects). UI icons use `lucide-react`. Tech stack items in `techStack.json` reference icon keys with a `si` prefix or `lucide:` prefix.
 - **Media:** Project demo media lives in `public/media/`. Videos have both `.mp4` and `.webm` formats for browser compatibility.
 - **Path aliases:** `@/*` maps to `src/*` (configured in both `tsconfig.json` and `vite.config.ts`).
-- **Color theme:** Dark-only theme values are declared with `stylex.defineVars()` in `src/styles/tokens.stylex.ts`.
+- **Color theme:** Dark-only semantic theme values are declared with `stylex.defineVars()` in `src/styles/Colors.stylex.ts`.
 
 ## Architecture Notes
 
