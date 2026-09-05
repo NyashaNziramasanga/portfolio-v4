@@ -2,7 +2,10 @@ import * as stylex from "@stylexjs/stylex";
 import { ProfileAvatar } from "@/components/ProfileAvatar";
 import { SidebarNav } from "@/components/SidebarNav";
 import { SocialLinks } from "@/components/SocialLinks";
-import { colors } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { fonts } from "../../styles/Fonts.stylex";
+import { fontWeights, lineHeights } from "../../styles/Typography.stylex";
 
 export function SidebarContent({
   variant,
@@ -23,6 +26,7 @@ export function SidebarContent({
       />
       <p
         {...stylex.props(
+          isMobile ? fonts.title : fonts.titleLarge,
           styles.name,
           isMobile ? styles.nameMobile : styles.nameDesktop,
         )}
@@ -31,6 +35,7 @@ export function SidebarContent({
       </p>
       <h2
         {...stylex.props(
+          isMobile ? fonts.body : fonts.bodyLarge,
           styles.role,
           isMobile ? styles.roleMobile : styles.roleDesktop,
         )}
@@ -48,42 +53,38 @@ export function SidebarContent({
 
 const styles = stylex.create({
   avatarDesktop: {
-    marginBottom: 20,
+    marginBottom: spacing.space20,
   },
   name: {
-    marginBottom: 2,
-    fontWeight: 700,
-    lineHeight: 1.25,
-    color: colors.brand50,
+    marginBottom: spacing.space2,
+    fontWeight: fontWeights.bold,
+    lineHeight: lineHeights.tight,
+    color: colors.textPrimary,
   },
   nameMobile: {
-    fontSize: 18,
-    lineHeight: "28px",
+    lineHeight: lineHeights.line28,
   },
   nameDesktop: {
-    fontSize: 20,
-    lineHeight: "28px",
+    lineHeight: lineHeights.line28,
   },
   role: {
-    marginBottom: 20,
-    fontWeight: 500,
-    color: colors.brand300,
+    marginBottom: spacing.space20,
+    fontWeight: fontWeights.medium,
+    color: colors.textMuted,
   },
   roleMobile: {
-    fontSize: 14,
-    lineHeight: "20px",
+    lineHeight: lineHeights.line20,
   },
   roleDesktop: {
-    fontSize: 16,
-    lineHeight: "24px",
+    lineHeight: lineHeights.line24,
   },
   rule: {
-    marginBottom: 20,
+    marginBottom: spacing.space20,
     borderTopWidth: 1,
-    borderColor: colors.brand500,
+    borderColor: colors.border,
   },
   social: {
     marginTop: "auto",
-    paddingTop: 20,
+    paddingTop: spacing.space20,
   },
 });

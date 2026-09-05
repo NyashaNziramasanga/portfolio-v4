@@ -2,7 +2,17 @@ import { Menu, X } from "lucide-react";
 import type { Ref } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { ProfileAvatar } from "@/components/ProfileAvatar";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 export function MobileHeader({
   isOpen,
@@ -42,52 +52,52 @@ const styles = stylex.create({
   root: {
     display: {
       default: "flex",
-      [constants.lg]: "none",
+      [breakpoints.lg]: "none",
     },
     alignItems: "center",
     justifyContent: "space-between",
     borderBottomWidth: 1,
-    borderBottomColor: colors.brand500,
-    backgroundColor: colors.brand900,
-    paddingInline: 20,
-    paddingBlock: 14,
+    borderBottomColor: colors.border,
+    backgroundColor: colors.background,
+    paddingInline: spacing.space20,
+    paddingBlock: spacing.space14,
   },
   identity: {
     display: "flex",
     alignItems: "center",
-    gap: 12,
+    gap: spacing.space12,
   },
   avatar: {
     width: 36,
     height: 36,
-    boxShadow: `0 0 0 2px ${colors.brand400}`,
+    boxShadow: shadows.avatarRingSmall,
   },
   name: {
-    fontSize: 14,
-    lineHeight: "20px",
-    fontWeight: 700,
-    color: colors.brand50,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.line20,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   role: {
-    fontSize: 12,
-    lineHeight: "16px",
-    color: colors.brand300,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    color: colors.textMuted,
   },
   button: {
     display: "inline-flex",
-    minHeight: 44,
-    minWidth: 44,
+    minHeight: layout.touchTarget,
+    minWidth: layout.touchTarget,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 8,
-    padding: 8,
+    borderRadius: radii.md,
+    padding: spacing.space8,
     color: {
-      default: colors.brand200,
-      ":hover": colors.brand50,
+      default: colors.textSecondary,
+      ":hover": colors.textPrimary,
     },
     backgroundColor: {
-      default: "transparent",
-      ":hover": "color-mix(in oklab, #2D3748 60%, transparent)",
+      default: colors.transparent,
+      ":hover": colors.surfaceHoverAlpha60,
     },
     transitionProperty: "color, background-color",
   },

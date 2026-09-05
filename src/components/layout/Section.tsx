@@ -1,6 +1,7 @@
 import type { ReactNode, Ref } from "react";
 import * as stylex from "@stylexjs/stylex";
-import { constants } from "../../styles/tokens.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
 
 export function Section({
   id,
@@ -24,16 +25,16 @@ const styles = stylex.create({
     minHeight: "100vh",
     alignItems: {
       default: "flex-start",
-      [constants.sm]: "center",
+      [breakpoints.sm]: "center",
     },
     justifyContent: "center",
     paddingInline: {
-      default: 16,
-      [constants.sm]: 40,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space40,
     },
     paddingBlock: {
-      default: 40,
-      [constants.sm]: 64,
+      default: spacing.space40,
+      [breakpoints.sm]: spacing.space64,
     },
   },
 });

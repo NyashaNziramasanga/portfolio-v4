@@ -1,6 +1,9 @@
 import * as stylex from "@stylexjs/stylex";
 import { SidebarContent } from "@/components/layout/SidebarContent";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 export function Sidebar({
   activeSection,
@@ -24,15 +27,15 @@ const styles = stylex.create({
   root: {
     display: {
       default: "none",
-      [constants.lg]: "flex",
+      [breakpoints.lg]: "flex",
     },
-    width: 288,
+    width: layout.sidebarWidth,
     flexShrink: 0,
     flexDirection: "column",
     borderRightWidth: 1,
-    borderRightColor: colors.brand500,
-    backgroundColor: colors.brand900,
-    paddingInline: 24,
-    paddingBlock: 32,
+    borderRightColor: colors.border,
+    backgroundColor: colors.background,
+    paddingInline: spacing.space24,
+    paddingBlock: spacing.space32,
   },
 });

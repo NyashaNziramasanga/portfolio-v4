@@ -8,7 +8,12 @@ import { MobileHeader } from "@/components/layout/MobileHeader";
 import { MobileDrawer } from "@/components/layout/MobileDrawer";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { ContentArea } from "@/components/layout/ContentArea";
-import { colors, constants } from "./styles/tokens.stylex";
+import { colors } from "./styles/Colors.stylex";
+import { spacing } from "./styles/Spacing.stylex";
+import { radii } from "./styles/BorderRadius.stylex";
+import { fontSizes, fontWeights } from "./styles/Typography.stylex";
+import { breakpoints } from "./styles/Breakpoints.stylex";
+import { layout } from "./styles/Layout.stylex";
 
 export default function App() {
   const { activeSection, sectionRefs, mainRef } = useActiveSection();
@@ -77,10 +82,10 @@ const styles = stylex.create({
     width: "100%",
     flexDirection: {
       default: "column",
-      [constants.lg]: "row",
+      [breakpoints.lg]: "row",
     },
     overflow: "hidden",
-    backgroundColor: colors.brand900,
+    backgroundColor: colors.background,
   },
   skipLink: {
     position: {
@@ -95,9 +100,13 @@ const styles = stylex.create({
       default: 1,
       ":focus": "auto",
     },
-    padding: {
+    paddingBlock: {
       default: 0,
-      ":focus": "8px 16px",
+      ":focus": spacing.space8,
+    },
+    paddingInline: {
+      default: 0,
+      ":focus": spacing.space16,
     },
     margin: {
       default: -1,
@@ -117,28 +126,28 @@ const styles = stylex.create({
     },
     borderWidth: 0,
     left: {
-      ":focus": 16,
+      ":focus": spacing.space16,
     },
     top: {
-      ":focus": 16,
+      ":focus": spacing.space16,
     },
     zIndex: {
-      ":focus": constants.zSkipLink,
+      ":focus": layout.zSkipLink,
     },
     borderRadius: {
-      ":focus": 6,
+      ":focus": radii.sm,
     },
     backgroundColor: {
-      ":focus": colors.primary,
+      ":focus": colors.accent,
     },
     fontSize: {
-      ":focus": 14,
+      ":focus": fontSizes.body,
     },
     fontWeight: {
-      ":focus": 500,
+      ":focus": fontWeights.medium,
     },
     color: {
-      ":focus": colors.primaryForeground,
+      ":focus": colors.accentForeground,
     },
     outline: {
       ":focus": "none",

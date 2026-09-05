@@ -2,7 +2,9 @@ import { useRef, useState } from "react";
 import * as stylex from "@stylexjs/stylex";
 import type { StyleXStyles } from "@stylexjs/stylex";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
-import { colors, constants } from "../styles/tokens.stylex";
+import { radii } from "../styles/BorderRadius.stylex";
+import { motion } from "../styles/Motion.stylex";
+import { shadows } from "../styles/Shadows.stylex";
 
 export function ProfileAvatar({
   size,
@@ -59,8 +61,8 @@ const styles = stylex.create({
   root: {
     position: "relative",
     overflow: "hidden",
-    borderRadius: "50%",
-    boxShadow: `0 0 0 4px ${colors.brand400}`,
+    borderRadius: radii.circle,
+    boxShadow: shadows.avatarRing,
   },
   media: {
     width: "100%",
@@ -75,10 +77,10 @@ const styles = stylex.create({
     objectFit: "cover",
     opacity: 0,
     transitionProperty: "opacity",
-    transitionDuration: "300ms",
+    transitionDuration: motion.slow,
     display: {
       default: "block",
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
   },
   videoPlaying: {

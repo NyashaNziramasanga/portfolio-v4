@@ -2,7 +2,12 @@ import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
 import { SidebarContent } from "@/components/layout/SidebarContent";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 export function MobileDrawer({
   isOpen,
@@ -71,57 +76,57 @@ const styles = stylex.create({
     left: 0,
     margin: 0,
     height: "100dvh",
-    width: 288,
+    width: layout.sidebarWidth,
     maxHeight: "none",
     maxWidth: "none",
     borderWidth: 0,
     borderRightWidth: 1,
-    borderRightColor: colors.brand500,
-    backgroundColor: colors.brand900,
+    borderRightColor: colors.border,
+    backgroundColor: colors.background,
     padding: 0,
-    color: colors.brand50,
+    color: colors.textPrimary,
     display: {
-      [constants.lg]: "none",
+      [breakpoints.lg]: "none",
     },
     "::backdrop": {
-      backgroundColor: "color-mix(in oklab, #000 60%, transparent)",
+      backgroundColor: colors.overlay,
     },
   },
   content: {
     display: "flex",
     height: "100%",
     flexDirection: "column",
-    paddingInline: 24,
-    paddingBlock: 24,
+    paddingInline: spacing.space24,
+    paddingBlock: spacing.space24,
   },
   header: {
-    marginBottom: 20,
+    marginBottom: spacing.space20,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
   },
   closeButton: {
     display: "inline-flex",
-    minHeight: 44,
-    minWidth: 44,
+    minHeight: layout.touchTarget,
+    minWidth: layout.touchTarget,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 8,
-    padding: 8,
+    borderRadius: radii.md,
+    padding: spacing.space8,
     color: {
-      default: colors.brand200,
-      ":hover": colors.brand50,
+      default: colors.textSecondary,
+      ":hover": colors.textPrimary,
     },
     backgroundColor: {
-      default: "transparent",
-      ":hover": "color-mix(in oklab, #2D3748 60%, transparent)",
+      default: colors.transparent,
+      ":hover": colors.surfaceHoverAlpha60,
     },
     transitionProperty: "color, background-color",
     outline: {
       ":focus-visible": "none",
     },
     boxShadow: {
-      ":focus-visible": "0 0 0 2px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focus,
     },
   },
   icon: {

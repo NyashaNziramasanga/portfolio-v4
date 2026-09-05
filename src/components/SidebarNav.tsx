@@ -3,7 +3,15 @@ import type { LucideIcon } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/components/ui/button";
 import sectionsData from "@/data/sections.json";
-import { colors, constants } from "../styles/tokens.stylex";
+import { colors } from "../styles/Colors.stylex";
+import { spacing } from "../styles/Spacing.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../styles/Typography.stylex";
+import { motion } from "../styles/Motion.stylex";
+import { layout } from "../styles/Layout.stylex";
 
 const SECTION_ICONS: Record<string, LucideIcon> = {
   about: User,
@@ -45,35 +53,35 @@ const styles = stylex.create({
   root: {
     display: "flex",
     flexDirection: "column",
-    gap: 2,
+    gap: spacing.space2,
   },
   button: {
-    minHeight: 44,
+    minHeight: layout.touchTarget,
     justifyContent: "flex-start",
-    gap: 10,
-    fontSize: 18,
-    lineHeight: "28px",
-    fontWeight: 500,
+    gap: spacing.space10,
+    fontSize: fontSizes.titleSmall,
+    lineHeight: lineHeights.line28,
+    fontWeight: fontWeights.medium,
     color: {
-      default: colors.brand300,
-      ":hover": colors.brand100,
+      default: colors.textMuted,
+      ":hover": colors.textStrong,
     },
     backgroundColor: {
-      default: "transparent",
-      ":hover": "color-mix(in oklab, #2D3748 60%, transparent)",
+      default: colors.transparent,
+      ":hover": colors.surfaceHoverAlpha60,
     },
     transform: {
       default: null,
       ":hover": "scale(1.01)",
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
     transitionProperty: "transform, color, background-color, font-weight",
-    transitionDuration: constants.durationSlow,
-    transitionTimingFunction: "ease-in-out",
+    transitionDuration: motion.slow,
+    transitionTimingFunction: motion.easeInOut,
   },
   active: {
-    fontWeight: 600,
-    color: colors.brand50,
+    fontWeight: fontWeights.semibold,
+    color: colors.textPrimary,
   },
   icon: {
     width: 18,
