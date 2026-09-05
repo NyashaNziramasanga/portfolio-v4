@@ -12,7 +12,7 @@ Portfolio v4 — a personal portfolio website for Nyasha Nziramasanga (Senior So
 - **Framework:** React 18 + TypeScript (strict mode)
 - **Bundler:** Vite 5
 - **Package Manager:** Bun (1.2.22)
-- **Styling:** Tailwind CSS 3 with tailwindcss-animate, class-variance-authority (CVA), tailwind-merge, clsx
+- **Styling:** StyleX with compile-time extraction through `@stylexjs/unplugin`
 - **Icons:** simple-icons (brand/tech icons), lucide-react (UI icons)
 - **Analytics:** @vercel/analytics
 - **Module System:** ES Modules
@@ -40,11 +40,11 @@ src/
 │   ├── experiences.json       # Work and education entries (with optional projects/media)
 │   ├── publications.json      # Articles, talks, publications
 │   └── techStack.json         # Tech stack items with icon keys and labels
-├── lib/
-│   └── utils.ts               # cn() utility (clsx + tailwind-merge)
+├── styles/
+│   └── tokens.stylex.ts       # Shared StyleX variables and constants
 ├── App.tsx                    # Root component (sidebar + content layout + tech stack grid)
 ├── main.tsx                   # Entry point
-├── index.css                  # Tailwind directives + CSS custom properties
+├── index.css                  # Font, reset, document globals, and scrollbars
 └── vite-env.d.ts              # Vite client type reference
 public/
 ├── logos/                     # Profile and company logos (.ico, .png, .webp)
@@ -59,13 +59,14 @@ public/
 ## Conventions
 
 - **Components:** PascalCase filenames, functional components with hooks. Use `React.forwardRef` when exposing refs.
-- **Styling:** Tailwind utility classes only — no separate CSS files. Use the `cn()` helper from `@/lib/utils` to merge classes. Dark mode is the default via class strategy.
-- **Variants:** Use CVA (`class-variance-authority`) for component variant definitions (see `button.tsx`).
+- **Styling:** Use co-located `stylex.create()` definitions and apply them with `stylex.props()`. Keep every StyleX object property on its own line for vertical readability; the ESLint configuration enforces this. Keep only document-level behavior in `index.css`.
+- **Tokens:** Use variables and constants from `src/styles/tokens.stylex.ts` for shared colors, breakpoints, motion, typography, duration, easing, and z-index values.
+- **Variants:** Use typed StyleX maps for component variants and `StyleXStyles` for supported style overrides (see `button.tsx`).
 - **Data:** Static content lives in `src/data/*.json`. Types are inferred from the JSON: `type Experience = (typeof data)[number]`.
 - **Icons:** Brand/tech icons use `simple-icons` (imported as `si*` objects). UI icons use `lucide-react`. Tech stack items in `techStack.json` reference icon keys with a `si` prefix or `lucide:` prefix.
 - **Media:** Project demo media lives in `public/media/`. Videos have both `.mp4` and `.webm` formats for browser compatibility.
 - **Path aliases:** `@/*` maps to `src/*` (configured in both `tsconfig.json` and `vite.config.ts`).
-- **Color theme:** Custom HSL-based CSS variables defined in `:root` in `index.css`. Tailwind references these via the `tailwind.config.js` extension.
+- **Color theme:** Dark-only theme values are declared with `stylex.defineVars()` in `src/styles/tokens.stylex.ts`.
 
 ## Architecture Notes
 

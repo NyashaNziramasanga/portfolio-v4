@@ -37,6 +37,10 @@ bun run build        # Type-check (tsc -b) then build (vite build)
 
 bun run preview      # Preview production build
 
+bun run lint         # Run ESLint and StyleX rules
+
+bun run perf:collect stylex # Build and collect 5x mobile/desktop Lighthouse samples
+
 bun run react-doctor # Run react-doctor diagnostics
 ```
 
@@ -45,10 +49,17 @@ bun run react-doctor # Run react-doctor diagnostics
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
 - [React](https://react.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
+- [StyleX](https://stylexjs.com/)
 - [Bun](https://bun.sh/)
 - [Vercel](https://vercel.com/)
 - Icons from [simple-icons](https://simpleicons.org/) and [lucide-react](https://lucide.dev/)
+
+Styles are co-located with components through `stylex.create()`. Shared color,
+breakpoint, motion, typography, and z-index values live in
+`src/styles/tokens.stylex.ts`; `src/index.css` is limited to the font, reset,
+document globals, and scrollbar behavior. See the
+[Tailwind-to-StyleX performance report](docs/performance/stylex-migration.md)
+for the reproducible before/after measurements.
 
 ## Previous Version
 
