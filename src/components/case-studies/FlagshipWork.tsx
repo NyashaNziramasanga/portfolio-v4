@@ -4,7 +4,15 @@ import { track } from "@vercel/analytics/react";
 import caseStudiesData from "@/data/caseStudies.json";
 import { CaseStudyCard } from "./CaseStudyCard";
 import type { CaseStudy } from "./types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 const studies = caseStudiesData as CaseStudy[];
 
@@ -63,40 +71,40 @@ const styles = stylex.create({
   root: {
     display: "flex",
     width: "100%",
-    maxWidth: 1024,
+    maxWidth: layout.contentMax,
     alignSelf: "flex-start",
     flexDirection: "column",
   },
   header: {
     marginBottom: {
-      default: 32,
-      [constants.sm]: 40,
+      default: spacing.space32,
+      [breakpoints.sm]: spacing.space40,
     },
   },
   title: {
     fontSize: {
-      default: 20,
-      [constants.sm]: 24,
+      default: fontSizes.title,
+      [breakpoints.sm]: fontSizes.heading,
     },
     lineHeight: {
-      default: "28px",
-      [constants.sm]: "32px",
+      default: lineHeights.line28,
+      [breakpoints.sm]: lineHeights.line32,
     },
-    fontWeight: 700,
-    color: colors.brand50,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   description: {
-    marginTop: 12,
+    marginTop: spacing.space12,
     fontSize: {
-      default: 14,
-      [constants.sm]: 16,
+      default: fontSizes.body,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
-    lineHeight: 1.625,
-    color: colors.brand300,
+    lineHeight: lineHeights.relaxed,
+    color: colors.textMuted,
   },
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: 16,
+    gap: spacing.space16,
   },
 });

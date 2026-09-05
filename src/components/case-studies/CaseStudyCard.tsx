@@ -3,7 +3,18 @@ import { track } from "@vercel/analytics/react";
 import * as stylex from "@stylexjs/stylex";
 import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
 import type { CaseStudy } from "./types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacing,
+} from "../../styles/Typography.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 function DetailList({ title, items }: { title: string; items: string[] }) {
   return (
@@ -136,55 +147,55 @@ export function CaseStudyCard({
 const styles = stylex.create({
   card: {
     scrollMarginTop: 24,
-    borderRadius: 16,
+    borderRadius: radii.xl,
     borderWidth: 1,
-    backgroundColor: colors.brand700,
-    boxShadow: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+    backgroundColor: colors.surface,
+    boxShadow: shadows.elevationXs,
     transitionProperty: "color, background-color, border-color",
   },
   cardOpen: {
-    borderColor: "color-mix(in oklab, #4299E1 40%, transparent)",
-    backgroundColor: colors.brand600,
+    borderColor: colors.accentSurfaceAlpha40,
+    backgroundColor: colors.surfaceHover,
   },
   cardClosed: {
-    borderColor: "color-mix(in oklab, #4A5568 50%, transparent)",
+    borderColor: colors.borderAlpha50,
   },
   button: {
     display: "flex",
     width: "100%",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: 16,
-    borderRadius: 16,
+    gap: spacing.space16,
+    borderRadius: radii.xl,
     padding: {
-      default: 16,
-      [constants.sm]: 20,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space20,
     },
     textAlign: "left",
     outline: "none",
     boxShadow: {
-      ":focus-visible": "0 0 0 2px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focus,
     },
   },
   summaryGrid: {
     display: "grid",
     minWidth: 0,
     flex: "1",
-    gap: 16,
+    gap: spacing.space16,
     gridTemplateColumns: {
-      [constants.sm]: "10rem minmax(0, 1fr)",
-      [constants.lg]: "12rem minmax(0, 1fr)",
+      [breakpoints.sm]: "10rem minmax(0, 1fr)",
+      [breakpoints.lg]: "12rem minmax(0, 1fr)",
     },
     alignItems: {
-      [constants.sm]: "center",
+      [breakpoints.sm]: "center",
     },
   },
   image: {
     aspectRatio: "16 / 9",
     width: "100%",
-    borderRadius: 12,
+    borderRadius: radii.lg,
     borderWidth: 1,
-    borderColor: "color-mix(in oklab, #4A5568 40%, transparent)",
+    borderColor: colors.borderAlpha40,
     objectFit: "cover",
   },
   summaryCopy: {
@@ -193,30 +204,30 @@ const styles = stylex.create({
   title: {
     display: "block",
     fontSize: {
-      default: 18,
-      [constants.sm]: 20,
+      default: fontSizes.titleSmall,
+      [breakpoints.sm]: fontSizes.title,
     },
-    lineHeight: "28px",
-    fontWeight: 700,
-    color: colors.brand50,
+    lineHeight: lineHeights.line28,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   summary: {
-    marginTop: 8,
+    marginTop: spacing.space8,
     display: "block",
-    maxWidth: 768,
+    maxWidth: layout.contentMedium,
     fontSize: {
-      default: 14,
-      [constants.sm]: 16,
+      default: fontSizes.body,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
-    lineHeight: 1.625,
-    color: colors.brand300,
+    lineHeight: lineHeights.relaxed,
+    color: colors.textMuted,
   },
   chevron: {
-    marginTop: 4,
+    marginTop: spacing.space4,
     width: 20,
     height: 20,
     flexShrink: 0,
-    color: colors.brand300,
+    color: colors.textMuted,
     transitionProperty: "transform",
   },
   chevronOpen: {
@@ -224,72 +235,72 @@ const styles = stylex.create({
   },
   panel: {
     borderTopWidth: 1,
-    borderTopColor: "color-mix(in oklab, #4A5568 50%, transparent)",
+    borderTopColor: colors.borderAlpha50,
     paddingInline: {
-      default: 20,
-      [constants.sm]: 24,
+      default: spacing.space20,
+      [breakpoints.sm]: spacing.space24,
     },
-    paddingBottom: 24,
-    paddingTop: 20,
+    paddingBottom: spacing.space24,
+    paddingTop: spacing.space20,
   },
   detailGrid: {
     display: "grid",
-    gap: 24,
+    gap: spacing.space24,
     gridTemplateColumns: {
-      [constants.lg]: "repeat(2, minmax(0, 1fr))",
+      [breakpoints.lg]: "repeat(2, minmax(0, 1fr))",
     },
   },
   detailHeading: {
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 600,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.14em",
-    color: colors.brand300,
+    letterSpacing: letterSpacing.labelWide,
+    color: colors.textMuted,
   },
   detailCopy: {
-    marginTop: 8,
-    fontSize: 14,
-    lineHeight: 1.625,
-    color: colors.brand200,
+    marginTop: spacing.space8,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.relaxed,
+    color: colors.textSecondary,
   },
   detailList: {
-    marginTop: 8,
+    marginTop: spacing.space8,
     display: "flex",
     flexDirection: "column",
-    gap: 8,
-    fontSize: 14,
-    lineHeight: 1.625,
-    color: colors.brand200,
+    gap: spacing.space8,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.relaxed,
+    color: colors.textSecondary,
   },
   detailItem: {
     display: "flex",
-    gap: 8,
+    gap: spacing.space8,
   },
   bullet: {
-    marginTop: 8,
+    marginTop: spacing.space8,
     width: 6,
     height: 6,
     flexShrink: 0,
-    borderRadius: "50%",
-    backgroundColor: colors.blue400,
+    borderRadius: radii.circle,
+    backgroundColor: colors.accentSurface,
   },
   evidenceList: {
-    marginTop: 8,
+    marginTop: spacing.space8,
     display: "flex",
     flexDirection: "column",
-    gap: 8,
+    gap: spacing.space8,
   },
   evidenceLink: {
     display: "inline-flex",
     alignItems: "center",
-    gap: 8,
-    fontSize: 14,
-    lineHeight: "20px",
-    fontWeight: 500,
+    gap: spacing.space8,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.line20,
+    fontWeight: fontWeights.medium,
     color: {
-      default: colors.blue300,
-      ":hover": colors.blue200,
+      default: colors.accentText,
+      ":hover": colors.accentSoft,
     },
   },
   evidenceIcon: {
@@ -301,9 +312,9 @@ const styles = stylex.create({
     height: 14,
   },
   emptyEvidence: {
-    marginTop: 8,
-    fontSize: 14,
-    lineHeight: 1.625,
-    color: colors.brand300,
+    marginTop: spacing.space8,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.relaxed,
+    color: colors.textMuted,
   },
 });
