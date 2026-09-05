@@ -1,26 +1,13 @@
 import { useMemo } from "react";
-import { cn } from "@/lib/utils";
+import * as stylex from "@stylexjs/stylex";
 import { StackItem } from "@/tools/mobile-app-stack-picker/components/StackItem";
 import type { StackCategory, StackItem as StackItemType } from "@/tools/types";
+import { colors, constants } from "../../../styles/tokens.stylex";
 
 type CategoryColumnProps = {
   category: StackCategory;
   selectedItemId: string | null;
   onSelect: (itemId: string) => void;
-};
-
-const tierContainerClass: Record<number, string> = {
-  1: "border-brand-500 bg-brand-800/70",
-  2: "border-brand-500/75 bg-brand-800/50",
-  3: "border-brand-500/55 bg-brand-800/35",
-  4: "border-brand-500/35 bg-brand-800/20",
-};
-
-const tierDividerClass: Record<number, string> = {
-  1: "border-brand-500",
-  2: "border-brand-500/70",
-  3: "border-brand-500/50",
-  4: "border-brand-500/30",
 };
 
 const isPick = (item: StackItemType) => "pick" in item && item.pick === true;
@@ -31,8 +18,19 @@ export function CategoryColumn({
   onSelect,
 }: CategoryColumnProps) {
   const tier = category.tier ?? 1;
-  const containerClass = tierContainerClass[tier] ?? tierContainerClass[1];
-  const dividerClass = tierDividerClass[tier] ?? tierDividerClass[1];
+  const tierIndex = Math.max(1, Math.min(4, tier)) - 1;
+  const containerStyle = [
+    tierStyles.container1,
+    tierStyles.container2,
+    tierStyles.container3,
+    tierStyles.container4,
+  ][tierIndex];
+  const dividerStyle = [
+    tierStyles.divider1,
+    tierStyles.divider2,
+    tierStyles.divider3,
+    tierStyles.divider4,
+  ][tierIndex];
 
   const sortedItems = useMemo(() => {
     const weight = (item: StackItemType) => {
@@ -44,18 +42,13 @@ export function CategoryColumn({
   }, [category.items, selectedItemId]);
 
   return (
-    <section
-      className={cn("rounded-xl border p-4 sm:p-5 transition-colors", containerClass)}
-      data-tier={tier}
-    >
-      <div className={cn("mb-3 border-b pb-2.5", dividerClass)}>
-        <h3 className="text-base font-semibold text-brand-50">{category.title}</h3>
-        <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-400">
-          {category.subtitle}
-        </p>
+    <section {...stylex.props(styles.root, containerStyle)} data-tier={tier}>
+      <div {...stylex.props(styles.header, dividerStyle)}>
+        <h3 {...stylex.props(styles.title)}>{category.title}</h3>
+        <p {...stylex.props(styles.subtitle)}>{category.subtitle}</p>
       </div>
 
-      <div className="space-y-2">
+      <div {...stylex.props(styles.items)}>
         {sortedItems.map((item) => (
           <StackItem
             key={item.id}
@@ -68,3 +61,70 @@ export function CategoryColumn({
     </section>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    borderRadius: 12,
+    borderWidth: 1,
+    padding: {
+      default: 16,
+      [constants.sm]: 20,
+    },
+    transitionProperty: "color, background-color, border-color",
+  },
+  header: {
+    marginBottom: 12,
+    borderBottomWidth: 1,
+    paddingBottom: 10,
+  },
+  title: {
+    fontSize: 16,
+    lineHeight: "24px",
+    fontWeight: 600,
+    color: colors.brand50,
+  },
+  subtitle: {
+    marginTop: 2,
+    fontSize: 10,
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: "0.14em",
+    color: colors.brand400,
+  },
+  items: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 8,
+  },
+});
+
+const tierStyles = stylex.create({
+  container1: {
+    borderColor: colors.brand500,
+    backgroundColor: "color-mix(in oklab, #1F2937 70%, transparent)",
+  },
+  container2: {
+    borderColor: "color-mix(in oklab, #4A5568 75%, transparent)",
+    backgroundColor: "color-mix(in oklab, #1F2937 50%, transparent)",
+  },
+  container3: {
+    borderColor: "color-mix(in oklab, #4A5568 55%, transparent)",
+    backgroundColor: "color-mix(in oklab, #1F2937 35%, transparent)",
+  },
+  container4: {
+    borderColor: "color-mix(in oklab, #4A5568 35%, transparent)",
+    backgroundColor: "color-mix(in oklab, #1F2937 20%, transparent)",
+  },
+  divider1: {
+    borderColor: colors.brand500,
+  },
+  divider2: {
+    borderColor: "color-mix(in oklab, #4A5568 70%, transparent)",
+  },
+  divider3: {
+    borderColor: "color-mix(in oklab, #4A5568 50%, transparent)",
+  },
+  divider4: {
+    borderColor: "color-mix(in oklab, #4A5568 30%, transparent)",
+  },
+});

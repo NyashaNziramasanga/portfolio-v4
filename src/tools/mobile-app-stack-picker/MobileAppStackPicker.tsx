@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
+import * as stylex from "@stylexjs/stylex";
 import categoriesData from "@/tools/mobile-app-stack-picker/data/categories.json";
 import { StackPickerHeader } from "@/tools/mobile-app-stack-picker/components/StackPickerHeader";
 import { CategoryColumn } from "@/tools/mobile-app-stack-picker/components/CategoryColumn";
 import { StackBottomBar } from "@/tools/mobile-app-stack-picker/components/StackBottomBar";
 import { useStackPicker } from "@/tools/mobile-app-stack-picker/hooks/useStackPicker";
 import type { StackCategory } from "@/tools/types";
+import { colors, constants } from "../../styles/tokens.stylex";
 
 const categories = categoriesData as StackCategory[];
 
@@ -26,11 +28,20 @@ export function MobileAppStackPicker() {
     buildPrompt,
     buildShareUrl,
   } = useStackPicker(categories);
-  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">("idle");
-  const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "error">("idle");
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
+    "idle",
+  );
+  const [shareStatus, setShareStatus] = useState<"idle" | "copied" | "error">(
+    "idle",
+  );
 
   const categoriesByTier = useMemo(() => {
-    const groups: Record<number, StackCategory[]> = { 1: [], 2: [], 3: [], 4: [] };
+    const groups: Record<number, StackCategory[]> = {
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+    };
     for (const category of categories) {
       const tier = category.tier ?? 1;
       (groups[tier] ?? (groups[tier] = [])).push(category);
@@ -75,10 +86,10 @@ export function MobileAppStackPicker() {
   };
 
   return (
-    <div className="pb-28">
+    <div {...stylex.props(styles.root)}>
       <StackPickerHeader />
 
-      <div className="space-y-10">
+      <div {...stylex.props(styles.tiers)}>
         {TIER_ORDER.map((tier) => {
           const tierCategories = categoriesByTier[tier];
           if (!tierCategories || tierCategories.length === 0) return null;
@@ -86,24 +97,23 @@ export function MobileAppStackPicker() {
 
           return (
             <section key={tier} aria-labelledby={`tier-${tier}-heading`}>
-              <header className="mb-4 flex items-baseline justify-between gap-3 border-b border-brand-700 pb-2">
-                <div className="flex items-baseline gap-3">
+              <header {...stylex.props(styles.tierHeader)}>
+                <div {...stylex.props(styles.tierHeadingGroup)}>
                   <h3
                     id={`tier-${tier}-heading`}
-                    className="text-sm font-bold text-brand-50 sm:text-base"
+                    {...stylex.props(styles.tierTitle)}
                   >
                     {meta.label}
                   </h3>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-400">
-                    {meta.subtitle}
-                  </p>
+                  <p {...stylex.props(styles.tierSubtitle)}>{meta.subtitle}</p>
                 </div>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-brand-500">
-                  {tierCategories.length} {tierCategories.length === 1 ? "layer" : "layers"}
+                <span {...stylex.props(styles.tierCount)}>
+                  {tierCategories.length}{" "}
+                  {tierCategories.length === 1 ? "layer" : "layers"}
                 </span>
               </header>
 
-              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              <div {...stylex.props(styles.categoryGrid)}>
                 {tierCategories.map((category) => (
                   <CategoryColumn
                     key={category.id}
@@ -129,3 +139,59 @@ export function MobileAppStackPicker() {
     </div>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    paddingBottom: 112,
+  },
+  tiers: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 40,
+  },
+  tierHeader: {
+    marginBottom: 16,
+    display: "flex",
+    alignItems: "baseline",
+    justifyContent: "space-between",
+    gap: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.brand700,
+    paddingBottom: 8,
+  },
+  tierHeadingGroup: {
+    display: "flex",
+    alignItems: "baseline",
+    gap: 12,
+  },
+  tierTitle: {
+    fontSize: {
+      default: 14,
+      [constants.sm]: 16,
+    },
+    fontWeight: 700,
+    color: colors.brand50,
+  },
+  tierSubtitle: {
+    fontSize: 10,
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: "0.14em",
+    color: colors.brand400,
+  },
+  tierCount: {
+    fontSize: 10,
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: "0.14em",
+    color: colors.brand500,
+  },
+  categoryGrid: {
+    display: "grid",
+    gap: 16,
+    gridTemplateColumns: {
+      "@media (min-width: 768px)": "repeat(2, minmax(0, 1fr))",
+      [constants.xl]: "repeat(4, minmax(0, 1fr))",
+    },
+  },
+});

@@ -1,50 +1,151 @@
 import type { ButtonHTMLAttributes, Ref } from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+import * as stylex from "@stylexjs/stylex";
+import type { StyleXStyles } from "@stylexjs/stylex";
+import { colors } from "../../styles/tokens.stylex";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-);
+type ButtonVariant =
+  | "default"
+  | "destructive"
+  | "outline"
+  | "secondary"
+  | "ghost"
+  | "link";
+type ButtonSize = "default" | "sm" | "lg" | "icon";
 
-interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+interface ButtonProps extends Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "className" | "style"
+> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  style?: StyleXStyles;
   ref?: Ref<HTMLButtonElement>;
 }
 
-function Button({ className, variant, size, ref, ...props }: ButtonProps) {
+function Button({
+  style,
+  variant = "default",
+  size = "default",
+  ref,
+  ...props
+}: ButtonProps) {
   return (
     <button
-      className={cn(buttonVariants({ variant, size, className }))}
+      {...stylex.props(
+        styles.base,
+        variantStyles[variant],
+        sizeStyles[size],
+        style,
+      )}
       ref={ref}
       {...props}
     />
   );
 }
 
+const styles = stylex.create({
+  base: {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    whiteSpace: "nowrap",
+    borderRadius: 6,
+    fontSize: 14,
+    lineHeight: "20px",
+    fontWeight: 500,
+    transitionProperty: "color, background-color, border-color",
+    outline: {
+      ":focus-visible": "none",
+    },
+    boxShadow: {
+      default: "none",
+      ":focus-visible": "0 0 0 2px #1A202C, 0 0 0 4px hsl(207 68% 50%)",
+    },
+    pointerEvents: {
+      default: "auto",
+      ":disabled": "none",
+    },
+    opacity: {
+      default: 1,
+      ":disabled": 0.5,
+    },
+  },
+});
+
+const variantStyles = stylex.create({
+  default: {
+    backgroundColor: {
+      default: colors.primary,
+      ":hover": "color-mix(in oklab, hsl(207 68% 50%) 90%, transparent)",
+    },
+    color: colors.primaryForeground,
+  },
+  destructive: {
+    backgroundColor: {
+      default: colors.destructive,
+      ":hover": "color-mix(in oklab, hsl(0 84.2% 60.2%) 90%, transparent)",
+    },
+    color: colors.destructiveForeground,
+  },
+  outline: {
+    borderWidth: 1,
+    borderColor: colors.secondary,
+    backgroundColor: {
+      default: colors.brand900,
+      ":hover": colors.primary,
+    },
+    color: {
+      ":hover": colors.primaryForeground,
+    },
+  },
+  secondary: {
+    backgroundColor: {
+      default: colors.secondary,
+      ":hover": "color-mix(in oklab, hsl(216 12% 54%) 80%, transparent)",
+    },
+    color: colors.secondaryForeground,
+  },
+  ghost: {
+    backgroundColor: {
+      default: "transparent",
+      ":hover": colors.primary,
+    },
+    color: {
+      ":hover": colors.primaryForeground,
+    },
+  },
+  link: {
+    color: colors.primary,
+    textUnderlineOffset: 4,
+    textDecorationLine: {
+      default: "none",
+      ":hover": "underline",
+    },
+  },
+});
+
+const sizeStyles = stylex.create({
+  default: {
+    height: 40,
+    paddingInline: 16,
+    paddingBlock: 8,
+  },
+  sm: {
+    height: 36,
+    borderRadius: 6,
+    paddingInline: 12,
+  },
+  lg: {
+    height: 44,
+    borderRadius: 6,
+    paddingInline: 32,
+  },
+  icon: {
+    width: 40,
+    height: 40,
+  },
+});
+
 export { Button };
+export type { ButtonProps, ButtonSize, ButtonVariant };

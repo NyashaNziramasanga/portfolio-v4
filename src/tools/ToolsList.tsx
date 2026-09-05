@@ -1,14 +1,16 @@
+import * as stylex from "@stylexjs/stylex";
 import toolsData from "@/tools/data/tools.json";
 import { ToolCard } from "@/tools/ToolCard";
 import type { ToolListItem } from "@/tools/types";
+import { colors, constants } from "../styles/tokens.stylex";
 
 const tools = toolsData as ToolListItem[];
 
 export function ToolsList() {
   return (
-    <div className="flex w-full max-w-5xl flex-col">
-      <h2 className="mb-8 text-xl font-bold text-brand-50 sm:mb-10 sm:text-2xl">Tools</h2>
-      <div className="flex flex-col gap-4">
+    <div {...stylex.props(styles.root)}>
+      <h2 {...stylex.props(styles.title)}>Tools</h2>
+      <div {...stylex.props(styles.list)}>
         {tools.map((tool) => (
           <ToolCard key={tool.id} tool={tool} />
         ))}
@@ -16,3 +18,33 @@ export function ToolsList() {
     </div>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    display: "flex",
+    width: "100%",
+    maxWidth: 1024,
+    flexDirection: "column",
+  },
+  title: {
+    marginBottom: {
+      default: 32,
+      [constants.sm]: 40,
+    },
+    fontSize: {
+      default: 20,
+      [constants.sm]: 24,
+    },
+    lineHeight: {
+      default: "28px",
+      [constants.sm]: "32px",
+    },
+    fontWeight: 700,
+    color: colors.brand50,
+  },
+  list: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
+  },
+});

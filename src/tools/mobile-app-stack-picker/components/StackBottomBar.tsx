@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Boxes } from "lucide-react";
+import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/components/ui/button";
 import { SimpleIconSvg } from "@/components/SimpleIconSvg";
 import { getSimpleIcon } from "@/tools/mobile-app-stack-picker/simpleIcons";
 import type { SelectedStackEntry } from "@/tools/types";
+import { colors, constants } from "../../../styles/tokens.stylex";
 
 type StackBottomBarProps = {
   entries: SelectedStackEntry[];
@@ -23,39 +25,36 @@ export function StackBottomBar({
   shareStatus,
 }: StackBottomBarProps) {
   const hasSelections = entries.length > 0;
-  const [resetConfirm, setResetConfirm] = useState(false);
+  const selectionKey = entries
+    .map((entry) => `${entry.categoryId}:${entry.itemId}`)
+    .join("|");
+  const [resetRequest, setResetRequest] = useState<{
+    selectionKey: string;
+  } | null>(null);
+  const resetConfirm = resetRequest?.selectionKey === selectionKey;
 
   useEffect(() => {
-    if (!resetConfirm) return;
-    const timeoutId = window.setTimeout(() => setResetConfirm(false), 2500);
+    if (!resetRequest) return;
+    const timeoutId = window.setTimeout(() => setResetRequest(null), 2500);
     return () => window.clearTimeout(timeoutId);
-  }, [resetConfirm]);
-
-  useEffect(() => {
-    if (!hasSelections) setResetConfirm(false);
-  }, [hasSelections]);
+  }, [resetRequest]);
 
   const handleResetClick = () => {
     if (resetConfirm) {
       onReset();
-      setResetConfirm(false);
+      setResetRequest(null);
     } else {
-      setResetConfirm(true);
+      setResetRequest({ selectionKey });
     }
   };
 
   return (
-    <aside
-      aria-label="Your selected stack"
-      className="sticky bottom-0 z-10 mt-6 rounded-t-xl border border-b-0 border-brand-500 bg-brand-900/95 p-3 shadow-2xl backdrop-blur sm:mt-8 sm:p-4"
-    >
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-wide text-brand-300">
-            Your stack
-          </p>
+    <aside aria-label="Your selected stack" {...stylex.props(styles.root)}>
+      <div {...stylex.props(styles.layout)}>
+        <div {...stylex.props(styles.summary)}>
+          <p {...stylex.props(styles.title)}>Your stack</p>
           {hasSelections ? (
-            <div className="mt-2 flex max-h-40 flex-wrap gap-2 overflow-y-auto pr-1 sm:max-h-32">
+            <div data-scrollbar {...stylex.props(styles.entries)}>
               {entries.map((entry) => {
                 const icon = getSimpleIcon(entry.iconKey);
                 const iconColor = icon ? `#${icon.hex}` : undefined;
@@ -63,38 +62,45 @@ export function StackBottomBar({
                 return (
                   <span
                     key={entry.categoryId}
-                    className="inline-flex items-center gap-2 rounded-lg border border-brand-500 bg-brand-700 px-3 py-1.5 text-sm text-brand-100"
+                    {...stylex.props(styles.entry)}
                     title={`${entry.categoryLabel}: ${entry.itemLabel}`}
                   >
-                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-sm bg-brand-900/60">
+                    <span {...stylex.props(styles.iconBox)}>
                       {icon ? (
                         <SimpleIconSvg
                           icon={icon}
-                          className="h-3 w-3"
+                          style={[
+                            styles.icon,
+                            styles.iconColor(iconColor ?? "currentColor"),
+                          ]}
                           aria-label={entry.itemLabel}
-                          style={{ color: iconColor }}
                         />
                       ) : (
-                        <Boxes className="h-3 w-3 text-brand-300" aria-hidden />
+                        <Boxes
+                          {...stylex.props(styles.icon, styles.fallbackIcon)}
+                          aria-hidden
+                        />
                       )}
                     </span>
-                    <span className="truncate">{entry.itemLabel}</span>
+                    <span {...stylex.props(styles.entryLabel)}>
+                      {entry.itemLabel}
+                    </span>
                   </span>
                 );
               })}
             </div>
           ) : (
-            <p className="mt-1 text-sm text-brand-400 sm:text-base">
+            <p {...stylex.props(styles.empty)}>
               Pick something from any layer above to get started.
             </p>
           )}
         </div>
 
-        <div className="flex items-center gap-2 self-end sm:self-auto">
+        <div {...stylex.props(styles.actions)}>
           <Button
             type="button"
             variant="ghost"
-            className="border border-brand-500 bg-brand-800 text-brand-100 hover:bg-brand-700"
+            style={styles.secondaryButton}
             onClick={handleResetClick}
             disabled={!hasSelections}
             aria-live="polite"
@@ -104,7 +110,7 @@ export function StackBottomBar({
           <Button
             type="button"
             variant="ghost"
-            className="border border-brand-500 bg-brand-800 text-brand-100 hover:bg-brand-700"
+            style={styles.secondaryButton}
             onClick={onShare}
             disabled={!hasSelections}
             aria-live="polite"
@@ -132,3 +138,133 @@ export function StackBottomBar({
     </aside>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    position: "sticky",
+    bottom: 0,
+    zIndex: constants.zSticky,
+    marginTop: {
+      default: 24,
+      [constants.sm]: 32,
+    },
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+    borderWidth: 1,
+    borderBottomWidth: 0,
+    borderColor: colors.brand500,
+    backgroundColor: "rgb(26 32 44 / 0.95)",
+    padding: {
+      default: 12,
+      [constants.sm]: 16,
+    },
+    boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+    backdropFilter: "blur(8px)",
+  },
+  layout: {
+    display: "flex",
+    flexDirection: {
+      default: "column",
+      [constants.sm]: "row",
+    },
+    alignItems: {
+      [constants.sm]: "center",
+    },
+    justifyContent: {
+      [constants.sm]: "space-between",
+    },
+    gap: 12,
+  },
+  summary: {
+    minWidth: 0,
+  },
+  title: {
+    fontSize: 12,
+    lineHeight: "16px",
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: "0.025em",
+    color: colors.brand300,
+  },
+  entries: {
+    marginTop: 8,
+    display: "flex",
+    maxHeight: {
+      default: 160,
+      [constants.sm]: 128,
+    },
+    flexWrap: "wrap",
+    gap: 8,
+    overflowY: "auto",
+    paddingRight: 4,
+  },
+  entry: {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: colors.brand500,
+    backgroundColor: colors.brand700,
+    paddingInline: 12,
+    paddingBlock: 6,
+    fontSize: 14,
+    lineHeight: "20px",
+    color: colors.brand100,
+  },
+  iconBox: {
+    display: "flex",
+    height: 16,
+    width: 16,
+    flexShrink: 0,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 2,
+    backgroundColor: "color-mix(in oklab, #1A202C 60%, transparent)",
+  },
+  icon: {
+    width: 12,
+    height: 12,
+  },
+  iconColor: (color: string) => ({
+    color,
+  }),
+  fallbackIcon: {
+    color: colors.brand300,
+  },
+  entryLabel: {
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+  },
+  empty: {
+    marginTop: 4,
+    fontSize: {
+      default: 14,
+      [constants.sm]: 16,
+    },
+    lineHeight: {
+      default: "20px",
+      [constants.sm]: "24px",
+    },
+    color: colors.brand400,
+  },
+  actions: {
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    alignSelf: {
+      default: "flex-end",
+      [constants.sm]: "auto",
+    },
+  },
+  secondaryButton: {
+    borderWidth: 1,
+    borderColor: colors.brand500,
+    backgroundColor: {
+      default: colors.brand800,
+      ":hover": colors.brand700,
+    },
+    color: colors.brand100,
+  },
+});

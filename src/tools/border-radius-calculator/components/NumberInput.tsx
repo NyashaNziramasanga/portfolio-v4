@@ -5,7 +5,8 @@ import {
   useState,
   type InputHTMLAttributes,
 } from "react";
-import { cn } from "@/lib/utils";
+import * as stylex from "@stylexjs/stylex";
+import type { StyleXStyles } from "@stylexjs/stylex";
 
 type NumberInputProps = {
   value: number;
@@ -13,10 +14,10 @@ type NumberInputProps = {
   max: number;
   step?: number;
   onChange: (value: number) => void;
-  className?: string;
+  style?: StyleXStyles;
 } & Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "value" | "min" | "max" | "step" | "onChange" | "type"
+  "value" | "min" | "max" | "step" | "onChange" | "type" | "className" | "style"
 >;
 
 const clamp = (value: number, lo: number, hi: number) =>
@@ -29,7 +30,7 @@ const clamp = (value: number, lo: number, hi: number) =>
  */
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
   function NumberInput(
-    { value, min, max, step = 1, onChange, className, ...rest },
+    { value, min, max, step = 1, onChange, style, ...rest },
     ref,
   ) {
     const [draft, setDraft] = useState(() => String(value));
@@ -65,10 +66,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
         min={min}
         max={max}
         step={step}
-        className={cn(
-          "appearance-none [-moz-appearance:textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none",
-          className,
-        )}
+        {...stylex.props(styles.input, style)}
         {...inputProps}
         onChange={(event) => {
           const next = event.target.value;
@@ -100,3 +98,21 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     );
   },
 );
+
+const styles = stylex.create({
+  input: {
+    appearance: "none",
+    // StyleX supports vendor-prefixed runtime output, but the lint rule only
+    // validates standard property names.
+    // eslint-disable-next-line @stylexjs/valid-styles
+    MozAppearance: "textfield",
+    "::-webkit-inner-spin-button": {
+      margin: 0,
+      appearance: "none",
+    },
+    "::-webkit-outer-spin-button": {
+      margin: 0,
+      appearance: "none",
+    },
+  },
+});

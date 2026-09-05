@@ -1,6 +1,7 @@
 import { useId } from "react";
-import { cn } from "@/lib/utils";
+import * as stylex from "@stylexjs/stylex";
 import { NumberInput } from "@/tools/border-radius-calculator/components/NumberInput";
+import { colors } from "../../../styles/tokens.stylex";
 
 type RadiusSliderProps = {
   label: string;
@@ -10,7 +11,6 @@ type RadiusSliderProps = {
   max: number;
   step?: number;
   unit?: string;
-  accentClass?: string;
   onChange: (value: number) => void;
 };
 
@@ -22,23 +22,19 @@ export function RadiusSlider({
   max,
   step = 1,
   unit = "px",
-  accentClass = "accent-primary",
   onChange,
 }: RadiusSliderProps) {
   const sliderId = useId();
   const inputId = useId();
 
   return (
-    <div className="space-y-1.5">
-      <div className="flex items-baseline justify-between gap-3">
-        <label
-          htmlFor={sliderId}
-          className="text-sm font-medium text-brand-100"
-        >
+    <div {...stylex.props(styles.root)}>
+      <div {...stylex.props(styles.header)}>
+        <label htmlFor={sliderId} {...stylex.props(styles.label)}>
           {label}
         </label>
 
-        <div className="flex items-baseline gap-1 rounded-md bg-brand-900/70 pl-1 pr-2 transition-shadow focus-within:ring-2 focus-within:ring-primary">
+        <div {...stylex.props(styles.valueBox)}>
           <NumberInput
             id={inputId}
             value={value}
@@ -47,9 +43,9 @@ export function RadiusSlider({
             step={step}
             onChange={onChange}
             aria-label={`${label} value`}
-            className="w-10 bg-transparent py-0.5 text-right text-xs font-semibold tabular-nums text-brand-100 outline-none"
+            style={styles.numberInput}
           />
-          <span className="text-xs font-semibold text-brand-100">{unit}</span>
+          <span {...stylex.props(styles.unit)}>{unit}</span>
         </div>
       </div>
 
@@ -61,16 +57,79 @@ export function RadiusSlider({
         step={step}
         value={value}
         onChange={(event) => onChange(Number(event.target.value))}
-        className={cn(
-          "h-1.5 w-full cursor-pointer appearance-none rounded-full bg-brand-700",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-800",
-          accentClass,
-        )}
+        {...stylex.props(styles.slider)}
       />
 
-      {helper ? (
-        <p className="text-xs text-brand-400">{helper}</p>
-      ) : null}
+      {helper ? <p {...stylex.props(styles.helper)}>{helper}</p> : null}
     </div>
   );
 }
+
+const styles = stylex.create({
+  root: {},
+  header: {
+    display: "flex",
+    alignItems: "baseline",
+    justifyContent: "space-between",
+    gap: 12,
+  },
+  label: {
+    fontSize: 14,
+    lineHeight: "20px",
+    fontWeight: 500,
+    color: colors.brand100,
+  },
+  valueBox: {
+    display: "flex",
+    alignItems: "baseline",
+    gap: 4,
+    borderRadius: 6,
+    backgroundColor: "color-mix(in oklab, #1A202C 70%, transparent)",
+    paddingLeft: 4,
+    paddingRight: 8,
+    boxShadow: {
+      ":focus-within": "0 0 0 2px hsl(207 68% 50%)",
+    },
+    transitionProperty: "box-shadow",
+  },
+  numberInput: {
+    width: 40,
+    backgroundColor: "transparent",
+    paddingBlock: 2,
+    textAlign: "right",
+    fontSize: 12,
+    lineHeight: "16px",
+    fontWeight: 600,
+    fontVariantNumeric: "tabular-nums",
+    color: colors.brand100,
+    outline: "none",
+  },
+  unit: {
+    fontSize: 12,
+    lineHeight: "16px",
+    fontWeight: 600,
+    color: colors.brand100,
+  },
+  slider: {
+    marginTop: 6,
+    height: 6,
+    width: "100%",
+    cursor: "pointer",
+    appearance: "none",
+    borderRadius: 9999,
+    backgroundColor: colors.brand700,
+    accentColor: colors.primary,
+    outline: {
+      ":focus-visible": "none",
+    },
+    boxShadow: {
+      ":focus-visible": "0 0 0 2px #1F2937, 0 0 0 4px hsl(207 68% 50%)",
+    },
+  },
+  helper: {
+    marginTop: 6,
+    fontSize: 12,
+    lineHeight: "16px",
+    color: colors.brand400,
+  },
+});

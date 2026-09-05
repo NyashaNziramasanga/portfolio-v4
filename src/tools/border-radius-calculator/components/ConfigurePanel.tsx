@@ -1,3 +1,4 @@
+import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/components/ui/button";
 import { RadiusSlider } from "@/tools/border-radius-calculator/components/RadiusSlider";
 import {
@@ -5,6 +6,7 @@ import {
   type RadiusField,
   type RadiusState,
 } from "@/tools/border-radius-calculator/hooks/useBorderRadius";
+import { colors, constants } from "../../../styles/tokens.stylex";
 
 type ConfigurePanelProps = {
   state: RadiusState;
@@ -12,28 +14,29 @@ type ConfigurePanelProps = {
   onReset: () => void;
 };
 
-export function ConfigurePanel({ state, onChange, onReset }: ConfigurePanelProps) {
+export function ConfigurePanel({
+  state,
+  onChange,
+  onReset,
+}: ConfigurePanelProps) {
   return (
-    <section
-      aria-labelledby="configure-heading"
-      className="rounded-2xl border border-brand-700 bg-brand-800/60 p-5 sm:p-6"
-    >
-      <header className="mb-5 flex items-center justify-between gap-3">
-        <h3 id="configure-heading" className="text-lg font-semibold text-brand-50">
+    <section aria-labelledby="configure-heading" {...stylex.props(styles.root)}>
+      <header {...stylex.props(styles.header)}>
+        <h3 id="configure-heading" {...stylex.props(styles.title)}>
           Configure
         </h3>
         <Button
           type="button"
           variant="ghost"
           size="sm"
-          className="border border-brand-500 bg-brand-800 text-brand-100 hover:bg-brand-700"
+          style={styles.reset}
           onClick={onReset}
         >
           Reset
         </Button>
       </header>
 
-      <div className="space-y-5">
+      <div {...stylex.props(styles.controls)}>
         <RadiusSlider
           label="Padding"
           value={state.padding}
@@ -67,3 +70,43 @@ export function ConfigurePanel({ state, onChange, onReset }: ConfigurePanelProps
     </section>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: colors.brand700,
+    backgroundColor: "color-mix(in oklab, #1F2937 60%, transparent)",
+    padding: {
+      default: 20,
+      [constants.sm]: 24,
+    },
+  },
+  header: {
+    marginBottom: 20,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+  },
+  title: {
+    fontSize: 18,
+    lineHeight: "28px",
+    fontWeight: 600,
+    color: colors.brand50,
+  },
+  reset: {
+    borderWidth: 1,
+    borderColor: colors.brand500,
+    backgroundColor: {
+      default: colors.brand800,
+      ":hover": colors.brand700,
+    },
+    color: colors.brand100,
+  },
+  controls: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 26,
+  },
+});

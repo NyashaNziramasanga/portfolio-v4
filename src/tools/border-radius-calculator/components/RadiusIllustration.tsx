@@ -1,4 +1,6 @@
 import { useMemo } from "react";
+import * as stylex from "@stylexjs/stylex";
+import { colors } from "../../../styles/tokens.stylex";
 
 type RadiusIllustrationProps = {
   outerRadius: number;
@@ -72,15 +74,19 @@ export function RadiusIllustration({
   }, [outerRadius, innerRadius, padding]);
 
   return (
-    <div className="relative aspect-[800/520] w-full overflow-hidden rounded-2xl border border-brand-700 bg-brand-800/60">
+    <div {...stylex.props(styles.root)}>
       <svg
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
         xmlns="http://www.w3.org/2000/svg"
-        className="block h-full w-full"
+        {...stylex.props(styles.svg)}
         role="img"
         aria-label={`Outer radius ${outerRadius}px, inner radius ${innerRadius}px, padding ${padding}px`}
       >
-        <rect width={VIEW_W} height={VIEW_H} className="fill-brand-800" />
+        <rect
+          width={VIEW_W}
+          height={VIEW_H}
+          {...stylex.props(styles.background)}
+        />
 
         <rect
           x={OUTER_X}
@@ -89,7 +95,7 @@ export function RadiusIllustration({
           height={OUTER_H}
           rx={geometry.outerR}
           ry={geometry.outerR}
-          className="fill-none stroke-brand-500"
+          {...stylex.props(styles.guide)}
           strokeWidth={4}
         />
 
@@ -101,7 +107,7 @@ export function RadiusIllustration({
             height={geometry.innerH}
             rx={geometry.visualInnerR}
             ry={geometry.visualInnerR}
-            className="fill-none stroke-brand-500"
+            {...stylex.props(styles.guide)}
             strokeWidth={4}
           />
         ) : null}
@@ -114,13 +120,15 @@ export function RadiusIllustration({
               geometry.outerR,
               geometry.outerHighlightExt,
             )}
-            className="fill-none stroke-primary"
+            {...stylex.props(styles.outerHighlight)}
             strokeWidth={6}
             strokeLinecap="round"
           />
         ) : null}
 
-        {geometry.innerW > 0 && geometry.innerH > 0 && geometry.innerHighlightExt > 0 ? (
+        {geometry.innerW > 0 &&
+        geometry.innerH > 0 &&
+        geometry.innerHighlightExt > 0 ? (
           <path
             d={topRightHighlight(
               geometry.innerX,
@@ -129,7 +137,7 @@ export function RadiusIllustration({
               geometry.visualInnerR,
               geometry.innerHighlightExt,
             )}
-            className="fill-none stroke-blue-200"
+            {...stylex.props(styles.innerHighlight)}
             strokeWidth={6}
             strokeLinecap="round"
           />
@@ -138,3 +146,36 @@ export function RadiusIllustration({
     </div>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    position: "relative",
+    aspectRatio: "800 / 520",
+    width: "100%",
+    overflow: "hidden",
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: colors.brand700,
+    backgroundColor: "color-mix(in oklab, #1F2937 60%, transparent)",
+  },
+  svg: {
+    display: "block",
+    height: "100%",
+    width: "100%",
+  },
+  background: {
+    fill: colors.brand800,
+  },
+  guide: {
+    fill: "none",
+    stroke: colors.brand500,
+  },
+  outerHighlight: {
+    fill: "none",
+    stroke: colors.primary,
+  },
+  innerHighlight: {
+    fill: "none",
+    stroke: colors.blue200,
+  },
+});

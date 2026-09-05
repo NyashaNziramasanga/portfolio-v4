@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
+import * as stylex from "@stylexjs/stylex";
 import { ArticlePreview } from "@/components/ui/article-preview";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import type { Project } from "./types";
+import { colors, constants } from "../../styles/tokens.stylex";
 
 export function MediaPreview({ project }: { project: Project }) {
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -15,8 +17,8 @@ export function MediaPreview({ project }: { project: Project }) {
         href={project.media.link!}
         imageSrc={project.media.src}
         imageAlt={project.name}
-        className="w-full max-w-sm py-0"
-        cardClassName="shadow-lg shadow-black/25 motion-safe:animate-float group-hover/article:shadow-xl group-hover/article:shadow-black/30"
+        style={styles.article}
+        cardStyle={styles.articleCard}
       />
     );
   }
@@ -29,7 +31,7 @@ export function MediaPreview({ project }: { project: Project }) {
         <button
           type="button"
           onClick={() => setIsPlaying(true)}
-          className="group/video relative aspect-[9/19.5] max-h-[280px] overflow-hidden rounded-2xl shadow-lg shadow-black/30 outline-none focus-visible:ring-2 focus-visible:ring-primary sm:max-h-[400px]"
+          {...stylex.props(styles.videoButton, stylex.defaultMarker())}
           aria-label={`Play ${project.name} demo`}
         >
           <img
@@ -40,11 +42,11 @@ export function MediaPreview({ project }: { project: Project }) {
             decoding="async"
             width={320}
             height={694}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover/video:scale-[1.02] motion-reduce:transition-none"
+            {...stylex.props(styles.poster)}
           />
-          <span className="absolute inset-0 grid place-items-center bg-black/20 transition-colors group-hover/video:bg-black/30">
-            <span className="grid h-12 w-12 place-items-center rounded-full bg-brand-50/95 text-brand-900 shadow-lg transition-transform group-hover/video:scale-105 motion-reduce:transition-none">
-              <Play className="ml-0.5 h-5 w-5 fill-current" aria-hidden="true" />
+          <span {...stylex.props(styles.overlay)}>
+            <span {...stylex.props(styles.playCircle)}>
+              <Play {...stylex.props(styles.playIcon)} aria-hidden="true" />
             </span>
           </span>
         </button>
@@ -61,10 +63,13 @@ export function MediaPreview({ project }: { project: Project }) {
         preload="metadata"
         controls
         poster={poster}
-        className="aspect-[9/19.5] max-h-[280px] rounded-2xl object-cover shadow-lg shadow-black/30 sm:max-h-[400px]"
+        {...stylex.props(styles.media)}
       >
         <source src={project.media.src} type="video/webm" />
-        <source src={project.media.src.replace(".webm", ".mp4")} type="video/mp4" />
+        <source
+          src={project.media.src.replace(".webm", ".mp4")}
+          type="video/mp4"
+        />
       </video>
     );
   }
@@ -77,7 +82,121 @@ export function MediaPreview({ project }: { project: Project }) {
       decoding="async"
       width={590}
       height={1280}
-      className="aspect-[9/19.5] max-h-[280px] rounded-2xl object-cover shadow-lg shadow-black/30 motion-safe:animate-float sm:max-h-[400px]"
+      {...stylex.props(styles.media, styles.floating)}
     />
   );
 }
+
+const float = stylex.keyframes({
+  "0%, 100%": {
+    transform: "translateY(0)",
+  },
+  "50%": {
+    transform: "translateY(-6px)",
+  },
+});
+
+const styles = stylex.create({
+  article: {
+    width: "100%",
+    maxWidth: 384,
+    paddingBlock: 0,
+  },
+  articleCard: {
+    boxShadow: {
+      default:
+        "0 10px 15px -3px rgb(0 0 0 / 0.25), 0 4px 6px -4px rgb(0 0 0 / 0.25)",
+      [stylex.when.ancestor(":hover")]:
+        "0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)",
+    },
+    animationName: {
+      default: null,
+      [constants.allowMotion]: float,
+    },
+    animationDuration: "3s",
+    animationTimingFunction: "ease-in-out",
+    animationIterationCount: "infinite",
+  },
+  videoButton: {
+    position: "relative",
+    aspectRatio: "9 / 19.5",
+    maxHeight: {
+      default: 280,
+      [constants.sm]: 400,
+    },
+    overflow: "hidden",
+    borderRadius: 16,
+    boxShadow:
+      "0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3)",
+    outline: "none",
+  },
+  poster: {
+    height: "100%",
+    width: "100%",
+    objectFit: "cover",
+    transform: {
+      default: "scale(1)",
+      [stylex.when.ancestor(":hover")]: "scale(1.02)",
+    },
+    transitionProperty: {
+      default: "transform",
+      [constants.reduceMotion]: "none",
+    },
+    transitionDuration: "300ms",
+  },
+  overlay: {
+    position: "absolute",
+    inset: 0,
+    display: "grid",
+    placeItems: "center",
+    backgroundColor: {
+      default: "rgb(0 0 0 / 0.2)",
+      [stylex.when.ancestor(":hover")]: "rgb(0 0 0 / 0.3)",
+    },
+    transitionProperty: "background-color",
+  },
+  playCircle: {
+    display: "grid",
+    height: 48,
+    width: 48,
+    placeItems: "center",
+    borderRadius: "50%",
+    backgroundColor: "rgb(237 242 247 / 0.95)",
+    color: colors.brand900,
+    boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1)",
+    transform: {
+      default: "scale(1)",
+      [stylex.when.ancestor(":hover")]: "scale(1.05)",
+    },
+    transitionProperty: {
+      default: "transform",
+      [constants.reduceMotion]: "none",
+    },
+  },
+  playIcon: {
+    marginLeft: 2,
+    width: 20,
+    height: 20,
+    fill: "currentColor",
+  },
+  media: {
+    aspectRatio: "9 / 19.5",
+    maxHeight: {
+      default: 280,
+      [constants.sm]: 400,
+    },
+    borderRadius: 16,
+    objectFit: "cover",
+    boxShadow:
+      "0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3)",
+  },
+  floating: {
+    animationName: {
+      default: null,
+      [constants.allowMotion]: float,
+    },
+    animationDuration: "3s",
+    animationTimingFunction: "ease-in-out",
+    animationIterationCount: "infinite",
+  },
+});

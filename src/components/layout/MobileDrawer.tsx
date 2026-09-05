@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
+import * as stylex from "@stylexjs/stylex";
 import { SidebarContent } from "@/components/layout/SidebarContent";
+import { colors, constants } from "../../styles/tokens.stylex";
 
 export function MobileDrawer({
   isOpen,
@@ -32,21 +34,98 @@ export function MobileDrawer({
     <dialog
       ref={dialogRef}
       aria-label="Navigation menu"
-      className="fixed inset-y-0 left-0 m-0 h-dvh w-72 max-h-none max-w-none border-0 border-r border-brand-500 bg-brand-900 p-0 text-brand-50 backdrop:bg-black/60 lg:hidden"
+      {...stylex.props(styles.dialog)}
       onCancel={(event) => {
         event.preventDefault();
         onClose();
       }}
     >
-      <div className="flex h-full flex-col px-6 py-6">
-        <div className="mb-5 flex items-center justify-between">
+      <div {...stylex.props(styles.content)}>
+        <div {...stylex.props(styles.header)}>
           <div />
-          <button ref={closeButtonRef} type="button" onClick={onClose} className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-brand-200 transition-colors hover:bg-brand-600/60 hover:text-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Close menu">
-            <X className="h-5 w-5" />
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={onClose}
+            {...stylex.props(styles.closeButton)}
+            aria-label="Close menu"
+          >
+            <X {...stylex.props(styles.icon)} />
           </button>
         </div>
-        <SidebarContent variant="mobile" activeSection={activeSection} onSelect={onSelect} />
+        <SidebarContent
+          variant="mobile"
+          activeSection={activeSection}
+          onSelect={onSelect}
+        />
       </div>
     </dialog>
   );
 }
+
+const styles = stylex.create({
+  dialog: {
+    position: "fixed",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    margin: 0,
+    height: "100dvh",
+    width: 288,
+    maxHeight: "none",
+    maxWidth: "none",
+    borderWidth: 0,
+    borderRightWidth: 1,
+    borderRightColor: colors.brand500,
+    backgroundColor: colors.brand900,
+    padding: 0,
+    color: colors.brand50,
+    display: {
+      [constants.lg]: "none",
+    },
+    "::backdrop": {
+      backgroundColor: "color-mix(in oklab, #000 60%, transparent)",
+    },
+  },
+  content: {
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    paddingInline: 24,
+    paddingBlock: 24,
+  },
+  header: {
+    marginBottom: 20,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  closeButton: {
+    display: "inline-flex",
+    minHeight: 44,
+    minWidth: 44,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 8,
+    padding: 8,
+    color: {
+      default: colors.brand200,
+      ":hover": colors.brand50,
+    },
+    backgroundColor: {
+      default: "transparent",
+      ":hover": "color-mix(in oklab, #2D3748 60%, transparent)",
+    },
+    transitionProperty: "color, background-color",
+    outline: {
+      ":focus-visible": "none",
+    },
+    boxShadow: {
+      ":focus-visible": "0 0 0 2px hsl(207 68% 50%)",
+    },
+  },
+  icon: {
+    width: 20,
+    height: 20,
+  },
+});

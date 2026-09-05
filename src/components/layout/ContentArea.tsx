@@ -1,4 +1,5 @@
 import { forwardRef, type MutableRefObject } from "react";
+import * as stylex from "@stylexjs/stylex";
 import { Section } from "@/components/layout/Section";
 import { AboutSection } from "@/components/AboutSection";
 import { WorkTimeline } from "@/components/work-timeline";
@@ -16,7 +17,8 @@ export const ContentArea = forwardRef<HTMLDivElement, ContentAreaProps>(
       <main
         id="main-content"
         ref={ref}
-        className="flex-1 overflow-y-auto"
+        data-scrollbar
+        {...stylex.props(styles.root)}
       >
         <Section
           id="about"
@@ -68,3 +70,10 @@ export const ContentArea = forwardRef<HTMLDivElement, ContentAreaProps>(
 );
 
 ContentArea.displayName = "ContentArea";
+
+const styles = stylex.create({
+  root: {
+    flex: "1",
+    overflowY: "auto",
+  },
+});

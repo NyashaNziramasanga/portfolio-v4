@@ -1,20 +1,19 @@
+import * as stylex from "@stylexjs/stylex";
+import type { StyleXStyles } from "@stylexjs/stylex";
+
 export function SimpleIconSvg({
   icon,
-  className,
   style,
   "aria-label": ariaLabel,
 }: {
   icon: { path: string };
-  className?: string;
-  style?: React.CSSProperties;
+  style?: StyleXStyles;
   "aria-label"?: string;
 }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      className={className}
-      style={style}
-      fill="currentColor"
+      {...stylex.props(styles.root, style)}
       aria-hidden={!ariaLabel}
       aria-label={ariaLabel}
     >
@@ -22,3 +21,9 @@ export function SimpleIconSvg({
     </svg>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    fill: "currentColor",
+  },
+});

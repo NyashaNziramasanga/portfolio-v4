@@ -1,14 +1,12 @@
+import * as stylex from "@stylexjs/stylex";
 import type { Platform } from "./types";
+import { colors, constants } from "../../styles/tokens.stylex";
 
 export function PlatformIcon({ platform }: { platform: Platform }) {
   if (platform === "youtube") {
     return (
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#FF0000] sm:h-10 sm:w-10">
-        <svg
-          viewBox="0 0 24 24"
-          className="h-4 w-4 text-white sm:h-5 sm:w-5"
-          aria-hidden
-        >
+      <div {...stylex.props(styles.box, styles.youtube)}>
+        <svg viewBox="0 0 24 24" {...stylex.props(styles.icon)} aria-hidden>
           <path fill="currentColor" d="M8 5v14l11-7z" />
         </svg>
       </div>
@@ -16,10 +14,10 @@ export function PlatformIcon({ platform }: { platform: Platform }) {
   }
   if (platform === "medium") {
     return (
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-black sm:h-10 sm:w-10">
+      <div {...stylex.props(styles.box, styles.black)}>
         <svg
           viewBox="0 0 24 24"
-          className="h-4 w-4 text-white sm:h-5 sm:w-5"
+          {...stylex.props(styles.icon)}
           fill="currentColor"
           aria-hidden
         >
@@ -30,11 +28,8 @@ export function PlatformIcon({ platform }: { platform: Platform }) {
   }
   if (platform === "devto") {
     return (
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-black sm:h-10 sm:w-10">
-        <span
-          className="text-center text-[10px] font-bold uppercase leading-none text-white sm:text-xs"
-          aria-hidden
-        >
+      <div {...stylex.props(styles.box, styles.black)}>
+        <span {...stylex.props(styles.devText)} aria-hidden>
           DEV
         </span>
       </div>
@@ -42,10 +37,10 @@ export function PlatformIcon({ platform }: { platform: Platform }) {
   }
   if (platform === "flinders") {
     return (
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#003B71] sm:h-10 sm:w-10">
+      <div {...stylex.props(styles.box, styles.flinders)}>
         <svg
           viewBox="0 0 24 24"
-          className="h-4 w-4 text-white sm:h-5 sm:w-5"
+          {...stylex.props(styles.icon)}
           fill="currentColor"
           aria-hidden
         >
@@ -56,3 +51,54 @@ export function PlatformIcon({ platform }: { platform: Platform }) {
   }
   return null;
 }
+
+const styles = stylex.create({
+  box: {
+    display: "flex",
+    height: {
+      default: 32,
+      [constants.sm]: 40,
+    },
+    width: {
+      default: 32,
+      [constants.sm]: 40,
+    },
+    flexShrink: 0,
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+    borderRadius: 6,
+  },
+  youtube: {
+    backgroundColor: "#FF0000",
+  },
+  black: {
+    backgroundColor: colors.black,
+  },
+  flinders: {
+    backgroundColor: "#003B71",
+  },
+  icon: {
+    width: {
+      default: 16,
+      [constants.sm]: 20,
+    },
+    height: {
+      default: 16,
+      [constants.sm]: 20,
+    },
+    color: colors.white,
+    fill: "currentColor",
+  },
+  devText: {
+    textAlign: "center",
+    fontSize: {
+      default: 10,
+      [constants.sm]: 12,
+    },
+    fontWeight: 700,
+    textTransform: "uppercase",
+    lineHeight: 1,
+    color: colors.white,
+  },
+});

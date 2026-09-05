@@ -1,4 +1,6 @@
 import type { ReactNode, Ref } from "react";
+import * as stylex from "@stylexjs/stylex";
+import { constants } from "../../styles/tokens.stylex";
 
 export function Section({
   id,
@@ -10,12 +12,28 @@ export function Section({
   ref?: Ref<HTMLElement>;
 }) {
   return (
-    <section
-      id={id}
-      ref={ref}
-      className="flex min-h-screen items-start justify-center px-4 py-10 sm:items-center sm:px-10 sm:py-16"
-    >
+    <section id={id} ref={ref} {...stylex.props(styles.root)}>
       {children}
     </section>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    display: "flex",
+    minHeight: "100vh",
+    alignItems: {
+      default: "flex-start",
+      [constants.sm]: "center",
+    },
+    justifyContent: "center",
+    paddingInline: {
+      default: 16,
+      [constants.sm]: 40,
+    },
+    paddingBlock: {
+      default: 40,
+      [constants.sm]: 64,
+    },
+  },
+});

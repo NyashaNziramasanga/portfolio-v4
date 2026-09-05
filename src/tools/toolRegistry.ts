@@ -16,17 +16,21 @@ const toolRegistry: Record<ToolSlug, RegisteredTool> = {
   "mobile-app-stack-picker": {
     ...findTool("mobile-app-stack-picker"),
     component: lazy(() =>
-      import("@/tools/mobile-app-stack-picker").then(({ MobileAppStackPicker }) => ({
-        default: MobileAppStackPicker,
-      })),
+      import("@/tools/mobile-app-stack-picker").then(
+        ({ MobileAppStackPicker }) => ({
+          default: MobileAppStackPicker,
+        }),
+      ),
     ),
   },
   "border-radius-calculator": {
     ...findTool("border-radius-calculator"),
     component: lazy(() =>
-      import("@/tools/border-radius-calculator").then(({ BorderRadiusCalculator }) => ({
-        default: BorderRadiusCalculator,
-      })),
+      import("@/tools/border-radius-calculator").then(
+        ({ BorderRadiusCalculator }) => ({
+          default: BorderRadiusCalculator,
+        }),
+      ),
     ),
   },
 };

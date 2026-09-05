@@ -1,5 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { SelectedStackEntry, StackCategory, StackSelection } from "@/tools/types";
+import type {
+  SelectedStackEntry,
+  StackCategory,
+  StackSelection,
+} from "@/tools/types";
 
 const STORAGE_KEY = "stack-picker-v1";
 
@@ -53,18 +57,21 @@ function serializeToHash(selections: StackSelection): string {
 }
 
 export function useStackPicker(categories: StackCategory[]) {
-  const [selectionByCategory, setSelectionByCategory] = useState<StackSelection>(
-    () => {
+  const [selectionByCategory, setSelectionByCategory] =
+    useState<StackSelection>(() => {
       const fromHash = readHashSelections();
-      if (Object.keys(fromHash).length > 0) return validate(fromHash, categories);
+      if (Object.keys(fromHash).length > 0)
+        return validate(fromHash, categories);
       return validate(readStorageSelections(), categories);
-    },
-  );
+    });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(selectionByCategory));
+      window.localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(selectionByCategory),
+      );
     } catch {
       // ignore quota / privacy mode errors
     }
@@ -73,7 +80,10 @@ export function useStackPicker(categories: StackCategory[]) {
     const nextUrl = hash
       ? `${window.location.pathname}${window.location.search}#${hash}`
       : `${window.location.pathname}${window.location.search}`;
-    if (nextUrl !== window.location.pathname + window.location.search + window.location.hash) {
+    if (
+      nextUrl !==
+      window.location.pathname + window.location.search + window.location.hash
+    ) {
       window.history.replaceState(null, "", nextUrl);
     }
   }, [selectionByCategory]);
@@ -97,7 +107,9 @@ export function useStackPicker(categories: StackCategory[]) {
       const selectedItemId = selectionByCategory[category.id];
       if (!selectedItemId) return [];
 
-      const selectedItem = category.items.find((item) => item.id === selectedItemId);
+      const selectedItem = category.items.find(
+        (item) => item.id === selectedItemId,
+      );
       if (!selectedItem) return [];
 
       return [

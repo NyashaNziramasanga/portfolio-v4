@@ -1,4 +1,5 @@
-import { cn } from "@/lib/utils";
+import * as stylex from "@stylexjs/stylex";
+import { constants } from "../../styles/tokens.stylex";
 
 export function CollapsiblePanel({
   open,
@@ -16,12 +17,37 @@ export function CollapsiblePanel({
       id={id}
       aria-hidden={!open}
       inert={!open}
-      className={cn(
-        "grid transition-all duration-300 ease-out motion-reduce:transition-none",
-        open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-      )}
+      {...stylex.props(styles.root, open ? styles.open : styles.closed)}
     >
-      <div className="overflow-hidden">{!lazyMount || open ? children : null}</div>
+      <div {...stylex.props(styles.inner)}>
+        {!lazyMount || open ? children : null}
+      </div>
     </div>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    display: "grid",
+    transitionProperty: {
+      default: "all",
+      [constants.reduceMotion]: "none",
+    },
+    transitionDuration: {
+      default: "300ms",
+      [constants.reduceMotion]: "0ms",
+    },
+    transitionTimingFunction: constants.easeOut,
+  },
+  open: {
+    gridTemplateRows: "1fr",
+    opacity: 1,
+  },
+  closed: {
+    gridTemplateRows: "0fr",
+    opacity: 0,
+  },
+  inner: {
+    overflow: "hidden",
+  },
+});

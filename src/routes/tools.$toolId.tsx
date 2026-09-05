@@ -1,7 +1,9 @@
 import { Suspense } from "react";
+import * as stylex from "@stylexjs/stylex";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { ToolPage } from "@/tools/ToolPage";
 import { getToolBySlug, isToolSlug } from "@/tools/toolRegistry";
+import { colors, constants } from "../styles/tokens.stylex";
 
 function ToolRouteScreen() {
   const { toolId } = Route.useParams();
@@ -13,7 +15,11 @@ function ToolRouteScreen() {
 
   return (
     <ToolPage tool={tool}>
-      <Suspense fallback={<div className="min-h-64 animate-pulse rounded-2xl bg-brand-700 motion-reduce:animate-none" aria-label="Loading tool" />}>
+      <Suspense
+        fallback={
+          <div {...stylex.props(styles.loading)} aria-label="Loading tool" />
+        }
+      >
         <ToolComponent />
       </Suspense>
     </ToolPage>
@@ -27,4 +33,25 @@ export const Route = createFileRoute("/tools/$toolId")({
     }
   },
   component: ToolRouteScreen,
+});
+
+const pulse = stylex.keyframes({
+  "50%": {
+    opacity: 0.5,
+  },
+});
+
+const styles = stylex.create({
+  loading: {
+    minHeight: 256,
+    borderRadius: 16,
+    backgroundColor: colors.brand700,
+    animationName: {
+      default: pulse,
+      [constants.reduceMotion]: "none",
+    },
+    animationDuration: "2s",
+    animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+    animationIterationCount: "infinite",
+  },
 });

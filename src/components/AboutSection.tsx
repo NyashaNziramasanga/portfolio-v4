@@ -1,40 +1,197 @@
+import * as stylex from "@stylexjs/stylex";
 import techStackData from "@/data/techStack.json";
 import { ResumeActions } from "@/components/ResumeActions";
+import { colors, constants } from "../styles/tokens.stylex";
 
 const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2018;
 
 export function AboutSection() {
   return (
-    <div className="flex w-full max-w-5xl flex-col">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-300">Hello, I'm Nash 👋🏿</p>
-      <h1 className="mt-3 max-w-4xl text-3xl font-bold leading-tight text-brand-50 sm:text-4xl lg:text-5xl">
+    <div {...stylex.props(styles.root)}>
+      <p {...stylex.props(styles.eyebrow)}>Hello, I'm Nash 👋🏿</p>
+      <h1 {...stylex.props(styles.title)}>
         Senior Mobile Engineer
-        <span className="mt-2 block text-xl font-semibold text-brand-300 sm:text-2xl lg:text-3xl">React Native, iOS, Android &amp; Agentic Tooling</span>
+        <span {...stylex.props(styles.subtitle)}>
+          React Native, iOS, Android &amp; Agentic Tooling
+        </span>
       </h1>
-      <p className="mt-6 max-w-4xl text-sm leading-relaxed text-brand-200 sm:text-base sm:leading-7">
-        I build and scale mobile products used by millions of people. Based in Melbourne with over {YEARS_OF_EXPERIENCE} years of experience, I work at{" "}
-        <a href="https://linktr.ee" target="_blank" rel="noopener noreferrer" className="text-blue-300 underline underline-offset-2 hover:text-blue-200">Linktree</a>{" "}
-        across React Native architecture, reliable delivery and creator experiences on iOS and Android.
+      <p {...stylex.props(styles.summary)}>
+        I build and scale mobile products used by millions of people. Based in
+        Melbourne with over {YEARS_OF_EXPERIENCE} years of experience, I work at{" "}
+        <a
+          href="https://linktr.ee"
+          target="_blank"
+          rel="noopener noreferrer"
+          {...stylex.props(styles.link)}
+        >
+          Linktree
+        </a>{" "}
+        across React Native architecture, reliable delivery and creator
+        experiences on iOS and Android.
       </p>
 
-      <div className="mt-7 flex flex-wrap items-center gap-3">
+      <div {...stylex.props(styles.actions)}>
         <ResumeActions />
       </div>
 
-      <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+      <div {...stylex.props(styles.grid)}>
         {techStackData.map((group) => (
-            <div
-              className="group rounded-2xl border border-brand-500/50 bg-brand-800/50 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-400/30 hover:bg-brand-700/70 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none"
-              key={group.id}
-            >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-400/10 text-xl ring-1 ring-inset ring-blue-400/20 transition-colors group-hover:bg-blue-400/15" aria-hidden="true">
-                {group.emoji}
-              </div>
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-brand-300">{group.label}</h2>
-              <p className="mt-2 text-sm leading-6 text-brand-100">{group.summary}</p>
+          <div
+            {...stylex.props(styles.card, stylex.defaultMarker())}
+            key={group.id}
+          >
+            <div {...stylex.props(styles.emoji)} aria-hidden="true">
+              {group.emoji}
             </div>
-          ))}
+            <h2 {...stylex.props(styles.cardTitle)}>{group.label}</h2>
+            <p {...stylex.props(styles.cardSummary)}>{group.summary}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    display: "flex",
+    width: "100%",
+    maxWidth: 1024,
+    flexDirection: "column",
+  },
+  eyebrow: {
+    fontSize: 12,
+    lineHeight: "16px",
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: "0.18em",
+    color: colors.blue300,
+  },
+  title: {
+    marginTop: 12,
+    maxWidth: 896,
+    fontSize: {
+      default: 30,
+      [constants.sm]: 36,
+      [constants.lg]: 48,
+    },
+    lineHeight: 1.25,
+    fontWeight: 700,
+    color: colors.brand50,
+  },
+  subtitle: {
+    marginTop: 8,
+    display: "block",
+    fontSize: {
+      default: 20,
+      [constants.sm]: 24,
+      [constants.lg]: 30,
+    },
+    lineHeight: {
+      default: "28px",
+      [constants.sm]: "32px",
+      [constants.lg]: "36px",
+    },
+    fontWeight: 600,
+    color: colors.brand300,
+  },
+  summary: {
+    marginTop: 24,
+    maxWidth: 896,
+    fontSize: {
+      default: 14,
+      [constants.sm]: 16,
+    },
+    lineHeight: {
+      default: 1.625,
+      [constants.sm]: "28px",
+    },
+    color: colors.brand200,
+  },
+  link: {
+    color: {
+      default: colors.blue300,
+      ":hover": colors.blue200,
+    },
+    textDecorationLine: "underline",
+    textUnderlineOffset: 2,
+  },
+  actions: {
+    marginTop: 28,
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    gap: 12,
+  },
+  grid: {
+    marginTop: {
+      default: 40,
+      [constants.sm]: 48,
+    },
+    display: "grid",
+    gap: 16,
+    gridTemplateColumns: {
+      [constants.sm]: "repeat(2, minmax(0, 1fr))",
+      [constants.lg]: "repeat(3, minmax(0, 1fr))",
+    },
+  },
+  card: {
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: {
+      default: "color-mix(in oklab, #4A5568 50%, transparent)",
+      ":hover": "color-mix(in oklab, #4299E1 30%, transparent)",
+    },
+    backgroundColor: {
+      default: "color-mix(in oklab, #1F2937 50%, transparent)",
+      ":hover": "color-mix(in oklab, #252F3F 70%, transparent)",
+    },
+    padding: 20,
+    boxShadow: {
+      default: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      ":hover":
+        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+    },
+    transform: {
+      default: "translateY(0)",
+      ":hover": "translateY(-4px)",
+      [constants.reduceMotion]: "none",
+    },
+    transitionProperty: {
+      default: "all",
+      [constants.reduceMotion]: "none",
+    },
+    transitionDuration: "300ms",
+  },
+  emoji: {
+    marginBottom: 16,
+    display: "flex",
+    height: 40,
+    width: 40,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 12,
+    backgroundColor: {
+      default: "color-mix(in oklab, #4299E1 10%, transparent)",
+      [stylex.when.ancestor(":hover")]:
+        "color-mix(in oklab, #4299E1 15%, transparent)",
+    },
+    fontSize: 20,
+    boxShadow: "inset 0 0 0 1px color-mix(in oklab, #4299E1 20%, transparent)",
+    transitionProperty: "background-color",
+  },
+  cardTitle: {
+    fontSize: 12,
+    lineHeight: "16px",
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: "0.1em",
+    color: colors.brand300,
+  },
+  cardSummary: {
+    marginTop: 8,
+    fontSize: 14,
+    lineHeight: "24px",
+    color: colors.brand100,
+  },
+});

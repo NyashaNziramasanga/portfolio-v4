@@ -1,7 +1,8 @@
-import { cn } from "@/lib/utils";
+import * as stylex from "@stylexjs/stylex";
 import { ProfileAvatar } from "@/components/ProfileAvatar";
 import { SidebarNav } from "@/components/SidebarNav";
 import { SocialLinks } from "@/components/SocialLinks";
+import { colors } from "../../styles/tokens.stylex";
 
 export function SidebarContent({
   variant,
@@ -17,31 +18,72 @@ export function SidebarContent({
   return (
     <>
       <ProfileAvatar
-        size={isMobile ? "h-20 w-20" : "h-28 w-28"}
-        ringSize="ring-4"
-        className={isMobile ? undefined : "mb-5"}
+        size={isMobile ? "mobile" : "desktop"}
+        style={!isMobile ? styles.avatarDesktop : undefined}
       />
       <p
-        className={cn(
-          "font-bold leading-tight text-brand-50",
-          isMobile ? "mb-0.5 text-lg" : "mb-0.5 text-xl",
+        {...stylex.props(
+          styles.name,
+          isMobile ? styles.nameMobile : styles.nameDesktop,
         )}
       >
         Nyasha (Nash) Nziramasanga
       </p>
       <h2
-        className={cn(
-          "mb-5 font-medium text-brand-300",
-          isMobile ? "text-sm" : "text-base",
+        {...stylex.props(
+          styles.role,
+          isMobile ? styles.roleMobile : styles.roleDesktop,
         )}
       >
         Senior Mobile Engineer
       </h2>
-      <hr className="mb-5 border-brand-500" />
+      <hr {...stylex.props(styles.rule)} />
       <SidebarNav activeSection={activeSection} onSelect={onSelect} />
-      <div className="mt-auto pt-5">
+      <div {...stylex.props(styles.social)}>
         <SocialLinks />
       </div>
     </>
   );
 }
+
+const styles = stylex.create({
+  avatarDesktop: {
+    marginBottom: 20,
+  },
+  name: {
+    marginBottom: 2,
+    fontWeight: 700,
+    lineHeight: 1.25,
+    color: colors.brand50,
+  },
+  nameMobile: {
+    fontSize: 18,
+    lineHeight: "28px",
+  },
+  nameDesktop: {
+    fontSize: 20,
+    lineHeight: "28px",
+  },
+  role: {
+    marginBottom: 20,
+    fontWeight: 500,
+    color: colors.brand300,
+  },
+  roleMobile: {
+    fontSize: 14,
+    lineHeight: "20px",
+  },
+  roleDesktop: {
+    fontSize: 16,
+    lineHeight: "24px",
+  },
+  rule: {
+    marginBottom: 20,
+    borderTopWidth: 1,
+    borderColor: colors.brand500,
+  },
+  social: {
+    marginTop: "auto",
+    paddingTop: 20,
+  },
+});

@@ -1,22 +1,23 @@
-import { useRef } from "react";
-import { cn } from "@/lib/utils";
+import { useRef, useState } from "react";
+import * as stylex from "@stylexjs/stylex";
+import type { StyleXStyles } from "@stylexjs/stylex";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { colors, constants } from "../styles/tokens.stylex";
 
 export function ProfileAvatar({
   size,
-  ringSize,
-  className,
+  style,
 }: {
-  size: string;
-  ringSize: string;
-  className?: string;
+  size: "mobile" | "desktop";
+  style?: StyleXStyles;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <div
-      className={cn("relative overflow-hidden rounded-full", size, ringSize, "ring-brand-400", className)}
+      {...stylex.props(styles.root, sizeStyles[size], style)}
       onMouseEnter={() => {
         if (!prefersReducedMotion) void videoRef.current?.play();
       }}
@@ -35,7 +36,7 @@ export function ProfileAvatar({
         alt="Nyasha Nziramasanga"
         width={160}
         height={160}
-        className="h-full w-full object-cover"
+        {...stylex.props(styles.media)}
       />
       <video
         ref={videoRef}
@@ -46,10 +47,52 @@ export function ProfileAvatar({
         preload="none"
         aria-hidden="true"
         tabIndex={-1}
-        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 motion-reduce:hidden hover:opacity-100 peer"
-        onPlay={(e) => e.currentTarget.classList.replace("opacity-0", "opacity-100")}
-        onPause={(e) => e.currentTarget.classList.replace("opacity-100", "opacity-0")}
+        {...stylex.props(styles.video, isPlaying && styles.videoPlaying)}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
       />
     </div>
   );
 }
+
+const styles = stylex.create({
+  root: {
+    position: "relative",
+    overflow: "hidden",
+    borderRadius: "50%",
+    boxShadow: `0 0 0 4px ${colors.brand400}`,
+  },
+  media: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
+  video: {
+    position: "absolute",
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    opacity: 0,
+    transitionProperty: "opacity",
+    transitionDuration: "300ms",
+    display: {
+      default: "block",
+      [constants.reduceMotion]: "none",
+    },
+  },
+  videoPlaying: {
+    opacity: 1,
+  },
+});
+
+const sizeStyles = stylex.create({
+  mobile: {
+    width: 80,
+    height: 80,
+  },
+  desktop: {
+    width: 112,
+    height: 112,
+  },
+});

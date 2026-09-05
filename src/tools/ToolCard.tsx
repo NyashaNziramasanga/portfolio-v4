@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { ChevronRight, Wrench } from "lucide-react";
-import { cn } from "@/lib/utils";
+import * as stylex from "@stylexjs/stylex";
 import type { ToolListItem } from "@/tools/types";
 import { track } from "@vercel/analytics/react";
+import { colors, constants } from "../styles/tokens.stylex";
 
 type ToolCardProps = {
   tool: ToolListItem;
@@ -14,26 +15,141 @@ export function ToolCard({ tool }: ToolCardProps) {
       to="/tools/$toolId"
       params={{ toolId: tool.slug }}
       onClick={() => track("Tool Opened", { tool: tool.slug })}
-      className={cn(
-        "group rounded-xl bg-brand-700 px-4 py-4 text-brand-50 shadow-sm transition-all duration-300 ease-out sm:rounded-2xl sm:px-6 sm:py-5",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900",
-        "hover:-translate-y-0.5 hover:bg-brand-600 hover:shadow-lg",
-      )}
+      {...stylex.props(styles.card, stylex.defaultMarker())}
     >
-      <div className="flex items-start gap-3 sm:gap-4">
-        <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-600 text-primary sm:h-10 sm:w-10">
-          <Wrench className="h-4 w-4 sm:h-5 sm:w-5" />
+      <div {...stylex.props(styles.row)}>
+        <div {...stylex.props(styles.iconBox)}>
+          <Wrench {...stylex.props(styles.wrench)} />
         </div>
 
-        <div className="min-w-0 flex-1">
-          <p className="text-[13px] font-semibold leading-snug text-brand-50 sm:text-base">
-            {tool.title}
-          </p>
-          <p className="mt-1 text-xs text-brand-300 sm:text-sm">{tool.description}</p>
+        <div {...stylex.props(styles.copy)}>
+          <p {...stylex.props(styles.title)}>{tool.title}</p>
+          <p {...stylex.props(styles.description)}>{tool.description}</p>
         </div>
 
-        <ChevronRight className="mt-1 h-4 w-4 shrink-0 text-brand-300 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-brand-100 sm:h-5 sm:w-5" />
+        <ChevronRight {...stylex.props(styles.chevron)} />
       </div>
     </Link>
   );
 }
+
+const styles = stylex.create({
+  card: {
+    borderRadius: {
+      default: 12,
+      [constants.sm]: 16,
+    },
+    backgroundColor: {
+      default: colors.brand700,
+      ":hover": colors.brand600,
+    },
+    paddingInline: {
+      default: 16,
+      [constants.sm]: 24,
+    },
+    paddingBlock: {
+      default: 16,
+      [constants.sm]: 20,
+    },
+    color: colors.brand50,
+    boxShadow: {
+      default: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      ":hover":
+        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+      ":focus-visible": "0 0 0 2px #1A202C, 0 0 0 4px hsl(207 68% 50%)",
+    },
+    transform: {
+      default: "translateY(0)",
+      ":hover": "translateY(-2px)",
+    },
+    transitionProperty: "all",
+    transitionDuration: "300ms",
+    transitionTimingFunction: constants.easeOut,
+    outline: {
+      ":focus-visible": "none",
+    },
+  },
+  row: {
+    display: "flex",
+    alignItems: "flex-start",
+    gap: {
+      default: 12,
+      [constants.sm]: 16,
+    },
+  },
+  iconBox: {
+    marginTop: 2,
+    display: "flex",
+    height: {
+      default: 32,
+      [constants.sm]: 40,
+    },
+    width: {
+      default: 32,
+      [constants.sm]: 40,
+    },
+    flexShrink: 0,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 6,
+    backgroundColor: colors.brand600,
+    color: colors.primary,
+  },
+  wrench: {
+    width: {
+      default: 16,
+      [constants.sm]: 20,
+    },
+    height: {
+      default: 16,
+      [constants.sm]: 20,
+    },
+  },
+  copy: {
+    minWidth: 0,
+    flex: "1",
+  },
+  title: {
+    fontSize: {
+      default: 13,
+      [constants.sm]: 16,
+    },
+    fontWeight: 600,
+    lineHeight: 1.375,
+    color: colors.brand50,
+  },
+  description: {
+    marginTop: 4,
+    fontSize: {
+      default: 12,
+      [constants.sm]: 14,
+    },
+    lineHeight: {
+      default: "16px",
+      [constants.sm]: "20px",
+    },
+    color: colors.brand300,
+  },
+  chevron: {
+    marginTop: 4,
+    width: {
+      default: 16,
+      [constants.sm]: 20,
+    },
+    height: {
+      default: 16,
+      [constants.sm]: 20,
+    },
+    flexShrink: 0,
+    color: {
+      default: colors.brand300,
+      [stylex.when.ancestor(":hover")]: colors.brand100,
+    },
+    transform: {
+      default: "translateX(0)",
+      [stylex.when.ancestor(":hover")]: "translateX(2px)",
+    },
+    transitionProperty: "transform, color",
+    transitionDuration: "300ms",
+  },
+});
