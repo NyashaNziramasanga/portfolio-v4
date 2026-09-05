@@ -5,7 +5,10 @@ import { colors } from "../../styles/Colors.stylex";
 import { spacing } from "../../styles/Spacing.stylex";
 import { radii } from "../../styles/BorderRadius.stylex";
 import { fonts } from "../../styles/Fonts.stylex";
-import { lineHeights } from "../../styles/Typography.stylex";
+import {
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
 import { shadows } from "../../styles/Shadows.stylex";
 
 type ButtonVariant =
@@ -58,6 +61,7 @@ const styles = stylex.create({
     whiteSpace: "nowrap",
     borderRadius: radii.sm,
     lineHeight: lineHeights.line20,
+    fontWeight: fontWeights.medium,
     transitionProperty: "color, background-color, border-color",
     outline: {
       ":focus-visible": "none",
@@ -80,47 +84,47 @@ const styles = stylex.create({
 const variantStyles = stylex.create({
   default: {
     backgroundColor: {
-      default: colors.accent,
-      ":hover": colors.accentAlpha90,
+      default: colors.actionPrimary,
+      ":hover": colors.actionPrimaryHover,
     },
-    color: colors.accentForeground,
+    color: colors.actionPrimaryText,
   },
   destructive: {
     backgroundColor: {
-      default: colors.danger,
-      ":hover": colors.dangerAlpha90,
+      default: colors.actionDanger,
+      ":hover": colors.actionDangerHover,
     },
-    color: colors.dangerForeground,
+    color: colors.actionDangerText,
   },
   outline: {
     borderWidth: 1,
-    borderColor: colors.secondary,
+    borderColor: colors.actionSecondary,
     backgroundColor: {
       default: colors.background,
-      ":hover": colors.accent,
+      ":hover": colors.actionPrimary,
     },
     color: {
-      ":hover": colors.accentForeground,
+      ":hover": colors.actionPrimaryText,
     },
   },
   secondary: {
     backgroundColor: {
-      default: colors.secondary,
-      ":hover": colors.secondaryAlpha80,
+      default: colors.actionSecondary,
+      ":hover": colors.actionSecondaryHover,
     },
-    color: colors.secondaryForeground,
+    color: colors.actionSecondaryText,
   },
   ghost: {
     backgroundColor: {
       default: colors.transparent,
-      ":hover": colors.accent,
+      ":hover": colors.actionPrimary,
     },
     color: {
-      ":hover": colors.accentForeground,
+      ":hover": colors.actionPrimaryText,
     },
   },
   link: {
-    color: colors.accent,
+    color: colors.accentText,
     textUnderlineOffset: 4,
     textDecorationLine: {
       default: "none",

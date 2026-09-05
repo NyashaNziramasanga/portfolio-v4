@@ -138,6 +138,6 @@ const styles = stylex.create({
     marginTop: spacing.xs,
     fontSize: fontSizes.label,
     lineHeight: lineHeights.line16,
-    color: colors.textSubtle,
+    color: colors.textMuted,
   },
 });

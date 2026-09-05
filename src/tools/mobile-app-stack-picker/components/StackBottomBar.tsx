@@ -258,7 +258,7 @@ const styles = stylex.create({
       default: lineHeights.line20,
       [breakpoints.sm]: lineHeights.line24,
     },
-    color: colors.textSubtle,
+    color: colors.textMuted,
   },
   actions: {
     display: "flex",

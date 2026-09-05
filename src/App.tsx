@@ -138,7 +138,7 @@ const styles = stylex.create({
       ":focus": radii.sm,
     },
     backgroundColor: {
-      ":focus": colors.accent,
+      ":focus": colors.actionPrimary,
     },
     fontSize: {
       ":focus": fontSizes.body,
@@ -147,7 +147,7 @@ const styles = stylex.create({
       ":focus": fontWeights.medium,
     },
     color: {
-      ":focus": colors.accentForeground,
+      ":focus": colors.actionPrimaryText,
     },
     outline: {
       ":focus": "none",

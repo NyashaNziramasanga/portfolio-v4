@@ -98,7 +98,7 @@ const styles = stylex.create({
     fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
     letterSpacing: letterSpacing.labelWide,
-    color: colors.textSubtle,
+    color: colors.textMuted,
   },
   items: {
     display: "flex",

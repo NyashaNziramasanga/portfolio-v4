@@ -158,7 +158,7 @@ const styles = stylex.create({
 const pillStyles = stylex.create({
   outer: {
     backgroundColor: colors.accentAlpha15,
-    color: colors.accent,
+    color: colors.accentText,
     borderColor: colors.accentAlpha40,
   },
   inner: {
