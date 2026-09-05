@@ -1,7 +1,15 @@
 import { useId } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { NumberInput } from "@/tools/border-radius-calculator/components/NumberInput";
-import { colors } from "../../../styles/tokens.stylex";
+import { colors } from "../../../styles/Colors.stylex";
+import { spacing } from "../../../styles/Spacing.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../../styles/Typography.stylex";
+import { shadows } from "../../../styles/Shadows.stylex";
 
 type RadiusSliderProps = {
   label: string;
@@ -71,65 +79,65 @@ const styles = stylex.create({
     display: "flex",
     alignItems: "baseline",
     justifyContent: "space-between",
-    gap: 12,
+    gap: spacing.space12,
   },
   label: {
-    fontSize: 14,
-    lineHeight: "20px",
-    fontWeight: 500,
-    color: colors.brand100,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.line20,
+    fontWeight: fontWeights.medium,
+    color: colors.textStrong,
   },
   valueBox: {
     display: "flex",
     alignItems: "baseline",
-    gap: 4,
-    borderRadius: 6,
-    backgroundColor: "color-mix(in oklab, #1A202C 70%, transparent)",
-    paddingLeft: 4,
-    paddingRight: 8,
+    gap: spacing.space4,
+    borderRadius: radii.sm,
+    backgroundColor: colors.backgroundAlpha70,
+    paddingLeft: spacing.space4,
+    paddingRight: spacing.space8,
     boxShadow: {
-      ":focus-within": "0 0 0 2px hsl(207 68% 50%)",
+      ":focus-within": shadows.focus,
     },
     transitionProperty: "box-shadow",
   },
   numberInput: {
     width: 40,
-    backgroundColor: "transparent",
-    paddingBlock: 2,
+    backgroundColor: colors.transparent,
+    paddingBlock: spacing.space2,
     textAlign: "right",
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 600,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.semibold,
     fontVariantNumeric: "tabular-nums",
-    color: colors.brand100,
+    color: colors.textStrong,
     outline: "none",
   },
   unit: {
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 600,
-    color: colors.brand100,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.semibold,
+    color: colors.textStrong,
   },
   slider: {
-    marginTop: 6,
+    marginTop: spacing.space6,
     height: 6,
     width: "100%",
     cursor: "pointer",
     appearance: "none",
-    borderRadius: 9999,
-    backgroundColor: colors.brand700,
-    accentColor: colors.primary,
+    borderRadius: radii.pill,
+    backgroundColor: colors.surface,
+    accentColor: colors.accent,
     outline: {
       ":focus-visible": "none",
     },
     boxShadow: {
-      ":focus-visible": "0 0 0 2px #1F2937, 0 0 0 4px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focusOffsetSurface,
     },
   },
   helper: {
-    marginTop: 6,
-    fontSize: 12,
-    lineHeight: "16px",
-    color: colors.brand400,
+    marginTop: spacing.space6,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    color: colors.textSubtle,
   },
 });

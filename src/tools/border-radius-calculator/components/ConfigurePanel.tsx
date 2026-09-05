@@ -1,12 +1,20 @@
 import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/components/ui/button";
 import { RadiusSlider } from "@/tools/border-radius-calculator/components/RadiusSlider";
+import { colors } from "../../../styles/Colors.stylex";
+import { spacing } from "../../../styles/Spacing.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../../styles/Typography.stylex";
+import { breakpoints } from "../../../styles/Breakpoints.stylex";
 import {
   RADIUS_BOUNDS,
   type RadiusField,
   type RadiusState,
 } from "@/tools/border-radius-calculator/hooks/useBorderRadius";
-import { colors, constants } from "../../../styles/tokens.stylex";
 
 type ConfigurePanelProps = {
   state: RadiusState;
@@ -73,40 +81,40 @@ export function ConfigurePanel({
 
 const styles = stylex.create({
   root: {
-    borderRadius: 16,
+    borderRadius: radii.xl,
     borderWidth: 1,
-    borderColor: colors.brand700,
-    backgroundColor: "color-mix(in oklab, #1F2937 60%, transparent)",
+    borderColor: colors.surface,
+    backgroundColor: colors.surfaceSubtleAlpha60,
     padding: {
-      default: 20,
-      [constants.sm]: 24,
+      default: spacing.space20,
+      [breakpoints.sm]: spacing.space24,
     },
   },
   header: {
-    marginBottom: 20,
+    marginBottom: spacing.space20,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: 12,
+    gap: spacing.space12,
   },
   title: {
-    fontSize: 18,
-    lineHeight: "28px",
-    fontWeight: 600,
-    color: colors.brand50,
+    fontSize: fontSizes.titleSmall,
+    lineHeight: lineHeights.line28,
+    fontWeight: fontWeights.semibold,
+    color: colors.textPrimary,
   },
   reset: {
     borderWidth: 1,
-    borderColor: colors.brand500,
+    borderColor: colors.border,
     backgroundColor: {
-      default: colors.brand800,
-      ":hover": colors.brand700,
+      default: colors.surfaceSubtle,
+      ":hover": colors.surface,
     },
-    color: colors.brand100,
+    color: colors.textStrong,
   },
   controls: {
     display: "flex",
     flexDirection: "column",
-    gap: 26,
+    gap: spacing.space26,
   },
 });

@@ -2,11 +2,21 @@ import { useId } from "react";
 import * as stylex from "@stylexjs/stylex";
 import type { StyleXStyles } from "@stylexjs/stylex";
 import { NumberInput } from "@/tools/border-radius-calculator/components/NumberInput";
+import { colors } from "../../../styles/Colors.stylex";
+import { spacing } from "../../../styles/Spacing.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacing,
+} from "../../../styles/Typography.stylex";
+import { breakpoints } from "../../../styles/Breakpoints.stylex";
+import { shadows } from "../../../styles/Shadows.stylex";
 import {
   RADIUS_BOUNDS,
   type RadiusField,
 } from "@/tools/border-radius-calculator/hooks/useBorderRadius";
-import { colors, constants } from "../../../styles/tokens.stylex";
 
 type FormulaBadgeProps = {
   innerRadius: number;
@@ -93,72 +103,72 @@ const styles = stylex.create({
     alignItems: "center",
     justifyContent: "center",
     gap: {
-      default: 8,
-      [constants.sm]: 12,
+      default: spacing.space8,
+      [breakpoints.sm]: spacing.space12,
     },
-    borderRadius: 16,
+    borderRadius: radii.xl,
     borderWidth: 1,
-    borderColor: colors.brand700,
-    backgroundColor: "color-mix(in oklab, #1F2937 60%, transparent)",
-    padding: 16,
-    color: colors.brand200,
+    borderColor: colors.surface,
+    backgroundColor: colors.surfaceSubtleAlpha60,
+    padding: spacing.space16,
+    color: colors.textSecondary,
   },
   pill: {
     display: "flex",
     minWidth: 64,
     flexDirection: "column",
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: radii.md,
     borderWidth: 1,
-    paddingInline: 12,
-    paddingBlock: 6,
+    paddingInline: spacing.space12,
+    paddingBlock: spacing.space6,
     textAlign: "center",
     boxShadow: {
-      ":focus-within": "0 0 0 2px currentColor",
+      ":focus-within": shadows.currentColorFocus,
     },
     transitionProperty: "box-shadow",
   },
   label: {
     cursor: "pointer",
-    fontSize: 10,
-    fontWeight: 600,
+    fontSize: fontSizes.caption,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.05em",
+    letterSpacing: letterSpacing.wider,
     opacity: 0.8,
   },
   input: {
     width: 48,
-    backgroundColor: "transparent",
+    backgroundColor: colors.transparent,
     textAlign: "center",
-    fontSize: 16,
-    lineHeight: "24px",
-    fontWeight: 600,
+    fontSize: fontSizes.bodyLarge,
+    lineHeight: lineHeights.line24,
+    fontWeight: fontWeights.semibold,
     fontVariantNumeric: "tabular-nums",
     color: "currentColor",
     outline: "none",
   },
   operator: {
-    fontSize: 20,
-    lineHeight: "28px",
-    fontWeight: 600,
-    color: colors.brand300,
+    fontSize: fontSizes.title,
+    lineHeight: lineHeights.line28,
+    fontWeight: fontWeights.semibold,
+    color: colors.textMuted,
   },
 });
 
 const pillStyles = stylex.create({
   outer: {
-    backgroundColor: "color-mix(in oklab, hsl(207 68% 50%) 15%, transparent)",
-    color: colors.primary,
-    borderColor: "color-mix(in oklab, hsl(207 68% 50%) 40%, transparent)",
+    backgroundColor: colors.accentAlpha15,
+    color: colors.accent,
+    borderColor: colors.accentAlpha40,
   },
   inner: {
-    backgroundColor: "color-mix(in oklab, #90CDF4 15%, transparent)",
-    color: colors.blue200,
-    borderColor: "color-mix(in oklab, #90CDF4 40%, transparent)",
+    backgroundColor: colors.accentSoftAlpha15,
+    color: colors.accentSoft,
+    borderColor: colors.accentSoftAlpha40,
   },
   padding: {
-    backgroundColor: "color-mix(in oklab, #252F3F 70%, transparent)",
-    color: colors.brand100,
-    borderColor: colors.brand500,
+    backgroundColor: colors.surfaceAlpha70,
+    color: colors.textStrong,
+    borderColor: colors.border,
   },
 });

@@ -1,5 +1,16 @@
 import * as stylex from "@stylexjs/stylex";
-import { colors, constants } from "../../../styles/tokens.stylex";
+import { colors } from "../../../styles/Colors.stylex";
+import { spacing } from "../../../styles/Spacing.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
+import { fonts } from "../../../styles/Fonts.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacing,
+} from "../../../styles/Typography.stylex";
+import { breakpoints } from "../../../styles/Breakpoints.stylex";
+import { layout } from "../../../styles/Layout.stylex";
 
 export function BorderRadiusHeader() {
   return (
@@ -10,7 +21,7 @@ export function BorderRadiusHeader() {
       </h2>
       <p {...stylex.props(styles.description)}>
         The rule of thumb for nested rounded rectangles is{" "}
-        <span {...stylex.props(styles.code)}>
+        <span {...stylex.props(fonts.mono, styles.code)}>
           inner radius + padding = outer radius
         </span>
         . Drag any slider and the others stay in sync.
@@ -22,47 +33,45 @@ export function BorderRadiusHeader() {
 const styles = stylex.create({
   root: {
     marginBottom: {
-      default: 24,
-      [constants.sm]: 28,
+      default: spacing.space24,
+      [breakpoints.sm]: spacing.space28,
     },
   },
   title: {
     fontSize: {
-      default: 30,
-      [constants.sm]: 48,
+      default: fontSizes.displaySmall,
+      [breakpoints.sm]: fontSizes.displayLarge,
     },
     lineHeight: {
-      default: "36px",
-      [constants.sm]: "1",
+      default: lineHeights.line36,
+      [breakpoints.sm]: lineHeights.none,
     },
-    fontWeight: 800,
-    letterSpacing: "-0.025em",
-    color: colors.brand50,
+    fontWeight: fontWeights.extraBold,
+    letterSpacing: letterSpacing.display,
+    color: colors.textPrimary,
   },
   accent: {
-    color: colors.primary,
+    color: colors.accent,
   },
   description: {
-    marginTop: 8,
-    maxWidth: 672,
+    marginTop: spacing.space8,
+    maxWidth: layout.contentNarrow,
     fontSize: {
-      default: 14,
-      [constants.sm]: 16,
+      default: fontSizes.body,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
     lineHeight: {
-      default: "20px",
-      [constants.sm]: "24px",
+      default: lineHeights.line20,
+      [breakpoints.sm]: lineHeights.line24,
     },
-    color: colors.brand300,
+    color: colors.textMuted,
   },
   code: {
-    borderRadius: 6,
-    backgroundColor: colors.brand700,
-    paddingInline: 6,
-    paddingBlock: 2,
-    fontFamily:
-      "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
-    fontSize: 12,
-    color: colors.brand100,
+    borderRadius: radii.sm,
+    backgroundColor: colors.surface,
+    paddingInline: spacing.space6,
+    paddingBlock: spacing.space2,
+    fontSize: fontSizes.label,
+    color: colors.textStrong,
   },
 });

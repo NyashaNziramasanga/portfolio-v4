@@ -2,7 +2,16 @@ import { useEffect, useMemo, useState } from "react";
 import { Check, Copy } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
 import { Button } from "@/components/ui/button";
-import { colors, constants } from "../../../styles/tokens.stylex";
+import { colors } from "../../../styles/Colors.stylex";
+import { spacing } from "../../../styles/Spacing.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../../styles/Typography.stylex";
+import { breakpoints } from "../../../styles/Breakpoints.stylex";
+import { shadows } from "../../../styles/Shadows.stylex";
 
 type SnippetOutputProps = {
   outerRadius: number;
@@ -150,73 +159,73 @@ export function SnippetOutput(props: SnippetOutputProps) {
 
 const styles = stylex.create({
   root: {
-    borderRadius: 16,
+    borderRadius: radii.xl,
     borderWidth: 1,
-    borderColor: colors.brand700,
-    backgroundColor: "color-mix(in oklab, #1F2937 60%, transparent)",
+    borderColor: colors.surface,
+    backgroundColor: colors.surfaceSubtleAlpha60,
     padding: {
-      default: 20,
-      [constants.sm]: 24,
+      default: spacing.space20,
+      [breakpoints.sm]: spacing.space24,
     },
   },
   header: {
-    marginBottom: 16,
+    marginBottom: spacing.space16,
     display: "flex",
     flexWrap: "wrap",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: 12,
+    gap: spacing.space12,
   },
   headingGroup: {
     display: "flex",
     alignItems: "center",
-    gap: 12,
+    gap: spacing.space12,
   },
   title: {
-    fontSize: 18,
-    lineHeight: "28px",
-    fontWeight: 600,
-    color: colors.brand50,
+    fontSize: fontSizes.titleSmall,
+    lineHeight: lineHeights.line28,
+    fontWeight: fontWeights.semibold,
+    color: colors.textPrimary,
   },
   tabs: {
     display: "inline-flex",
-    borderRadius: 6,
+    borderRadius: radii.sm,
     borderWidth: 1,
-    borderColor: colors.brand500,
-    backgroundColor: "color-mix(in oklab, #1A202C 60%, transparent)",
-    padding: 2,
+    borderColor: colors.border,
+    backgroundColor: colors.backgroundAlpha60,
+    padding: spacing.space2,
   },
   tab: {
-    borderRadius: 4,
-    paddingInline: 10,
-    paddingBlock: 4,
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 500,
+    borderRadius: radii.xs,
+    paddingInline: spacing.space10,
+    paddingBlock: spacing.space4,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.medium,
     transitionProperty: "color, background-color",
     outline: "none",
     boxShadow: {
-      ":focus-visible": "0 0 0 2px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focus,
     },
   },
   tabActive: {
-    backgroundColor: colors.brand700,
-    color: colors.brand50,
+    backgroundColor: colors.surface,
+    color: colors.textPrimary,
   },
   tabInactive: {
     color: {
-      default: colors.brand300,
-      ":hover": colors.brand100,
+      default: colors.textMuted,
+      ":hover": colors.textStrong,
     },
   },
   copyButton: {
     borderWidth: 1,
-    borderColor: colors.brand500,
+    borderColor: colors.border,
     backgroundColor: {
-      default: colors.brand800,
-      ":hover": colors.brand700,
+      default: colors.surfaceSubtle,
+      ":hover": colors.surface,
     },
-    color: colors.brand100,
+    color: colors.textStrong,
   },
   icon: {
     width: 16,
@@ -224,14 +233,14 @@ const styles = stylex.create({
   },
   pre: {
     overflowX: "auto",
-    borderRadius: 8,
-    backgroundColor: "color-mix(in oklab, #1A202C 80%, transparent)",
-    padding: 16,
+    borderRadius: radii.md,
+    backgroundColor: colors.backgroundAlpha80,
+    padding: spacing.space16,
     fontSize: {
-      default: 12,
-      [constants.sm]: 14,
+      default: fontSizes.label,
+      [breakpoints.sm]: fontSizes.body,
     },
-    lineHeight: 1.625,
-    color: colors.brand100,
+    lineHeight: lineHeights.relaxed,
+    color: colors.textStrong,
   },
 });

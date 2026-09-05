@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import * as stylex from "@stylexjs/stylex";
-import { colors } from "../../../styles/tokens.stylex";
+import { colors } from "../../../styles/Colors.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
 
 type RadiusIllustrationProps = {
   outerRadius: number;
@@ -153,10 +154,10 @@ const styles = stylex.create({
     aspectRatio: "800 / 520",
     width: "100%",
     overflow: "hidden",
-    borderRadius: 16,
+    borderRadius: radii.xl,
     borderWidth: 1,
-    borderColor: colors.brand700,
-    backgroundColor: "color-mix(in oklab, #1F2937 60%, transparent)",
+    borderColor: colors.surface,
+    backgroundColor: colors.surfaceSubtleAlpha60,
   },
   svg: {
     display: "block",
@@ -164,18 +165,18 @@ const styles = stylex.create({
     width: "100%",
   },
   background: {
-    fill: colors.brand800,
+    fill: colors.surfaceSubtle,
   },
   guide: {
     fill: "none",
-    stroke: colors.brand500,
+    stroke: colors.border,
   },
   outerHighlight: {
     fill: "none",
-    stroke: colors.primary,
+    stroke: colors.accent,
   },
   innerHighlight: {
     fill: "none",
-    stroke: colors.blue200,
+    stroke: colors.accentSoft,
   },
 });

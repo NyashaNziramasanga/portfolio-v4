@@ -5,7 +5,8 @@ import { ConfigurePanel } from "@/tools/border-radius-calculator/components/Conf
 import { FormulaBadge } from "@/tools/border-radius-calculator/components/FormulaBadge";
 import { SnippetOutput } from "@/tools/border-radius-calculator/components/SnippetOutput";
 import { useBorderRadius } from "@/tools/border-radius-calculator/hooks/useBorderRadius";
-import { constants } from "../../styles/tokens.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
 
 export function BorderRadiusCalculator() {
   const { state, set, reset } = useBorderRadius();
@@ -45,34 +46,34 @@ export function BorderRadiusCalculator() {
 const styles = stylex.create({
   root: {
     paddingBottom: {
-      default: 39,
-      [constants.sm]: 40,
+      default: spacing.space39,
+      [breakpoints.sm]: spacing.space40,
     },
   },
   layout: {
     display: "grid",
     gap: {
-      default: 20,
-      [constants.lg]: 24,
+      default: spacing.space20,
+      [breakpoints.lg]: spacing.space24,
     },
     gridTemplateColumns: {
-      [constants.lg]: "minmax(0, 1fr) 360px",
+      [breakpoints.lg]: "minmax(0, 1fr) 360px",
     },
   },
   main: {
     display: "flex",
     flexDirection: "column",
-    gap: 20,
+    gap: spacing.space20,
   },
   aside: {
     position: {
-      [constants.lg]: "sticky",
+      [breakpoints.lg]: "sticky",
     },
     top: {
-      [constants.lg]: 24,
+      [breakpoints.lg]: spacing.space24,
     },
     alignSelf: {
-      [constants.lg]: "flex-start",
+      [breakpoints.lg]: "flex-start",
     },
   },
 });
