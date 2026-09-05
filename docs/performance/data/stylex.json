@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "label": "stylex",
+  "capturedAt": "2026-09-04T09:11:17.181Z",
+  "samplesPerDevice": 5,
+  "devices": {
+    "mobile": {
+      "runs": [
+        {
+          "performanceScore": 92,
+          "ttfbMs": 1.367,
+          "fcpMs": 2123.126,
+          "lcpMs": 3109.351,
+          "speedIndexMs": 2123.126,
+          "tbtMs": 0,
+          "cls": 0.001,
+          "transferBytes": 294909,
+          "requestCount": 21,
+          "mainThreadMs": 265.748,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        },
+        {
+          "performanceScore": 92,
+          "ttfbMs": 1.211,
+          "fcpMs": 2112.573,
+          "lcpMs": 3097.687,
+          "speedIndexMs": 2112.573,
+          "tbtMs": 0,
+          "cls": 0.001,
+          "transferBytes": 294909,
+          "requestCount": 21,
+          "mainThreadMs": 262.8,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        },
+        {
+          "performanceScore": 92,
+          "ttfbMs": 0.821,
+          "fcpMs": 2112.426,
+          "lcpMs": 3097.912,
+          "speedIndexMs": 2112.426,
+          "tbtMs": 0,
+          "cls": 0.001,
+          "transferBytes": 294909,
+          "requestCount": 21,
+          "mainThreadMs": 262.26,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        },
+        {
+          "performanceScore": 92,
+          "ttfbMs": 0.859,
+          "fcpMs": 2112.273,
+          "lcpMs": 3097.728,
+          "speedIndexMs": 2112.273,
+          "tbtMs": 0,
+          "cls": 0.001,
+          "transferBytes": 294909,
+          "requestCount": 21,
+          "mainThreadMs": 264.016,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        },
+        {
+          "performanceScore": 92,
+          "ttfbMs": 0.885,
+          "fcpMs": 2111.907,
+          "lcpMs": 3096.888,
+          "speedIndexMs": 2111.907,
+          "tbtMs": 0,
+          "cls": 0.001,
+          "transferBytes": 294909,
+          "requestCount": 21,
+          "mainThreadMs": 264.188,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        }
+      ],
+      "aggregate": {
+        "performanceScore": {
+          "min": 92,
+          "median": 92,
+          "max": 92
+        },
+        "ttfbMs": {
+          "min": 0.821,
+          "median": 0.885,
+          "max": 1.367
+        },
+        "fcpMs": {
+          "min": 2111.907,
+          "median": 2112.426,
+          "max": 2123.126
+        },
+        "lcpMs": {
+          "min": 3096.888,
+          "median": 3097.728,
+          "max": 3109.351
+        },
+        "speedIndexMs": {
+          "min": 2111.907,
+          "median": 2112.426,
+          "max": 2123.126
+        },
+        "tbtMs": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "cls": {
+          "min": 0.001,
+          "median": 0.001,
+          "max": 0.001
+        },
+        "transferBytes": {
+          "min": 294909,
+          "median": 294909,
+          "max": 294909
+        },
+        "requestCount": {
+          "min": 21,
+          "median": 21,
+          "max": 21
+        },
+        "mainThreadMs": {
+          "min": 262.26,
+          "median": 264.016,
+          "max": 265.748
+        },
+        "unusedCssBytes": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "unusedJsBytes": {
+          "min": 33835,
+          "median": 33835,
+          "max": 33835
+        }
+      },
+      "opportunities": [
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "savingsMs": 0,
+          "savingsBytes": 0
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "savingsMs": 300,
+          "savingsBytes": 33835
+        }
+      ]
+    },
+    "desktop": {
+      "runs": [
+        {
+          "performanceScore": 100,
+          "ttfbMs": 1.099,
+          "fcpMs": 505.12,
+          "lcpMs": 648.144,
+          "speedIndexMs": 505.12,
+          "tbtMs": 0,
+          "cls": 0.002,
+          "transferBytes": 273867,
+          "requestCount": 21,
+          "mainThreadMs": 65.467,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        },
+        {
+          "performanceScore": 100,
+          "ttfbMs": 0.705,
+          "fcpMs": 505.091,
+          "lcpMs": 648.109,
+          "speedIndexMs": 505.091,
+          "tbtMs": 0,
+          "cls": 0.002,
+          "transferBytes": 273867,
+          "requestCount": 21,
+          "mainThreadMs": 64.686,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        },
+        {
+          "performanceScore": 100,
+          "ttfbMs": 0.783,
+          "fcpMs": 504.942,
+          "lcpMs": 647.93,
+          "speedIndexMs": 504.942,
+          "tbtMs": 0,
+          "cls": 0.002,
+          "transferBytes": 273867,
+          "requestCount": 21,
+          "mainThreadMs": 67.12,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        },
+        {
+          "performanceScore": 100,
+          "ttfbMs": 0.756,
+          "fcpMs": 505.213,
+          "lcpMs": 648.256,
+          "speedIndexMs": 505.213,
+          "tbtMs": 0,
+          "cls": 0.002,
+          "transferBytes": 273867,
+          "requestCount": 21,
+          "mainThreadMs": 64.104,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        },
+        {
+          "performanceScore": 100,
+          "ttfbMs": 0.767,
+          "fcpMs": 485.006,
+          "lcpMs": 648.007,
+          "speedIndexMs": 485.006,
+          "tbtMs": 0,
+          "cls": 0.002,
+          "transferBytes": 273867,
+          "requestCount": 21,
+          "mainThreadMs": 64.94,
+          "unusedCssBytes": 0,
+          "unusedJsBytes": 33835
+        }
+      ],
+      "aggregate": {
+        "performanceScore": {
+          "min": 100,
+          "median": 100,
+          "max": 100
+        },
+        "ttfbMs": {
+          "min": 0.705,
+          "median": 0.767,
+          "max": 1.099
+        },
+        "fcpMs": {
+          "min": 485.006,
+          "median": 505.091,
+          "max": 505.213
+        },
+        "lcpMs": {
+          "min": 647.93,
+          "median": 648.109,
+          "max": 648.256
+        },
+        "speedIndexMs": {
+          "min": 485.006,
+          "median": 505.091,
+          "max": 505.213
+        },
+        "tbtMs": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "cls": {
+          "min": 0.002,
+          "median": 0.002,
+          "max": 0.002
+        },
+        "transferBytes": {
+          "min": 273867,
+          "median": 273867,
+          "max": 273867
+        },
+        "requestCount": {
+          "min": 21,
+          "median": 21,
+          "max": 21
+        },
+        "mainThreadMs": {
+          "min": 64.104,
+          "median": 64.94,
+          "max": 67.12
+        },
+        "unusedCssBytes": {
+          "min": 0,
+          "median": 0,
+          "max": 0
+        },
+        "unusedJsBytes": {
+          "min": 33835,
+          "median": 33835,
+          "max": 33835
+        }
+      },
+      "opportunities": [
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "savingsMs": 40,
+          "savingsBytes": 33835
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "savingsMs": 0,
+          "savingsBytes": 6740
+        }
+      ]
+    }
+  },
+  "assets": {
+    "files": [
+      {
+        "file": "SimpleIconSvg-C0Z8f6LF.js",
+        "type": "js",
+        "rawBytes": 148061,
+        "gzipBytes": 61598
+      },
+      {
+        "file": "button-CCfAASbe.js",
+        "type": "js",
+        "rawBytes": 2649,
+        "gzipBytes": 1482
+      },
+      {
+        "file": "createLucideIcon-DBwks1Nm.js",
+        "type": "js",
+        "rawBytes": 1202,
+        "gzipBytes": 688
+      },
+      {
+        "file": "index-B07m-gcY.js",
+        "type": "js",
+        "rawBytes": 48440,
+        "gzipBytes": 15845
+      },
+      {
+        "file": "index-BaA1QtcE.js",
+        "type": "js",
+        "rawBytes": 33100,
+        "gzipBytes": 10937
+      },
+      {
+        "file": "index-DafETt4s.js",
+        "type": "js",
+        "rawBytes": 11580,
+        "gzipBytes": 4359
+      },
+      {
+        "file": "index-UhfxS8W_.js",
+        "type": "js",
+        "rawBytes": 282053,
+        "gzipBytes": 89946
+      },
+      {
+        "file": "index-n4U2cgEh.css",
+        "type": "css",
+        "rawBytes": 23748,
+        "gzipBytes": 7521
+      },
+      {
+        "file": "tools._toolId-dru2pq4e.js",
+        "type": "js",
+        "rawBytes": 1286,
+        "gzipBytes": 772
+      }
+    ],
+    "totals": {
+      "css": {
+        "rawBytes": 23748,
+        "gzipBytes": 7521
+      },
+      "js": {
+        "rawBytes": 528371,
+        "gzipBytes": 185627
+      },
+      "combined": {
+        "rawBytes": 552119,
+        "gzipBytes": 193148
+      }
+    }
+  }
+}
