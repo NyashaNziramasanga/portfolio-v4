@@ -2,25 +2,34 @@ import * as stylex from "@stylexjs/stylex";
 import type { StyleXStyles } from "@stylexjs/stylex";
 import { Play, FileText, Image } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
+import { motion } from "../../styles/Motion.stylex";
 
 type MediaType = "video" | "article" | "image" | "gif";
 
 const badgeStyles = stylex.create({
   video: {
-    backgroundColor: "color-mix(in oklab, #2A4365 40%, transparent)",
-    color: "#63B3ED",
+    backgroundColor: colors.videoBadgeSurface,
+    color: colors.videoBadgeText,
   },
   article: {
-    backgroundColor: "color-mix(in oklab, #78350F 40%, transparent)",
-    color: "#FBBF24",
+    backgroundColor: colors.articleBadgeSurface,
+    color: colors.articleBadgeText,
   },
   image: {
-    backgroundColor: "color-mix(in oklab, #064E3B 40%, transparent)",
-    color: "#34D399",
+    backgroundColor: colors.imageBadgeSurface,
+    color: colors.imageBadgeText,
   },
   gif: {
-    backgroundColor: "color-mix(in oklab, #4C1D95 40%, transparent)",
-    color: "#A78BFA",
+    backgroundColor: colors.gifBadgeSurface,
+    color: colors.gifBadgeText,
   },
 });
 
@@ -65,13 +74,13 @@ const styles = stylex.create({
   root: {
     display: "inline-flex",
     alignItems: "center",
-    borderRadius: 9999,
-    padding: 6,
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 500,
+    borderRadius: radii.pill,
+    padding: spacing.space6,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.medium,
     transitionProperty: "all",
-    transitionDuration: "200ms",
+    transitionDuration: motion.normal,
   },
   icon: {
     width: 12,
@@ -82,10 +91,10 @@ const styles = stylex.create({
     overflow: "hidden",
     whiteSpace: "nowrap",
     transitionProperty: "all",
-    transitionDuration: "200ms",
+    transitionDuration: motion.normal,
   },
   labelExpanded: {
-    marginLeft: 4,
+    marginLeft: spacing.space4,
     maxWidth: 60,
     opacity: 1,
   },

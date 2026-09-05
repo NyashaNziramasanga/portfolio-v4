@@ -1,5 +1,5 @@
 import * as stylex from "@stylexjs/stylex";
-import { constants } from "../../styles/tokens.stylex";
+import { motion } from "../../styles/Motion.stylex";
 
 export function CollapsiblePanel({
   open,
@@ -31,13 +31,13 @@ const styles = stylex.create({
     display: "grid",
     transitionProperty: {
       default: "all",
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
     transitionDuration: {
-      default: "300ms",
-      [constants.reduceMotion]: "0ms",
+      default: motion.slow,
+      [motion.reduce]: motion.instant,
     },
-    transitionTimingFunction: constants.easeOut,
+    transitionTimingFunction: motion.easeOut,
   },
   open: {
     gridTemplateRows: "1fr",

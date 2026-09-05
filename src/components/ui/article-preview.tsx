@@ -1,7 +1,15 @@
 import { ExternalLink } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
 import type { StyleXStyles } from "@stylexjs/stylex";
-import { colors } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
 
 export function ArticlePreview({
   href,
@@ -48,18 +56,17 @@ export function ArticlePreview({
 const styles = stylex.create({
   root: {
     display: "block",
-    paddingBlock: 16,
+    paddingBlock: spacing.space16,
   },
   card: {
     overflow: "hidden",
-    borderRadius: 12,
+    borderRadius: radii.lg,
     borderWidth: 1,
-    borderColor: colors.brand500,
-    backgroundColor: colors.brand700,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
     boxShadow: {
-      default: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-      [stylex.when.ancestor(":hover")]:
-        "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+      default: shadows.elevationXs,
+      [stylex.when.ancestor(":hover")]: shadows.elevationSm,
     },
     transitionProperty: "box-shadow",
   },
@@ -71,13 +78,13 @@ const styles = stylex.create({
   footer: {
     display: "flex",
     alignItems: "center",
-    gap: 6,
-    paddingInline: 12,
-    paddingBlock: 10,
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 500,
-    color: colors.blue300,
+    gap: spacing.space6,
+    paddingInline: spacing.space12,
+    paddingBlock: spacing.space10,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.medium,
+    color: colors.accentText,
   },
   icon: {
     width: 12,

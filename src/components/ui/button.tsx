@@ -1,7 +1,12 @@
 import type { ButtonHTMLAttributes, Ref } from "react";
 import * as stylex from "@stylexjs/stylex";
 import type { StyleXStyles } from "@stylexjs/stylex";
-import { colors } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import { fonts } from "../../styles/Fonts.stylex";
+import { lineHeights } from "../../styles/Typography.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
 
 type ButtonVariant =
   | "default"
@@ -32,6 +37,7 @@ function Button({
   return (
     <button
       {...stylex.props(
+        fonts.body,
         styles.base,
         variantStyles[variant],
         sizeStyles[size],
@@ -48,19 +54,17 @@ const styles = stylex.create({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: 8,
+    gap: spacing.space8,
     whiteSpace: "nowrap",
-    borderRadius: 6,
-    fontSize: 14,
-    lineHeight: "20px",
-    fontWeight: 500,
+    borderRadius: radii.sm,
+    lineHeight: lineHeights.line20,
     transitionProperty: "color, background-color, border-color",
     outline: {
       ":focus-visible": "none",
     },
     boxShadow: {
-      default: "none",
-      ":focus-visible": "0 0 0 2px #1A202C, 0 0 0 4px hsl(207 68% 50%)",
+      default: shadows.none,
+      ":focus-visible": shadows.focusOffsetBackground,
     },
     pointerEvents: {
       default: "auto",
@@ -76,47 +80,47 @@ const styles = stylex.create({
 const variantStyles = stylex.create({
   default: {
     backgroundColor: {
-      default: colors.primary,
-      ":hover": "color-mix(in oklab, hsl(207 68% 50%) 90%, transparent)",
+      default: colors.accent,
+      ":hover": colors.accentAlpha90,
     },
-    color: colors.primaryForeground,
+    color: colors.accentForeground,
   },
   destructive: {
     backgroundColor: {
-      default: colors.destructive,
-      ":hover": "color-mix(in oklab, hsl(0 84.2% 60.2%) 90%, transparent)",
+      default: colors.danger,
+      ":hover": colors.dangerAlpha90,
     },
-    color: colors.destructiveForeground,
+    color: colors.dangerForeground,
   },
   outline: {
     borderWidth: 1,
     borderColor: colors.secondary,
     backgroundColor: {
-      default: colors.brand900,
-      ":hover": colors.primary,
+      default: colors.background,
+      ":hover": colors.accent,
     },
     color: {
-      ":hover": colors.primaryForeground,
+      ":hover": colors.accentForeground,
     },
   },
   secondary: {
     backgroundColor: {
       default: colors.secondary,
-      ":hover": "color-mix(in oklab, hsl(216 12% 54%) 80%, transparent)",
+      ":hover": colors.secondaryAlpha80,
     },
     color: colors.secondaryForeground,
   },
   ghost: {
     backgroundColor: {
-      default: "transparent",
-      ":hover": colors.primary,
+      default: colors.transparent,
+      ":hover": colors.accent,
     },
     color: {
-      ":hover": colors.primaryForeground,
+      ":hover": colors.accentForeground,
     },
   },
   link: {
-    color: colors.primary,
+    color: colors.accent,
     textUnderlineOffset: 4,
     textDecorationLine: {
       default: "none",
@@ -128,18 +132,18 @@ const variantStyles = stylex.create({
 const sizeStyles = stylex.create({
   default: {
     height: 40,
-    paddingInline: 16,
-    paddingBlock: 8,
+    paddingInline: spacing.space16,
+    paddingBlock: spacing.space8,
   },
   sm: {
     height: 36,
-    borderRadius: 6,
-    paddingInline: 12,
+    borderRadius: radii.sm,
+    paddingInline: spacing.space12,
   },
   lg: {
     height: 44,
-    borderRadius: 6,
-    paddingInline: 32,
+    borderRadius: radii.sm,
+    paddingInline: spacing.space32,
   },
   icon: {
     width: 40,
