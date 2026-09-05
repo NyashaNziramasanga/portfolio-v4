@@ -5,7 +5,17 @@ import publicationsData from "@/data/publications.json";
 import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
 import { PublicationCard } from "./PublicationCard";
 import type { Publication } from "./types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 const publications = publicationsData as Publication[];
 const featured = publications
@@ -74,66 +84,66 @@ const styles = stylex.create({
   root: {
     display: "flex",
     width: "100%",
-    maxWidth: 1024,
+    maxWidth: layout.contentMax,
     flexDirection: "column",
   },
   header: {
     marginBottom: {
-      default: 32,
-      [constants.sm]: 40,
+      default: spacing.space32,
+      [breakpoints.sm]: spacing.space40,
     },
   },
   title: {
     fontSize: {
-      default: 20,
-      [constants.sm]: 24,
+      default: fontSizes.title,
+      [breakpoints.sm]: fontSizes.heading,
     },
     lineHeight: {
-      default: "28px",
-      [constants.sm]: "32px",
+      default: lineHeights.line28,
+      [breakpoints.sm]: lineHeights.line32,
     },
-    fontWeight: 700,
-    color: colors.brand50,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   description: {
-    marginTop: 12,
-    maxWidth: 768,
-    fontSize: 14,
-    lineHeight: 1.625,
-    color: colors.brand300,
+    marginTop: spacing.space12,
+    maxWidth: layout.contentMedium,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.relaxed,
+    color: colors.textMuted,
   },
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: 16,
+    gap: spacing.space16,
   },
   archive: {
-    marginTop: 24,
+    marginTop: spacing.space24,
   },
   archiveButton: {
     display: "inline-flex",
-    minHeight: 44,
+    minHeight: layout.touchTarget,
     alignItems: "center",
-    gap: 8,
-    borderRadius: 8,
+    gap: spacing.space8,
+    borderRadius: radii.md,
     borderWidth: 1,
-    borderColor: colors.brand500,
-    paddingInline: 12,
-    paddingBlock: 8,
-    fontSize: 14,
-    lineHeight: "20px",
-    fontWeight: 600,
+    borderColor: colors.border,
+    paddingInline: spacing.space12,
+    paddingBlock: spacing.space8,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.line20,
+    fontWeight: fontWeights.semibold,
     color: {
-      default: colors.brand300,
-      ":hover": colors.brand100,
+      default: colors.textMuted,
+      ":hover": colors.textStrong,
     },
     backgroundColor: {
-      default: "transparent",
-      ":hover": colors.brand700,
+      default: colors.transparent,
+      ":hover": colors.surface,
     },
     outline: "none",
     boxShadow: {
-      ":focus-visible": "0 0 0 2px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focus,
     },
     transitionProperty: "color, background-color",
   },
@@ -150,15 +160,15 @@ const styles = stylex.create({
     transform: "rotate(180deg)",
   },
   archiveList: {
-    marginTop: 16,
+    marginTop: spacing.space16,
     display: "flex",
     flexDirection: "column",
-    gap: 12,
+    gap: spacing.space12,
     borderLeftWidth: 1,
-    borderLeftColor: "color-mix(in oklab, #4A5568 60%, transparent)",
+    borderLeftColor: colors.borderAlpha60,
     paddingLeft: {
-      default: 12,
-      [constants.sm]: 20,
+      default: spacing.space12,
+      [breakpoints.sm]: spacing.space20,
     },
   },
 });

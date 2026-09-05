@@ -1,6 +1,14 @@
 import * as stylex from "@stylexjs/stylex";
 import type { Platform } from "./types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { brandColors } from "../../styles/BrandColors.stylex";
 
 export function PlatformIcon({ platform }: { platform: Platform }) {
   if (platform === "youtube") {
@@ -57,35 +65,35 @@ const styles = stylex.create({
     display: "flex",
     height: {
       default: 32,
-      [constants.sm]: 40,
+      [breakpoints.sm]: 40,
     },
     width: {
       default: 32,
-      [constants.sm]: 40,
+      [breakpoints.sm]: 40,
     },
     flexShrink: 0,
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
-    borderRadius: 6,
+    borderRadius: radii.sm,
   },
   youtube: {
-    backgroundColor: "#FF0000",
+    backgroundColor: brandColors.youtube,
   },
   black: {
     backgroundColor: colors.black,
   },
   flinders: {
-    backgroundColor: "#003B71",
+    backgroundColor: brandColors.flinders,
   },
   icon: {
     width: {
       default: 16,
-      [constants.sm]: 20,
+      [breakpoints.sm]: 20,
     },
     height: {
       default: 16,
-      [constants.sm]: 20,
+      [breakpoints.sm]: 20,
     },
     color: colors.white,
     fill: "currentColor",
@@ -93,12 +101,12 @@ const styles = stylex.create({
   devText: {
     textAlign: "center",
     fontSize: {
-      default: 10,
-      [constants.sm]: 12,
+      default: fontSizes.caption,
+      [breakpoints.sm]: fontSizes.label,
     },
-    fontWeight: 700,
+    fontWeight: fontWeights.bold,
     textTransform: "uppercase",
-    lineHeight: 1,
+    lineHeight: lineHeights.none,
     color: colors.white,
   },
 });

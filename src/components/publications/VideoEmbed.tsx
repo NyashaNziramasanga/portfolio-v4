@@ -1,5 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
-import { constants } from "../../styles/tokens.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
 
 export function VideoEmbed({ src, title }: { src: string; title: string }) {
   return (
@@ -20,15 +22,15 @@ export function VideoEmbed({ src, title }: { src: string; title: string }) {
 const styles = stylex.create({
   root: {
     paddingBlock: {
-      default: 12,
-      [constants.sm]: 16,
+      default: spacing.space12,
+      [breakpoints.sm]: spacing.space16,
     },
   },
   frame: {
     overflow: "hidden",
     borderRadius: {
-      default: 8,
-      [constants.sm]: 12,
+      default: radii.md,
+      [breakpoints.sm]: radii.lg,
     },
   },
   iframe: {

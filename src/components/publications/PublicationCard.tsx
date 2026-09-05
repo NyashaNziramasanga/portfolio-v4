@@ -7,7 +7,17 @@ import { ArticlePreview } from "@/components/ui/article-preview";
 import { PlatformIcon } from "./PlatformIcon";
 import { VideoEmbed } from "./VideoEmbed";
 import type { Publication } from "./types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
+import { motion } from "../../styles/Motion.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
 
 export function PublicationCard({
   publication,
@@ -75,58 +85,57 @@ export function PublicationCard({
 const styles = stylex.create({
   card: {
     borderRadius: {
-      default: 12,
-      [constants.sm]: 16,
+      default: radii.lg,
+      [breakpoints.sm]: radii.xl,
     },
-    backgroundColor: colors.brand700,
-    color: colors.brand50,
-    boxShadow: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+    backgroundColor: colors.surface,
+    color: colors.textPrimary,
+    boxShadow: shadows.elevationXs,
     transitionProperty: {
       default: "all",
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
-    transitionDuration: "300ms",
+    transitionDuration: motion.slow,
   },
   expanded: {
-    backgroundColor: colors.brand600,
-    boxShadow:
-      "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 0 0 1px color-mix(in oklab, hsl(207 68% 50%) 30%, transparent)",
+    backgroundColor: colors.surfaceHover,
+    boxShadow: shadows.raisedAccent,
   },
   button: {
     display: "flex",
     width: "100%",
     alignItems: "center",
     gap: {
-      default: 12,
-      [constants.sm]: 16,
+      default: spacing.space12,
+      [breakpoints.sm]: spacing.space16,
     },
     borderRadius: {
-      default: 12,
-      [constants.sm]: 16,
+      default: radii.lg,
+      [breakpoints.sm]: radii.xl,
     },
     paddingInline: {
-      default: 16,
-      [constants.sm]: 24,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space24,
     },
     paddingBlock: {
-      default: 16,
-      [constants.sm]: 20,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space20,
     },
     textAlign: "left",
     outline: "none",
     boxShadow: {
-      ":focus-visible": "0 0 0 2px #1A202C, 0 0 0 4px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focusOffsetBackground,
     },
   },
   title: {
     minWidth: 0,
     flex: "1",
     fontSize: {
-      default: 13,
-      [constants.sm]: 16,
+      default: fontSizes.bodySmall,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
-    fontWeight: 600,
-    lineHeight: 1.375,
+    fontWeight: fontWeights.semibold,
+    lineHeight: lineHeights.snug,
   },
   noShrink: {
     flexShrink: 0,
@@ -135,7 +144,7 @@ const styles = stylex.create({
     width: 16,
     height: 16,
     flexShrink: 0,
-    color: colors.brand300,
+    color: colors.textMuted,
     transitionProperty: "transform",
   },
   chevronOpen: {
@@ -143,12 +152,12 @@ const styles = stylex.create({
   },
   panel: {
     paddingInline: {
-      default: 16,
-      [constants.sm]: 24,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space24,
     },
     paddingBottom: {
-      default: 16,
-      [constants.sm]: 20,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space20,
     },
   },
 });
