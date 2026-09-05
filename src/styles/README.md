@@ -8,11 +8,11 @@ the scale or introducing a second theme.
 
 | Module | Export | Purpose |
 | --- | --- | --- |
-| `Colors.stylex.ts` | `colors` | Semantic background, surface, text, border, accent, feedback, overlay, and media colors |
+| `Colors.stylex.ts` | `colors` | Semantic background, surface, text, border, accent, accessible action, feedback, overlay, and media colors |
 | `Spacing.stylex.ts` | `spacing` | Compact named spacing scale based on a 4 px grid |
 | `BorderRadius.stylex.ts` | `radii` | Shared corner-radius scale |
 | `Typography.stylex.ts` | `fontFamilies`, `fontSizes`, `fontWeights`, `lineHeights`, `letterSpacing` | Type families and scales |
-| `Fonts.stylex.ts` | `fonts` | Pre-composed semantic font recipes built from the typography primitives |
+| `Fonts.stylex.ts` | `fonts` | Complete semantic font recipes with size, weight, line height, and tracking |
 | `Motion.stylex.ts` | `motion` | Durations, easing curves, and motion-preference queries |
 | `Breakpoints.stylex.ts` | `breakpoints` | Mobile-first responsive queries, including the 768 px tool layout |
 | `Shadows.stylex.ts` | `shadows` | Elevation, focus rings, inset, and media shadows |
@@ -55,6 +55,9 @@ component with a short lint exception explaining why it is not reusable.
 For ordinary text, start with a semantic recipe from `Fonts.stylex.ts` and apply
 component styles afterward. Use the primitive typography exports directly when
 the type changes responsively or a recipe would obscure a deliberate exception.
+The smallest supported text is the 11 px `caption` token; use 12 px `label` for
+interactive labels. Use `accentText` for blue text and icons, while solid controls
+use the contrast-safe `action*` color roles.
 
 ## Enforcement
 
