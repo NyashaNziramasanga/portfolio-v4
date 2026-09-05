@@ -3,7 +3,17 @@ import * as stylex from "@stylexjs/stylex";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import type { RegisteredTool } from "@/tools/types";
-import { colors, constants } from "../styles/tokens.stylex";
+import { colors } from "../styles/Colors.stylex";
+import { spacing } from "../styles/Spacing.stylex";
+import { radii } from "../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../styles/Typography.stylex";
+import { breakpoints } from "../styles/Breakpoints.stylex";
+import { shadows } from "../styles/Shadows.stylex";
+import { layout } from "../styles/Layout.stylex";
 
 type ToolPageProps = PropsWithChildren<{
   tool: RegisteredTool;
@@ -32,44 +42,44 @@ export function ToolPage({ tool, children }: ToolPageProps) {
 const styles = stylex.create({
   root: {
     minHeight: "100vh",
-    backgroundColor: colors.brand900,
-    color: colors.brand50,
+    backgroundColor: colors.background,
+    color: colors.textPrimary,
   },
   container: {
     marginInline: "auto",
     display: "flex",
     width: "100%",
-    maxWidth: 1280,
+    maxWidth: layout.pageMax,
     flexDirection: "column",
     paddingInline: {
-      default: 16,
-      [constants.sm]: 32,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space32,
     },
     paddingBlock: {
-      default: 24,
-      [constants.sm]: 32,
+      default: spacing.space24,
+      [breakpoints.sm]: spacing.space32,
     },
   },
   backLink: {
     display: "inline-flex",
     width: "fit-content",
     alignItems: "center",
-    gap: 8,
-    borderRadius: 6,
-    paddingInline: 8,
-    paddingBlock: 6,
-    fontSize: 14,
-    lineHeight: "20px",
+    gap: spacing.space8,
+    borderRadius: radii.sm,
+    paddingInline: spacing.space8,
+    paddingBlock: spacing.space6,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.line20,
     color: {
-      default: colors.brand300,
-      ":hover": colors.brand100,
+      default: colors.textMuted,
+      ":hover": colors.textStrong,
     },
     transitionProperty: "color",
     outline: {
       ":focus-visible": "none",
     },
     boxShadow: {
-      ":focus-visible": "0 0 0 2px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focus,
     },
   },
   icon: {
@@ -77,38 +87,38 @@ const styles = stylex.create({
     height: 16,
   },
   header: {
-    marginTop: 12,
+    marginTop: spacing.space12,
     marginBottom: {
-      default: 24,
-      [constants.sm]: 32,
+      default: spacing.space24,
+      [breakpoints.sm]: spacing.space32,
     },
     borderBottomWidth: 1,
-    borderBottomColor: colors.brand500,
-    paddingBottom: 20,
+    borderBottomColor: colors.border,
+    paddingBottom: spacing.space20,
   },
   title: {
     fontSize: {
-      default: 24,
-      [constants.sm]: 30,
+      default: fontSizes.heading,
+      [breakpoints.sm]: fontSizes.displaySmall,
     },
     lineHeight: {
-      default: "32px",
-      [constants.sm]: "36px",
+      default: lineHeights.line32,
+      [breakpoints.sm]: lineHeights.line36,
     },
-    fontWeight: 700,
-    color: colors.brand50,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   description: {
-    marginTop: 8,
-    maxWidth: 768,
+    marginTop: spacing.space8,
+    maxWidth: layout.contentMedium,
     fontSize: {
-      default: 14,
-      [constants.sm]: 16,
+      default: fontSizes.body,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
     lineHeight: {
-      default: "20px",
-      [constants.sm]: "24px",
+      default: lineHeights.line20,
+      [breakpoints.sm]: lineHeights.line24,
     },
-    color: colors.brand300,
+    color: colors.textMuted,
   },
 });

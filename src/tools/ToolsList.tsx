@@ -2,7 +2,15 @@ import * as stylex from "@stylexjs/stylex";
 import toolsData from "@/tools/data/tools.json";
 import { ToolCard } from "@/tools/ToolCard";
 import type { ToolListItem } from "@/tools/types";
-import { colors, constants } from "../styles/tokens.stylex";
+import { colors } from "../styles/Colors.stylex";
+import { spacing } from "../styles/Spacing.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../styles/Typography.stylex";
+import { breakpoints } from "../styles/Breakpoints.stylex";
+import { layout } from "../styles/Layout.stylex";
 
 const tools = toolsData as ToolListItem[];
 
@@ -23,28 +31,28 @@ const styles = stylex.create({
   root: {
     display: "flex",
     width: "100%",
-    maxWidth: 1024,
+    maxWidth: layout.contentMax,
     flexDirection: "column",
   },
   title: {
     marginBottom: {
-      default: 32,
-      [constants.sm]: 40,
+      default: spacing.space32,
+      [breakpoints.sm]: spacing.space40,
     },
     fontSize: {
-      default: 20,
-      [constants.sm]: 24,
+      default: fontSizes.title,
+      [breakpoints.sm]: fontSizes.heading,
     },
     lineHeight: {
-      default: "28px",
-      [constants.sm]: "32px",
+      default: lineHeights.line28,
+      [breakpoints.sm]: lineHeights.line32,
     },
-    fontWeight: 700,
-    color: colors.brand50,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: 16,
+    gap: spacing.space16,
   },
 });

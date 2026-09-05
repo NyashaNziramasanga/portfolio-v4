@@ -3,7 +3,9 @@ import * as stylex from "@stylexjs/stylex";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { ToolPage } from "@/tools/ToolPage";
 import { getToolBySlug, isToolSlug } from "@/tools/toolRegistry";
-import { colors, constants } from "../styles/tokens.stylex";
+import { colors } from "../styles/Colors.stylex";
+import { radii } from "../styles/BorderRadius.stylex";
+import { motion } from "../styles/Motion.stylex";
 
 function ToolRouteScreen() {
   const { toolId } = Route.useParams();
@@ -44,14 +46,14 @@ const pulse = stylex.keyframes({
 const styles = stylex.create({
   loading: {
     minHeight: 256,
-    borderRadius: 16,
-    backgroundColor: colors.brand700,
+    borderRadius: radii.xl,
+    backgroundColor: colors.surface,
     animationName: {
       default: pulse,
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
-    animationDuration: "2s",
-    animationTimingFunction: "cubic-bezier(0.4, 0, 0.6, 1)",
+    animationDuration: motion.pulseDuration,
+    animationTimingFunction: motion.pulseEasing,
     animationIterationCount: "infinite",
   },
 });

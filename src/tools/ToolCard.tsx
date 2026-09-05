@@ -3,7 +3,17 @@ import { ChevronRight, Wrench } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
 import type { ToolListItem } from "@/tools/types";
 import { track } from "@vercel/analytics/react";
-import { colors, constants } from "../styles/tokens.stylex";
+import { colors } from "../styles/Colors.stylex";
+import { spacing } from "../styles/Spacing.stylex";
+import { radii } from "../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../styles/Typography.stylex";
+import { motion } from "../styles/Motion.stylex";
+import { breakpoints } from "../styles/Breakpoints.stylex";
+import { shadows } from "../styles/Shadows.stylex";
 
 type ToolCardProps = {
   tool: ToolListItem;
@@ -36,35 +46,34 @@ export function ToolCard({ tool }: ToolCardProps) {
 const styles = stylex.create({
   card: {
     borderRadius: {
-      default: 12,
-      [constants.sm]: 16,
+      default: radii.lg,
+      [breakpoints.sm]: radii.xl,
     },
     backgroundColor: {
-      default: colors.brand700,
-      ":hover": colors.brand600,
+      default: colors.surface,
+      ":hover": colors.surfaceHover,
     },
     paddingInline: {
-      default: 16,
-      [constants.sm]: 24,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space24,
     },
     paddingBlock: {
-      default: 16,
-      [constants.sm]: 20,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space20,
     },
-    color: colors.brand50,
+    color: colors.textPrimary,
     boxShadow: {
-      default: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-      ":hover":
-        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
-      ":focus-visible": "0 0 0 2px #1A202C, 0 0 0 4px hsl(207 68% 50%)",
+      default: shadows.elevationXs,
+      ":hover": shadows.elevationMd,
+      ":focus-visible": shadows.focusOffsetBackground,
     },
     transform: {
       default: "translateY(0)",
       ":hover": "translateY(-2px)",
     },
     transitionProperty: "all",
-    transitionDuration: "300ms",
-    transitionTimingFunction: constants.easeOut,
+    transitionDuration: motion.slow,
+    transitionTimingFunction: motion.easeOut,
     outline: {
       ":focus-visible": "none",
     },
@@ -73,36 +82,36 @@ const styles = stylex.create({
     display: "flex",
     alignItems: "flex-start",
     gap: {
-      default: 12,
-      [constants.sm]: 16,
+      default: spacing.space12,
+      [breakpoints.sm]: spacing.space16,
     },
   },
   iconBox: {
-    marginTop: 2,
+    marginTop: spacing.space2,
     display: "flex",
     height: {
       default: 32,
-      [constants.sm]: 40,
+      [breakpoints.sm]: 40,
     },
     width: {
       default: 32,
-      [constants.sm]: 40,
+      [breakpoints.sm]: 40,
     },
     flexShrink: 0,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 6,
-    backgroundColor: colors.brand600,
-    color: colors.primary,
+    borderRadius: radii.sm,
+    backgroundColor: colors.surfaceHover,
+    color: colors.accent,
   },
   wrench: {
     width: {
       default: 16,
-      [constants.sm]: 20,
+      [breakpoints.sm]: 20,
     },
     height: {
       default: 16,
-      [constants.sm]: 20,
+      [breakpoints.sm]: 20,
     },
   },
   copy: {
@@ -111,45 +120,45 @@ const styles = stylex.create({
   },
   title: {
     fontSize: {
-      default: 13,
-      [constants.sm]: 16,
+      default: fontSizes.bodySmall,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
-    fontWeight: 600,
-    lineHeight: 1.375,
-    color: colors.brand50,
+    fontWeight: fontWeights.semibold,
+    lineHeight: lineHeights.snug,
+    color: colors.textPrimary,
   },
   description: {
-    marginTop: 4,
+    marginTop: spacing.space4,
     fontSize: {
-      default: 12,
-      [constants.sm]: 14,
+      default: fontSizes.label,
+      [breakpoints.sm]: fontSizes.body,
     },
     lineHeight: {
-      default: "16px",
-      [constants.sm]: "20px",
+      default: lineHeights.line16,
+      [breakpoints.sm]: lineHeights.line20,
     },
-    color: colors.brand300,
+    color: colors.textMuted,
   },
   chevron: {
-    marginTop: 4,
+    marginTop: spacing.space4,
     width: {
       default: 16,
-      [constants.sm]: 20,
+      [breakpoints.sm]: 20,
     },
     height: {
       default: 16,
-      [constants.sm]: 20,
+      [breakpoints.sm]: 20,
     },
     flexShrink: 0,
     color: {
-      default: colors.brand300,
-      [stylex.when.ancestor(":hover")]: colors.brand100,
+      default: colors.textMuted,
+      [stylex.when.ancestor(":hover")]: colors.textStrong,
     },
     transform: {
       default: "translateX(0)",
       [stylex.when.ancestor(":hover")]: "translateX(2px)",
     },
     transitionProperty: "transform, color",
-    transitionDuration: "300ms",
+    transitionDuration: motion.slow,
   },
 });
