@@ -1,27 +1,19 @@
 import * as stylex from "@stylexjs/stylex";
 
-/** Numeric spacing scale in pixels. Names mirror each rendered value. */
+/**
+ * Compact spacing scale based on a 4px grid.
+ *
+ * Use these tokens for reusable gaps, margins, and padding. Measurements tied
+ * to a structural layout requirement belong in Layout.stylex.ts instead.
+ */
 export const spacing = stylex.defineConsts({
-  space2: 2,
-  space4: 4,
-  space6: 6,
-  space8: 8,
-  space10: 10,
-  space12: 12,
-  space14: 14,
-  space16: 16,
-  space18: 18,
-  space20: 20,
-  space24: 24,
-  space26: 26,
-  space28: 28,
-  space32: 32,
-  space36: 36,
-  space39: 39,
-  space40: 40,
-  space48: 48,
-  space56: 56,
-  space64: 64,
-  space80: 80,
-  space112: 112,
+  none: 0,
+  xxs: 4,
+  xs: 8,
+  sm: 12,
+  md: 16,
+  lg: 20,
+  xl: 24,
+  xxl: 32,
+  xxxl: 40,
 });

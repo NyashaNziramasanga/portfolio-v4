@@ -7,6 +7,7 @@ import { StackBottomBar } from "@/tools/mobile-app-stack-picker/components/Stack
 import { useStackPicker } from "@/tools/mobile-app-stack-picker/hooks/useStackPicker";
 import type { StackCategory } from "@/tools/types";
 import { colors } from "../../styles/Colors.stylex";
+import { layout } from "../../styles/Layout.stylex";
 import { spacing } from "../../styles/Spacing.stylex";
 import {
   fontSizes,
@@ -149,27 +150,27 @@ export function MobileAppStackPicker() {
 
 const styles = stylex.create({
   root: {
-    paddingBottom: spacing.space112,
+    paddingBottom: layout.stackPickerBottomClearance,
   },
   tiers: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space40,
+    gap: spacing.xxxl,
   },
   tierHeader: {
-    marginBottom: spacing.space16,
+    marginBottom: spacing.md,
     display: "flex",
     alignItems: "baseline",
     justifyContent: "space-between",
-    gap: spacing.space12,
+    gap: spacing.sm,
     borderBottomWidth: 1,
     borderBottomColor: colors.surface,
-    paddingBottom: spacing.space8,
+    paddingBottom: spacing.xs,
   },
   tierHeadingGroup: {
     display: "flex",
     alignItems: "baseline",
-    gap: spacing.space12,
+    gap: spacing.sm,
   },
   tierTitle: {
     fontSize: {
@@ -195,7 +196,7 @@ const styles = stylex.create({
   },
   categoryGrid: {
     display: "grid",
-    gap: spacing.space16,
+    gap: spacing.md,
     gridTemplateColumns: {
       [breakpoints.md]: "repeat(2, minmax(0, 1fr))",
       [breakpoints.xl]: "repeat(4, minmax(0, 1fr))",

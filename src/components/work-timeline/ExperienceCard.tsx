@@ -133,12 +133,12 @@ const styles = stylex.create({
     },
     backgroundColor: colors.surface,
     paddingInline: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space24,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.xl,
     },
     paddingBlock: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space20,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.lg,
     },
     boxShadow: shadows.elevationXs,
     transitionProperty: {
@@ -158,7 +158,7 @@ const styles = stylex.create({
       default: "column",
       [breakpoints.sm]: "row",
     },
-    gap: spacing.space12,
+    gap: spacing.sm,
     alignItems: {
       [breakpoints.sm]: "flex-start",
     },
@@ -171,8 +171,8 @@ const styles = stylex.create({
     minWidth: 0,
     alignItems: "flex-start",
     gap: {
-      default: spacing.space12,
-      [breakpoints.sm]: spacing.space16,
+      default: spacing.sm,
+      [breakpoints.sm]: spacing.md,
     },
   },
   logoBox: {
@@ -219,10 +219,10 @@ const styles = stylex.create({
     color: colors.textPrimary,
   },
   company: {
-    marginTop: spacing.space2,
+    marginTop: spacing.xxs,
     display: "inline-flex",
     alignItems: "center",
-    gap: spacing.space2,
+    gap: spacing.xxs,
     fontSize: {
       default: fontSizes.label,
       [breakpoints.sm]: fontSizes.body,
@@ -256,7 +256,7 @@ const styles = stylex.create({
     flexDirection: {
       [breakpoints.sm]: "column",
     },
-    gap: spacing.space8,
+    gap: spacing.xs,
   },
   date: {
     fontSize: {
@@ -279,17 +279,17 @@ const styles = stylex.create({
       [breakpoints.sm]: 0,
     },
     alignItems: "center",
-    gap: spacing.space6,
+    gap: spacing.xs,
     borderRadius: radii.pill,
     backgroundColor: {
       default: colors.borderAlpha40,
       ":hover": colors.borderAlpha70,
     },
     paddingInline: {
-      default: spacing.space12,
-      [breakpoints.sm]: spacing.space10,
+      default: spacing.sm,
+      [breakpoints.sm]: spacing.sm,
     },
-    paddingBlock: spacing.space4,
+    paddingBlock: spacing.xxs,
     fontSize: fontSizes.label,
     lineHeight: lineHeights.line16,
     fontWeight: fontWeights.medium,

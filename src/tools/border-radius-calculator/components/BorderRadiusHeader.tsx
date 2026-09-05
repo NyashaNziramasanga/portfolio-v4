@@ -33,8 +33,8 @@ export function BorderRadiusHeader() {
 const styles = stylex.create({
   root: {
     marginBottom: {
-      default: spacing.space24,
-      [breakpoints.sm]: spacing.space28,
+      default: spacing.xl,
+      [breakpoints.sm]: spacing.xxl,
     },
   },
   title: {
@@ -54,7 +54,7 @@ const styles = stylex.create({
     color: colors.accent,
   },
   description: {
-    marginTop: spacing.space8,
+    marginTop: spacing.xs,
     maxWidth: layout.contentNarrow,
     fontSize: {
       default: fontSizes.body,
@@ -69,8 +69,8 @@ const styles = stylex.create({
   code: {
     borderRadius: radii.sm,
     backgroundColor: colors.surface,
-    paddingInline: spacing.space6,
-    paddingBlock: spacing.space2,
+    paddingInline: spacing.xs,
+    paddingBlock: spacing.xxs,
     fontSize: fontSizes.label,
     color: colors.textStrong,
   },

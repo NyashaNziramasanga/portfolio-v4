@@ -89,8 +89,8 @@ const styles = stylex.create({
   },
   header: {
     marginBottom: {
-      default: spacing.space32,
-      [breakpoints.sm]: spacing.space40,
+      default: spacing.xxl,
+      [breakpoints.sm]: spacing.xxxl,
     },
   },
   title: {
@@ -106,7 +106,7 @@ const styles = stylex.create({
     color: colors.textPrimary,
   },
   description: {
-    marginTop: spacing.space12,
+    marginTop: spacing.sm,
     maxWidth: layout.contentMedium,
     fontSize: fontSizes.body,
     lineHeight: lineHeights.relaxed,
@@ -115,21 +115,21 @@ const styles = stylex.create({
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space16,
+    gap: spacing.md,
   },
   archive: {
-    marginTop: spacing.space24,
+    marginTop: spacing.xl,
   },
   archiveButton: {
     display: "inline-flex",
     minHeight: layout.touchTarget,
     alignItems: "center",
-    gap: spacing.space8,
+    gap: spacing.xs,
     borderRadius: radii.md,
     borderWidth: 1,
     borderColor: colors.border,
-    paddingInline: spacing.space12,
-    paddingBlock: spacing.space8,
+    paddingInline: spacing.sm,
+    paddingBlock: spacing.xs,
     fontSize: fontSizes.body,
     lineHeight: lineHeights.line20,
     fontWeight: fontWeights.semibold,
@@ -160,15 +160,15 @@ const styles = stylex.create({
     transform: "rotate(180deg)",
   },
   archiveList: {
-    marginTop: spacing.space16,
+    marginTop: spacing.md,
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space12,
+    gap: spacing.sm,
     borderLeftWidth: 1,
     borderLeftColor: colors.borderAlpha60,
     paddingLeft: {
-      default: spacing.space12,
-      [breakpoints.sm]: spacing.space20,
+      default: spacing.sm,
+      [breakpoints.sm]: spacing.lg,
     },
   },
 });

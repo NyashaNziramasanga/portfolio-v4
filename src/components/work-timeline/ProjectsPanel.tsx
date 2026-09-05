@@ -74,10 +74,10 @@ export function ProjectsPanel({ projects }: { projects: Project[] }) {
 
 const styles = stylex.create({
   root: {
-    marginTop: spacing.space16,
+    marginTop: spacing.md,
     borderTopWidth: 1,
     borderTopColor: colors.borderAlpha50,
-    paddingTop: spacing.space16,
+    paddingTop: spacing.md,
   },
   layout: {
     display: "flex",
@@ -86,8 +86,8 @@ const styles = stylex.create({
       [breakpoints.lg]: "row",
     },
     gap: {
-      default: spacing.space16,
-      [breakpoints.lg]: spacing.space20,
+      default: spacing.md,
+      [breakpoints.lg]: spacing.lg,
     },
   },
   nav: {
@@ -105,7 +105,7 @@ const styles = stylex.create({
       [breakpoints.lg]: "column",
     },
     gap: {
-      default: spacing.space8,
+      default: spacing.xs,
       [breakpoints.lg]: 0,
     },
   },
@@ -115,10 +115,10 @@ const styles = stylex.create({
       default: radii.pill,
       [breakpoints.lg]: radii.md,
     },
-    paddingInline: spacing.space12,
+    paddingInline: spacing.sm,
     paddingBlock: {
-      default: spacing.space6,
-      [breakpoints.lg]: spacing.space10,
+      default: spacing.xs,
+      [breakpoints.lg]: spacing.sm,
     },
     fontSize: {
       default: fontSizes.label,
@@ -192,8 +192,8 @@ const styles = stylex.create({
     display: "flex",
     justifyContent: "center",
     paddingBlock: {
-      default: spacing.space8,
-      [breakpoints.lg]: spacing.space24,
+      default: spacing.xs,
+      [breakpoints.lg]: spacing.xl,
     },
     flex: {
       [breakpoints.lg]: 1,
@@ -208,7 +208,7 @@ const styles = stylex.create({
       [breakpoints.lg]: colors.surfaceSubtleAlpha60,
     },
     paddingInline: {
-      [breakpoints.lg]: spacing.space24,
+      [breakpoints.lg]: spacing.xl,
     },
   },
   empty: {

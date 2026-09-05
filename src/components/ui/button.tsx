@@ -54,7 +54,7 @@ const styles = stylex.create({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: spacing.space8,
+    gap: spacing.xs,
     whiteSpace: "nowrap",
     borderRadius: radii.sm,
     lineHeight: lineHeights.line20,
@@ -132,18 +132,18 @@ const variantStyles = stylex.create({
 const sizeStyles = stylex.create({
   default: {
     height: 40,
-    paddingInline: spacing.space16,
-    paddingBlock: spacing.space8,
+    paddingInline: spacing.md,
+    paddingBlock: spacing.xs,
   },
   sm: {
     height: 36,
     borderRadius: radii.sm,
-    paddingInline: spacing.space12,
+    paddingInline: spacing.sm,
   },
   lg: {
     height: 44,
     borderRadius: radii.sm,
-    paddingInline: spacing.space32,
+    paddingInline: spacing.xxl,
   },
   icon: {
     width: 40,

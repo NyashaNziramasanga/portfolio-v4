@@ -102,11 +102,11 @@ const styles = stylex.create({
     },
     paddingBlock: {
       default: 0,
-      ":focus": spacing.space8,
+      ":focus": spacing.xs,
     },
     paddingInline: {
       default: 0,
-      ":focus": spacing.space16,
+      ":focus": spacing.md,
     },
     margin: {
       default: -1,
@@ -126,10 +126,10 @@ const styles = stylex.create({
     },
     borderWidth: 0,
     left: {
-      ":focus": spacing.space16,
+      ":focus": spacing.md,
     },
     top: {
-      ":focus": spacing.space16,
+      ":focus": spacing.md,
     },
     zIndex: {
       ":focus": layout.zSkipLink,

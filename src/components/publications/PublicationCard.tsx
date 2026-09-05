@@ -106,20 +106,20 @@ const styles = stylex.create({
     width: "100%",
     alignItems: "center",
     gap: {
-      default: spacing.space12,
-      [breakpoints.sm]: spacing.space16,
+      default: spacing.sm,
+      [breakpoints.sm]: spacing.md,
     },
     borderRadius: {
       default: radii.lg,
       [breakpoints.sm]: radii.xl,
     },
     paddingInline: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space24,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.xl,
     },
     paddingBlock: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space20,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.lg,
     },
     textAlign: "left",
     outline: "none",
@@ -152,12 +152,12 @@ const styles = stylex.create({
   },
   panel: {
     paddingInline: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space24,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.xl,
     },
     paddingBottom: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space20,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.lg,
     },
   },
 });

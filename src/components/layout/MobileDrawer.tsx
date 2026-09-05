@@ -96,11 +96,11 @@ const styles = stylex.create({
     display: "flex",
     height: "100%",
     flexDirection: "column",
-    paddingInline: spacing.space24,
-    paddingBlock: spacing.space24,
+    paddingInline: spacing.xl,
+    paddingBlock: spacing.xl,
   },
   header: {
-    marginBottom: spacing.space20,
+    marginBottom: spacing.lg,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -112,7 +112,7 @@ const styles = stylex.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: radii.md,
-    padding: spacing.space8,
+    padding: spacing.xs,
     color: {
       default: colors.textSecondary,
       ":hover": colors.textPrimary,

@@ -156,8 +156,8 @@ const styles = stylex.create({
     bottom: 0,
     zIndex: layout.zSticky,
     marginTop: {
-      default: spacing.space24,
-      [breakpoints.sm]: spacing.space32,
+      default: spacing.xl,
+      [breakpoints.sm]: spacing.xxl,
     },
     borderTopLeftRadius: radii.lg,
     borderTopRightRadius: radii.lg,
@@ -166,8 +166,8 @@ const styles = stylex.create({
     borderColor: colors.border,
     backgroundColor: colors.backgroundOpaque95,
     padding: {
-      default: spacing.space12,
-      [breakpoints.sm]: spacing.space16,
+      default: spacing.sm,
+      [breakpoints.sm]: spacing.md,
     },
     boxShadow: shadows.elevationLg,
     backdropFilter: "blur(8px)",
@@ -184,7 +184,7 @@ const styles = stylex.create({
     justifyContent: {
       [breakpoints.sm]: "space-between",
     },
-    gap: spacing.space12,
+    gap: spacing.sm,
   },
   summary: {
     minWidth: 0,
@@ -198,27 +198,27 @@ const styles = stylex.create({
     color: colors.textMuted,
   },
   entries: {
-    marginTop: spacing.space8,
+    marginTop: spacing.xs,
     display: "flex",
     maxHeight: {
       default: 160,
       [breakpoints.sm]: 128,
     },
     flexWrap: "wrap",
-    gap: spacing.space8,
+    gap: spacing.xs,
     overflowY: "auto",
-    paddingRight: spacing.space4,
+    paddingRight: spacing.xxs,
   },
   entry: {
     display: "inline-flex",
     alignItems: "center",
-    gap: spacing.space8,
+    gap: spacing.xs,
     borderRadius: radii.md,
     borderWidth: 1,
     borderColor: colors.border,
     backgroundColor: colors.surface,
-    paddingInline: spacing.space12,
-    paddingBlock: spacing.space6,
+    paddingInline: spacing.sm,
+    paddingBlock: spacing.xs,
     fontSize: fontSizes.body,
     lineHeight: lineHeights.line20,
     color: colors.textStrong,
@@ -249,7 +249,7 @@ const styles = stylex.create({
     whiteSpace: "nowrap",
   },
   empty: {
-    marginTop: spacing.space4,
+    marginTop: spacing.xxs,
     fontSize: {
       default: fontSizes.body,
       [breakpoints.sm]: fontSizes.bodyLarge,
@@ -263,7 +263,7 @@ const styles = stylex.create({
   actions: {
     display: "flex",
     alignItems: "center",
-    gap: spacing.space8,
+    gap: spacing.xs,
     alignSelf: {
       default: "flex-end",
       [breakpoints.sm]: "auto",

@@ -52,22 +52,22 @@ const styles = stylex.create({
     maxWidth: layout.pageMax,
     flexDirection: "column",
     paddingInline: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space32,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.xxl,
     },
     paddingBlock: {
-      default: spacing.space24,
-      [breakpoints.sm]: spacing.space32,
+      default: spacing.xl,
+      [breakpoints.sm]: spacing.xxl,
     },
   },
   backLink: {
     display: "inline-flex",
     width: "fit-content",
     alignItems: "center",
-    gap: spacing.space8,
+    gap: spacing.xs,
     borderRadius: radii.sm,
-    paddingInline: spacing.space8,
-    paddingBlock: spacing.space6,
+    paddingInline: spacing.xs,
+    paddingBlock: spacing.xs,
     fontSize: fontSizes.body,
     lineHeight: lineHeights.line20,
     color: {
@@ -87,14 +87,14 @@ const styles = stylex.create({
     height: 16,
   },
   header: {
-    marginTop: spacing.space12,
+    marginTop: spacing.sm,
     marginBottom: {
-      default: spacing.space24,
-      [breakpoints.sm]: spacing.space32,
+      default: spacing.xl,
+      [breakpoints.sm]: spacing.xxl,
     },
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
-    paddingBottom: spacing.space20,
+    paddingBottom: spacing.lg,
   },
   title: {
     fontSize: {
@@ -109,7 +109,7 @@ const styles = stylex.create({
     color: colors.textPrimary,
   },
   description: {
-    marginTop: spacing.space8,
+    marginTop: spacing.xs,
     maxWidth: layout.contentMedium,
     fontSize: {
       default: fontSizes.body,

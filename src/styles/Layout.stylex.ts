@@ -1,6 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 
-/** Shared layout dimensions and stacking levels in pixels. */
+/** Shared structural dimensions and stacking levels in pixels. */
 export const layout = stylex.defineConsts({
   touchTarget: 44,
   sidebarWidth: 288,
@@ -9,6 +9,8 @@ export const layout = stylex.defineConsts({
   contentWide: 896,
   contentMax: 1024,
   pageMax: 1280,
+  sectionPaddingDesktop: 64,
+  stackPickerBottomClearance: 112,
   zSticky: 10,
   zSkipLink: 100,
 });

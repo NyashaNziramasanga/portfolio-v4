@@ -36,8 +36,8 @@ const styles = stylex.create({
   },
   title: {
     marginBottom: {
-      default: spacing.space32,
-      [breakpoints.sm]: spacing.space40,
+      default: spacing.xxl,
+      [breakpoints.sm]: spacing.xxxl,
     },
     fontSize: {
       default: fontSizes.title,
@@ -53,6 +53,6 @@ const styles = stylex.create({
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space16,
+    gap: spacing.md,
   },
 });

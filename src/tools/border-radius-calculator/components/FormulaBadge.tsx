@@ -103,14 +103,14 @@ const styles = stylex.create({
     alignItems: "center",
     justifyContent: "center",
     gap: {
-      default: spacing.space8,
-      [breakpoints.sm]: spacing.space12,
+      default: spacing.xs,
+      [breakpoints.sm]: spacing.sm,
     },
     borderRadius: radii.xl,
     borderWidth: 1,
     borderColor: colors.surface,
     backgroundColor: colors.surfaceSubtleAlpha60,
-    padding: spacing.space16,
+    padding: spacing.md,
     color: colors.textSecondary,
   },
   pill: {
@@ -120,8 +120,8 @@ const styles = stylex.create({
     alignItems: "center",
     borderRadius: radii.md,
     borderWidth: 1,
-    paddingInline: spacing.space12,
-    paddingBlock: spacing.space6,
+    paddingInline: spacing.sm,
+    paddingBlock: spacing.xs,
     textAlign: "center",
     boxShadow: {
       ":focus-within": shadows.currentColorFocus,

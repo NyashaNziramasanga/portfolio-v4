@@ -80,7 +80,7 @@ const styles = stylex.create({
     color: colors.accentText,
   },
   title: {
-    marginTop: spacing.space12,
+    marginTop: spacing.sm,
     maxWidth: layout.contentWide,
     fontSize: {
       default: fontSizes.displaySmall,
@@ -92,7 +92,7 @@ const styles = stylex.create({
     color: colors.textPrimary,
   },
   subtitle: {
-    marginTop: spacing.space8,
+    marginTop: spacing.xs,
     display: "block",
     fontSize: {
       default: fontSizes.title,
@@ -108,7 +108,7 @@ const styles = stylex.create({
     color: colors.textMuted,
   },
   summary: {
-    marginTop: spacing.space24,
+    marginTop: spacing.xl,
     maxWidth: layout.contentWide,
     fontSize: {
       default: fontSizes.body,
@@ -129,19 +129,19 @@ const styles = stylex.create({
     textUnderlineOffset: 2,
   },
   actions: {
-    marginTop: spacing.space28,
+    marginTop: spacing.xxl,
     display: "flex",
     flexWrap: "wrap",
     alignItems: "center",
-    gap: spacing.space12,
+    gap: spacing.sm,
   },
   grid: {
     marginTop: {
-      default: spacing.space40,
-      [breakpoints.sm]: spacing.space48,
+      default: spacing.xxxl,
+      [breakpoints.sm]: spacing.xxxl,
     },
     display: "grid",
-    gap: spacing.space16,
+    gap: spacing.md,
     gridTemplateColumns: {
       [breakpoints.sm]: "repeat(2, minmax(0, 1fr))",
       [breakpoints.lg]: "repeat(3, minmax(0, 1fr))",
@@ -158,7 +158,7 @@ const styles = stylex.create({
       default: colors.surfaceSubtleAlpha50,
       ":hover": colors.surfaceAlpha70,
     },
-    padding: spacing.space20,
+    padding: spacing.lg,
     boxShadow: {
       default: shadows.elevationXs,
       ":hover": shadows.elevationMd,
@@ -175,7 +175,7 @@ const styles = stylex.create({
     transitionDuration: motion.slow,
   },
   emoji: {
-    marginBottom: spacing.space16,
+    marginBottom: spacing.md,
     display: "flex",
     height: 40,
     width: 40,
@@ -199,7 +199,7 @@ const styles = stylex.create({
     color: colors.textMuted,
   },
   cardSummary: {
-    marginTop: spacing.space8,
+    marginTop: spacing.xs,
     fontSize: fontSizes.body,
     lineHeight: lineHeights.line24,
     color: colors.textStrong,

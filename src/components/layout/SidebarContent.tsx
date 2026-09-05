@@ -53,10 +53,10 @@ export function SidebarContent({
 
 const styles = stylex.create({
   avatarDesktop: {
-    marginBottom: spacing.space20,
+    marginBottom: spacing.lg,
   },
   name: {
-    marginBottom: spacing.space2,
+    marginBottom: spacing.xxs,
     fontWeight: fontWeights.bold,
     lineHeight: lineHeights.tight,
     color: colors.textPrimary,
@@ -68,7 +68,7 @@ const styles = stylex.create({
     lineHeight: lineHeights.line28,
   },
   role: {
-    marginBottom: spacing.space20,
+    marginBottom: spacing.lg,
     fontWeight: fontWeights.medium,
     color: colors.textMuted,
   },
@@ -79,12 +79,12 @@ const styles = stylex.create({
     lineHeight: lineHeights.line24,
   },
   rule: {
-    marginBottom: spacing.space20,
+    marginBottom: spacing.lg,
     borderTopWidth: 1,
     borderColor: colors.border,
   },
   social: {
     marginTop: "auto",
-    paddingTop: spacing.space20,
+    paddingTop: spacing.lg,
   },
 });

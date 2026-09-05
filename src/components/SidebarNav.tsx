@@ -53,12 +53,12 @@ const styles = stylex.create({
   root: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space2,
+    gap: spacing.xxs,
   },
   button: {
     minHeight: layout.touchTarget,
     justifyContent: "flex-start",
-    gap: spacing.space10,
+    gap: spacing.sm,
     fontSize: fontSizes.titleSmall,
     lineHeight: lineHeights.line28,
     fontWeight: fontWeights.medium,

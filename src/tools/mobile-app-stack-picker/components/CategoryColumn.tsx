@@ -76,15 +76,15 @@ const styles = stylex.create({
     borderRadius: radii.lg,
     borderWidth: 1,
     padding: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space20,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.lg,
     },
     transitionProperty: "color, background-color, border-color",
   },
   header: {
-    marginBottom: spacing.space12,
+    marginBottom: spacing.sm,
     borderBottomWidth: 1,
-    paddingBottom: spacing.space10,
+    paddingBottom: spacing.sm,
   },
   title: {
     fontSize: fontSizes.bodyLarge,
@@ -93,7 +93,7 @@ const styles = stylex.create({
     color: colors.textPrimary,
   },
   subtitle: {
-    marginTop: spacing.space2,
+    marginTop: spacing.xxs,
     fontSize: fontSizes.caption,
     fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
@@ -103,7 +103,7 @@ const styles = stylex.create({
   items: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space8,
+    gap: spacing.xs,
   },
 });
 

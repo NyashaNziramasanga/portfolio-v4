@@ -35,7 +35,7 @@ const styles = stylex.create({
     borderRightWidth: 1,
     borderRightColor: colors.border,
     backgroundColor: colors.background,
-    paddingInline: spacing.space24,
-    paddingBlock: spacing.space32,
+    paddingInline: spacing.xl,
+    paddingBlock: spacing.xxl,
   },
 });

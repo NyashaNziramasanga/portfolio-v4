@@ -22,8 +22,8 @@ export function VideoEmbed({ src, title }: { src: string; title: string }) {
 const styles = stylex.create({
   root: {
     paddingBlock: {
-      default: spacing.space12,
-      [breakpoints.sm]: spacing.space16,
+      default: spacing.sm,
+      [breakpoints.sm]: spacing.md,
     },
   },
   frame: {

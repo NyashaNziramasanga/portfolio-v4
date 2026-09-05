@@ -91,8 +91,8 @@ const styles = stylex.create({
   },
   heading: {
     marginBottom: {
-      default: spacing.space32,
-      [breakpoints.sm]: spacing.space40,
+      default: spacing.xxl,
+      [breakpoints.sm]: spacing.xxxl,
     },
     fontSize: {
       default: fontSizes.title,
@@ -108,17 +108,17 @@ const styles = stylex.create({
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space16,
+    gap: spacing.md,
   },
   education: {
-    marginTop: spacing.space40,
+    marginTop: spacing.xxxl,
     borderTopWidth: 1,
     borderTopColor: colors.borderAlpha60,
-    paddingTop: spacing.space32,
+    paddingTop: spacing.xxl,
   },
   educationGrid: {
     display: "grid",
-    gap: spacing.space12,
+    gap: spacing.sm,
     gridTemplateColumns: {
       [breakpoints.lg]: "repeat(2, minmax(0, 1fr))",
     },
@@ -127,8 +127,8 @@ const styles = stylex.create({
     display: "flex",
     alignItems: "flex-start",
     gap: {
-      default: spacing.space12,
-      [breakpoints.sm]: spacing.space16,
+      default: spacing.sm,
+      [breakpoints.sm]: spacing.md,
     },
     borderRadius: {
       default: radii.lg,
@@ -136,12 +136,12 @@ const styles = stylex.create({
     },
     backgroundColor: colors.surface,
     paddingInline: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space24,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.xl,
     },
     paddingBlock: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space20,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.lg,
     },
     boxShadow: shadows.elevationXs,
   },
@@ -190,10 +190,10 @@ const styles = stylex.create({
     color: colors.textPrimary,
   },
   institution: {
-    marginTop: spacing.space2,
+    marginTop: spacing.xxs,
     display: "inline-flex",
     alignItems: "center",
-    gap: spacing.space2,
+    gap: spacing.xxs,
     fontSize: {
       default: fontSizes.label,
       [breakpoints.sm]: fontSizes.body,
@@ -218,7 +218,7 @@ const styles = stylex.create({
     transitionProperty: "opacity",
   },
   date: {
-    marginTop: spacing.space8,
+    marginTop: spacing.xs,
     fontSize: {
       default: fontSizes.captionSmall,
       [breakpoints.sm]: fontSizes.body,

@@ -75,7 +75,7 @@ const styles = stylex.create({
     display: "inline-flex",
     alignItems: "center",
     borderRadius: radii.pill,
-    padding: spacing.space6,
+    padding: spacing.xs,
     fontSize: fontSizes.label,
     lineHeight: lineHeights.line16,
     fontWeight: fontWeights.medium,
@@ -94,7 +94,7 @@ const styles = stylex.create({
     transitionDuration: motion.normal,
   },
   labelExpanded: {
-    marginLeft: spacing.space4,
+    marginLeft: spacing.xxs,
     maxWidth: 60,
     opacity: 1,
   },

@@ -36,8 +36,8 @@ export function StackPickerHeader() {
 const styles = stylex.create({
   root: {
     marginBottom: {
-      default: spacing.space24,
-      [breakpoints.sm]: spacing.space32,
+      default: spacing.xl,
+      [breakpoints.sm]: spacing.xxl,
     },
   },
   title: {
@@ -57,7 +57,7 @@ const styles = stylex.create({
     color: colors.accent,
   },
   description: {
-    marginTop: spacing.space8,
+    marginTop: spacing.xs,
     maxWidth: layout.contentNarrow,
     fontSize: {
       default: fontSizes.body,
@@ -70,10 +70,10 @@ const styles = stylex.create({
     color: colors.textMuted,
   },
   tags: {
-    marginTop: spacing.space16,
+    marginTop: spacing.md,
     display: "flex",
     flexWrap: "wrap",
-    gap: spacing.space8,
+    gap: spacing.xs,
     fontSize: fontSizes.captionSmall,
     fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
@@ -82,15 +82,15 @@ const styles = stylex.create({
   primaryTag: {
     borderRadius: radii.sm,
     backgroundColor: colors.accentAlpha15,
-    paddingInline: spacing.space10,
-    paddingBlock: spacing.space4,
+    paddingInline: spacing.sm,
+    paddingBlock: spacing.xxs,
     color: colors.accent,
   },
   tag: {
     borderRadius: radii.sm,
     backgroundColor: colors.surface,
-    paddingInline: spacing.space10,
-    paddingBlock: spacing.space4,
+    paddingInline: spacing.sm,
+    paddingBlock: spacing.xxs,
     color: colors.textSecondary,
   },
 });

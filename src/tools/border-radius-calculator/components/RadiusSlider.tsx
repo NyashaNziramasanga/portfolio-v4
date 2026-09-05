@@ -79,7 +79,7 @@ const styles = stylex.create({
     display: "flex",
     alignItems: "baseline",
     justifyContent: "space-between",
-    gap: spacing.space12,
+    gap: spacing.sm,
   },
   label: {
     fontSize: fontSizes.body,
@@ -90,11 +90,11 @@ const styles = stylex.create({
   valueBox: {
     display: "flex",
     alignItems: "baseline",
-    gap: spacing.space4,
+    gap: spacing.xxs,
     borderRadius: radii.sm,
     backgroundColor: colors.backgroundAlpha70,
-    paddingLeft: spacing.space4,
-    paddingRight: spacing.space8,
+    paddingLeft: spacing.xxs,
+    paddingRight: spacing.xs,
     boxShadow: {
       ":focus-within": shadows.focus,
     },
@@ -103,7 +103,7 @@ const styles = stylex.create({
   numberInput: {
     width: 40,
     backgroundColor: colors.transparent,
-    paddingBlock: spacing.space2,
+    paddingBlock: spacing.xxs,
     textAlign: "right",
     fontSize: fontSizes.label,
     lineHeight: lineHeights.line16,
@@ -119,7 +119,7 @@ const styles = stylex.create({
     color: colors.textStrong,
   },
   slider: {
-    marginTop: spacing.space6,
+    marginTop: spacing.xs,
     height: 6,
     width: "100%",
     cursor: "pointer",
@@ -135,7 +135,7 @@ const styles = stylex.create({
     },
   },
   helper: {
-    marginTop: spacing.space6,
+    marginTop: spacing.xs,
     fontSize: fontSizes.label,
     lineHeight: lineHeights.line16,
     color: colors.textSubtle,

@@ -176,7 +176,7 @@ const styles = stylex.create({
     },
   },
   playIcon: {
-    marginLeft: spacing.space2,
+    marginLeft: spacing.xxs,
     width: 20,
     height: 20,
     fill: "currentColor",

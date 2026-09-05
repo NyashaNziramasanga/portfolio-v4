@@ -77,8 +77,8 @@ const styles = stylex.create({
   },
   header: {
     marginBottom: {
-      default: spacing.space32,
-      [breakpoints.sm]: spacing.space40,
+      default: spacing.xxl,
+      [breakpoints.sm]: spacing.xxxl,
     },
   },
   title: {
@@ -94,7 +94,7 @@ const styles = stylex.create({
     color: colors.textPrimary,
   },
   description: {
-    marginTop: spacing.space12,
+    marginTop: spacing.sm,
     fontSize: {
       default: fontSizes.body,
       [breakpoints.sm]: fontSizes.bodyLarge,
@@ -105,6 +105,6 @@ const styles = stylex.create({
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space16,
+    gap: spacing.md,
   },
 });

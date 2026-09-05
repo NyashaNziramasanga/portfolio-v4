@@ -56,7 +56,7 @@ export function ArticlePreview({
 const styles = stylex.create({
   root: {
     display: "block",
-    paddingBlock: spacing.space16,
+    paddingBlock: spacing.md,
   },
   card: {
     overflow: "hidden",
@@ -78,9 +78,9 @@ const styles = stylex.create({
   footer: {
     display: "flex",
     alignItems: "center",
-    gap: spacing.space6,
-    paddingInline: spacing.space12,
-    paddingBlock: spacing.space10,
+    gap: spacing.xs,
+    paddingInline: spacing.sm,
+    paddingBlock: spacing.sm,
     fontSize: fontSizes.label,
     lineHeight: lineHeights.line16,
     fontWeight: fontWeights.medium,

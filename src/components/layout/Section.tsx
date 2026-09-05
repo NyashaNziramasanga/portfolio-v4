@@ -2,6 +2,7 @@ import type { ReactNode, Ref } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { spacing } from "../../styles/Spacing.stylex";
 import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 export function Section({
   id,
@@ -29,12 +30,12 @@ const styles = stylex.create({
     },
     justifyContent: "center",
     paddingInline: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space40,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.xxxl,
     },
     paddingBlock: {
-      default: spacing.space40,
-      [breakpoints.sm]: spacing.space64,
+      default: spacing.xxxl,
+      [breakpoints.sm]: layout.sectionPaddingDesktop,
     },
   },
 });

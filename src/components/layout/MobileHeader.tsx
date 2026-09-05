@@ -59,13 +59,13 @@ const styles = stylex.create({
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
     backgroundColor: colors.background,
-    paddingInline: spacing.space20,
-    paddingBlock: spacing.space14,
+    paddingInline: spacing.lg,
+    paddingBlock: spacing.md,
   },
   identity: {
     display: "flex",
     alignItems: "center",
-    gap: spacing.space12,
+    gap: spacing.sm,
   },
   avatar: {
     width: 36,
@@ -90,7 +90,7 @@ const styles = stylex.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: radii.md,
-    padding: spacing.space8,
+    padding: spacing.xs,
     color: {
       default: colors.textSecondary,
       ":hover": colors.textPrimary,

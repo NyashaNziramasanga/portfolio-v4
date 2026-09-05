@@ -68,7 +68,7 @@ const styles = stylex.create({
   root: {
     display: "flex",
     justifyContent: "center",
-    gap: spacing.space8,
+    gap: spacing.xs,
   },
   link: {
     display: "inline-flex",
@@ -76,7 +76,7 @@ const styles = stylex.create({
     minWidth: layout.touchTarget,
     alignItems: "center",
     justifyContent: "center",
-    padding: spacing.space8,
+    padding: spacing.xs,
     color: {
       default: colors.textMuted,
       ":hover": colors.textPrimary,

@@ -86,16 +86,16 @@ const styles = stylex.create({
     borderColor: colors.surface,
     backgroundColor: colors.surfaceSubtleAlpha60,
     padding: {
-      default: spacing.space20,
-      [breakpoints.sm]: spacing.space24,
+      default: spacing.lg,
+      [breakpoints.sm]: spacing.xl,
     },
   },
   header: {
-    marginBottom: spacing.space20,
+    marginBottom: spacing.lg,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: spacing.space12,
+    gap: spacing.sm,
   },
   title: {
     fontSize: fontSizes.titleSmall,
@@ -115,6 +115,6 @@ const styles = stylex.create({
   controls: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space26,
+    gap: spacing.xxl,
   },
 });

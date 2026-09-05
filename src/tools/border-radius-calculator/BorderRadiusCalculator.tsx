@@ -46,15 +46,15 @@ export function BorderRadiusCalculator() {
 const styles = stylex.create({
   root: {
     paddingBottom: {
-      default: spacing.space39,
-      [breakpoints.sm]: spacing.space40,
+      default: spacing.xxxl,
+      [breakpoints.sm]: spacing.xxxl,
     },
   },
   layout: {
     display: "grid",
     gap: {
-      default: spacing.space20,
-      [breakpoints.lg]: spacing.space24,
+      default: spacing.lg,
+      [breakpoints.lg]: spacing.xl,
     },
     gridTemplateColumns: {
       [breakpoints.lg]: "minmax(0, 1fr) 360px",
@@ -63,14 +63,14 @@ const styles = stylex.create({
   main: {
     display: "flex",
     flexDirection: "column",
-    gap: spacing.space20,
+    gap: spacing.lg,
   },
   aside: {
     position: {
       [breakpoints.lg]: "sticky",
     },
     top: {
-      [breakpoints.lg]: spacing.space24,
+      [breakpoints.lg]: spacing.xl,
     },
     alignSelf: {
       [breakpoints.lg]: "flex-start",

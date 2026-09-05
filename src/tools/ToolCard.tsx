@@ -54,12 +54,12 @@ const styles = stylex.create({
       ":hover": colors.surfaceHover,
     },
     paddingInline: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space24,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.xl,
     },
     paddingBlock: {
-      default: spacing.space16,
-      [breakpoints.sm]: spacing.space20,
+      default: spacing.md,
+      [breakpoints.sm]: spacing.lg,
     },
     color: colors.textPrimary,
     boxShadow: {
@@ -82,12 +82,12 @@ const styles = stylex.create({
     display: "flex",
     alignItems: "flex-start",
     gap: {
-      default: spacing.space12,
-      [breakpoints.sm]: spacing.space16,
+      default: spacing.sm,
+      [breakpoints.sm]: spacing.md,
     },
   },
   iconBox: {
-    marginTop: spacing.space2,
+    marginTop: spacing.xxs,
     display: "flex",
     height: {
       default: 32,
@@ -128,7 +128,7 @@ const styles = stylex.create({
     color: colors.textPrimary,
   },
   description: {
-    marginTop: spacing.space4,
+    marginTop: spacing.xxs,
     fontSize: {
       default: fontSizes.label,
       [breakpoints.sm]: fontSizes.body,
@@ -140,7 +140,7 @@ const styles = stylex.create({
     color: colors.textMuted,
   },
   chevron: {
-    marginTop: spacing.space4,
+    marginTop: spacing.xxs,
     width: {
       default: 16,
       [breakpoints.sm]: 20,
