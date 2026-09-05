@@ -4,7 +4,12 @@ import * as stylex from "@stylexjs/stylex";
 import { ArticlePreview } from "@/components/ui/article-preview";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import type { Project } from "./types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import { motion } from "../../styles/Motion.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
 
 export function MediaPreview({ project }: { project: Project }) {
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -104,17 +109,15 @@ const styles = stylex.create({
   },
   articleCard: {
     boxShadow: {
-      default:
-        "0 10px 15px -3px rgb(0 0 0 / 0.25), 0 4px 6px -4px rgb(0 0 0 / 0.25)",
-      [stylex.when.ancestor(":hover")]:
-        "0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)",
+      default: shadows.media,
+      [stylex.when.ancestor(":hover")]: shadows.mediaHover,
     },
     animationName: {
       default: null,
-      [constants.allowMotion]: float,
+      [motion.allow]: float,
     },
-    animationDuration: "3s",
-    animationTimingFunction: "ease-in-out",
+    animationDuration: motion.floatDuration,
+    animationTimingFunction: motion.easeInOut,
     animationIterationCount: "infinite",
   },
   videoButton: {
@@ -122,12 +125,11 @@ const styles = stylex.create({
     aspectRatio: "9 / 19.5",
     maxHeight: {
       default: 280,
-      [constants.sm]: 400,
+      [breakpoints.sm]: 400,
     },
     overflow: "hidden",
-    borderRadius: 16,
-    boxShadow:
-      "0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3)",
+    borderRadius: radii.xl,
+    boxShadow: shadows.mediaStrong,
     outline: "none",
   },
   poster: {
@@ -140,9 +142,9 @@ const styles = stylex.create({
     },
     transitionProperty: {
       default: "transform",
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
-    transitionDuration: "300ms",
+    transitionDuration: motion.slow,
   },
   overlay: {
     position: "absolute",
@@ -150,8 +152,8 @@ const styles = stylex.create({
     display: "grid",
     placeItems: "center",
     backgroundColor: {
-      default: "rgb(0 0 0 / 0.2)",
-      [stylex.when.ancestor(":hover")]: "rgb(0 0 0 / 0.3)",
+      default: colors.mediaOverlay20,
+      [stylex.when.ancestor(":hover")]: colors.mediaOverlay30,
     },
     transitionProperty: "background-color",
   },
@@ -160,21 +162,21 @@ const styles = stylex.create({
     height: 48,
     width: 48,
     placeItems: "center",
-    borderRadius: "50%",
-    backgroundColor: "rgb(237 242 247 / 0.95)",
-    color: colors.brand900,
-    boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1)",
+    borderRadius: radii.circle,
+    backgroundColor: colors.mediaControl,
+    color: colors.background,
+    boxShadow: shadows.tooltip,
     transform: {
       default: "scale(1)",
       [stylex.when.ancestor(":hover")]: "scale(1.05)",
     },
     transitionProperty: {
       default: "transform",
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
   },
   playIcon: {
-    marginLeft: 2,
+    marginLeft: spacing.space2,
     width: 20,
     height: 20,
     fill: "currentColor",
@@ -183,20 +185,19 @@ const styles = stylex.create({
     aspectRatio: "9 / 19.5",
     maxHeight: {
       default: 280,
-      [constants.sm]: 400,
+      [breakpoints.sm]: 400,
     },
-    borderRadius: 16,
+    borderRadius: radii.xl,
     objectFit: "cover",
-    boxShadow:
-      "0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3)",
+    boxShadow: shadows.mediaStrong,
   },
   floating: {
     animationName: {
       default: null,
-      [constants.allowMotion]: float,
+      [motion.allow]: float,
     },
-    animationDuration: "3s",
-    animationTimingFunction: "ease-in-out",
+    animationDuration: motion.floatDuration,
+    animationTimingFunction: motion.easeInOut,
     animationIterationCount: "infinite",
   },
 });

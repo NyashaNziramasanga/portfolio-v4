@@ -5,7 +5,17 @@ import experiencesData from "@/data/experiences.json";
 import educationData from "@/data/education.json";
 import { ExperienceCard } from "./ExperienceCard";
 import type { Education, Experience } from "./types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 export function WorkTimeline() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -76,91 +86,91 @@ const styles = stylex.create({
   root: {
     display: "flex",
     width: "100%",
-    maxWidth: 1024,
+    maxWidth: layout.contentMax,
     flexDirection: "column",
   },
   heading: {
     marginBottom: {
-      default: 32,
-      [constants.sm]: 40,
+      default: spacing.space32,
+      [breakpoints.sm]: spacing.space40,
     },
     fontSize: {
-      default: 20,
-      [constants.sm]: 24,
+      default: fontSizes.title,
+      [breakpoints.sm]: fontSizes.heading,
     },
     lineHeight: {
-      default: "28px",
-      [constants.sm]: "32px",
+      default: lineHeights.line28,
+      [breakpoints.sm]: lineHeights.line32,
     },
-    fontWeight: 700,
-    color: colors.brand50,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: 16,
+    gap: spacing.space16,
   },
   education: {
-    marginTop: 40,
+    marginTop: spacing.space40,
     borderTopWidth: 1,
-    borderTopColor: "color-mix(in oklab, #4A5568 60%, transparent)",
-    paddingTop: 32,
+    borderTopColor: colors.borderAlpha60,
+    paddingTop: spacing.space32,
   },
   educationGrid: {
     display: "grid",
-    gap: 12,
+    gap: spacing.space12,
     gridTemplateColumns: {
-      [constants.lg]: "repeat(2, minmax(0, 1fr))",
+      [breakpoints.lg]: "repeat(2, minmax(0, 1fr))",
     },
   },
   educationCard: {
     display: "flex",
     alignItems: "flex-start",
     gap: {
-      default: 12,
-      [constants.sm]: 16,
+      default: spacing.space12,
+      [breakpoints.sm]: spacing.space16,
     },
     borderRadius: {
-      default: 12,
-      [constants.sm]: 16,
+      default: radii.lg,
+      [breakpoints.sm]: radii.xl,
     },
-    backgroundColor: colors.brand700,
+    backgroundColor: colors.surface,
     paddingInline: {
-      default: 16,
-      [constants.sm]: 24,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space24,
     },
     paddingBlock: {
-      default: 16,
-      [constants.sm]: 20,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space20,
     },
-    boxShadow: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+    boxShadow: shadows.elevationXs,
   },
   logoBox: {
     display: "flex",
     height: {
       default: 40,
-      [constants.sm]: 56,
+      [breakpoints.sm]: 56,
     },
     width: {
       default: 40,
-      [constants.sm]: 56,
+      [breakpoints.sm]: 56,
     },
     flexShrink: 0,
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
-    borderRadius: "50%",
+    borderRadius: radii.circle,
   },
   logo: {
     height: {
       default: 24,
-      [constants.sm]: 36,
+      [breakpoints.sm]: 36,
     },
     width: {
       default: 24,
-      [constants.sm]: 36,
+      [breakpoints.sm]: 36,
     },
-    borderRadius: "50%",
+    borderRadius: radii.circle,
     objectFit: "cover",
   },
   educationCopy: {
@@ -169,32 +179,32 @@ const styles = stylex.create({
   },
   educationTitle: {
     fontSize: {
-      default: 16,
-      [constants.sm]: 18,
+      default: fontSizes.bodyLarge,
+      [breakpoints.sm]: fontSizes.titleSmall,
     },
     lineHeight: {
-      default: "24px",
-      [constants.sm]: "28px",
+      default: lineHeights.line24,
+      [breakpoints.sm]: lineHeights.line28,
     },
-    fontWeight: 700,
-    color: colors.brand50,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   institution: {
-    marginTop: 2,
+    marginTop: spacing.space2,
     display: "inline-flex",
     alignItems: "center",
-    gap: 2,
+    gap: spacing.space2,
     fontSize: {
-      default: 12,
-      [constants.sm]: 14,
+      default: fontSizes.label,
+      [breakpoints.sm]: fontSizes.body,
     },
     lineHeight: {
-      default: "16px",
-      [constants.sm]: "20px",
+      default: lineHeights.line16,
+      [breakpoints.sm]: lineHeights.line20,
     },
     color: {
-      default: colors.brand300,
-      ":hover": colors.brand100,
+      default: colors.textMuted,
+      ":hover": colors.textStrong,
     },
     transitionProperty: "color",
   },
@@ -208,15 +218,15 @@ const styles = stylex.create({
     transitionProperty: "opacity",
   },
   date: {
-    marginTop: 8,
+    marginTop: spacing.space8,
     fontSize: {
-      default: 11,
-      [constants.sm]: 14,
+      default: fontSizes.captionSmall,
+      [breakpoints.sm]: fontSizes.body,
     },
     lineHeight: {
-      default: 1.5,
-      [constants.sm]: "20px",
+      default: lineHeights.normal,
+      [breakpoints.sm]: lineHeights.line20,
     },
-    color: colors.brand300,
+    color: colors.textMuted,
   },
 });

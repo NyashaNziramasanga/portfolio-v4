@@ -3,7 +3,18 @@ import * as stylex from "@stylexjs/stylex";
 import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
 import { ProjectsPanel } from "./ProjectsPanel";
 import type { Experience } from "./types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../../styles/Typography.stylex";
+import { motion } from "../../styles/Motion.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 function formatDuration(startDate: string, endDate?: string) {
   const [startYear, startMonth] = startDate.split("-").map(Number);
@@ -117,43 +128,42 @@ const styles = stylex.create({
   card: {
     width: "100%",
     borderRadius: {
-      default: 12,
-      [constants.sm]: 16,
+      default: radii.lg,
+      [breakpoints.sm]: radii.xl,
     },
-    backgroundColor: colors.brand700,
+    backgroundColor: colors.surface,
     paddingInline: {
-      default: 16,
-      [constants.sm]: 24,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space24,
     },
     paddingBlock: {
-      default: 16,
-      [constants.sm]: 20,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space20,
     },
-    boxShadow: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+    boxShadow: shadows.elevationXs,
     transitionProperty: {
       default: "all",
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
-    transitionDuration: "300ms",
-    transitionTimingFunction: constants.easeOut,
+    transitionDuration: motion.slow,
+    transitionTimingFunction: motion.easeOut,
   },
   expanded: {
-    backgroundColor: colors.brand600,
-    boxShadow:
-      "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 0 0 1px color-mix(in oklab, hsl(207 68% 50%) 30%, transparent)",
+    backgroundColor: colors.surfaceHover,
+    boxShadow: shadows.raisedAccent,
   },
   topRow: {
     display: "flex",
     flexDirection: {
       default: "column",
-      [constants.sm]: "row",
+      [breakpoints.sm]: "row",
     },
-    gap: 12,
+    gap: spacing.space12,
     alignItems: {
-      [constants.sm]: "flex-start",
+      [breakpoints.sm]: "flex-start",
     },
     justifyContent: {
-      [constants.sm]: "space-between",
+      [breakpoints.sm]: "space-between",
     },
   },
   identity: {
@@ -161,36 +171,36 @@ const styles = stylex.create({
     minWidth: 0,
     alignItems: "flex-start",
     gap: {
-      default: 12,
-      [constants.sm]: 16,
+      default: spacing.space12,
+      [breakpoints.sm]: spacing.space16,
     },
   },
   logoBox: {
     display: "flex",
     height: {
       default: 40,
-      [constants.sm]: 56,
+      [breakpoints.sm]: 56,
     },
     width: {
       default: 40,
-      [constants.sm]: 56,
+      [breakpoints.sm]: 56,
     },
     flexShrink: 0,
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
-    borderRadius: "50%",
+    borderRadius: radii.circle,
   },
   logo: {
     height: {
       default: 24,
-      [constants.sm]: 36,
+      [breakpoints.sm]: 36,
     },
     width: {
       default: 24,
-      [constants.sm]: 36,
+      [breakpoints.sm]: 36,
     },
-    borderRadius: "50%",
+    borderRadius: radii.circle,
     objectFit: "cover",
   },
   identityCopy: {
@@ -198,32 +208,32 @@ const styles = stylex.create({
   },
   title: {
     fontSize: {
-      default: 16,
-      [constants.sm]: 18,
+      default: fontSizes.bodyLarge,
+      [breakpoints.sm]: fontSizes.titleSmall,
     },
     lineHeight: {
-      default: "24px",
-      [constants.sm]: "28px",
+      default: lineHeights.line24,
+      [breakpoints.sm]: lineHeights.line28,
     },
-    fontWeight: 700,
-    color: colors.brand50,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   company: {
-    marginTop: 2,
+    marginTop: spacing.space2,
     display: "inline-flex",
     alignItems: "center",
-    gap: 2,
+    gap: spacing.space2,
     fontSize: {
-      default: 12,
-      [constants.sm]: 14,
+      default: fontSizes.label,
+      [breakpoints.sm]: fontSizes.body,
     },
     lineHeight: {
-      default: "16px",
-      [constants.sm]: "20px",
+      default: lineHeights.line16,
+      [breakpoints.sm]: lineHeights.line20,
     },
     color: {
-      default: colors.brand300,
-      ":hover": colors.brand100,
+      default: colors.textMuted,
+      ":hover": colors.textStrong,
     },
     transitionProperty: "color",
   },
@@ -241,52 +251,52 @@ const styles = stylex.create({
     flexWrap: "wrap",
     alignItems: {
       default: "center",
-      [constants.sm]: "flex-end",
+      [breakpoints.sm]: "flex-end",
     },
     flexDirection: {
-      [constants.sm]: "column",
+      [breakpoints.sm]: "column",
     },
-    gap: 8,
+    gap: spacing.space8,
   },
   date: {
     fontSize: {
-      default: 11,
-      [constants.sm]: 14,
+      default: fontSizes.captionSmall,
+      [breakpoints.sm]: fontSizes.body,
     },
     lineHeight: {
-      default: 1.5,
-      [constants.sm]: "20px",
+      default: lineHeights.normal,
+      [breakpoints.sm]: lineHeights.line20,
     },
-    color: colors.brand300,
+    color: colors.textMuted,
   },
   duration: {
-    color: colors.brand400,
+    color: colors.textSubtle,
   },
   projectsButton: {
     display: "inline-flex",
     minHeight: {
-      default: 44,
-      [constants.sm]: 0,
+      default: layout.touchTarget,
+      [breakpoints.sm]: 0,
     },
     alignItems: "center",
-    gap: 6,
-    borderRadius: 9999,
+    gap: spacing.space6,
+    borderRadius: radii.pill,
     backgroundColor: {
-      default: "color-mix(in oklab, #4A5568 40%, transparent)",
-      ":hover": "color-mix(in oklab, #4A5568 70%, transparent)",
+      default: colors.borderAlpha40,
+      ":hover": colors.borderAlpha70,
     },
     paddingInline: {
-      default: 12,
-      [constants.sm]: 10,
+      default: spacing.space12,
+      [breakpoints.sm]: spacing.space10,
     },
-    paddingBlock: 4,
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 500,
-    color: colors.brand200,
+    paddingBlock: spacing.space4,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.medium,
+    color: colors.textSecondary,
     outline: "none",
     boxShadow: {
-      ":focus-visible": "0 0 0 2px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focus,
     },
     transitionProperty: "background-color",
   },

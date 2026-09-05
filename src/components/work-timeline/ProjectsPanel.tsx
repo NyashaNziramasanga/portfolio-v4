@@ -3,7 +3,14 @@ import * as stylex from "@stylexjs/stylex";
 import { MediaBadge } from "@/components/ui/media-badge";
 import { MediaPreview } from "./MediaPreview";
 import type { Project } from "./types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import { radii } from "../../styles/BorderRadius.stylex";
+import { fontSizes, fontWeights } from "../../styles/Typography.stylex";
+import { motion } from "../../styles/Motion.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
+import { shadows } from "../../styles/Shadows.stylex";
+import { layout } from "../../styles/Layout.stylex";
 
 export function ProjectsPanel({ projects }: { projects: Project[] }) {
   const mediaProjects = projects.filter((project) => project.media);
@@ -67,146 +74,145 @@ export function ProjectsPanel({ projects }: { projects: Project[] }) {
 
 const styles = stylex.create({
   root: {
-    marginTop: 16,
+    marginTop: spacing.space16,
     borderTopWidth: 1,
-    borderTopColor: "color-mix(in oklab, #4A5568 50%, transparent)",
-    paddingTop: 16,
+    borderTopColor: colors.borderAlpha50,
+    paddingTop: spacing.space16,
   },
   layout: {
     display: "flex",
     flexDirection: {
       default: "column",
-      [constants.lg]: "row",
+      [breakpoints.lg]: "row",
     },
     gap: {
-      default: 16,
-      [constants.lg]: 20,
+      default: spacing.space16,
+      [breakpoints.lg]: spacing.space20,
     },
   },
   nav: {
     width: {
-      [constants.lg]: 240,
+      [breakpoints.lg]: 240,
     },
     flexShrink: {
-      [constants.lg]: 0,
+      [breakpoints.lg]: 0,
     },
   },
   list: {
     display: "flex",
     flexWrap: "wrap",
     flexDirection: {
-      [constants.lg]: "column",
+      [breakpoints.lg]: "column",
     },
     gap: {
-      default: 8,
-      [constants.lg]: 0,
+      default: spacing.space8,
+      [breakpoints.lg]: 0,
     },
   },
   button: {
-    minHeight: 44,
+    minHeight: layout.touchTarget,
     borderRadius: {
-      default: 9999,
-      [constants.lg]: 8,
+      default: radii.pill,
+      [breakpoints.lg]: radii.md,
     },
-    paddingInline: 12,
+    paddingInline: spacing.space12,
     paddingBlock: {
-      default: 6,
-      [constants.lg]: 10,
+      default: spacing.space6,
+      [breakpoints.lg]: spacing.space10,
     },
     fontSize: {
-      default: 12,
-      [constants.lg]: 14,
+      default: fontSizes.label,
+      [breakpoints.lg]: fontSizes.body,
     },
-    fontWeight: 500,
+    fontWeight: fontWeights.medium,
     color: {
-      default: colors.brand300,
-      [constants.lg]: colors.brand100,
+      default: colors.textMuted,
+      [breakpoints.lg]: colors.textStrong,
     },
     transitionProperty: "all",
-    transitionDuration: constants.durationNormal,
+    transitionDuration: motion.normal,
     outline: "none",
     display: {
-      [constants.lg]: "flex",
+      [breakpoints.lg]: "flex",
     },
     width: {
-      [constants.lg]: "100%",
+      [breakpoints.lg]: "100%",
     },
     alignItems: {
-      [constants.lg]: "center",
+      [breakpoints.lg]: "center",
     },
     justifyContent: {
-      [constants.lg]: "space-between",
+      [breakpoints.lg]: "space-between",
     },
     textAlign: {
-      [constants.lg]: "left",
+      [breakpoints.lg]: "left",
     },
   },
   enabled: {
     boxShadow: {
-      ":focus-visible": "0 0 0 2px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focus,
     },
   },
   disabled: {
     cursor: "default",
     backgroundColor: {
-      default: "color-mix(in oklab, #252F3F 50%, transparent)",
-      [constants.lg]: "transparent",
+      default: colors.surfaceAlpha50,
+      [breakpoints.lg]: colors.transparent,
     },
     opacity: 0.6,
   },
   active: {
     backgroundColor: {
-      default: "color-mix(in oklab, #2A4365 40%, transparent)",
-      [constants.lg]: "color-mix(in oklab, #4A5568 30%, transparent)",
+      default: colors.videoBadgeSurface,
+      [breakpoints.lg]: colors.borderAlpha30,
     },
     color: {
-      default: colors.blue300,
-      [constants.lg]: colors.brand100,
+      default: colors.accentText,
+      [breakpoints.lg]: colors.textStrong,
     },
     boxShadow: {
-      default:
-        "0 0 0 1px color-mix(in oklab, hsl(207 68% 50%) 30%, transparent)",
-      [constants.lg]: "none",
+      default: shadows.accentSubtleOutline,
+      [breakpoints.lg]: shadows.none,
     },
   },
   inactive: {
     backgroundColor: {
-      default: colors.brand700,
-      ":hover": colors.brand600,
-      [constants.lg]: "transparent",
+      default: colors.surface,
+      ":hover": colors.surfaceHover,
+      [breakpoints.lg]: colors.transparent,
     },
   },
   badge: {
     display: {
       default: "none",
-      [constants.lg]: "block",
+      [breakpoints.lg]: "block",
     },
   },
   preview: {
     display: "flex",
     justifyContent: "center",
     paddingBlock: {
-      default: 8,
-      [constants.lg]: 24,
+      default: spacing.space8,
+      [breakpoints.lg]: spacing.space24,
     },
     flex: {
-      [constants.lg]: 1,
+      [breakpoints.lg]: 1,
     },
     alignItems: {
-      [constants.lg]: "center",
+      [breakpoints.lg]: "center",
     },
     borderRadius: {
-      [constants.lg]: 12,
+      [breakpoints.lg]: radii.lg,
     },
     backgroundColor: {
-      [constants.lg]: "color-mix(in oklab, #1F2937 60%, transparent)",
+      [breakpoints.lg]: colors.surfaceSubtleAlpha60,
     },
     paddingInline: {
-      [constants.lg]: 24,
+      [breakpoints.lg]: spacing.space24,
     },
   },
   empty: {
-    fontSize: 14,
-    color: colors.brand300,
+    fontSize: fontSizes.body,
+    color: colors.textMuted,
   },
 });
