@@ -1,107 +1,107 @@
 {
   "schemaVersion": 1,
   "label": "stylex",
-  "capturedAt": "2026-09-04T09:11:17.181Z",
+  "capturedAt": "2026-09-05T02:23:32.821Z",
   "samplesPerDevice": 5,
   "devices": {
     "mobile": {
       "runs": [
         {
-          "performanceScore": 92,
-          "ttfbMs": 1.367,
-          "fcpMs": 2123.126,
-          "lcpMs": 3109.351,
-          "speedIndexMs": 2123.126,
+          "performanceScore": 93,
+          "ttfbMs": 1.433,
+          "fcpMs": 2115.142,
+          "lcpMs": 2951.57,
+          "speedIndexMs": 2115.142,
           "tbtMs": 0,
           "cls": 0.001,
-          "transferBytes": 294909,
+          "transferBytes": 294933,
           "requestCount": 21,
-          "mainThreadMs": 265.748,
+          "mainThreadMs": 285.384,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         },
         {
           "performanceScore": 92,
-          "ttfbMs": 1.211,
-          "fcpMs": 2112.573,
-          "lcpMs": 3097.687,
-          "speedIndexMs": 2112.573,
+          "ttfbMs": 1.507,
+          "fcpMs": 2113.547,
+          "lcpMs": 3099.257,
+          "speedIndexMs": 2113.547,
           "tbtMs": 0,
           "cls": 0.001,
-          "transferBytes": 294909,
+          "transferBytes": 294933,
           "requestCount": 21,
-          "mainThreadMs": 262.8,
+          "mainThreadMs": 297.108,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         },
         {
           "performanceScore": 92,
-          "ttfbMs": 0.821,
-          "fcpMs": 2112.426,
-          "lcpMs": 3097.912,
-          "speedIndexMs": 2112.426,
+          "ttfbMs": 0.761,
+          "fcpMs": 2114.158,
+          "lcpMs": 3100.789,
+          "speedIndexMs": 2114.158,
           "tbtMs": 0,
           "cls": 0.001,
-          "transferBytes": 294909,
+          "transferBytes": 294933,
           "requestCount": 21,
-          "mainThreadMs": 262.26,
+          "mainThreadMs": 268.936,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         },
         {
           "performanceScore": 92,
-          "ttfbMs": 0.859,
-          "fcpMs": 2112.273,
-          "lcpMs": 3097.728,
-          "speedIndexMs": 2112.273,
+          "ttfbMs": 0.721,
+          "fcpMs": 2111.95,
+          "lcpMs": 3096.939,
+          "speedIndexMs": 2111.95,
           "tbtMs": 0,
           "cls": 0.001,
-          "transferBytes": 294909,
+          "transferBytes": 294933,
           "requestCount": 21,
-          "mainThreadMs": 264.016,
+          "mainThreadMs": 268.988,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         },
         {
           "performanceScore": 92,
-          "ttfbMs": 0.885,
-          "fcpMs": 2111.907,
-          "lcpMs": 3096.888,
-          "speedIndexMs": 2111.907,
+          "ttfbMs": 0.977,
+          "fcpMs": 2112.453,
+          "lcpMs": 3097.944,
+          "speedIndexMs": 2112.453,
           "tbtMs": 0,
           "cls": 0.001,
-          "transferBytes": 294909,
+          "transferBytes": 294933,
           "requestCount": 21,
-          "mainThreadMs": 264.188,
+          "mainThreadMs": 258.996,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         }
       ],
       "aggregate": {
         "performanceScore": {
           "min": 92,
           "median": 92,
-          "max": 92
+          "max": 93
         },
         "ttfbMs": {
-          "min": 0.821,
-          "median": 0.885,
-          "max": 1.367
+          "min": 0.721,
+          "median": 0.977,
+          "max": 1.507
         },
         "fcpMs": {
-          "min": 2111.907,
-          "median": 2112.426,
-          "max": 2123.126
+          "min": 2111.95,
+          "median": 2113.547,
+          "max": 2115.142
         },
         "lcpMs": {
-          "min": 3096.888,
-          "median": 3097.728,
-          "max": 3109.351
+          "min": 2951.57,
+          "median": 3097.944,
+          "max": 3100.789
         },
         "speedIndexMs": {
-          "min": 2111.907,
-          "median": 2112.426,
-          "max": 2123.126
+          "min": 2111.95,
+          "median": 2113.547,
+          "max": 2115.142
         },
         "tbtMs": {
           "min": 0,
@@ -114,9 +114,9 @@
           "max": 0.001
         },
         "transferBytes": {
-          "min": 294909,
-          "median": 294909,
-          "max": 294909
+          "min": 294933,
+          "median": 294933,
+          "max": 294933
         },
         "requestCount": {
           "min": 21,
@@ -124,9 +124,9 @@
           "max": 21
         },
         "mainThreadMs": {
-          "min": 262.26,
-          "median": 264.016,
-          "max": 265.748
+          "min": 258.996,
+          "median": 268.988,
+          "max": 297.108
         },
         "unusedCssBytes": {
           "min": 0,
@@ -134,9 +134,9 @@
           "max": 0
         },
         "unusedJsBytes": {
-          "min": 33835,
-          "median": 33835,
-          "max": 33835
+          "min": 33834,
+          "median": 33834,
+          "max": 33834
         }
       },
       "opportunities": [
@@ -150,7 +150,7 @@
           "id": "unused-javascript",
           "title": "Reduce unused JavaScript",
           "savingsMs": 300,
-          "savingsBytes": 33835
+          "savingsBytes": 33834
         }
       ]
     },
@@ -158,73 +158,73 @@
       "runs": [
         {
           "performanceScore": 100,
-          "ttfbMs": 1.099,
-          "fcpMs": 505.12,
-          "lcpMs": 648.144,
-          "speedIndexMs": 505.12,
+          "ttfbMs": 1.157,
+          "fcpMs": 504.88,
+          "lcpMs": 647.856,
+          "speedIndexMs": 504.88,
           "tbtMs": 0,
           "cls": 0.002,
-          "transferBytes": 273867,
+          "transferBytes": 273891,
           "requestCount": 21,
-          "mainThreadMs": 65.467,
+          "mainThreadMs": 68.287,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         },
         {
           "performanceScore": 100,
-          "ttfbMs": 0.705,
-          "fcpMs": 505.091,
-          "lcpMs": 648.109,
-          "speedIndexMs": 505.091,
+          "ttfbMs": 0.715,
+          "fcpMs": 507.03,
+          "lcpMs": 650.036,
+          "speedIndexMs": 507.03,
           "tbtMs": 0,
           "cls": 0.002,
-          "transferBytes": 273867,
+          "transferBytes": 273891,
           "requestCount": 21,
-          "mainThreadMs": 64.686,
+          "mainThreadMs": 65.857,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         },
         {
           "performanceScore": 100,
-          "ttfbMs": 0.783,
-          "fcpMs": 504.942,
-          "lcpMs": 647.93,
-          "speedIndexMs": 504.942,
+          "ttfbMs": 0.882,
+          "fcpMs": 506.865,
+          "lcpMs": 649.838,
+          "speedIndexMs": 506.865,
           "tbtMs": 0,
           "cls": 0.002,
-          "transferBytes": 273867,
+          "transferBytes": 273891,
           "requestCount": 21,
-          "mainThreadMs": 67.12,
+          "mainThreadMs": 66.242,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         },
         {
           "performanceScore": 100,
-          "ttfbMs": 0.756,
-          "fcpMs": 505.213,
-          "lcpMs": 648.256,
-          "speedIndexMs": 505.213,
+          "ttfbMs": 0.735,
+          "fcpMs": 504.968,
+          "lcpMs": 647.961,
+          "speedIndexMs": 504.968,
           "tbtMs": 0,
           "cls": 0.002,
-          "transferBytes": 273867,
+          "transferBytes": 273891,
           "requestCount": 21,
-          "mainThreadMs": 64.104,
+          "mainThreadMs": 66.946,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         },
         {
           "performanceScore": 100,
-          "ttfbMs": 0.767,
-          "fcpMs": 485.006,
-          "lcpMs": 648.007,
-          "speedIndexMs": 485.006,
+          "ttfbMs": 0.827,
+          "fcpMs": 504.736,
+          "lcpMs": 647.683,
+          "speedIndexMs": 504.736,
           "tbtMs": 0,
           "cls": 0.002,
-          "transferBytes": 273867,
+          "transferBytes": 273891,
           "requestCount": 21,
-          "mainThreadMs": 64.94,
+          "mainThreadMs": 65.941,
           "unusedCssBytes": 0,
-          "unusedJsBytes": 33835
+          "unusedJsBytes": 33834
         }
       ],
       "aggregate": {
@@ -234,24 +234,24 @@
           "max": 100
         },
         "ttfbMs": {
-          "min": 0.705,
-          "median": 0.767,
-          "max": 1.099
+          "min": 0.715,
+          "median": 0.827,
+          "max": 1.157
         },
         "fcpMs": {
-          "min": 485.006,
-          "median": 505.091,
-          "max": 505.213
+          "min": 504.736,
+          "median": 504.968,
+          "max": 507.03
         },
         "lcpMs": {
-          "min": 647.93,
-          "median": 648.109,
-          "max": 648.256
+          "min": 647.683,
+          "median": 647.961,
+          "max": 650.036
         },
         "speedIndexMs": {
-          "min": 485.006,
-          "median": 505.091,
-          "max": 505.213
+          "min": 504.736,
+          "median": 504.968,
+          "max": 507.03
         },
         "tbtMs": {
           "min": 0,
@@ -264,9 +264,9 @@
           "max": 0.002
         },
         "transferBytes": {
-          "min": 273867,
-          "median": 273867,
-          "max": 273867
+          "min": 273891,
+          "median": 273891,
+          "max": 273891
         },
         "requestCount": {
           "min": 21,
@@ -274,9 +274,9 @@
           "max": 21
         },
         "mainThreadMs": {
-          "min": 64.104,
-          "median": 64.94,
-          "max": 67.12
+          "min": 65.857,
+          "median": 66.242,
+          "max": 68.287
         },
         "unusedCssBytes": {
           "min": 0,
@@ -284,9 +284,9 @@
           "max": 0
         },
         "unusedJsBytes": {
-          "min": 33835,
-          "median": 33835,
-          "max": 33835
+          "min": 33834,
+          "median": 33834,
+          "max": 33834
         }
       },
       "opportunities": [
@@ -294,7 +294,7 @@
           "id": "unused-javascript",
           "title": "Reduce unused JavaScript",
           "savingsMs": 40,
-          "savingsBytes": 33835
+          "savingsBytes": 33834
         },
         {
           "id": "uses-responsive-images",
