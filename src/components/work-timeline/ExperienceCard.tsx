@@ -260,7 +260,7 @@ const styles = stylex.create({
   },
   date: {
     fontSize: {
-      default: fontSizes.captionSmall,
+      default: fontSizes.caption,
       [breakpoints.sm]: fontSizes.body,
     },
     lineHeight: {
@@ -270,7 +270,7 @@ const styles = stylex.create({
     color: colors.textMuted,
   },
   duration: {
-    color: colors.textSubtle,
+    color: colors.textMuted,
   },
   projectsButton: {
     display: "inline-flex",

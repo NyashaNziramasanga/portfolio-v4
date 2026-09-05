@@ -6,6 +6,7 @@ import { CollapsiblePanel } from "@/components/ui/collapsible-panel";
 import { PublicationCard } from "./PublicationCard";
 import type { Publication } from "./types";
 import { colors } from "../../styles/Colors.stylex";
+import { fonts } from "../../styles/Fonts.stylex";
 import { spacing } from "../../styles/Spacing.stylex";
 import { radii } from "../../styles/BorderRadius.stylex";
 import {
@@ -32,8 +33,10 @@ export function PublicationsList() {
   return (
     <div {...stylex.props(styles.root)}>
       <div {...stylex.props(styles.header)}>
-        <h2 {...stylex.props(styles.title)}>Publications</h2>
-        <p {...stylex.props(styles.description)}>
+        <h2 {...stylex.props(fonts.sectionHeading, styles.title)}>
+          Publications
+        </h2>
+        <p {...stylex.props(fonts.sectionDescription, styles.description)}>
           Selected talks, mobile architecture writing and research.
         </p>
       </div>
@@ -94,22 +97,11 @@ const styles = stylex.create({
     },
   },
   title: {
-    fontSize: {
-      default: fontSizes.title,
-      [breakpoints.sm]: fontSizes.heading,
-    },
-    lineHeight: {
-      default: lineHeights.line28,
-      [breakpoints.sm]: lineHeights.line32,
-    },
-    fontWeight: fontWeights.bold,
     color: colors.textPrimary,
   },
   description: {
     marginTop: spacing.sm,
     maxWidth: layout.contentMedium,
-    fontSize: fontSizes.body,
-    lineHeight: lineHeights.relaxed,
     color: colors.textMuted,
   },
   list: {

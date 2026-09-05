@@ -4,6 +4,7 @@ import { ResumeActions } from "@/components/ResumeActions";
 import { colors } from "../styles/Colors.stylex";
 import { spacing } from "../styles/Spacing.stylex";
 import { radii } from "../styles/BorderRadius.stylex";
+import { fonts } from "../styles/Fonts.stylex";
 import {
   fontSizes,
   fontWeights,
@@ -20,7 +21,9 @@ const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2018;
 export function AboutSection() {
   return (
     <div {...stylex.props(styles.root)}>
-      <p {...stylex.props(styles.eyebrow)}>Hello, I'm Nash 👋🏿</p>
+      <p {...stylex.props(fonts.eyebrow, styles.eyebrow)}>
+        Hello, I'm Nash 👋🏿
+      </p>
       <h1 {...stylex.props(styles.title)}>
         Senior Mobile Engineer
         <span {...stylex.props(styles.subtitle)}>
@@ -72,11 +75,6 @@ const styles = stylex.create({
     flexDirection: "column",
   },
   eyebrow: {
-    fontSize: fontSizes.label,
-    lineHeight: lineHeights.line16,
-    fontWeight: fontWeights.semibold,
-    textTransform: "uppercase",
-    letterSpacing: letterSpacing.eyebrow,
     color: colors.accentText,
   },
   title: {
@@ -136,10 +134,7 @@ const styles = stylex.create({
     gap: spacing.sm,
   },
   grid: {
-    marginTop: {
-      default: spacing.xxxl,
-      [breakpoints.sm]: spacing.xxxl,
-    },
+    marginTop: spacing.xxxl,
     display: "grid",
     gap: spacing.md,
     gridTemplateColumns: {

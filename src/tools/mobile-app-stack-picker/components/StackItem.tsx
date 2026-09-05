@@ -200,10 +200,10 @@ const styles = stylex.create({
   tooltipTitle: {
     marginBottom: spacing.xxs,
     display: "block",
-    fontSize: fontSizes.micro,
+    fontSize: fontSizes.caption,
     fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
     letterSpacing: letterSpacing.wider,
-    color: colors.accent,
+    color: colors.accentText,
   },
 });

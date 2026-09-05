@@ -6,6 +6,7 @@ import educationData from "@/data/education.json";
 import { ExperienceCard } from "./ExperienceCard";
 import type { Education, Experience } from "./types";
 import { colors } from "../../styles/Colors.stylex";
+import { fonts } from "../../styles/Fonts.stylex";
 import { spacing } from "../../styles/Spacing.stylex";
 import { radii } from "../../styles/BorderRadius.stylex";
 import {
@@ -22,7 +23,9 @@ export function WorkTimeline() {
 
   return (
     <div {...stylex.props(styles.root)}>
-      <h2 {...stylex.props(styles.heading)}>Experience</h2>
+      <h2 {...stylex.props(fonts.sectionHeading, styles.heading)}>
+        Experience
+      </h2>
       <div {...stylex.props(styles.list)}>
         {(experiencesData as Experience[]).map((experience) => (
           <ExperienceCard
@@ -39,7 +42,9 @@ export function WorkTimeline() {
       </div>
 
       <div {...stylex.props(styles.education)}>
-        <h3 {...stylex.props(styles.heading)}>Education</h3>
+        <h3 {...stylex.props(fonts.sectionHeading, styles.heading)}>
+          Education
+        </h3>
         <div {...stylex.props(styles.educationGrid)}>
           {(educationData as Education[]).map((education) => (
             <article key={education.id} {...stylex.props(styles.educationCard)}>
@@ -94,15 +99,6 @@ const styles = stylex.create({
       default: spacing.xxl,
       [breakpoints.sm]: spacing.xxxl,
     },
-    fontSize: {
-      default: fontSizes.title,
-      [breakpoints.sm]: fontSizes.heading,
-    },
-    lineHeight: {
-      default: lineHeights.line28,
-      [breakpoints.sm]: lineHeights.line32,
-    },
-    fontWeight: fontWeights.bold,
     color: colors.textPrimary,
   },
   list: {
@@ -220,7 +216,7 @@ const styles = stylex.create({
   date: {
     marginTop: spacing.xs,
     fontSize: {
-      default: fontSizes.captionSmall,
+      default: fontSizes.caption,
       [breakpoints.sm]: fontSizes.body,
     },
     lineHeight: {

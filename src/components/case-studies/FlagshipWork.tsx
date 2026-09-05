@@ -5,12 +5,8 @@ import caseStudiesData from "@/data/caseStudies.json";
 import { CaseStudyCard } from "./CaseStudyCard";
 import type { CaseStudy } from "./types";
 import { colors } from "../../styles/Colors.stylex";
+import { fonts } from "../../styles/Fonts.stylex";
 import { spacing } from "../../styles/Spacing.stylex";
-import {
-  fontSizes,
-  fontWeights,
-  lineHeights,
-} from "../../styles/Typography.stylex";
 import { breakpoints } from "../../styles/Breakpoints.stylex";
 import { layout } from "../../styles/Layout.stylex";
 
@@ -47,8 +43,10 @@ export function FlagshipWork() {
   return (
     <div {...stylex.props(styles.root)}>
       <div {...stylex.props(styles.header)}>
-        <h2 {...stylex.props(styles.title)}>Case Studies</h2>
-        <p {...stylex.props(styles.description)}>
+        <h2 {...stylex.props(fonts.sectionHeading, styles.title)}>
+          Case Studies
+        </h2>
+        <p {...stylex.props(fonts.sectionDescription, styles.description)}>
           Mobile product problems, architecture and engineering decisions behind
           the work.
         </p>
@@ -82,24 +80,10 @@ const styles = stylex.create({
     },
   },
   title: {
-    fontSize: {
-      default: fontSizes.title,
-      [breakpoints.sm]: fontSizes.heading,
-    },
-    lineHeight: {
-      default: lineHeights.line28,
-      [breakpoints.sm]: lineHeights.line32,
-    },
-    fontWeight: fontWeights.bold,
     color: colors.textPrimary,
   },
   description: {
     marginTop: spacing.sm,
-    fontSize: {
-      default: fontSizes.body,
-      [breakpoints.sm]: fontSizes.bodyLarge,
-    },
-    lineHeight: lineHeights.relaxed,
     color: colors.textMuted,
   },
   list: {

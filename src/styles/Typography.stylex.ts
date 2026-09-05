@@ -13,9 +13,7 @@ export const fontFamilies = stylex.defineConsts({
 
 /** Semantic type scale in pixels. */
 export const fontSizes = stylex.defineConsts({
-  micro: 9,
-  caption: 10,
-  captionSmall: 11,
+  caption: 11,
   label: 12,
   bodySmall: 13,
   body: 14,

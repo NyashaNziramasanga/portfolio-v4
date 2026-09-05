@@ -74,7 +74,7 @@ const styles = stylex.create({
     display: "flex",
     flexWrap: "wrap",
     gap: spacing.xs,
-    fontSize: fontSizes.captionSmall,
+    fontSize: fontSizes.caption,
     fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
     letterSpacing: letterSpacing.wide,
@@ -84,7 +84,7 @@ const styles = stylex.create({
     backgroundColor: colors.accentAlpha15,
     paddingInline: spacing.sm,
     paddingBlock: spacing.xxs,
-    color: colors.accent,
+    color: colors.accentText,
   },
   tag: {
     borderRadius: radii.sm,
