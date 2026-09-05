@@ -45,10 +45,7 @@ export function BorderRadiusCalculator() {
 
 const styles = stylex.create({
   root: {
-    paddingBottom: {
-      default: spacing.xxxl,
-      [breakpoints.sm]: spacing.xxxl,
-    },
+    paddingBottom: spacing.xxxl,
   },
   layout: {
     display: "grid",
