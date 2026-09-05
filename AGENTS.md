@@ -42,7 +42,7 @@ src/
 │   └── techStack.json         # Tech stack items with icon keys and labels
 ├── styles/
 │   ├── Colors.stylex.ts       # Semantic dark-theme colors
-│   ├── Spacing.stylex.ts      # Pixel spacing constants
+│   ├── Spacing.stylex.ts      # Compact named 4 px spacing scale
 │   ├── Typography.stylex.ts   # Font and type-scale constants
 │   ├── Fonts.stylex.ts        # Pre-composed semantic font recipes
 │   ├── Motion.stylex.ts       # Durations, easing, and motion queries
@@ -65,7 +65,7 @@ public/
 
 - **Components:** PascalCase filenames, functional components with hooks. Use `React.forwardRef` when exposing refs.
 - **Styling:** Use co-located `stylex.create()` definitions and apply them with `stylex.props()`. Keep every StyleX object property on its own line for vertical readability; the ESLint configuration enforces this. Keep only document-level behavior in `index.css`.
-- **Tokens:** Import directly from the focused `.stylex.ts` module in `src/styles`; do not add a barrel export. Prefer semantic tokens (especially colors) over palette-oriented choices. ESLint rejects raw governed values for colors, shadows, spacing, radii, typography, motion timing, breakpoints, and z-indexes. See `src/styles/README.md`.
+- **Tokens:** Import directly from the focused `.stylex.ts` module in `src/styles`; do not add a barrel export. Prefer semantic tokens (especially colors) over palette-oriented choices. Use the compact named 4 px spacing scale for reusable gaps, margins, and padding, and reserve `Layout.stylex.ts` for structural measurements. ESLint rejects raw governed values for colors, shadows, spacing, radii, typography, motion timing, breakpoints, and z-indexes. See `src/styles/README.md`.
 - **Variants:** Use typed StyleX maps for component variants and `StyleXStyles` for supported style overrides (see `button.tsx`).
 - **Data:** Static content lives in `src/data/*.json`. Types are inferred from the JSON: `type Experience = (typeof data)[number]`.
 - **Icons:** Brand/tech icons use `simple-icons` (imported as `si*` objects). UI icons use `lucide-react`. Tech stack items in `techStack.json` reference icon keys with a `si` prefix or `lucide:` prefix.

@@ -9,7 +9,7 @@ the scale or introducing a second theme.
 | Module | Export | Purpose |
 | --- | --- | --- |
 | `Colors.stylex.ts` | `colors` | Semantic background, surface, text, border, accent, feedback, overlay, and media colors |
-| `Spacing.stylex.ts` | `spacing` | Pixel spacing constants named by their rendered value |
+| `Spacing.stylex.ts` | `spacing` | Compact named spacing scale based on a 4 px grid |
 | `BorderRadius.stylex.ts` | `radii` | Shared corner-radius scale |
 | `Typography.stylex.ts` | `fontFamilies`, `fontSizes`, `fontWeights`, `lineHeights`, `letterSpacing` | Type families and scales |
 | `Fonts.stylex.ts` | `fonts` | Pre-composed semantic font recipes built from the typography primitives |
@@ -31,8 +31,8 @@ import { spacing } from "@/styles/Spacing.stylex";
 
 const styles = stylex.create({
   card: {
-    gap: spacing.space12,
-    padding: spacing.space16,
+    gap: spacing.sm,
+    padding: spacing.md,
     backgroundColor: colors.surface,
     color: colors.textPrimary,
   },
@@ -44,11 +44,13 @@ Choose semantic tokens when a value communicates UI intent. For example, use
 instead of selecting a palette shade by appearance. Use
 `brandColors` only when the external brand owns the color.
 
-Spacing names deliberately include their pixel value (`space12`, `space24`) so a
-preserved measurement stays unambiguous. Prefer these tokens for layout rhythm.
-Unique component geometry—such as SVG coordinates, illustration sizes, or a
-single alignment correction—may remain next to the component with a short lint
-exception explaining why it is not a reusable token.
+Spacing follows a compact 4 px grid: `xxs` (4), `xs` (8), `sm` (12), `md` (16),
+`lg` (20), `xl` (24), `xxl` (32), and `xxxl` (40). Prefer these named tokens for
+reusable gaps, margins, and padding. Large measurements tied to page structure,
+such as section padding or fixed-control clearance, belong in
+`Layout.stylex.ts`. Unique component geometry—such as SVG coordinates,
+illustration sizes, or a single alignment correction—may remain next to the
+component with a short lint exception explaining why it is not reusable.
 
 For ordinary text, start with a semantic recipe from `Fonts.stylex.ts` and apply
 component styles afterward. Use the primitive typography exports directly when

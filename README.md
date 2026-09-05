@@ -58,8 +58,9 @@ Styles are co-located with components through `stylex.create()`. Shared visual
 values live in focused modules under [`src/styles`](src/styles/README.md) and are
 imported directly from their defining `.stylex.ts` file—there is intentionally no
 barrel export. Prefer semantic tokens, and run `bun run lint` to enforce token use
-and vertically formatted StyleX objects. `src/index.css` is limited to the font,
-reset, document globals, and scrollbar behavior. See the
+and vertically formatted StyleX objects. Reusable spacing follows a compact,
+named 4 px grid; larger structural measurements live in the layout tokens.
+`src/index.css` is limited to the font, reset, document globals, and scrollbar behavior. See the
 [Tailwind-to-StyleX performance report](docs/performance/stylex-migration.md)
 for the reproducible before/after measurements.
 
