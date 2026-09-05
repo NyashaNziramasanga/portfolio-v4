@@ -1,5 +1,15 @@
 import * as stylex from "@stylexjs/stylex";
-import { colors, constants } from "../../../styles/tokens.stylex";
+import { colors } from "../../../styles/Colors.stylex";
+import { spacing } from "../../../styles/Spacing.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacing,
+} from "../../../styles/Typography.stylex";
+import { breakpoints } from "../../../styles/Breakpoints.stylex";
+import { layout } from "../../../styles/Layout.stylex";
 
 export function StackPickerHeader() {
   return (
@@ -26,61 +36,61 @@ export function StackPickerHeader() {
 const styles = stylex.create({
   root: {
     marginBottom: {
-      default: 24,
-      [constants.sm]: 32,
+      default: spacing.space24,
+      [breakpoints.sm]: spacing.space32,
     },
   },
   title: {
     fontSize: {
-      default: 30,
-      [constants.sm]: 48,
+      default: fontSizes.displaySmall,
+      [breakpoints.sm]: fontSizes.displayLarge,
     },
     lineHeight: {
-      default: "36px",
-      [constants.sm]: "1",
+      default: lineHeights.line36,
+      [breakpoints.sm]: lineHeights.none,
     },
-    fontWeight: 800,
-    letterSpacing: "-0.025em",
-    color: colors.brand50,
+    fontWeight: fontWeights.extraBold,
+    letterSpacing: letterSpacing.display,
+    color: colors.textPrimary,
   },
   accent: {
-    color: colors.primary,
+    color: colors.accent,
   },
   description: {
-    marginTop: 8,
-    maxWidth: 672,
+    marginTop: spacing.space8,
+    maxWidth: layout.contentNarrow,
     fontSize: {
-      default: 14,
-      [constants.sm]: 16,
+      default: fontSizes.body,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
     lineHeight: {
-      default: "20px",
-      [constants.sm]: "24px",
+      default: lineHeights.line20,
+      [breakpoints.sm]: lineHeights.line24,
     },
-    color: colors.brand300,
+    color: colors.textMuted,
   },
   tags: {
-    marginTop: 16,
+    marginTop: spacing.space16,
     display: "flex",
     flexWrap: "wrap",
-    gap: 8,
-    fontSize: 11,
-    fontWeight: 600,
+    gap: spacing.space8,
+    fontSize: fontSizes.captionSmall,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.025em",
+    letterSpacing: letterSpacing.wide,
   },
   primaryTag: {
-    borderRadius: 6,
-    backgroundColor: "color-mix(in oklab, hsl(207 68% 50%) 15%, transparent)",
-    paddingInline: 10,
-    paddingBlock: 4,
-    color: colors.primary,
+    borderRadius: radii.sm,
+    backgroundColor: colors.accentAlpha15,
+    paddingInline: spacing.space10,
+    paddingBlock: spacing.space4,
+    color: colors.accent,
   },
   tag: {
-    borderRadius: 6,
-    backgroundColor: colors.brand700,
-    paddingInline: 10,
-    paddingBlock: 4,
-    color: colors.brand200,
+    borderRadius: radii.sm,
+    backgroundColor: colors.surface,
+    paddingInline: spacing.space10,
+    paddingBlock: spacing.space4,
+    color: colors.textSecondary,
   },
 });

@@ -6,7 +6,14 @@ import { CategoryColumn } from "@/tools/mobile-app-stack-picker/components/Categ
 import { StackBottomBar } from "@/tools/mobile-app-stack-picker/components/StackBottomBar";
 import { useStackPicker } from "@/tools/mobile-app-stack-picker/hooks/useStackPicker";
 import type { StackCategory } from "@/tools/types";
-import { colors, constants } from "../../styles/tokens.stylex";
+import { colors } from "../../styles/Colors.stylex";
+import { spacing } from "../../styles/Spacing.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  letterSpacing,
+} from "../../styles/Typography.stylex";
+import { breakpoints } from "../../styles/Breakpoints.stylex";
 
 const categories = categoriesData as StackCategory[];
 
@@ -142,56 +149,56 @@ export function MobileAppStackPicker() {
 
 const styles = stylex.create({
   root: {
-    paddingBottom: 112,
+    paddingBottom: spacing.space112,
   },
   tiers: {
     display: "flex",
     flexDirection: "column",
-    gap: 40,
+    gap: spacing.space40,
   },
   tierHeader: {
-    marginBottom: 16,
+    marginBottom: spacing.space16,
     display: "flex",
     alignItems: "baseline",
     justifyContent: "space-between",
-    gap: 12,
+    gap: spacing.space12,
     borderBottomWidth: 1,
-    borderBottomColor: colors.brand700,
-    paddingBottom: 8,
+    borderBottomColor: colors.surface,
+    paddingBottom: spacing.space8,
   },
   tierHeadingGroup: {
     display: "flex",
     alignItems: "baseline",
-    gap: 12,
+    gap: spacing.space12,
   },
   tierTitle: {
     fontSize: {
-      default: 14,
-      [constants.sm]: 16,
+      default: fontSizes.body,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
-    fontWeight: 700,
-    color: colors.brand50,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   tierSubtitle: {
-    fontSize: 10,
-    fontWeight: 600,
+    fontSize: fontSizes.caption,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.14em",
-    color: colors.brand400,
+    letterSpacing: letterSpacing.labelWide,
+    color: colors.textSubtle,
   },
   tierCount: {
-    fontSize: 10,
-    fontWeight: 600,
+    fontSize: fontSizes.caption,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.14em",
-    color: colors.brand500,
+    letterSpacing: letterSpacing.labelWide,
+    color: colors.border,
   },
   categoryGrid: {
     display: "grid",
-    gap: 16,
+    gap: spacing.space16,
     gridTemplateColumns: {
-      "@media (min-width: 768px)": "repeat(2, minmax(0, 1fr))",
-      [constants.xl]: "repeat(4, minmax(0, 1fr))",
+      [breakpoints.md]: "repeat(2, minmax(0, 1fr))",
+      [breakpoints.xl]: "repeat(4, minmax(0, 1fr))",
     },
   },
 });

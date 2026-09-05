@@ -3,7 +3,18 @@ import * as stylex from "@stylexjs/stylex";
 import { SimpleIconSvg } from "@/components/SimpleIconSvg";
 import { getSimpleIcon } from "@/tools/mobile-app-stack-picker/simpleIcons";
 import type { StackItem as StackItemType } from "@/tools/types";
-import { colors, constants } from "../../../styles/tokens.stylex";
+import { colors } from "../../../styles/Colors.stylex";
+import { spacing } from "../../../styles/Spacing.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacing,
+} from "../../../styles/Typography.stylex";
+import { motion } from "../../../styles/Motion.stylex";
+import { shadows } from "../../../styles/Shadows.stylex";
+import { layout } from "../../../styles/Layout.stylex";
 
 type StackItemProps = {
   item: StackItemType;
@@ -76,39 +87,38 @@ const styles = stylex.create({
     display: "flex",
     width: "100%",
     alignItems: "center",
-    gap: 10,
-    borderRadius: 8,
+    gap: spacing.space10,
+    borderRadius: radii.md,
     borderWidth: 1,
-    borderColor: colors.brand500,
+    borderColor: colors.border,
     backgroundColor: {
-      default: colors.brand700,
-      ":hover": colors.brand600,
+      default: colors.surface,
+      ":hover": colors.surfaceHover,
     },
-    paddingInline: 12,
-    paddingBlock: 8,
+    paddingInline: spacing.space12,
+    paddingBlock: spacing.space8,
     textAlign: "left",
-    fontSize: 14,
-    lineHeight: "20px",
-    color: colors.brand100,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.line20,
+    color: colors.textStrong,
     transitionProperty: {
-      [constants.allowMotion]: "all",
+      [motion.allow]: "all",
     },
     outline: {
       ":focus-visible": "none",
     },
     boxShadow: {
-      ":focus-visible": "0 0 0 2px #1A202C, 0 0 0 4px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focusOffsetBackground,
     },
   },
   pick: {
     borderLeftWidth: 2,
-    borderLeftColor: colors.primary,
+    borderLeftColor: colors.accent,
   },
   selected: {
-    borderColor: colors.primary,
-    backgroundColor: colors.brand600,
-    boxShadow:
-      "0 0 0 1px color-mix(in oklab, hsl(207 68% 50%) 70%, transparent)",
+    borderColor: colors.accent,
+    backgroundColor: colors.surfaceHover,
+    boxShadow: shadows.accentOutline,
   },
   iconBox: {
     display: "flex",
@@ -117,8 +127,8 @@ const styles = stylex.create({
     flexShrink: 0,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 2,
-    backgroundColor: "color-mix(in oklab, #1A202C 60%, transparent)",
+    borderRadius: radii.xxs,
+    backgroundColor: colors.backgroundAlpha60,
   },
   icon: {
     width: 14,
@@ -128,7 +138,7 @@ const styles = stylex.create({
     color,
   }),
   fallbackIcon: {
-    color: colors.brand300,
+    color: colors.textMuted,
   },
   itemLabel: {
     overflow: "hidden",
@@ -145,55 +155,55 @@ const styles = stylex.create({
   star: {
     width: 14,
     height: 14,
-    color: colors.primary,
-    fill: colors.primary,
+    color: colors.accent,
+    fill: colors.accent,
   },
   starSelected: {
-    fill: "color-mix(in oklab, hsl(207 68% 50%) 80%, transparent)",
+    fill: colors.accentAlpha80,
   },
   tooltip: {
     pointerEvents: "none",
     position: "absolute",
     bottom: "100%",
     right: 0,
-    zIndex: constants.zSticky,
-    marginBottom: 6,
-    borderRadius: 6,
+    zIndex: layout.zSticky,
+    marginBottom: spacing.space6,
+    borderRadius: radii.sm,
     borderWidth: 1,
-    borderColor: colors.brand500,
-    backgroundColor: colors.brand900,
-    paddingInline: 8,
-    paddingBlock: 4,
-    fontSize: 10,
-    fontWeight: 500,
-    color: colors.brand50,
-    boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1)",
+    borderColor: colors.border,
+    backgroundColor: colors.background,
+    paddingInline: spacing.space8,
+    paddingBlock: spacing.space4,
+    fontSize: fontSizes.caption,
+    fontWeight: fontWeights.medium,
+    color: colors.textPrimary,
+    boxShadow: shadows.tooltip,
     opacity: {
       default: 0,
       [stylex.when.ancestor(":hover")]: 1,
     },
     transitionProperty: {
-      [constants.allowMotion]: "opacity",
+      [motion.allow]: "opacity",
     },
     transitionDuration: {
-      [constants.allowMotion]: constants.durationFast,
+      [motion.allow]: motion.fast,
     },
   },
   tooltipReason: {
     width: 224,
     textAlign: "left",
-    lineHeight: 1.375,
+    lineHeight: lineHeights.snug,
   },
   tooltipShort: {
     whiteSpace: "nowrap",
   },
   tooltipTitle: {
-    marginBottom: 4,
+    marginBottom: spacing.space4,
     display: "block",
-    fontSize: 9,
-    fontWeight: 600,
+    fontSize: fontSizes.micro,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.05em",
-    color: colors.primary,
+    letterSpacing: letterSpacing.wider,
+    color: colors.accent,
   },
 });

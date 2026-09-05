@@ -5,7 +5,18 @@ import { Button } from "@/components/ui/button";
 import { SimpleIconSvg } from "@/components/SimpleIconSvg";
 import { getSimpleIcon } from "@/tools/mobile-app-stack-picker/simpleIcons";
 import type { SelectedStackEntry } from "@/tools/types";
-import { colors, constants } from "../../../styles/tokens.stylex";
+import { colors } from "../../../styles/Colors.stylex";
+import { spacing } from "../../../styles/Spacing.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacing,
+} from "../../../styles/Typography.stylex";
+import { breakpoints } from "../../../styles/Breakpoints.stylex";
+import { shadows } from "../../../styles/Shadows.stylex";
+import { layout } from "../../../styles/Layout.stylex";
 
 type StackBottomBarProps = {
   entries: SelectedStackEntry[];
@@ -143,74 +154,74 @@ const styles = stylex.create({
   root: {
     position: "sticky",
     bottom: 0,
-    zIndex: constants.zSticky,
+    zIndex: layout.zSticky,
     marginTop: {
-      default: 24,
-      [constants.sm]: 32,
+      default: spacing.space24,
+      [breakpoints.sm]: spacing.space32,
     },
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
+    borderTopLeftRadius: radii.lg,
+    borderTopRightRadius: radii.lg,
     borderWidth: 1,
     borderBottomWidth: 0,
-    borderColor: colors.brand500,
-    backgroundColor: "rgb(26 32 44 / 0.95)",
+    borderColor: colors.border,
+    backgroundColor: colors.backgroundOpaque95,
     padding: {
-      default: 12,
-      [constants.sm]: 16,
+      default: spacing.space12,
+      [breakpoints.sm]: spacing.space16,
     },
-    boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+    boxShadow: shadows.elevationLg,
     backdropFilter: "blur(8px)",
   },
   layout: {
     display: "flex",
     flexDirection: {
       default: "column",
-      [constants.sm]: "row",
+      [breakpoints.sm]: "row",
     },
     alignItems: {
-      [constants.sm]: "center",
+      [breakpoints.sm]: "center",
     },
     justifyContent: {
-      [constants.sm]: "space-between",
+      [breakpoints.sm]: "space-between",
     },
-    gap: 12,
+    gap: spacing.space12,
   },
   summary: {
     minWidth: 0,
   },
   title: {
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 600,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.025em",
-    color: colors.brand300,
+    letterSpacing: letterSpacing.wide,
+    color: colors.textMuted,
   },
   entries: {
-    marginTop: 8,
+    marginTop: spacing.space8,
     display: "flex",
     maxHeight: {
       default: 160,
-      [constants.sm]: 128,
+      [breakpoints.sm]: 128,
     },
     flexWrap: "wrap",
-    gap: 8,
+    gap: spacing.space8,
     overflowY: "auto",
-    paddingRight: 4,
+    paddingRight: spacing.space4,
   },
   entry: {
     display: "inline-flex",
     alignItems: "center",
-    gap: 8,
-    borderRadius: 8,
+    gap: spacing.space8,
+    borderRadius: radii.md,
     borderWidth: 1,
-    borderColor: colors.brand500,
-    backgroundColor: colors.brand700,
-    paddingInline: 12,
-    paddingBlock: 6,
-    fontSize: 14,
-    lineHeight: "20px",
-    color: colors.brand100,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingInline: spacing.space12,
+    paddingBlock: spacing.space6,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.line20,
+    color: colors.textStrong,
   },
   iconBox: {
     display: "flex",
@@ -219,8 +230,8 @@ const styles = stylex.create({
     flexShrink: 0,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 2,
-    backgroundColor: "color-mix(in oklab, #1A202C 60%, transparent)",
+    borderRadius: radii.xxs,
+    backgroundColor: colors.backgroundAlpha60,
   },
   icon: {
     width: 12,
@@ -230,7 +241,7 @@ const styles = stylex.create({
     color,
   }),
   fallbackIcon: {
-    color: colors.brand300,
+    color: colors.textMuted,
   },
   entryLabel: {
     overflow: "hidden",
@@ -238,33 +249,33 @@ const styles = stylex.create({
     whiteSpace: "nowrap",
   },
   empty: {
-    marginTop: 4,
+    marginTop: spacing.space4,
     fontSize: {
-      default: 14,
-      [constants.sm]: 16,
+      default: fontSizes.body,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
     lineHeight: {
-      default: "20px",
-      [constants.sm]: "24px",
+      default: lineHeights.line20,
+      [breakpoints.sm]: lineHeights.line24,
     },
-    color: colors.brand400,
+    color: colors.textSubtle,
   },
   actions: {
     display: "flex",
     alignItems: "center",
-    gap: 8,
+    gap: spacing.space8,
     alignSelf: {
       default: "flex-end",
-      [constants.sm]: "auto",
+      [breakpoints.sm]: "auto",
     },
   },
   secondaryButton: {
     borderWidth: 1,
-    borderColor: colors.brand500,
+    borderColor: colors.border,
     backgroundColor: {
-      default: colors.brand800,
-      ":hover": colors.brand700,
+      default: colors.surfaceSubtle,
+      ":hover": colors.surface,
     },
-    color: colors.brand100,
+    color: colors.textStrong,
   },
 });

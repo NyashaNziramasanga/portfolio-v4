@@ -2,7 +2,16 @@ import { useMemo } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { StackItem } from "@/tools/mobile-app-stack-picker/components/StackItem";
 import type { StackCategory, StackItem as StackItemType } from "@/tools/types";
-import { colors, constants } from "../../../styles/tokens.stylex";
+import { colors } from "../../../styles/Colors.stylex";
+import { spacing } from "../../../styles/Spacing.stylex";
+import { radii } from "../../../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacing,
+} from "../../../styles/Typography.stylex";
+import { breakpoints } from "../../../styles/Breakpoints.stylex";
 
 type CategoryColumnProps = {
   category: StackCategory;
@@ -64,67 +73,67 @@ export function CategoryColumn({
 
 const styles = stylex.create({
   root: {
-    borderRadius: 12,
+    borderRadius: radii.lg,
     borderWidth: 1,
     padding: {
-      default: 16,
-      [constants.sm]: 20,
+      default: spacing.space16,
+      [breakpoints.sm]: spacing.space20,
     },
     transitionProperty: "color, background-color, border-color",
   },
   header: {
-    marginBottom: 12,
+    marginBottom: spacing.space12,
     borderBottomWidth: 1,
-    paddingBottom: 10,
+    paddingBottom: spacing.space10,
   },
   title: {
-    fontSize: 16,
-    lineHeight: "24px",
-    fontWeight: 600,
-    color: colors.brand50,
+    fontSize: fontSizes.bodyLarge,
+    lineHeight: lineHeights.line24,
+    fontWeight: fontWeights.semibold,
+    color: colors.textPrimary,
   },
   subtitle: {
-    marginTop: 2,
-    fontSize: 10,
-    fontWeight: 600,
+    marginTop: spacing.space2,
+    fontSize: fontSizes.caption,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.14em",
-    color: colors.brand400,
+    letterSpacing: letterSpacing.labelWide,
+    color: colors.textSubtle,
   },
   items: {
     display: "flex",
     flexDirection: "column",
-    gap: 8,
+    gap: spacing.space8,
   },
 });
 
 const tierStyles = stylex.create({
   container1: {
-    borderColor: colors.brand500,
-    backgroundColor: "color-mix(in oklab, #1F2937 70%, transparent)",
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceSubtleAlpha70,
   },
   container2: {
-    borderColor: "color-mix(in oklab, #4A5568 75%, transparent)",
-    backgroundColor: "color-mix(in oklab, #1F2937 50%, transparent)",
+    borderColor: colors.borderAlpha75,
+    backgroundColor: colors.surfaceSubtleAlpha50,
   },
   container3: {
-    borderColor: "color-mix(in oklab, #4A5568 55%, transparent)",
-    backgroundColor: "color-mix(in oklab, #1F2937 35%, transparent)",
+    borderColor: colors.borderAlpha55,
+    backgroundColor: colors.surfaceSubtleAlpha35,
   },
   container4: {
-    borderColor: "color-mix(in oklab, #4A5568 35%, transparent)",
-    backgroundColor: "color-mix(in oklab, #1F2937 20%, transparent)",
+    borderColor: colors.borderAlpha35,
+    backgroundColor: colors.surfaceSubtleAlpha20,
   },
   divider1: {
-    borderColor: colors.brand500,
+    borderColor: colors.border,
   },
   divider2: {
-    borderColor: "color-mix(in oklab, #4A5568 70%, transparent)",
+    borderColor: colors.borderAlpha70,
   },
   divider3: {
-    borderColor: "color-mix(in oklab, #4A5568 50%, transparent)",
+    borderColor: colors.borderAlpha50,
   },
   divider4: {
-    borderColor: "color-mix(in oklab, #4A5568 30%, transparent)",
+    borderColor: colors.borderAlpha30,
   },
 });
