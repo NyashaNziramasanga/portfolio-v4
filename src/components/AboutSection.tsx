@@ -1,7 +1,19 @@
 import * as stylex from "@stylexjs/stylex";
 import techStackData from "@/data/techStack.json";
 import { ResumeActions } from "@/components/ResumeActions";
-import { colors, constants } from "../styles/tokens.stylex";
+import { colors } from "../styles/Colors.stylex";
+import { spacing } from "../styles/Spacing.stylex";
+import { radii } from "../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+  letterSpacing,
+} from "../styles/Typography.stylex";
+import { motion } from "../styles/Motion.stylex";
+import { breakpoints } from "../styles/Breakpoints.stylex";
+import { shadows } from "../styles/Shadows.stylex";
+import { layout } from "../styles/Layout.stylex";
 
 const YEARS_OF_EXPERIENCE = new Date().getFullYear() - 2018;
 
@@ -56,142 +68,140 @@ const styles = stylex.create({
   root: {
     display: "flex",
     width: "100%",
-    maxWidth: 1024,
+    maxWidth: layout.contentMax,
     flexDirection: "column",
   },
   eyebrow: {
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 600,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.18em",
-    color: colors.blue300,
+    letterSpacing: letterSpacing.eyebrow,
+    color: colors.accentText,
   },
   title: {
-    marginTop: 12,
-    maxWidth: 896,
+    marginTop: spacing.space12,
+    maxWidth: layout.contentWide,
     fontSize: {
-      default: 30,
-      [constants.sm]: 36,
-      [constants.lg]: 48,
+      default: fontSizes.displaySmall,
+      [breakpoints.sm]: fontSizes.display,
+      [breakpoints.lg]: fontSizes.displayLarge,
     },
-    lineHeight: 1.25,
-    fontWeight: 700,
-    color: colors.brand50,
+    lineHeight: lineHeights.tight,
+    fontWeight: fontWeights.bold,
+    color: colors.textPrimary,
   },
   subtitle: {
-    marginTop: 8,
+    marginTop: spacing.space8,
     display: "block",
     fontSize: {
-      default: 20,
-      [constants.sm]: 24,
-      [constants.lg]: 30,
+      default: fontSizes.title,
+      [breakpoints.sm]: fontSizes.heading,
+      [breakpoints.lg]: fontSizes.displaySmall,
     },
     lineHeight: {
-      default: "28px",
-      [constants.sm]: "32px",
-      [constants.lg]: "36px",
+      default: lineHeights.line28,
+      [breakpoints.sm]: lineHeights.line32,
+      [breakpoints.lg]: lineHeights.line36,
     },
-    fontWeight: 600,
-    color: colors.brand300,
+    fontWeight: fontWeights.semibold,
+    color: colors.textMuted,
   },
   summary: {
-    marginTop: 24,
-    maxWidth: 896,
+    marginTop: spacing.space24,
+    maxWidth: layout.contentWide,
     fontSize: {
-      default: 14,
-      [constants.sm]: 16,
+      default: fontSizes.body,
+      [breakpoints.sm]: fontSizes.bodyLarge,
     },
     lineHeight: {
-      default: 1.625,
-      [constants.sm]: "28px",
+      default: lineHeights.relaxed,
+      [breakpoints.sm]: lineHeights.line28,
     },
-    color: colors.brand200,
+    color: colors.textSecondary,
   },
   link: {
     color: {
-      default: colors.blue300,
-      ":hover": colors.blue200,
+      default: colors.accentText,
+      ":hover": colors.accentSoft,
     },
     textDecorationLine: "underline",
     textUnderlineOffset: 2,
   },
   actions: {
-    marginTop: 28,
+    marginTop: spacing.space28,
     display: "flex",
     flexWrap: "wrap",
     alignItems: "center",
-    gap: 12,
+    gap: spacing.space12,
   },
   grid: {
     marginTop: {
-      default: 40,
-      [constants.sm]: 48,
+      default: spacing.space40,
+      [breakpoints.sm]: spacing.space48,
     },
     display: "grid",
-    gap: 16,
+    gap: spacing.space16,
     gridTemplateColumns: {
-      [constants.sm]: "repeat(2, minmax(0, 1fr))",
-      [constants.lg]: "repeat(3, minmax(0, 1fr))",
+      [breakpoints.sm]: "repeat(2, minmax(0, 1fr))",
+      [breakpoints.lg]: "repeat(3, minmax(0, 1fr))",
     },
   },
   card: {
-    borderRadius: 16,
+    borderRadius: radii.xl,
     borderWidth: 1,
     borderColor: {
-      default: "color-mix(in oklab, #4A5568 50%, transparent)",
-      ":hover": "color-mix(in oklab, #4299E1 30%, transparent)",
+      default: colors.borderAlpha50,
+      ":hover": colors.accentSurfaceAlpha30,
     },
     backgroundColor: {
-      default: "color-mix(in oklab, #1F2937 50%, transparent)",
-      ":hover": "color-mix(in oklab, #252F3F 70%, transparent)",
+      default: colors.surfaceSubtleAlpha50,
+      ":hover": colors.surfaceAlpha70,
     },
-    padding: 20,
+    padding: spacing.space20,
     boxShadow: {
-      default: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-      ":hover":
-        "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+      default: shadows.elevationXs,
+      ":hover": shadows.elevationMd,
     },
     transform: {
       default: "translateY(0)",
       ":hover": "translateY(-4px)",
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
     transitionProperty: {
       default: "all",
-      [constants.reduceMotion]: "none",
+      [motion.reduce]: "none",
     },
-    transitionDuration: "300ms",
+    transitionDuration: motion.slow,
   },
   emoji: {
-    marginBottom: 16,
+    marginBottom: spacing.space16,
     display: "flex",
     height: 40,
     width: 40,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 12,
+    borderRadius: radii.lg,
     backgroundColor: {
-      default: "color-mix(in oklab, #4299E1 10%, transparent)",
-      [stylex.when.ancestor(":hover")]:
-        "color-mix(in oklab, #4299E1 15%, transparent)",
+      default: colors.accentSurfaceAlpha10,
+      [stylex.when.ancestor(":hover")]: colors.accentSurfaceAlpha15,
     },
-    fontSize: 20,
-    boxShadow: "inset 0 0 0 1px color-mix(in oklab, #4299E1 20%, transparent)",
+    fontSize: fontSizes.title,
+    boxShadow: shadows.accentInset,
     transitionProperty: "background-color",
   },
   cardTitle: {
-    fontSize: 12,
-    lineHeight: "16px",
-    fontWeight: 600,
+    fontSize: fontSizes.label,
+    lineHeight: lineHeights.line16,
+    fontWeight: fontWeights.semibold,
     textTransform: "uppercase",
-    letterSpacing: "0.1em",
-    color: colors.brand300,
+    letterSpacing: letterSpacing.label,
+    color: colors.textMuted,
   },
   cardSummary: {
-    marginTop: 8,
-    fontSize: 14,
-    lineHeight: "24px",
-    color: colors.brand100,
+    marginTop: spacing.space8,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.line24,
+    color: colors.textStrong,
   },
 });

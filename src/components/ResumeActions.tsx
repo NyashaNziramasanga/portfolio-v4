@@ -1,7 +1,16 @@
 import * as stylex from "@stylexjs/stylex";
 import { ExternalLink } from "lucide-react";
 import { track } from "@vercel/analytics/react";
-import { colors } from "../styles/tokens.stylex";
+import { colors } from "../styles/Colors.stylex";
+import { spacing } from "../styles/Spacing.stylex";
+import { radii } from "../styles/BorderRadius.stylex";
+import {
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from "../styles/Typography.stylex";
+import { shadows } from "../styles/Shadows.stylex";
+import { layout } from "../styles/Layout.stylex";
 
 const RESUME_URL = "/files/nyasha-nziramasanga-resume.pdf";
 
@@ -23,35 +32,35 @@ export function ResumeActions() {
 const styles = stylex.create({
   action: {
     display: "inline-flex",
-    minHeight: 44,
+    minHeight: layout.touchTarget,
     alignItems: "center",
     justifyContent: "center",
-    gap: 8,
-    borderRadius: 9999,
+    gap: spacing.space8,
+    borderRadius: radii.pill,
     borderWidth: 1,
     borderColor: {
-      default: colors.brand500,
-      ":hover": "color-mix(in oklab, #4299E1 60%, transparent)",
+      default: colors.border,
+      ":hover": colors.accentSurfaceAlpha60,
     },
-    paddingInline: 16,
-    paddingBlock: 10,
-    fontSize: 14,
-    lineHeight: "20px",
-    fontWeight: 600,
+    paddingInline: spacing.space16,
+    paddingBlock: spacing.space10,
+    fontSize: fontSizes.body,
+    lineHeight: lineHeights.line20,
+    fontWeight: fontWeights.semibold,
     color: {
-      default: colors.brand100,
-      ":hover": colors.brand50,
+      default: colors.textStrong,
+      ":hover": colors.textPrimary,
     },
     backgroundColor: {
-      default: "transparent",
-      ":hover": colors.brand700,
+      default: colors.transparent,
+      ":hover": colors.surface,
     },
     transitionProperty: "color, background-color, border-color",
     outline: {
       ":focus-visible": "none",
     },
     boxShadow: {
-      ":focus-visible": "0 0 0 2px hsl(207 68% 50%)",
+      ":focus-visible": shadows.focus,
     },
   },
   icon: {

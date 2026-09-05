@@ -3,7 +3,9 @@ import { Linkedin } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
 import { SimpleIconSvg } from "@/components/SimpleIconSvg";
 import { track } from "@vercel/analytics/react";
-import { colors } from "../styles/tokens.stylex";
+import { colors } from "../styles/Colors.stylex";
+import { spacing } from "../styles/Spacing.stylex";
+import { layout } from "../styles/Layout.stylex";
 
 const socialLinks = [
   {
@@ -66,18 +68,18 @@ const styles = stylex.create({
   root: {
     display: "flex",
     justifyContent: "center",
-    gap: 8,
+    gap: spacing.space8,
   },
   link: {
     display: "inline-flex",
-    minHeight: 44,
-    minWidth: 44,
+    minHeight: layout.touchTarget,
+    minWidth: layout.touchTarget,
     alignItems: "center",
     justifyContent: "center",
-    padding: 8,
+    padding: spacing.space8,
     color: {
-      default: colors.brand300,
-      ":hover": colors.brand50,
+      default: colors.textMuted,
+      ":hover": colors.textPrimary,
     },
     transitionProperty: "color",
   },
