@@ -1,0 +1,291 @@
+{
+  "colors": {
+    "background": "#1A202C",
+    "surfaceSubtle": "#1F2937",
+    "surface": "#252F3F",
+    "surfaceHover": "#2D3748",
+    "border": "#4A5568",
+    "textMuted": "#A0AEC0",
+    "textSecondary": "#CBD5E0",
+    "textStrong": "#E2E8F0",
+    "textPrimary": "#EDF2F7",
+    "accentSoft": "#90CDF4",
+    "accentText": "#63B3ED",
+    "accentSurface": "#4299E1",
+    "accent": "hsl(207 68% 50%)",
+    "accentForeground": "hsl(0 0% 100%)",
+    "actionPrimary": "#2B6CB0",
+    "actionPrimaryHover": "#2C5282",
+    "actionPrimaryText": "#FFFFFF",
+    "actionSecondary": "#4A5568",
+    "actionSecondaryHover": "#2D3748",
+    "actionSecondaryText": "#EDF2F7",
+    "actionDanger": "#C53030",
+    "actionDangerHover": "#9B2C2C",
+    "actionDangerText": "#FFFFFF",
+    "scrollbarThumb": "hsl(218 17% 35%)",
+    "scrollbarThumbHover": "hsl(218 15% 65%)",
+    "transparent": "transparent",
+    "black": "#000",
+    "white": "#fff",
+    "overlay": "color-mix(in oklab, #000 60%, transparent)",
+    "backgroundAlpha60": "color-mix(in oklab, #1A202C 60%, transparent)",
+    "backgroundAlpha70": "color-mix(in oklab, #1A202C 70%, transparent)",
+    "backgroundAlpha80": "color-mix(in oklab, #1A202C 80%, transparent)",
+    "backgroundOpaque95": "rgb(26 32 44 / 0.95)",
+    "surfaceSubtleAlpha20": "color-mix(in oklab, #1F2937 20%, transparent)",
+    "surfaceSubtleAlpha35": "color-mix(in oklab, #1F2937 35%, transparent)",
+    "surfaceSubtleAlpha50": "color-mix(in oklab, #1F2937 50%, transparent)",
+    "surfaceSubtleAlpha60": "color-mix(in oklab, #1F2937 60%, transparent)",
+    "surfaceSubtleAlpha70": "color-mix(in oklab, #1F2937 70%, transparent)",
+    "surfaceAlpha50": "color-mix(in oklab, #252F3F 50%, transparent)",
+    "surfaceAlpha70": "color-mix(in oklab, #252F3F 70%, transparent)",
+    "surfaceHoverAlpha60": "color-mix(in oklab, #2D3748 60%, transparent)",
+    "borderAlpha30": "color-mix(in oklab, #4A5568 30%, transparent)",
+    "borderAlpha35": "color-mix(in oklab, #4A5568 35%, transparent)",
+    "borderAlpha40": "color-mix(in oklab, #4A5568 40%, transparent)",
+    "borderAlpha50": "color-mix(in oklab, #4A5568 50%, transparent)",
+    "borderAlpha55": "color-mix(in oklab, #4A5568 55%, transparent)",
+    "borderAlpha60": "color-mix(in oklab, #4A5568 60%, transparent)",
+    "borderAlpha70": "color-mix(in oklab, #4A5568 70%, transparent)",
+    "borderAlpha75": "color-mix(in oklab, #4A5568 75%, transparent)",
+    "accentSurfaceAlpha10": "color-mix(in oklab, #4299E1 10%, transparent)",
+    "accentSurfaceAlpha15": "color-mix(in oklab, #4299E1 15%, transparent)",
+    "accentSurfaceAlpha20": "color-mix(in oklab, #4299E1 20%, transparent)",
+    "accentSurfaceAlpha30": "color-mix(in oklab, #4299E1 30%, transparent)",
+    "accentSurfaceAlpha40": "color-mix(in oklab, #4299E1 40%, transparent)",
+    "accentSurfaceAlpha60": "color-mix(in oklab, #4299E1 60%, transparent)",
+    "accentAlpha15": "color-mix(in oklab, hsl(207 68% 50%) 15%, transparent)",
+    "accentAlpha30": "color-mix(in oklab, hsl(207 68% 50%) 30%, transparent)",
+    "accentAlpha40": "color-mix(in oklab, hsl(207 68% 50%) 40%, transparent)",
+    "accentAlpha70": "color-mix(in oklab, hsl(207 68% 50%) 70%, transparent)",
+    "accentAlpha80": "color-mix(in oklab, hsl(207 68% 50%) 80%, transparent)",
+    "accentAlpha90": "color-mix(in oklab, hsl(207 68% 50%) 90%, transparent)",
+    "accentSoftAlpha15": "color-mix(in oklab, #90CDF4 15%, transparent)",
+    "accentSoftAlpha40": "color-mix(in oklab, #90CDF4 40%, transparent)",
+    "mediaOverlay20": "rgb(0 0 0 / 0.2)",
+    "mediaOverlay30": "rgb(0 0 0 / 0.3)",
+    "mediaControl": "rgb(237 242 247 / 0.95)",
+    "videoBadgeSurface": "color-mix(in oklab, #2A4365 40%, transparent)",
+    "videoBadgeText": "#63B3ED",
+    "articleBadgeSurface": "color-mix(in oklab, #78350F 40%, transparent)",
+    "articleBadgeText": "#FBBF24",
+    "imageBadgeSurface": "color-mix(in oklab, #064E3B 40%, transparent)",
+    "imageBadgeText": "#34D399",
+    "gifBadgeSurface": "color-mix(in oklab, #4C1D95 40%, transparent)",
+    "gifBadgeText": "#A78BFA"
+  },
+  "spacing": {
+    "none": 0,
+    "xxs": 4,
+    "xs": 8,
+    "sm": 12,
+    "md": 16,
+    "lg": 20,
+    "xl": 24,
+    "xxl": 32,
+    "xxxl": 40
+  },
+  "fontFamilies": {
+    "sans": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+    "mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+  },
+  "fontSizes": {
+    "caption": 11,
+    "label": 12,
+    "bodySmall": 13,
+    "body": 14,
+    "bodyLarge": 16,
+    "titleSmall": 18,
+    "title": 20,
+    "heading": 24,
+    "displaySmall": 30,
+    "display": 36,
+    "displayLarge": 48
+  },
+  "fontWeights": {
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700,
+    "extraBold": 800
+  },
+  "lineHeights": {
+    "none": 1,
+    "normal": 1.5,
+    "tight": 1.25,
+    "snug": 1.375,
+    "relaxed": 1.625,
+    "line16": "16px",
+    "line20": "20px",
+    "line24": "24px",
+    "line28": "28px",
+    "line32": "32px",
+    "line36": "36px"
+  },
+  "letterSpacing": {
+    "display": "-0.025em",
+    "wide": "0.025em",
+    "wider": "0.05em",
+    "label": "0.1em",
+    "labelWide": "0.14em",
+    "eyebrow": "0.18em"
+  },
+  "radii": {
+    "none": 0,
+    "xxs": 2,
+    "xs": 4,
+    "sm": 6,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "circle": "50%",
+    "pill": 9999
+  },
+  "shadows": {
+    "none": "none",
+    "elevationXs": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+    "elevationSm": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+    "elevationMd": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+    "elevationLg": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+    "media": "0 10px 15px -3px rgb(0 0 0 / 0.25), 0 4px 6px -4px rgb(0 0 0 / 0.25)",
+    "mediaHover": "0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)",
+    "mediaStrong": "0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3)",
+    "tooltip": "0 10px 15px -3px rgb(0 0 0 / 0.1)",
+    "focus": "0 0 0 2px hsl(207 68% 50%)",
+    "focusOffsetBackground": "0 0 0 2px #1A202C, 0 0 0 4px hsl(207 68% 50%)",
+    "focusOffsetSurface": "0 0 0 2px #1F2937, 0 0 0 4px hsl(207 68% 50%)",
+    "accentOutline": "0 0 0 1px color-mix(in oklab, hsl(207 68% 50%) 70%, transparent)",
+    "accentSubtleOutline": "0 0 0 1px color-mix(in oklab, hsl(207 68% 50%) 30%, transparent)",
+    "raisedAccent": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 0 0 1px color-mix(in oklab, hsl(207 68% 50%) 30%, transparent)",
+    "accentInset": "inset 0 0 0 1px color-mix(in oklab, #4299E1 20%, transparent)",
+    "currentColorFocus": "0 0 0 2px currentColor",
+    "avatarRing": "0 0 0 4px #718096",
+    "avatarRingSmall": "0 0 0 2px #718096"
+  },
+  "motion": {
+    "reduce": "@media (prefers-reduced-motion: reduce)",
+    "allow": "@media (prefers-reduced-motion: no-preference)",
+    "instant": "0ms",
+    "fast": "150ms",
+    "normal": "200ms",
+    "slow": "300ms",
+    "pulseDuration": "2s",
+    "floatDuration": "3s",
+    "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+    "easeInOut": "ease-in-out",
+    "pulseEasing": "cubic-bezier(0.4, 0, 0.6, 1)"
+  },
+  "layout": {
+    "touchTarget": 44,
+    "sidebarWidth": 288,
+    "contentNarrow": 672,
+    "contentMedium": 768,
+    "contentWide": 896,
+    "contentMax": 1024,
+    "pageMax": 1280,
+    "sectionPaddingDesktop": 64,
+    "stackPickerBottomClearance": 112,
+    "zSticky": 10,
+    "zSkipLink": 100
+  },
+  "breakpoints": {
+    "sm": "@media (min-width: 640px)",
+    "md": "@media (min-width: 768px)",
+    "lg": "@media (min-width: 1024px)",
+    "xl": "@media (min-width: 1280px)"
+  },
+  "fonts": {
+    "sectionHeading": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": {
+        "default": 20,
+        "@media (min-width: 640px)": 24
+      },
+      "fontWeight": 700,
+      "lineHeight": {
+        "default": "28px",
+        "@media (min-width: 640px)": "32px"
+      }
+    },
+    "sectionDescription": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": {
+        "default": 14,
+        "@media (min-width: 640px)": 16
+      },
+      "fontWeight": 400,
+      "lineHeight": 1.625
+    },
+    "eyebrow": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 12,
+      "fontWeight": 600,
+      "lineHeight": "16px",
+      "letterSpacing": "0.18em",
+      "textTransform": "uppercase"
+    },
+    "displayLarge": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 48,
+      "fontWeight": 700,
+      "lineHeight": 1.25,
+      "letterSpacing": "-0.025em"
+    },
+    "display": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 36,
+      "fontWeight": 700,
+      "lineHeight": 1.25,
+      "letterSpacing": "-0.025em"
+    },
+    "heading": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 24,
+      "fontWeight": 700,
+      "lineHeight": "32px"
+    },
+    "titleLarge": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 20,
+      "fontWeight": 600,
+      "lineHeight": "28px"
+    },
+    "title": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 18,
+      "fontWeight": 700,
+      "lineHeight": "28px"
+    },
+    "bodyLarge": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 16,
+      "fontWeight": 400,
+      "lineHeight": "24px"
+    },
+    "body": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": "20px"
+    },
+    "bodySmall": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 13,
+      "fontWeight": 400,
+      "lineHeight": "20px"
+    },
+    "caption": {
+      "fontFamily": "Inter Variable, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif",
+      "fontSize": 12,
+      "fontWeight": 600,
+      "lineHeight": "16px"
+    },
+    "mono": {
+      "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": "20px"
+    }
+  }
+}
