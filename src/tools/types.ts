@@ -2,6 +2,7 @@ import type { ComponentType, LazyExoticComponent } from "react";
 import categoriesData from "@/tools/mobile-app-stack-picker/data/categories.json";
 
 export const TOOL_SLUGS = [
+  "design-system",
   "mobile-app-stack-picker",
   "border-radius-calculator",
 ] as const;

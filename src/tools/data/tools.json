@@ -1,5 +1,12 @@
 [
   {
+    "id": "design-system",
+    "slug": "design-system",
+    "title": "Design System",
+    "description": "Explore the colors, spacing, typography, and components behind this portfolio.",
+    "status": "live"
+  },
+  {
     "id": "mobile-app-stack-picker",
     "slug": "mobile-app-stack-picker",
     "title": "Mobile App Stack Picker",

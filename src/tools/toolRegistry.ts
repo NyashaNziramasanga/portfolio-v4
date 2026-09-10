@@ -13,6 +13,14 @@ function findTool(slug: ToolSlug): ToolListItem {
 }
 
 const toolRegistry: Record<ToolSlug, RegisteredTool> = {
+  "design-system": {
+    ...findTool("design-system"),
+    component: lazy(() =>
+      import("@/tools/design-system").then(({ DesignSystem }) => ({
+        default: DesignSystem,
+      })),
+    ),
+  },
   "mobile-app-stack-picker": {
     ...findTool("mobile-app-stack-picker"),
     component: lazy(() =>
