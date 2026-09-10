@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronRight, Wrench } from "lucide-react";
+import { ChevronRight, Palette, Radius, Smartphone, type LucideIcon } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
-import type { ToolListItem } from "@/tools/types";
+import type { ToolListItem, ToolSlug } from "@/tools/types";
 import { track } from "@vercel/analytics/react";
 import { colors } from "../styles/Colors.stylex";
 import { spacing } from "../styles/Spacing.stylex";
@@ -19,7 +19,15 @@ type ToolCardProps = {
   tool: ToolListItem;
 };
 
+const toolIcons: Record<ToolSlug, LucideIcon> = {
+  "design-system": Palette,
+  "mobile-app-stack-picker": Smartphone,
+  "border-radius-calculator": Radius,
+};
+
 export function ToolCard({ tool }: ToolCardProps) {
+  const Icon = toolIcons[tool.slug];
+
   return (
     <Link
       to="/tools/$toolId"
@@ -29,7 +37,7 @@ export function ToolCard({ tool }: ToolCardProps) {
     >
       <div {...stylex.props(styles.row)}>
         <div {...stylex.props(styles.iconBox)}>
-          <Wrench {...stylex.props(styles.wrench)} />
+          <Icon aria-hidden="true" {...stylex.props(styles.icon)} />
         </div>
 
         <div {...stylex.props(styles.copy)}>
@@ -104,7 +112,7 @@ const styles = stylex.create({
     backgroundColor: colors.surfaceHover,
     color: colors.accent,
   },
-  wrench: {
+  icon: {
     width: {
       default: 16,
       [breakpoints.sm]: 20,
