@@ -1,0 +1,41 @@
+{
+  "categories": [
+    { "id": "colors", "label": "Colors", "description": "Semantic roles give every surface, line of text, and action a consistent purpose." },
+    { "id": "spacing", "label": "Spacing", "description": "A compact 4 px grid creates a steady rhythm from small gaps to page layouts." },
+    { "id": "typography", "label": "Typography", "description": "Inter keeps the interface clear. Shared recipes pair size, weight, and line height." },
+    { "id": "shape", "label": "Shape & depth", "description": "Rounded corners soften containers. Subtle shadows and focus rings communicate hierarchy." },
+    { "id": "motion", "label": "Motion", "description": "Short, purposeful transitions make interactions feel responsive. Motion is always optional." },
+    { "id": "components", "label": "Components", "description": "The same components used throughout the portfolio, ready to explore with your mouse or keyboard." }
+  ],
+  "colorGroups": [
+    { "title": "Surfaces", "names": ["background", "surfaceSubtle", "surface", "surfaceHover", "border"] },
+    { "title": "Text", "names": ["textMuted", "textSecondary", "textStrong", "textPrimary"] },
+    { "title": "Accents", "names": ["accentSoft", "accentText", "accentSurface", "accent", "accentForeground"] },
+    { "title": "Actions", "names": ["actionPrimary", "actionPrimaryHover", "actionPrimaryText", "actionSecondary", "actionSecondaryHover", "actionSecondaryText", "actionDanger", "actionDangerHover", "actionDangerText"] }
+  ],
+  "usage": {
+    "background": "The canvas behind the entire portfolio.",
+    "surfaceSubtle": "Quiet surfaces and inset areas.",
+    "surface": "Raised cards and tool panels.",
+    "surfaceHover": "An interactive surface on hover.",
+    "border": "Separators and container outlines.",
+    "textMuted": "Supporting descriptions and metadata.",
+    "textSecondary": "Secondary information and navigation.",
+    "textStrong": "Emphasized labels and hover text.",
+    "textPrimary": "Headings and primary reading text.",
+    "accentSoft": "A soft accent for decorative details.",
+    "accentText": "Blue links and foreground icons.",
+    "accentSurface": "Accent surfaces and tinted highlights.",
+    "accent": "The central accent used in focus treatments.",
+    "accentForeground": "Foreground paired with accent surfaces; check contrast for the context.",
+    "actionPrimary": "The background of primary buttons.",
+    "actionPrimaryHover": "Primary button hover state.",
+    "actionPrimaryText": "Text on primary action backgrounds.",
+    "actionSecondary": "Secondary button backgrounds.",
+    "actionSecondaryHover": "Secondary button hover state.",
+    "actionSecondaryText": "Text on secondary action backgrounds.",
+    "actionDanger": "Destructive action backgrounds.",
+    "actionDangerHover": "Destructive action hover state.",
+    "actionDangerText": "Text on destructive action backgrounds."
+  }
+}
