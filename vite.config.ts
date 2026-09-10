@@ -1,3 +1,4 @@
+import { designSystemPlugin } from "./scripts/design-system.mjs";
 import { defineConfig } from "vite";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
@@ -9,6 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
+    designSystemPlugin(),
     stylex.vite({
       useCSSLayers: {
         before: ["reset"],
