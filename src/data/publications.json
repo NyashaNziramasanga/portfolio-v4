@@ -1,20 +1,32 @@
 [
   {
+    "id": "agentic-development-workflow",
+    "platform": "document",
+    "featuredOrder": 1,
+    "archived": false,
+    "title": "Agentic development workflow",
+    "url": "/media/agentic-development-workflow.pdf",
+    "media": {
+      "type": "pdf",
+      "src": "/media/agentic-development-workflow.pdf"
+    }
+  },
+  {
     "id": "elderly-falls-prediction-thesis",
     "platform": "flinders",
-    "featuredOrder": 3,
+    "featuredOrder": 4,
     "archived": false,
     "title": "Elderly Falls Prediction and Prevention Using Machine Learning — Master's Thesis",
     "url": "https://flex.flinders.edu.au/file/e326d5bb-5b10-41d3-9d96-1394287e607a/1/NziramasangaThesis2021_LibraryCopy.pdf",
     "media": {
-      "type": "article",
-      "src": "/media/elderly-falls-prediction-thesis.webp"
+      "type": "pdf",
+      "src": "/media/elderly-falls-prediction-thesis.pdf"
     }
   },
   {
     "id": "linktree-tech-talk",
     "platform": "youtube",
-    "featuredOrder": 1,
+    "featuredOrder": 2,
     "archived": false,
     "title": "Linktree Engineering Tech Talk: Mobile App Development with React Native",
     "url": "https://youtu.be/GrVQQQw2sQU",
@@ -37,7 +49,7 @@
   {
     "id": "react-native-modular-file-structure",
     "platform": "medium",
-    "featuredOrder": 2,
+    "featuredOrder": 3,
     "archived": false,
     "title": "React Native Modular File Structure",
     "url": "https://medium.com/@nyashanziboi/react-native-modular-file-structure-6e4ce7e9a119",
