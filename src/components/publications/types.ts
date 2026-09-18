@@ -1,6 +1,6 @@
 export type Publication = {
   id: string;
-  platform: "document" | "flinders" | "youtube" | "devto" | "medium";
+  platform: "workflow" | "flinders" | "youtube" | "devto" | "medium";
   title: string;
   url: string;
   archived: boolean;

@@ -1,4 +1,4 @@
-import { FileText } from "lucide-react";
+import { Workflow } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
 import type { Platform } from "./types";
 import { colors } from "../../styles/Colors.stylex";
@@ -12,10 +12,10 @@ import { breakpoints } from "../../styles/Breakpoints.stylex";
 import { brandColors } from "../../styles/BrandColors.stylex";
 
 export function PlatformIcon({ platform }: { platform: Platform }) {
-  if (platform === "document") {
+  if (platform === "workflow") {
     return (
-      <div {...stylex.props(styles.box, styles.document)}>
-        <FileText {...stylex.props(styles.documentIcon)} aria-hidden="true" />
+      <div {...stylex.props(styles.box, styles.workflow)}>
+        <Workflow {...stylex.props(styles.workflowIcon)} aria-hidden="true" />
       </div>
     );
   }
@@ -85,10 +85,10 @@ const styles = stylex.create({
     overflow: "hidden",
     borderRadius: radii.sm,
   },
-  document: {
+  workflow: {
     backgroundColor: colors.surfaceHover,
   },
-  documentIcon: {
+  workflowIcon: {
     width: 20,
     height: 20,
     color: colors.textStrong,
