@@ -1,0 +1,21 @@
+/* Portfolio shell colors mirror src/styles/Colors.stylex.ts.
+   Keep the upstream viewer controls and layout unchanged. */
+:root {
+  color-scheme: dark;
+  --body-bg-color: #1a202c;
+  --toolbar-bg-color: #252f3f;
+  --sidebar-toolbar-bg-color: #252f3f;
+}
+
+/* Leave room for the standard navigation and Tools menu in embedded mobile views. */
+@media (max-width: 560px) {
+  #editorModeButtons,
+  #editorModeSeparator {
+    display: none;
+  }
+}
+
+/* The upstream 350px minimum exceeds small publication cards. */
+#mainContainer {
+  min-width: 0;
+}
