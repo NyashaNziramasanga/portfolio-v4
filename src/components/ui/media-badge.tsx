@@ -1,6 +1,6 @@
 import * as stylex from "@stylexjs/stylex";
 import type { StyleXStyles } from "@stylexjs/stylex";
-import { Play, FileText, Image } from "lucide-react";
+import { Play, FileText, Image, ExternalLink } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { colors } from "../../styles/Colors.stylex";
 import { spacing } from "../../styles/Spacing.stylex";
@@ -39,7 +39,7 @@ const MEDIA_CONFIG: Record<
 > = {
   pdf: { icon: FileText, label: "PDF", style: badgeStyles.article },
   video: { icon: Play, label: "Video", style: badgeStyles.video },
-  article: { icon: FileText, label: "Article", style: badgeStyles.article },
+  article: { icon: ExternalLink, label: "Article", style: badgeStyles.article },
   image: { icon: Image, label: "Image", style: badgeStyles.image },
   gif: { icon: Image, label: "GIF", style: badgeStyles.gif },
 };
