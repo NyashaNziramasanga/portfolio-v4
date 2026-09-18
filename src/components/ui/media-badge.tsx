@@ -12,7 +12,7 @@ import {
 } from "../../styles/Typography.stylex";
 import { motion } from "../../styles/Motion.stylex";
 
-type MediaType = "video" | "article" | "image" | "gif";
+type MediaType = "pdf" | "video" | "article" | "image" | "gif";
 
 const badgeStyles = stylex.create({
   video: {
@@ -37,6 +37,7 @@ const MEDIA_CONFIG: Record<
   MediaType,
   { icon: LucideIcon; label: string; style: StyleXStyles }
 > = {
+  pdf: { icon: FileText, label: "PDF", style: badgeStyles.article },
   video: { icon: Play, label: "Video", style: badgeStyles.video },
   article: { icon: FileText, label: "Article", style: badgeStyles.article },
   image: { icon: Image, label: "Image", style: badgeStyles.image },

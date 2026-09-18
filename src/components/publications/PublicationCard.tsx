@@ -6,6 +6,7 @@ import { MediaBadge } from "@/components/ui/media-badge";
 import { ArticlePreview } from "@/components/ui/article-preview";
 import { PlatformIcon } from "./PlatformIcon";
 import { VideoEmbed } from "./VideoEmbed";
+import PdfViewer from "./PdfViewer";
 import type { Publication } from "./types";
 import { colors } from "../../styles/Colors.stylex";
 import { spacing } from "../../styles/Spacing.stylex";
@@ -28,23 +29,23 @@ export function PublicationCard({
   isExpanded: boolean;
   onToggle: () => void;
 }) {
-  const hasMedia = Boolean(publication.media?.type);
+  const media = publication.media;
   const panelId = `publication-panel-${publication.id}`;
 
   return (
     <article {...stylex.props(styles.card, isExpanded && styles.expanded)}>
       <button
         type="button"
-        aria-expanded={hasMedia ? isExpanded : undefined}
-        aria-controls={hasMedia ? panelId : undefined}
+        aria-expanded={media ? isExpanded : undefined}
+        aria-controls={media ? panelId : undefined}
         onClick={onToggle}
         {...stylex.props(styles.button)}
       >
         <PlatformIcon platform={publication.platform} />
         <span {...stylex.props(styles.title)}>{publication.title}</span>
-        {hasMedia ? (
+        {media ? (
           <MediaBadge
-            type={publication.media!.type}
+            type={media.type}
             expanded={isExpanded}
             style={styles.noShrink}
           />
@@ -55,18 +56,21 @@ export function PublicationCard({
         />
       </button>
 
-      {hasMedia ? (
+      {media ? (
         <CollapsiblePanel open={isExpanded} id={panelId} lazyMount>
           <div {...stylex.props(styles.panel)}>
-            {publication.media?.type === "video" ? (
-              <VideoEmbed
-                src={publication.media.src}
+            {media.type === "pdf" ? (
+              <PdfViewer
+                src={media.src}
                 title={publication.title}
+                sourceUrl={publication.url}
               />
+            ) : media.type === "video" ? (
+              <VideoEmbed src={media.src} title={publication.title} />
             ) : (
               <ArticlePreview
                 href={publication.url}
-                imageSrc={publication.media!.src}
+                imageSrc={media.src}
                 imageAlt={publication.title}
                 onClick={() =>
                   track("Publication Evidence Clicked", {

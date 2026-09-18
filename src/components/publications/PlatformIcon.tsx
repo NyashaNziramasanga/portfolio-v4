@@ -1,3 +1,4 @@
+import { FileText } from "lucide-react";
 import * as stylex from "@stylexjs/stylex";
 import type { Platform } from "./types";
 import { colors } from "../../styles/Colors.stylex";
@@ -11,6 +12,13 @@ import { breakpoints } from "../../styles/Breakpoints.stylex";
 import { brandColors } from "../../styles/BrandColors.stylex";
 
 export function PlatformIcon({ platform }: { platform: Platform }) {
+  if (platform === "document") {
+    return (
+      <div {...stylex.props(styles.box, styles.document)}>
+        <FileText {...stylex.props(styles.documentIcon)} aria-hidden="true" />
+      </div>
+    );
+  }
   if (platform === "youtube") {
     return (
       <div {...stylex.props(styles.box, styles.youtube)}>
@@ -76,6 +84,14 @@ const styles = stylex.create({
     justifyContent: "center",
     overflow: "hidden",
     borderRadius: radii.sm,
+  },
+  document: {
+    backgroundColor: colors.surfaceHover,
+  },
+  documentIcon: {
+    width: 20,
+    height: 20,
+    color: colors.textStrong,
   },
   youtube: {
     backgroundColor: brandColors.youtube,

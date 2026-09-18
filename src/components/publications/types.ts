@@ -1,11 +1,11 @@
 export type Publication = {
   id: string;
-  platform: "flinders" | "youtube" | "devto" | "medium";
+  platform: "document" | "flinders" | "youtube" | "devto" | "medium";
   title: string;
   url: string;
   archived: boolean;
   featuredOrder?: number;
-  media?: { type: "video" | "article"; src: string };
+  media?: { type: "video" | "article" | "pdf"; src: string };
 };
 
 export type Platform = Publication["platform"];
