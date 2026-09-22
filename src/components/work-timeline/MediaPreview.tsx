@@ -87,7 +87,7 @@ export function MediaPreview({ project }: { project: Project }) {
       decoding="async"
       width={590}
       height={1280}
-      {...stylex.props(styles.media, styles.floating)}
+      {...stylex.props(styles.media, styles.image, styles.floating)}
     />
   );
 }
@@ -190,6 +190,13 @@ const styles = stylex.create({
     borderRadius: radii.xl,
     objectFit: "cover",
     boxShadow: shadows.mediaStrong,
+  },
+  image: {
+    aspectRatio: "auto",
+    width: "auto",
+    height: "auto",
+    maxWidth: "100%",
+    objectFit: "contain",
   },
   floating: {
     animationName: {

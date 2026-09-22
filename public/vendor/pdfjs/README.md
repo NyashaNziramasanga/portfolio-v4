@@ -13,6 +13,12 @@ Local changes: `web/viewer.html` uses the title "Publication reader" and loads
 remains reachable in narrow embeds. The upstream 350px container minimum is
 removed to fit small publication cards. Viewer JavaScript is unchanged.
 
+Hosting: `vercel.json` overrides the site's framing restrictions for
+`/vendor/pdfjs/(.*)`, allowing only same-origin embedding. Keep both
+`frame-ancestors 'self'` and `X-Frame-Options: SAMEORIGIN`; the global policy
+blocks the publication iframe. The scoped policy also permits PDF.js workers,
+WebAssembly decoders, and data/blob resources used for fonts, images, and printing.
+
 To update, extract a new official release here, omit source maps and the sample
 paper, reapply the title/theme link, and update the version and checksum above.
 Verify both publication PDFs, search, page navigation, zoom, and presentation.
